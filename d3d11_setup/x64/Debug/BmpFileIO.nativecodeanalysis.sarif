@@ -1,0 +1,595 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C6011",
+          "message": {
+            "text": "NULL 포인터 'fh'을(를) 역참조하고 있습니다. "
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/bmpfileio.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                },
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 6,
+                  "endLine": 27,
+                  "endColumn": 25
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LoadBmpFile",
+                  "decoratedName": "?LoadBmpFile@@YA_NPEBDPEAUBMPFILE@@I@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 7,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 9,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 10,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 10,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 11,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 12,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 13,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 15,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 16,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 23,
+                            "startColumn": 5
+                          }
+                        },
+                        "message": {
+                          "text": "'fh'은(는) NULL일 수 있습니다."
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 24,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "'fh'은(는) 'ReadFile'(c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\um\\fileapi.h:993에서 선언됨)에 대한 In/Out 인수입니다."
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 25,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 27,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "'fh'이(가) 역참조되었지만 여전히 NULL일 수 있습니다."
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'pRaster'이(가) '0'일 수 있습니다.  이 경우 'memcpy' 함수의 사양과 일치하지 않습니다. "
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/bmpfileio.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                },
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 2,
+                  "endLine": 29,
+                  "endColumn": 45
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LoadBmpFile",
+                  "decoratedName": "?LoadBmpFile@@YA_NPEBDPEAUBMPFILE@@I@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 7,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 9,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 10,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 10,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 11,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 12,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 13,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 15,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 16,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 23,
+                            "startColumn": 5
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 24,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 25,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 27,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 28,
+                            "startColumn": 10
+                          }
+                        },
+                        "message": {
+                          "text": "'pRaster'은(는) NULL일 수 있습니다."
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 29,
+                            "startColumn": 8
+                          }
+                        },
+                        "message": {
+                          "text": "'pRaster'은(는) 'memcpy'(c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\vcruntime_string.h:43에서 선언됨)에 대한 In/Out 인수입니다."
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/BmpFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 29,
+                            "startColumn": 8
+                          }
+                        },
+                        "message": {
+                          "text": "'pRaster'은(는) NULL(이)면 안 됩니다. 이는 'memcpy'의 SAL 주석과 일치하지 않습니다."
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "MSVC Code Analysis",
+          "version": "14.44.35211.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/bmpfileio.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "9a87d8fd4b989b4d7e6abfa27467b073f84bc9603e5cbeb7d7aad9169e4ba159"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/bmpfileio.h"
+          },
+          "hashes": {
+            "sha-256": "939072a2cafead7a6680791840bff5f75c60a2b873b4758cac73b622fc4ee30a"
+          }
+        }
+      ]
+    }
+  ]
+}

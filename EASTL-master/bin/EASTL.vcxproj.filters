@@ -1,0 +1,861 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\directx_practice\d3d11_setup\EASTL-master\source\allocator_eastl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\directx_practice\d3d11_setup\EASTL-master\source\assert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\directx_practice\d3d11_setup\EASTL-master\source\atomic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\directx_practice\d3d11_setup\EASTL-master\source\fixed_pool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\directx_practice\d3d11_setup\EASTL-master\source\hashtable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\directx_practice\d3d11_setup\EASTL-master\source\intrusive_list.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\directx_practice\d3d11_setup\EASTL-master\source\numeric_limits.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\directx_practice\d3d11_setup\EASTL-master\source\red_black_tree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\directx_practice\d3d11_setup\EASTL-master\source\string.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\directx_practice\d3d11_setup\EASTL-master\source\thread_support.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\algorithm.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\allocator.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\allocator_malloc.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\any.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\array.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\atomic.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bit.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bitset.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bitvector.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bonus\adaptors.h">
+      <Filter>Header Files\include\EASTL\bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bonus\call_traits.h">
+      <Filter>Header Files\include\EASTL\bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bonus\compressed_pair.h">
+      <Filter>Header Files\include\EASTL\bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bonus\fixed_ring_buffer.h">
+      <Filter>Header Files\include\EASTL\bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bonus\fixed_tuple_vector.h">
+      <Filter>Header Files\include\EASTL\bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bonus\intrusive_sdlist.h">
+      <Filter>Header Files\include\EASTL\bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bonus\intrusive_slist.h">
+      <Filter>Header Files\include\EASTL\bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bonus\list_map.h">
+      <Filter>Header Files\include\EASTL\bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bonus\lru_cache.h">
+      <Filter>Header Files\include\EASTL\bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bonus\overloaded.h">
+      <Filter>Header Files\include\EASTL\bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bonus\ring_buffer.h">
+      <Filter>Header Files\include\EASTL\bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bonus\sort_extra.h">
+      <Filter>Header Files\include\EASTL\bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\bonus\tuple_vector.h">
+      <Filter>Header Files\include\EASTL\bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\chrono.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\compare.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\core_allocator.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\core_allocator_adapter.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\deque.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\finally.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\fixed_allocator.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\fixed_function.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\fixed_hash_map.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\fixed_hash_set.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\fixed_list.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\fixed_map.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\fixed_set.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\fixed_slist.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\fixed_string.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\fixed_substring.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\fixed_vector.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\functional.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\hash_map.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\hash_set.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\heap.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\initializer_list.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_add_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_and_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_cmpxchg_strong.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_cmpxchg_weak.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_compiler_barrier.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_cpu_pause.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_exchange.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_fetch_add.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_fetch_and.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_fetch_or.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_fetch_sub.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_fetch_xor.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_load.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_memory_barrier.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_or_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_signal_fence.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_store.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_sub_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_thread_fence.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arch_xor_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arm\arch_arm.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\arm</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arm\arch_arm_load.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\arm</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arm\arch_arm_memory_barrier.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\arm</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arm\arch_arm_store.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\arm</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\arm\arch_arm_thread_fence.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\arm</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_add_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_and_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_cmpxchg_strong.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_cmpxchg_weak.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_exchange.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_fetch_add.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_fetch_and.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_fetch_or.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_fetch_sub.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_fetch_xor.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_load.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_memory_barrier.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_or_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_store.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_sub_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_thread_fence.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\arch\x86\arch_x86_xor_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\arch\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic.h">
+      <Filter>Header Files\include\EASTL\internal\atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_asserts.h">
+      <Filter>Header Files\include\EASTL\internal\atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_base_width.h">
+      <Filter>Header Files\include\EASTL\internal\atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_casts.h">
+      <Filter>Header Files\include\EASTL\internal\atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_flag.h">
+      <Filter>Header Files\include\EASTL\internal\atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_flag_standalone.h">
+      <Filter>Header Files\include\EASTL\internal\atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_integral.h">
+      <Filter>Header Files\include\EASTL\internal\atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros.h">
+      <Filter>Header Files\include\EASTL\internal\atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_add_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_and_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_base.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_cmpxchg_strong.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_cmpxchg_weak.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_compiler_barrier.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_cpu_pause.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_exchange.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_fetch_add.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_fetch_and.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_fetch_or.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_fetch_sub.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_fetch_xor.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_load.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_memory_barrier.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_or_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_signal_fence.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_store.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_sub_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_thread_fence.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_macros\atomic_macros_xor_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\atomic_macros</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_memory_order.h">
+      <Filter>Header Files\include\EASTL\internal\atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_pointer.h">
+      <Filter>Header Files\include\EASTL\internal\atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_size_aligned.h">
+      <Filter>Header Files\include\EASTL\internal\atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\atomic_standalone.h">
+      <Filter>Header Files\include\EASTL\internal\atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_add_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_and_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_barrier.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_cmpxchg_strong.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_cmpxchg_weak.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_cpu_pause.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_exchange.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_fetch_add.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_fetch_and.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_fetch_or.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_fetch_sub.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_fetch_xor.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_load.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_memory_barrier.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_or_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_signal_fence.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_store.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_sub_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_thread_fence.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\compiler_xor_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_add_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_and_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_barrier.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_cmpxchg_strong.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_cmpxchg_weak.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_cpu_pause.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_exchange.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_fetch_add.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_fetch_and.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_fetch_or.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_fetch_sub.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_fetch_xor.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_load.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_or_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_signal_fence.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_store.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_sub_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_thread_fence.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\gcc\compiler_gcc_xor_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\gcc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_add_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_and_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_barrier.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_cmpxchg_strong.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_cmpxchg_weak.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_cpu_pause.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_exchange.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_fetch_add.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_fetch_and.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_fetch_or.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_fetch_sub.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_fetch_xor.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_or_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_signal_fence.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_sub_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\atomic\compiler\msvc\compiler_msvc_xor_fetch.h">
+      <Filter>Header Files\include\EASTL\internal\atomic\compiler\msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\char_traits.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\concepts.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\config.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\copy_help.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\enable_shared.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\fill_help.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\fixed_pool.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\function.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\function_detail.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\function_help.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\functional_base.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\generic_iterator.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\hashtable.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\in_place_t.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\integer_sequence.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\intrusive_hashtable.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\mem_fn.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\memory_base.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\move_help.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\pair_fwd_decls.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\piecewise_construct_t.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\red_black_tree.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\smart_ptr.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\thread_support.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\tuple_fwd_decls.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\type_compound.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\type_detected.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\type_fundamental.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\type_pod.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\type_properties.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\type_transformations.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\internal\type_void_t.h">
+      <Filter>Header Files\include\EASTL\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\intrusive_hash_map.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\intrusive_hash_set.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\intrusive_list.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\intrusive_ptr.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\iterator.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\linked_array.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\linked_ptr.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\list.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\map.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\memory.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\meta.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\numeric.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\numeric_limits.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\optional.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\priority_queue.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\queue.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\random.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\ratio.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\safe_ptr.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\scoped_array.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\scoped_ptr.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\segmented_vector.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\set.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\shared_array.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\shared_ptr.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\slist.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\sort.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\span.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\stack.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\string.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\string_hash_map.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\string_map.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\string_view.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\tuple.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\type_traits.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\unique_ptr.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\unordered_map.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\unordered_set.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\utility.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\variant.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\vector.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\vector_map.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\vector_multimap.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\vector_multiset.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\vector_set.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\version.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\directx_practice\d3d11_setup\EASTL-master\include\EASTL\weak_ptr.h">
+      <Filter>Header Files\include\EASTL</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\directx_practice\d3d11_setup\EASTL-master\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{C4785350-9580-3168-9403-E4B90E1D622A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include">
+      <UniqueIdentifier>{60F2169B-597F-3D17-B03D-C9EB18FEC7BB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\EASTL">
+      <UniqueIdentifier>{270B1FDB-A67B-3A38-B85A-90E901CC7D06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\EASTL\bonus">
+      <UniqueIdentifier>{A6D61BEC-B0B2-3935-A6DE-0823E9E2F06B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\EASTL\internal">
+      <UniqueIdentifier>{DBD4DA66-D18F-3DBF-9377-B9A8D3CE206E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\EASTL\internal\atomic">
+      <UniqueIdentifier>{6535973E-9AB7-3558-98FF-55A46C158F29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\EASTL\internal\atomic\arch">
+      <UniqueIdentifier>{11FD7419-579F-39F4-B676-A586D6797C9C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\EASTL\internal\atomic\arch\arm">
+      <UniqueIdentifier>{32F9EFE3-6CDF-3D63-AD52-3DD57D8C01F7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\EASTL\internal\atomic\arch\x86">
+      <UniqueIdentifier>{CEE4515E-D5DB-37E0-8E3C-014363BE5066}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\EASTL\internal\atomic\atomic_macros">
+      <UniqueIdentifier>{98695C47-873F-37A1-8ECA-309701A188F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\EASTL\internal\atomic\compiler">
+      <UniqueIdentifier>{469F9611-5574-3F87-9839-0F4E861EA076}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\EASTL\internal\atomic\compiler\gcc">
+      <UniqueIdentifier>{95CB150C-919F-3A8D-946A-A06956B65694}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\EASTL\internal\atomic\compiler\msvc">
+      <UniqueIdentifier>{0D0C9DCF-452A-3B8B-885E-481AB3860E80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{EDB9ED00-557D-3D3E-8264-6C8BF475C86C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

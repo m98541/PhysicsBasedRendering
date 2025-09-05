@@ -1,0 +1,60 @@
+
+void CreateShaderResourceViewFromBMPFile(ID3D11Device* device, const char* fileName, UINT bmp_format ,ID3D11ShaderResourceView** Texture_SRV)
+{
+	//텍스처 이미지 로드
+	BMPFILE textureImage = {};
+	LoadBmpFile(fileName, &textureImage, bmp_format);
+	BYTE* image_32bit = (BYTE*)malloc(textureImage.width * textureImage.height * 4);
+
+	for (int i = 0; i < textureImage.height; i++)
+	{
+		int srcRowOffset = i * (textureImage.width * textureImage.format + textureImage.widthPadding);
+		int dstRowOffset = i * textureImage.width * 4;
+
+		for (int j = 0; j < textureImage.width; j++)
+		{
+			image_32bit[dstRowOffset + j * 4 + 0] = textureImage.data[srcRowOffset + j * textureImage.format + 0];
+			image_32bit[dstRowOffset + j * 4 + 1] = textureImage.data[srcRowOffset + j * textureImage.format + 1];
+			image_32bit[dstRowOffset + j * 4 + 2] = textureImage.data[srcRowOffset + j * textureImage.format + 2];
+			image_32bit[dstRowOffset + j * 4 + 3] = (bmp_format == BMP_FORMAT_BGR) ? 255 : textureImage.data[srcRowOffset + j * textureImage.format + 3];
+		}
+		
+	}
+
+	D3D11_TEXTURE2D_DESC textureDesc = {};
+	textureDesc.Width = textureImage.width;
+	textureDesc.Height = textureImage.height;
+	textureDesc.MipLevels = 1;
+	textureDesc.ArraySize = 1;
+
+	textureDesc.Format = DXGI_FORMAT_B8G8R8A8_UNORM;
+	textureDesc.SampleDesc.Count = 1;
+	textureDesc.SampleDesc.Quality = 0;
+	textureDesc.Usage = D3D11_USAGE_DEFAULT;
+	textureDesc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
+	textureDesc.CPUAccessFlags = 0;
+	textureDesc.MiscFlags = 0;
+
+	//리소스 구조체 선언
+	D3D11_SUBRESOURCE_DATA source_data;
+	source_data.pSysMem = image_32bit;
+	//BMPFILE의 format은 한셀의 바이트 수 와 동일
+	source_data.SysMemPitch = textureImage.width * BMP_FORMAT_BGRA;
+	source_data.SysMemSlicePitch = 0;//3D 텍스처에서의 1장의 크기 2D의 경우 0
+
+	//texture2D 구조 생성
+	ID3D11Texture2D* pTexture2D = nullptr;
+	device->CreateTexture2D(&textureDesc, &source_data, &pTexture2D);
+
+	//SRV 생성 DirectX 에서는 view단위로???
+	D3D11_SHADER_RESOURCE_VIEW_DESC srv_desc = {};
+	srv_desc.Format = textureDesc.Format;
+	srv_desc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+	srv_desc.Texture2D.MostDetailedMip = 0;
+	srv_desc.Texture2D.MipLevels = 1;
+
+	device->CreateShaderResourceView(pTexture2D,&srv_desc,Texture_SRV);
+	pTexture2D->Release();
+	free(image_32bit);
+
+}

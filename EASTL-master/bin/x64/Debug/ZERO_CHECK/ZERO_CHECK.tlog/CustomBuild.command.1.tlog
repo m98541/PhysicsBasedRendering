@@ -1,0 +1,10 @@
+^E:\DIRECTX_PRACTICE\D3D11_SETUP\EASTL-MASTER\BIN\CMAKEFILES\0B4706580006AAAEFD3F71670B031014\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/directx_practice/d3d11_setup/EASTL-master -BE:/directx_practice/d3d11_setup/EASTL-master/bin --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file E:/directx_practice/d3d11_setup/EASTL-master/bin/EASTL.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

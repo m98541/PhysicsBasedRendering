@@ -1,0 +1,2199 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "반환 값이 무시되었습니다. 'sscanf'."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/objfileio.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                },
+                "region": {
+                  "startLine": 289,
+                  "startColumn": 4,
+                  "endLine": 289,
+                  "endColumn": 42
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ReadOBJFile",
+                  "decoratedName": "?ReadOBJFile@@YA_NPEAUOBJFILE_DESC@@PEAPEAUOBJFILE_BUFFER@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "반환 값이 무시되었습니다. 'sscanf'."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/objfileio.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                },
+                "region": {
+                  "startLine": 299,
+                  "startColumn": 4,
+                  "endLine": 299,
+                  "endColumn": 36
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ReadOBJFile",
+                  "decoratedName": "?ReadOBJFile@@YA_NPEAUOBJFILE_DESC@@PEAPEAUOBJFILE_BUFFER@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "반환 값이 무시되었습니다. 'sscanf'."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/objfileio.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                },
+                "region": {
+                  "startLine": 309,
+                  "startColumn": 4,
+                  "endLine": 309,
+                  "endColumn": 43
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ReadOBJFile",
+                  "decoratedName": "?ReadOBJFile@@YA_NPEAUOBJFILE_DESC@@PEAPEAUOBJFILE_BUFFER@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "반환 값이 무시되었습니다. 'strtok'."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/objfileio.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                },
+                "region": {
+                  "startLine": 328,
+                  "startColumn": 5,
+                  "endLine": 328,
+                  "endColumn": 23
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ReadOBJFile",
+                  "decoratedName": "?ReadOBJFile@@YA_NPEAUOBJFILE_DESC@@PEAPEAUOBJFILE_BUFFER@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "반환 값이 무시되었습니다. 'sscanf'."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/objfileio.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                },
+                "region": {
+                  "startLine": 365,
+                  "startColumn": 6,
+                  "endLine": 365,
+                  "endColumn": 31
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ReadOBJFile",
+                  "decoratedName": "?ReadOBJFile@@YA_NPEAUOBJFILE_DESC@@PEAPEAUOBJFILE_BUFFER@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "반환 값이 무시되었습니다. 'sscanf'."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/objfileio.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                },
+                "region": {
+                  "startLine": 370,
+                  "startColumn": 6,
+                  "endLine": 370,
+                  "endColumn": 38
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ReadOBJFile",
+                  "decoratedName": "?ReadOBJFile@@YA_NPEAUOBJFILE_DESC@@PEAPEAUOBJFILE_BUFFER@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "반환 값이 무시되었습니다. 'sscanf'."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/objfileio.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                },
+                "region": {
+                  "startLine": 377,
+                  "startColumn": 6,
+                  "endLine": 377,
+                  "endColumn": 39
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ReadOBJFile",
+                  "decoratedName": "?ReadOBJFile@@YA_NPEAUOBJFILE_DESC@@PEAPEAUOBJFILE_BUFFER@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "반환 값이 무시되었습니다. 'sscanf'."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/objfileio.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                },
+                "region": {
+                  "startLine": 383,
+                  "startColumn": 6,
+                  "endLine": 383,
+                  "endColumn": 46
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ReadOBJFile",
+                  "decoratedName": "?ReadOBJFile@@YA_NPEAUOBJFILE_DESC@@PEAPEAUOBJFILE_BUFFER@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "반환 값이 무시되었습니다. 'sscanf'."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/objfileio.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                },
+                "region": {
+                  "startLine": 409,
+                  "startColumn": 4,
+                  "endLine": 409,
+                  "endColumn": 31
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ReadOBJFile",
+                  "decoratedName": "?ReadOBJFile@@YA_NPEAUOBJFILE_DESC@@PEAPEAUOBJFILE_BUFFER@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6386",
+          "message": {
+            "text": "'((*OBJFileBuffer))->texBuffer'에 쓰는 동안 버퍼 오버런이 발생했습니다.  쓰기 가능한 크기는 'sizeof(float)*2*OBJFileDESC->len.tex'바이트인데 실제로는 '8'바이트만 쓸 수 있습니다."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/objfileio.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                },
+                "region": {
+                  "startLine": 302,
+                  "startColumn": 5,
+                  "endLine": 302,
+                  "endColumn": 48
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ReadOBJFile",
+                  "decoratedName": "?ReadOBJFile@@YA_NPEAUOBJFILE_DESC@@PEAPEAUOBJFILE_BUFFER@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 88,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 89,
+                            "startColumn": 28
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('OBJFileDESC->len.vert==0'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 90,
+                            "startColumn": 31
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 91,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 93,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 94,
+                            "startColumn": 8
+                          }
+                        },
+                        "message": {
+                          "text": "'texBuffer'은(는) 'memset'(c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\vcruntime_string.h:63에서 선언됨)에 대한 In/Out 인수입니다."
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 96,
+                            "startColumn": 31
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 97,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 99,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 100,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 102,
+                            "startColumn": 38
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 103,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 105,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 106,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 108,
+                            "startColumn": 31
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 109,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 111,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 112,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 114,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 115,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 118,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 119,
+                            "startColumn": 12
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('mtlFp==0'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 122,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 123,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 124,
+                            "startColumn": 14
+                          }
+                        },
+                        "message": {
+                          "text": "이 루프 건너뛰기, ('fgets(line, 1024, mtlFp)'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 223,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 227,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 228,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('fp==0'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 230,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 231,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "'tIdx'이(가) NULL입니다."
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 232,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 233,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 234,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 235,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 236,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 237,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 239,
+                            "startColumn": 28
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 시작, ('OBJFileDESC->len.vert>0' 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 240,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 242,
+                            "startColumn": 27
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('OBJFileDESC->len.tex>0'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 245,
+                            "startColumn": 30
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('OBJFileDESC->len.normal>0'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 249,
+                            "startColumn": 28
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('OBJFileDESC->len.face==0'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 252,
+                            "startColumn": 21
+                          }
+                        },
+                        "message": {
+                          "text": "switch( 'OBJFileDESC->faceFormat' )가 case 0: (으)로 확인된다고 가정합니다."
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 254,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 256,
+                            "startColumn": 34
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 269,
+                            "startColumn": 40
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 271,
+                            "startColumn": 40
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 272,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 272,
+                            "startColumn": 20
+                          }
+                        },
+                        "message": {
+                          "text": "이 루프 건너뛰기, ('i<tempTextureNameArrSize'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 278,
+                            "startColumn": 14
+                          }
+                        },
+                        "message": {
+                          "text": "이 루프 시작, ('fgets(line, 1024, fp)' 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 281,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 284,
+                            "startColumn": 16
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('lineType==0'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 296,
+                            "startColumn": 21
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 시작, ('lineType==1' 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 298,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 298,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 299,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 301,
+                            "startColumn": 46
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 302,
+                            "startColumn": 46
+                          }
+                        },
+                        "message": {
+                          "text": "'((*OBJFileBuffer))->texBuffer'에 쓰기가 잘못됨, (쓰기 가능한 범위를 벗어남)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6386",
+          "message": {
+            "text": "'((*OBJFileBuffer))->normBuffer'에 쓰는 동안 버퍼 오버런이 발생했습니다.  쓰기 가능한 크기는 'sizeof(float)*4*OBJFileDESC->len.normal'바이트인데 실제로는 '8'바이트만 쓸 수 있습니다."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/objfileio.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                },
+                "region": {
+                  "startLine": 312,
+                  "startColumn": 5,
+                  "endLine": 312,
+                  "endColumn": 49
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ReadOBJFile",
+                  "decoratedName": "?ReadOBJFile@@YA_NPEAUOBJFILE_DESC@@PEAPEAUOBJFILE_BUFFER@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 88,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 89,
+                            "startColumn": 28
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('OBJFileDESC->len.vert==0'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 90,
+                            "startColumn": 31
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 91,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 93,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 94,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 96,
+                            "startColumn": 31
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 97,
+                            "startColumn": 8
+                          }
+                        },
+                        "message": {
+                          "text": "'normBuffer'은(는) 'memset'(c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\vcruntime_string.h:63에서 선언됨)에 대한 In/Out 인수입니다."
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 99,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 100,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 102,
+                            "startColumn": 38
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 103,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 105,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 106,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 108,
+                            "startColumn": 31
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 109,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 111,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 112,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 114,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 115,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 118,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 119,
+                            "startColumn": 12
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('mtlFp==0'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 122,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 123,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 124,
+                            "startColumn": 14
+                          }
+                        },
+                        "message": {
+                          "text": "이 루프 건너뛰기, ('fgets(line, 1024, mtlFp)'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 223,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 227,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 228,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('fp==0'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 230,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 231,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 232,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "'nIdx'이(가) NULL입니다."
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 233,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 234,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 235,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 236,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 237,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 239,
+                            "startColumn": 28
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 시작, ('OBJFileDESC->len.vert>0' 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 240,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 242,
+                            "startColumn": 27
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('OBJFileDESC->len.tex>0'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 245,
+                            "startColumn": 30
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('OBJFileDESC->len.normal>0'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 249,
+                            "startColumn": 28
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('OBJFileDESC->len.face==0'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 252,
+                            "startColumn": 21
+                          }
+                        },
+                        "message": {
+                          "text": "switch( 'OBJFileDESC->faceFormat' )가 case 0: (으)로 확인된다고 가정합니다."
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 254,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 256,
+                            "startColumn": 34
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 269,
+                            "startColumn": 40
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 271,
+                            "startColumn": 40
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 272,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 272,
+                            "startColumn": 20
+                          }
+                        },
+                        "message": {
+                          "text": "이 루프 건너뛰기, ('i<tempTextureNameArrSize'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 278,
+                            "startColumn": 14
+                          }
+                        },
+                        "message": {
+                          "text": "이 루프 시작, ('fgets(line, 1024, fp)' 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 281,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 284,
+                            "startColumn": 16
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('lineType==0'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 296,
+                            "startColumn": 21
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('lineType==1'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 306,
+                            "startColumn": 21
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 시작, ('lineType==2' 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 308,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 308,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 308,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 309,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 311,
+                            "startColumn": 47
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/OBJFileIO.cpp"
+                          },
+                          "region": {
+                            "startLine": 312,
+                            "startColumn": 47
+                          }
+                        },
+                        "message": {
+                          "text": "'((*OBJFileBuffer))->normBuffer'에 쓰기가 잘못됨, (쓰기 가능한 범위를 벗어남)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "MSVC Code Analysis",
+          "version": "14.44.35211.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/objfileio.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "3a07dcce5503bd55f12ba6faa3626d3a84004691a9d723e35156324822b12b90"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/objfileio.h"
+          },
+          "hashes": {
+            "sha-256": "340c6902bd9e60303cdc96fc9795289e3369a479898a3f02104779a538f7d98f"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+^E:\DIRECTX_PRACTICE\D3D11_SETUP\_DEPS\EABASE-SUBBUILD\CMAKEFILES\C2418A13D8DBBA047C5E5EC74F4767D7\EABASE-POPULATE-MKDIR.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P E:/directx_practice/d3d11_setup/_deps/eabase-subbuild/eabase-populate-prefix/tmp/eabase-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/directx_practice/d3d11_setup/_deps/eabase-subbuild/eabase-populate-prefix/src/eabase-populate-stamp/Debug/eabase-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\DIRECTX_PRACTICE\D3D11_SETUP\_DEPS\EABASE-SUBBUILD\CMAKEFILES\C2418A13D8DBBA047C5E5EC74F4767D7\EABASE-POPULATE-DOWNLOAD.RULE
+setlocal
+cd E:\directx_practice\d3d11_setup\_deps
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P E:/directx_practice/d3d11_setup/_deps/eabase-subbuild/eabase-populate-prefix/tmp/eabase-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/directx_practice/d3d11_setup/_deps/eabase-subbuild/eabase-populate-prefix/src/eabase-populate-stamp/Debug/eabase-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\DIRECTX_PRACTICE\D3D11_SETUP\_DEPS\EABASE-SUBBUILD\CMAKEFILES\C2418A13D8DBBA047C5E5EC74F4767D7\EABASE-POPULATE-UPDATE.RULE
+setlocal
+cd E:\directx_practice\d3d11_setup\_deps\eabase-src
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P E:/directx_practice/d3d11_setup/_deps/eabase-subbuild/eabase-populate-prefix/tmp/eabase-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\DIRECTX_PRACTICE\D3D11_SETUP\_DEPS\EABASE-SUBBUILD\CMAKEFILES\C2418A13D8DBBA047C5E5EC74F4767D7\EABASE-POPULATE-PATCH.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/directx_practice/d3d11_setup/_deps/eabase-subbuild/eabase-populate-prefix/src/eabase-populate-stamp/Debug/eabase-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\DIRECTX_PRACTICE\D3D11_SETUP\_DEPS\EABASE-SUBBUILD\CMAKEFILES\C2418A13D8DBBA047C5E5EC74F4767D7\EABASE-POPULATE-CONFIGURE.RULE
+setlocal
+cd E:\directx_practice\d3d11_setup\_deps\eabase-build
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/directx_practice/d3d11_setup/_deps/eabase-subbuild/eabase-populate-prefix/src/eabase-populate-stamp/Debug/eabase-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\DIRECTX_PRACTICE\D3D11_SETUP\_DEPS\EABASE-SUBBUILD\CMAKEFILES\C2418A13D8DBBA047C5E5EC74F4767D7\EABASE-POPULATE-BUILD.RULE
+setlocal
+cd E:\directx_practice\d3d11_setup\_deps\eabase-build
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/directx_practice/d3d11_setup/_deps/eabase-subbuild/eabase-populate-prefix/src/eabase-populate-stamp/Debug/eabase-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\DIRECTX_PRACTICE\D3D11_SETUP\_DEPS\EABASE-SUBBUILD\CMAKEFILES\C2418A13D8DBBA047C5E5EC74F4767D7\EABASE-POPULATE-INSTALL.RULE
+setlocal
+cd E:\directx_practice\d3d11_setup\_deps\eabase-build
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/directx_practice/d3d11_setup/_deps/eabase-subbuild/eabase-populate-prefix/src/eabase-populate-stamp/Debug/eabase-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\DIRECTX_PRACTICE\D3D11_SETUP\_DEPS\EABASE-SUBBUILD\CMAKEFILES\C2418A13D8DBBA047C5E5EC74F4767D7\EABASE-POPULATE-TEST.RULE
+setlocal
+cd E:\directx_practice\d3d11_setup\_deps\eabase-build
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/directx_practice/d3d11_setup/_deps/eabase-subbuild/eabase-populate-prefix/src/eabase-populate-stamp/Debug/eabase-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\DIRECTX_PRACTICE\D3D11_SETUP\_DEPS\EABASE-SUBBUILD\CMAKEFILES\DE1194F5D20B10ABB4DFF0F9D13A4078\EABASE-POPULATE-COMPLETE.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/directx_practice/d3d11_setup/_deps/eabase-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/directx_practice/d3d11_setup/_deps/eabase-subbuild/CMakeFiles/Debug/eabase-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/directx_practice/d3d11_setup/_deps/eabase-subbuild/eabase-populate-prefix/src/eabase-populate-stamp/Debug/eabase-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\DIRECTX_PRACTICE\D3D11_SETUP\_DEPS\EABASE-SUBBUILD\CMAKEFILES\94B6CF5500E7A9783E8EDAABADA20374\EABASE-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\DIRECTX_PRACTICE\D3D11_SETUP\_DEPS\EABASE-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/directx_practice/d3d11_setup/_deps/eabase-subbuild -BE:/directx_practice/d3d11_setup/_deps/eabase-subbuild --check-stamp-file E:/directx_practice/d3d11_setup/_deps/eabase-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

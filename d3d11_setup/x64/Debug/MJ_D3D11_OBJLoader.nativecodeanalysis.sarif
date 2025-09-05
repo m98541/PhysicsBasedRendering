@@ -1,0 +1,3713 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'((*ObjHandle))->vertexBufferHandle'이(가) '0'일 수 있습니다.  이 경우 'ID3D11DeviceContext::Map' 함수의 사양과 일치하지 않습니다. 이 오류가 발생할 수 있는 이전 위치는 줄 0을(를) 참조하십시오."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/mj_d3d11_objloader.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                },
+                "region": {
+                  "startLine": 180,
+                  "startColumn": 2,
+                  "endLine": 180,
+                  "endColumn": 89
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MJD3D11LoadOBJ",
+                  "decoratedName": "?MJD3D11LoadOBJ@@YA_NPEAUID3D11Device@@PEAUID3D11DeviceContext@@PEAUID3D10Blob@@PEAPEAUMJD3D11OBJ_HANDLE@@PEBD@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 39,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 40,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 42,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 43,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 46,
+                            "startColumn": 27
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 47,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 48,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 49,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 51,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 53,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 55,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('<분기 조건>'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 62,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 66,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('<분기 조건>'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 73,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 76,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 77,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 78,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 79,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 80,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 81,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 82,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 83,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 84,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 89,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 90,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 93,
+                            "startColumn": 45
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 95,
+                            "startColumn": 27
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 96,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 97,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 98,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 100,
+                            "startColumn": 52
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 101,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 102,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 103,
+                            "startColumn": 26
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 105,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 105,
+                            "startColumn": 43
+                          }
+                        },
+                        "message": {
+                          "text": "이 루프 건너뛰기, ('<분기 조건>'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 155,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 156,
+                            "startColumn": 32
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 157,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 158,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 159,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 160,
+                            "startColumn": 34
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 162,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 165,
+                            "startColumn": 24
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 166,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 167,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 168,
+                            "startColumn": 33
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 169,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 171,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 172,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 174,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 176,
+                            "startColumn": 26
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 179,
+                            "startColumn": 27
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 180,
+                            "startColumn": 13
+                          }
+                        },
+                        "message": {
+                          "text": "'vertexBufferHandle'은(는) 'ID3D11DeviceContext::Map'(c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\um\\d3d11.h:7819에서 선언됨)에 대한 In/Out 인수입니다."
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 180,
+                            "startColumn": 13
+                          }
+                        },
+                        "message": {
+                          "text": "'((*ObjHandle))->vertexBufferHandle'은(는) NULL(이)면 안 됩니다. 이는 'ID3D11DeviceContext::Map'의 SAL 주석과 일치하지 않습니다."
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'((*ObjHandle))->vertexBufferHandle'이(가) '0'일 수 있습니다.  이 경우 'ID3D11DeviceContext::Unmap' 함수의 사양과 일치하지 않습니다. 이 오류가 발생할 수 있는 이전 위치는 줄 0을(를) 참조하십시오."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/mj_d3d11_objloader.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                },
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 2,
+                  "endLine": 182,
+                  "endColumn": 51
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MJD3D11LoadOBJ",
+                  "decoratedName": "?MJD3D11LoadOBJ@@YA_NPEAUID3D11Device@@PEAUID3D11DeviceContext@@PEAUID3D10Blob@@PEAPEAUMJD3D11OBJ_HANDLE@@PEBD@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 39,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 40,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 42,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 43,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 46,
+                            "startColumn": 27
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 47,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 48,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 49,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 51,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 53,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 55,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('<분기 조건>'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 62,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 66,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "이 분기 건너뛰기, ('<분기 조건>'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 73,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 76,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 77,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 78,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 79,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 80,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 81,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 82,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 83,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 84,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 89,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 90,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 93,
+                            "startColumn": 45
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 95,
+                            "startColumn": 27
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 96,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 97,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 98,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 100,
+                            "startColumn": 52
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 101,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 102,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 103,
+                            "startColumn": 26
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 105,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 105,
+                            "startColumn": 43
+                          }
+                        },
+                        "message": {
+                          "text": "이 루프 건너뛰기, ('<분기 조건>'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 155,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 156,
+                            "startColumn": 32
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 157,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 158,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 159,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 160,
+                            "startColumn": 34
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 162,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 165,
+                            "startColumn": 24
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 166,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 167,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 168,
+                            "startColumn": 33
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 169,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 171,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 172,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 174,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 176,
+                            "startColumn": 26
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 179,
+                            "startColumn": 27
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 180,
+                            "startColumn": 13
+                          }
+                        },
+                        "message": {
+                          "text": "'vertexBufferHandle'은(는) 'ID3D11DeviceContext::Map'(c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\um\\d3d11.h:7819에서 선언됨)에 대한 In/Out 인수입니다."
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 181,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 182,
+                            "startColumn": 15
+                          }
+                        },
+                        "message": {
+                          "text": "'vertexBufferHandle'은(는) 'ID3D11DeviceContext::Unmap'(c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\um\\d3d11.h:7831에서 선언됨)에 대한 In/Out 인수입니다."
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 182,
+                            "startColumn": 15
+                          }
+                        },
+                        "message": {
+                          "text": "'((*ObjHandle))->vertexBufferHandle'은(는) NULL(이)면 안 됩니다. 이는 'ID3D11DeviceContext::Unmap'의 SAL 주석과 일치하지 않습니다."
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'pTexture2D'이(가) '0'일 수 있습니다.  이 경우 'ID3D11Device::CreateShaderResourceView' 함수의 사양과 일치하지 않습니다. 이 오류가 발생할 수 있는 이전 위치는 줄 0을(를) 참조하십시오."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/mj_d3d11_objloader.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                },
+                "region": {
+                  "startLine": 282,
+                  "startColumn": 2,
+                  "endLine": 282,
+                  "endColumn": 58
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CreateSRVFromBMPFile",
+                  "decoratedName": "?CreateSRVFromBMPFile@@YAXPEAUID3D11Device@@PEBDIPEAPEAUID3D11ShaderResourceView@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 231,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 232,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 233,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 235,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 235,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 250,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 251,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 252,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 253,
+                            "startColumn": 24
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 254,
+                            "startColumn": 24
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 256,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 257,
+                            "startColumn": 31
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 258,
+                            "startColumn": 33
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 259,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 260,
+                            "startColumn": 24
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 261,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 262,
+                            "startColumn": 24
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 265,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 266,
+                            "startColumn": 22
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 268,
+                            "startColumn": 26
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 269,
+                            "startColumn": 31
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 272,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 273,
+                            "startColumn": 25
+                          }
+                        },
+                        "message": {
+                          "text": "'pTexture2D'은(는) NULL일 수 있습니다."
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 276,
+                            "startColumn": 34
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 277,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 278,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 279,
+                            "startColumn": 37
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 280,
+                            "startColumn": 31
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 282,
+                            "startColumn": 34
+                          }
+                        },
+                        "message": {
+                          "text": "'pTexture2D'은(는) NULL(이)면 안 됩니다. 이는 'ID3D11Device::CreateShaderResourceView'의 SAL 주석과 일치하지 않습니다."
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6011",
+          "message": {
+            "text": "NULL 포인터 'imageArr_32bit'을(를) 역참조하고 있습니다. "
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/mj_d3d11_objloader.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                },
+                "region": {
+                  "startLine": 312,
+                  "startColumn": 3,
+                  "endLine": 312,
+                  "endColumn": 61
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CreateSRVArrayFromBMPFile",
+                  "decoratedName": "?CreateSRVArrayFromBMPFile@@YAXPEAUID3D11Device@@PEAUOBJFILE_BUFFER@@IPEAPEAUID3D11ShaderResourceView@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 293,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 294,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 295,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 297,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 297,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 299,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 300,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 301,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 297,
+                            "startColumn": 59
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 297,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 306,
+                            "startColumn": 26
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 307,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "'imageArr_32bit'은(는) NULL일 수 있습니다."
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 309,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 309,
+                            "startColumn": 20
+                          }
+                        },
+                        "message": {
+                          "text": "이 루프 시작, ('<분기 조건>' 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 312,
+                            "startColumn": 21
+                          }
+                        },
+                        "message": {
+                          "text": "'imageArr_32bit'이(가) 역참조되었지만 여전히 NULL일 수 있습니다."
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6011",
+          "message": {
+            "text": "NULL 포인터 'sourceArr_data'을(를) 역참조하고 있습니다. "
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/mj_d3d11_objloader.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                },
+                "region": {
+                  "startLine": 331,
+                  "startColumn": 3,
+                  "endLine": 331,
+                  "endColumn": 47
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CreateSRVArrayFromBMPFile",
+                  "decoratedName": "?CreateSRVArrayFromBMPFile@@YAXPEAUID3D11Device@@PEAUOBJFILE_BUFFER@@IPEAPEAUID3D11ShaderResourceView@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 293,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 294,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 295,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 297,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 297,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 299,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 300,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 301,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 297,
+                            "startColumn": 59
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 297,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 306,
+                            "startColumn": 26
+                          }
+                        },
+                        "message": {
+                          "text": "'sourceArr_data'은(는) NULL일 수 있습니다."
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 307,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 309,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 309,
+                            "startColumn": 20
+                          }
+                        },
+                        "message": {
+                          "text": "이 루프 시작, ('<분기 조건>' 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 312,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 313,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 313,
+                            "startColumn": 21
+                          }
+                        },
+                        "message": {
+                          "text": "이 루프 건너뛰기, ('k<maxHeight'이(가) false라고 가정)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 331,
+                            "startColumn": 29
+                          }
+                        },
+                        "message": {
+                          "text": "'sourceArr_data'이(가) 역참조되었지만 여전히 NULL일 수 있습니다."
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'pTexture2D'이(가) '0'일 수 있습니다.  이 경우 'ID3D11Device::CreateShaderResourceView' 함수의 사양과 일치하지 않습니다. 이 오류가 발생할 수 있는 이전 위치는 줄 0을(를) 참조하십시오."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/mj_d3d11_objloader.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                },
+                "region": {
+                  "startLine": 365,
+                  "startColumn": 2,
+                  "endLine": 365,
+                  "endColumn": 58
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CreateSRVArrayFromBMPFile",
+                  "decoratedName": "?CreateSRVArrayFromBMPFile@@YAXPEAUID3D11Device@@PEAUOBJFILE_BUFFER@@IPEAPEAUID3D11ShaderResourceView@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 293,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 294,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 295,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 297,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 297,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 306,
+                            "startColumn": 26
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 307,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 309,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 309,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 337,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 338,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 339,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 340,
+                            "startColumn": 24
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 341,
+                            "startColumn": 24
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 343,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 344,
+                            "startColumn": 31
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 345,
+                            "startColumn": 33
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 346,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 347,
+                            "startColumn": 24
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 349,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 350,
+                            "startColumn": 24
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 353,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 354,
+                            "startColumn": 25
+                          }
+                        },
+                        "message": {
+                          "text": "'pTexture2D'은(는) NULL일 수 있습니다."
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 357,
+                            "startColumn": 34
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 358,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 359,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 360,
+                            "startColumn": 42
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 361,
+                            "startColumn": 36
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 362,
+                            "startColumn": 36
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 363,
+                            "startColumn": 42
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_OBJLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 365,
+                            "startColumn": 34
+                          }
+                        },
+                        "message": {
+                          "text": "'pTexture2D'은(는) NULL(이)면 안 됩니다. 이는 'ID3D11Device::CreateShaderResourceView'의 SAL 주석과 일치하지 않습니다."
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "MSVC Code Analysis",
+          "version": "14.44.35211.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/mj_d3d11_objloader.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "0b7b15d13fa5bbbd522221c2049d4ece011db3c9950e125888b963a59d56a418"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/mj_d3d11_objloader.h"
+          },
+          "hashes": {
+            "sha-256": "24698b601c2c04bac7aed5399c1ac208067e564c356a42801567295c50aedb59"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/objfileio.h"
+          },
+          "hashes": {
+            "sha-256": "340c6902bd9e60303cdc96fc9795289e3369a479898a3f02104779a538f7d98f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/bmpfileio.h"
+          },
+          "hashes": {
+            "sha-256": "939072a2cafead7a6680791840bff5f75c60a2b873b4758cac73b622fc4ee30a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/vertextype.h"
+          },
+          "hashes": {
+            "sha-256": "6ff12071f558b7e511bf8a98b15487441d034d0259212914d5c858030fdacb1b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/map.h"
+          },
+          "hashes": {
+            "sha-256": "1851191c0956a0be9acbcd839475de8a562976299363cf50190e47e884900550"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/config.h"
+          },
+          "hashes": {
+            "sha-256": "2ee119ef4570fba8fe6d20a24b6765ed6a3ca01ef4ed2c11ac610c000ab8b4ec"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/eabase.h"
+          },
+          "hashes": {
+            "sha-256": "c8d0e6de399e7599562bd626199e0e97ae2880c1c0629b52c0217b177be0cc5b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/config/eacompiler.h"
+          },
+          "hashes": {
+            "sha-256": "410470043e59fc2cbcf07482b7609125905a59a2f9b63492d22249541b338c8d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/config/eaplatform.h"
+          },
+          "hashes": {
+            "sha-256": "d2c4cdeb2cbffd5840752a813eff43dbbc5a528e22b5cb84be11014b6fcdad7b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/config/eacompilertraits.h"
+          },
+          "hashes": {
+            "sha-256": "e87d41bccd2d83eca902178f6bc92c16a8d171cdb7abbac3735773a8853ad2df"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/version.h"
+          },
+          "hashes": {
+            "sha-256": "5e1345cf24f8eec5c991556b29b599ab3201fa5b56f3919fc6c56b848aeb0d30"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/eaunits.h"
+          },
+          "hashes": {
+            "sha-256": "eafd913f1a00be5ad2001d029ee9c029443f01723e17a906c15f124cfaba5564"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/int128.h"
+          },
+          "hashes": {
+            "sha-256": "c5cc92db0884f65fe5732f947f9c4fd747e4aa3122d11e95aa5f30a35edb8c70"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/eadeprecated.h"
+          },
+          "hashes": {
+            "sha-256": "6da80575cc4bdf897a3f8eccbb57ed55fe22d63da62090c349d26ec13eca6101"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/eahave.h"
+          },
+          "hashes": {
+            "sha-256": "debffb972aa0966b01edbcd01b763ad1910008edbe09c005ca0aba9b79ccea34"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/red_black_tree.h"
+          },
+          "hashes": {
+            "sha-256": "855acfbae75bc93c73e35570f4ad054da577ab1081f985d5676ea38cdc7b0847"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/type_traits.h"
+          },
+          "hashes": {
+            "sha-256": "7f3f1e8131134cadb3f886725d60baa4b8587c37a22e9a22ed16a0eb8835bd0c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/type_fundamental.h"
+          },
+          "hashes": {
+            "sha-256": "f01e4540d4b59611e7d03c4ff9f0b038fdc19b88321fb2187096dcae91d8b8d7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/nullptr.h"
+          },
+          "hashes": {
+            "sha-256": "9017f9ffba213e9a48e7e839f5b5a4bf1a50252ef3a7e265f7b3005f7b7a13e6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/type_transformations.h"
+          },
+          "hashes": {
+            "sha-256": "e9b0e19313be1c0035b93fe6cc582d1a5081bd11c1873c3e403dd21530c4bac3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/type_void_t.h"
+          },
+          "hashes": {
+            "sha-256": "03354c48d9057c4b5b96aca7d0f727b3e9b2fb8628de8543402cf4e830c4aed4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/type_properties.h"
+          },
+          "hashes": {
+            "sha-256": "4b2df92bd287c85290be0ed86ccde335bfa28a5d5e948fc28c4cf30277526878"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/type_compound.h"
+          },
+          "hashes": {
+            "sha-256": "c197c57e29da14ea6a106c99c5a2508a8cb05d627ba6ac649643b98b37bfd6e0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/type_pod.h"
+          },
+          "hashes": {
+            "sha-256": "a3ec5a1ecde6f0106f8d27b66e0fe8150ddfaaccacca318239f6771a27310edb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/type_detected.h"
+          },
+          "hashes": {
+            "sha-256": "00229cd2b5a9a19bb4aead2664028904db4b94f79ab5f76f9da5654edab4930d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/allocator.h"
+          },
+          "hashes": {
+            "sha-256": "0fbb375809e677bba6412ed43415479df4700ecfcff0c3fdc3c13cf1cf12fe30"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/iterator.h"
+          },
+          "hashes": {
+            "sha-256": "ec30e7416930a03b3bb346a522542f846b05232064f0cee29a3c03d18d126f47"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/move_help.h"
+          },
+          "hashes": {
+            "sha-256": "1e88b1aeab3edd657c20c01cd3acabc75b7dcaa408cb89316818cb24b09c90d4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/memory_base.h"
+          },
+          "hashes": {
+            "sha-256": "e2c6e8d9591334012109ba676d6a63d2904871a29c59da7226f8f06c61ab9d80"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/initializer_list.h"
+          },
+          "hashes": {
+            "sha-256": "fb31bb15a9baedbb2991628892afe935ebbeae1693b91c4c63f111c04c0dec75"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/utility.h"
+          },
+          "hashes": {
+            "sha-256": "158c115975b0f5015c36a1345b8cbc2485b38c33c32b438b3c83058c6be6fc80"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/numeric_limits.h"
+          },
+          "hashes": {
+            "sha-256": "682b9249d9a3c1fc645c6eb8ebfcd4d581c3ee69cfa6a7e33130e8424569db10"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/compare.h"
+          },
+          "hashes": {
+            "sha-256": "062d6cda1bf0ec2f84f502bf84c9ac17286b4f9d7d0668ff7cb4bdeaa385903a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/functional_base.h"
+          },
+          "hashes": {
+            "sha-256": "86346bc629e271549d3b10c02262259562019092b5457bd2b7710899476fcc1c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/meta.h"
+          },
+          "hashes": {
+            "sha-256": "50e97daba5b95622344d6edd9a339c235729ed91a4174718035adf6678c434c7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/integer_sequence.h"
+          },
+          "hashes": {
+            "sha-256": "8b05850694864603836249a2911380593a2d81c67c8d8d582c36b32a1593866d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/tuple_fwd_decls.h"
+          },
+          "hashes": {
+            "sha-256": "b651f55e6eb2f8012011dba22ef74b1295b8609d9ce178b28b9586c3007f5eaf"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/in_place_t.h"
+          },
+          "hashes": {
+            "sha-256": "24bfec0808e8cd752fcac7c39cad004760b4551fa8514d3dc7de0c350c3eabfa"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/piecewise_construct_t.h"
+          },
+          "hashes": {
+            "sha-256": "9609dc789588c161c039f28ba2940848180c736bbd10305e800774ba27f0323e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/algorithm.h"
+          },
+          "hashes": {
+            "sha-256": "2033da7b3c22a1e5909392495890fae7ca04de248ac56208099a0972245cd219"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/copy_help.h"
+          },
+          "hashes": {
+            "sha-256": "9b36348d515e0a08464650c2bdbc8389f11a7fc7a7453627c0dd9f9f0db7a828"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/fill_help.h"
+          },
+          "hashes": {
+            "sha-256": "231da8c9abf7c7e6c2b022a35c4ecb57f21b07c3ef624a2ea90133af95b6e355"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/functional.h"
+          },
+          "hashes": {
+            "sha-256": "4ddf5820587ed016824270af81b58ae33a3554246a429e31f2b531a2a1ba67bf"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/mem_fn.h"
+          },
+          "hashes": {
+            "sha-256": "52ce4ca77f2c535f5b3d8fe0cdbd1803432ab39be09ca858ba555573d3f0c359"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/function.h"
+          },
+          "hashes": {
+            "sha-256": "34075ec93d5ab1c68a12285ebb142f2a0cfefa5a8999c096e1d55b5155561819"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/function_detail.h"
+          },
+          "hashes": {
+            "sha-256": "bf42c1590b531afbfe14ef69a70f385d0f935b961316128fa7f8390ecc4d1a74"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/function_help.h"
+          },
+          "hashes": {
+            "sha-256": "351d82d0994df6d7dbc6fcd6a94eb5f5e390a409fcc5b69eaa686cf7dfd50e5e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/random.h"
+          },
+          "hashes": {
+            "sha-256": "645b826a907b93d2e782c2a852ab25996cc0973e31fd378825c3a49555f8ba74"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/tuple.h"
+          },
+          "hashes": {
+            "sha-256": "71a8ace782d6d005cdbcf7a960310826808714d01f0852b98f1c3940629de90a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/array.h"
+          },
+          "hashes": {
+            "sha-256": "b0d5c31eb55f1ce18695fd2fb4597e5d3eda84a84fe1e671fead7ba29d0106a8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/vector.h"
+          },
+          "hashes": {
+            "sha-256": "44437034cc6689ef2bf837d39cd9d823b788d36d9942d7708157a0f328f837be"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/memory.h"
+          },
+          "hashes": {
+            "sha-256": "fd6376f2abd16aee53bd53abae91b31c0c3b24eee96277ac96c04e161f7de2d6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/pair_fwd_decls.h"
+          },
+          "hashes": {
+            "sha-256": "378bb2bd9bba4f453e14275036975bdf021a2a92b87cd77042a821dbf6bb9832"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/bonus/compressed_pair.h"
+          },
+          "hashes": {
+            "sha-256": "1f189874ed277c74d216aa6b5d23796d57ff14e692dda5bd11bb372095e77034"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/bonus/call_traits.h"
+          },
+          "hashes": {
+            "sha-256": "1bfe77a1be31c2d2a928b13e7e7fcba6e59c08d8249b2fd148d4e8a5e03916f0"
+          }
+        }
+      ]
+    }
+  ]
+}

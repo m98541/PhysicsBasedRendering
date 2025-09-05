@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "E:/directx_practice/d3d11_setup/EASTL-master/bin/_deps/eabase-subbuild/CMakeFiles/eabase-populate"
+		},
+		{
+			"file" : "E:/directx_practice/d3d11_setup/EASTL-master/bin/_deps/eabase-subbuild/CMakeFiles/951fd0ab7be565b29e9525e5d270361a/eabase-populate.rule"
+		},
+		{
+			"file" : "E:/directx_practice/d3d11_setup/EASTL-master/bin/_deps/eabase-subbuild/CMakeFiles/64541b88ae0f41abc4afe39711342f95/eabase-populate-complete.rule"
+		},
+		{
+			"file" : "E:/directx_practice/d3d11_setup/EASTL-master/bin/_deps/eabase-subbuild/CMakeFiles/7514c32b70ef23f00fe0c77c01ea2e9f/eabase-populate-build.rule"
+		},
+		{
+			"file" : "E:/directx_practice/d3d11_setup/EASTL-master/bin/_deps/eabase-subbuild/CMakeFiles/7514c32b70ef23f00fe0c77c01ea2e9f/eabase-populate-configure.rule"
+		},
+		{
+			"file" : "E:/directx_practice/d3d11_setup/EASTL-master/bin/_deps/eabase-subbuild/CMakeFiles/7514c32b70ef23f00fe0c77c01ea2e9f/eabase-populate-download.rule"
+		},
+		{
+			"file" : "E:/directx_practice/d3d11_setup/EASTL-master/bin/_deps/eabase-subbuild/CMakeFiles/7514c32b70ef23f00fe0c77c01ea2e9f/eabase-populate-install.rule"
+		},
+		{
+			"file" : "E:/directx_practice/d3d11_setup/EASTL-master/bin/_deps/eabase-subbuild/CMakeFiles/7514c32b70ef23f00fe0c77c01ea2e9f/eabase-populate-mkdir.rule"
+		},
+		{
+			"file" : "E:/directx_practice/d3d11_setup/EASTL-master/bin/_deps/eabase-subbuild/CMakeFiles/7514c32b70ef23f00fe0c77c01ea2e9f/eabase-populate-patch.rule"
+		},
+		{
+			"file" : "E:/directx_practice/d3d11_setup/EASTL-master/bin/_deps/eabase-subbuild/CMakeFiles/7514c32b70ef23f00fe0c77c01ea2e9f/eabase-populate-test.rule"
+		},
+		{
+			"file" : "E:/directx_practice/d3d11_setup/EASTL-master/bin/_deps/eabase-subbuild/CMakeFiles/7514c32b70ef23f00fe0c77c01ea2e9f/eabase-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"eabase-populate"
+		],
+		"name" : "eabase-populate"
+	}
+}

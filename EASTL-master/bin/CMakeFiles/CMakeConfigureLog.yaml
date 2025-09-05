@@ -1,0 +1,1555 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      The system is: Windows - 10.0.22631 - AMD64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:6 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/"
+    found: "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\bin"
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\libnvvp"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\Downloads\\platform-tools-latest-windows\\platform-tools\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web\\Addins"
+        - "C:\\Program Files\\Java\\jdk-23\\bin"
+        - "C:\\Program Files\\NVIDIA Corporation\\Nsight Compute 2025.1.1\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.2.2\\bin"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2024.3.2.2\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\GitHubDesktop\\bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      msbuild 踰꾩쟾 17.14.14+a129329f1(.NET Framework??
+      鍮뚮뱶 ?쒖옉: 2025-07-29 ?ㅽ썑 3:03:10
+      
+      1 ?몃뱶??"E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\4.1.0-rc3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" ?꾨줈?앺듃(湲곕낯 ?\xc2\x80???낅땲??
+      PrepareForBuild:
+        "Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+        援ъ“??異쒕젰???ъ슜?????덉뒿?덈떎. 而댄뙆?쇰윭 吏꾨떒???쒖떇?\xc2\x80 ?ㅻ쪟 怨꾩링 援ъ“瑜?諛섏쁺?⑸땲?? ?먯꽭???댁슜?\xc2\x80 https://aka.ms/cpp/structured-output??李몄“?섏꽭??
+        "Debug\\CompilerIdCXX.tlog\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+      InitializeBuildStatus:
+        "AlwaysCreate"??媛\xc2\x80) 吏\xc2\x80?뺣릺?덇린 ?뚮Ц??"Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild"??瑜? 留뚮뱾怨??덉뒿?덈떎.
+        "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\4.1.0-rc3\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" ?뚯씪????젣?섍퀬 ?덉뒿?덈떎.
+        "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+      "E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\4.1.0-rc3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" ?꾨줈?앺듃瑜?鍮뚮뱶?덉뒿?덈떎(湲곕낯 ?\xc2\x80??.
+      
+      鍮뚮뱶?덉뒿?덈떎.
+          寃쎄퀬 0媛?
+          ?ㅻ쪟 0媛?
+      
+      寃쎄낵 ?쒓컙: 00:00:00.63
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/4.1.0-rc3/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:103 (__resolve_linker_path)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:6 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/"
+      - "C:/Program Files/Java/jdk-23/bin/"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
+    found: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\bin"
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\libnvvp"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\Downloads\\platform-tools-latest-windows\\platform-tools\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web\\Addins"
+        - "C:\\Program Files\\Java\\jdk-23\\bin"
+        - "C:\\Program Files\\NVIDIA Corporation\\Nsight Compute 2025.1.1\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.2.2\\bin"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2024.3.2.2\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\GitHubDesktop\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:6 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lld-link"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/"
+      - "C:/Program Files/Java/jdk-23/bin/"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.com"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.exe"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/lld-link.com"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/lld-link.exe"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/lld-link"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/lld-link.com"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/lld-link.exe"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/lld-link"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/lld-link.com"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/lld-link.exe"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/lld-link"
+      - "C:/Windows/System32/lld-link.com"
+      - "C:/Windows/System32/lld-link.exe"
+      - "C:/Windows/System32/lld-link"
+      - "C:/Windows/lld-link.com"
+      - "C:/Windows/lld-link.exe"
+      - "C:/Windows/lld-link"
+      - "C:/Windows/System32/wbem/lld-link.com"
+      - "C:/Windows/System32/wbem/lld-link.exe"
+      - "C:/Windows/System32/wbem/lld-link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link"
+      - "C:/Windows/System32/OpenSSH/lld-link.com"
+      - "C:/Windows/System32/OpenSSH/lld-link.exe"
+      - "C:/Windows/System32/OpenSSH/lld-link"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link"
+      - "C:/Program Files/dotnet/lld-link.com"
+      - "C:/Program Files/dotnet/lld-link.exe"
+      - "C:/Program Files/dotnet/lld-link"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/lld-link.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/lld-link.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/lld-link"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/lld-link.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/lld-link.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/lld-link"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/lld-link.com"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/lld-link.exe"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/lld-link"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/lld-link.com"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/lld-link.exe"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/lld-link"
+      - "C:/Program Files/Java/jdk-23/bin/lld-link.com"
+      - "C:/Program Files/Java/jdk-23/bin/lld-link.exe"
+      - "C:/Program Files/Java/jdk-23/bin/lld-link"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/lld-link.com"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/lld-link.exe"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/lld-link"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link"
+      - "C:/Program Files/CMake/bin/lld-link.com"
+      - "C:/Program Files/CMake/bin/lld-link.exe"
+      - "C:/Program Files/CMake/bin/lld-link"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/lld-link.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/lld-link"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/lld-link.com"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/lld-link.exe"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/lld-link"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/lld-link.com"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/lld-link.exe"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/lld-link"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/lld-link.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/lld-link.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/lld-link"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/lld-link.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/lld-link.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/lld-link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\bin"
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\libnvvp"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\Downloads\\platform-tools-latest-windows\\platform-tools\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web\\Addins"
+        - "C:\\Program Files\\Java\\jdk-23\\bin"
+        - "C:\\Program Files\\NVIDIA Corporation\\Nsight Compute 2025.1.1\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.2.2\\bin"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2024.3.2.2\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\GitHubDesktop\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:6 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/"
+      - "C:/Program Files/Java/jdk-23/bin/"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
+    found: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\bin"
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\libnvvp"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\Downloads\\platform-tools-latest-windows\\platform-tools\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web\\Addins"
+        - "C:\\Program Files\\Java\\jdk-23\\bin"
+        - "C:\\Program Files\\NVIDIA Corporation\\Nsight Compute 2025.1.1\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.2.2\\bin"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2024.3.2.2\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\GitHubDesktop\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:6 (project)"
+    mode: "program"
+    variable: "CMAKE_MT"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mt"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/"
+      - "C:/Program Files/Java/jdk-23/bin/"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt.com"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt.exe"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/mt.com"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/mt.exe"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/mt"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/mt.com"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/mt.exe"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/mt"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/mt.com"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/mt.exe"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/mt"
+      - "C:/Windows/System32/mt.com"
+      - "C:/Windows/System32/mt.exe"
+      - "C:/Windows/System32/mt"
+      - "C:/Windows/mt.com"
+      - "C:/Windows/mt.exe"
+      - "C:/Windows/mt"
+      - "C:/Windows/System32/wbem/mt.com"
+      - "C:/Windows/System32/wbem/mt.exe"
+      - "C:/Windows/System32/wbem/mt"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt"
+      - "C:/Windows/System32/OpenSSH/mt.com"
+      - "C:/Windows/System32/OpenSSH/mt.exe"
+      - "C:/Windows/System32/OpenSSH/mt"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt"
+      - "C:/Program Files/dotnet/mt.com"
+      - "C:/Program Files/dotnet/mt.exe"
+      - "C:/Program Files/dotnet/mt"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/mt.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/mt.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/mt"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/mt.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/mt.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/mt"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/mt.com"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/mt.exe"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/mt"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/mt.com"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/mt.exe"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/mt"
+      - "C:/Program Files/Java/jdk-23/bin/mt.com"
+      - "C:/Program Files/Java/jdk-23/bin/mt.exe"
+      - "C:/Program Files/Java/jdk-23/bin/mt"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/mt.com"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/mt.exe"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/mt"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/mt.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/mt.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/mt"
+      - "C:/Program Files/CMake/bin/mt.com"
+      - "C:/Program Files/CMake/bin/mt.exe"
+      - "C:/Program Files/CMake/bin/mt"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/mt.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/mt.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/mt"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/mt.com"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/mt.exe"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/mt"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/mt.com"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/mt.exe"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/mt"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/mt.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/mt.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/mt"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/mt.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/mt.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/mt"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\bin"
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\libnvvp"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\Downloads\\platform-tools-latest-windows\\platform-tools\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web\\Addins"
+        - "C:\\Program Files\\Java\\jdk-23\\bin"
+        - "C:\\Program Files\\NVIDIA Corporation\\Nsight Compute 2025.1.1\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.2.2\\bin"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2024.3.2.2\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\GitHubDesktop\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:6 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lib"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/"
+      - "C:/Program Files/Java/jdk-23/bin/"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.com"
+    found: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\bin"
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\libnvvp"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\Downloads\\platform-tools-latest-windows\\platform-tools\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web\\Addins"
+        - "C:\\Program Files\\Java\\jdk-23\\bin"
+        - "C:\\Program Files\\NVIDIA Corporation\\Nsight Compute 2025.1.1\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.2.2\\bin"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2024.3.2.2\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\GitHubDesktop\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineRCCompiler.cmake:40 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-MSVC.cmake:573 (enable_language)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-MSVC.cmake:546 (__windows_compiler_msvc_enable_rc)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-MSVC-CXX.cmake:6 (__windows_compiler_msvc)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake:48 (include)"
+      - "CMakeLists.txt:6 (project)"
+    mode: "program"
+    variable: "CMAKE_RC_COMPILER"
+    description: "RC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "rc"
+    candidate_directories:
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/"
+      - "C:/Program Files/Java/jdk-23/bin/"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/CMake/sbin/"
+      - "C:/Program Files/CMake/"
+      - "C:/Program Files (x86)/EASTL/bin/"
+      - "C:/Program Files (x86)/EASTL/sbin/"
+      - "C:/Program Files (x86)/EASTL/"
+    searched_directories:
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/rc.com"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/rc.exe"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/rc"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/rc.com"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/rc.exe"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/rc"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/rc.com"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/rc.exe"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/rc"
+      - "C:/Windows/System32/rc.com"
+      - "C:/Windows/System32/rc.exe"
+      - "C:/Windows/System32/rc"
+      - "C:/Windows/rc.com"
+      - "C:/Windows/rc.exe"
+      - "C:/Windows/rc"
+      - "C:/Windows/System32/wbem/rc.com"
+      - "C:/Windows/System32/wbem/rc.exe"
+      - "C:/Windows/System32/wbem/rc"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc"
+      - "C:/Windows/System32/OpenSSH/rc.com"
+      - "C:/Windows/System32/OpenSSH/rc.exe"
+      - "C:/Windows/System32/OpenSSH/rc"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc"
+      - "C:/Program Files/dotnet/rc.com"
+      - "C:/Program Files/dotnet/rc.exe"
+      - "C:/Program Files/dotnet/rc"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/rc.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/rc.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/rc"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/rc.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/rc.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/rc"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/rc.com"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/rc.exe"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/rc"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/rc.com"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/rc.exe"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/rc"
+      - "C:/Program Files/Java/jdk-23/bin/rc.com"
+      - "C:/Program Files/Java/jdk-23/bin/rc.exe"
+      - "C:/Program Files/Java/jdk-23/bin/rc"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/rc.com"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/rc.exe"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/rc"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/rc.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/rc.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/rc"
+      - "C:/Program Files/CMake/bin/rc.com"
+      - "C:/Program Files/CMake/bin/rc.exe"
+      - "C:/Program Files/CMake/bin/rc"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/rc.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/rc.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/rc"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/rc.com"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/rc.exe"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/rc"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/rc.com"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/rc.exe"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/rc"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/rc.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/rc.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/rc"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/rc.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/rc.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/rc"
+      - "C:/Program Files/bin/rc.com"
+      - "C:/Program Files/bin/rc.exe"
+      - "C:/Program Files/bin/rc"
+      - "C:/Program Files/sbin/rc.com"
+      - "C:/Program Files/sbin/rc.exe"
+      - "C:/Program Files/sbin/rc"
+      - "C:/Program Files/rc.com"
+      - "C:/Program Files/rc.exe"
+      - "C:/Program Files/rc"
+      - "C:/Program Files (x86)/bin/rc.com"
+      - "C:/Program Files (x86)/bin/rc.exe"
+      - "C:/Program Files (x86)/bin/rc"
+      - "C:/Program Files (x86)/sbin/rc.com"
+      - "C:/Program Files (x86)/sbin/rc.exe"
+      - "C:/Program Files (x86)/sbin/rc"
+      - "C:/Program Files (x86)/rc.com"
+      - "C:/Program Files (x86)/rc.exe"
+      - "C:/Program Files (x86)/rc"
+      - "C:/Program Files/CMake/bin/rc.com"
+      - "C:/Program Files/CMake/bin/rc.exe"
+      - "C:/Program Files/CMake/bin/rc"
+      - "C:/Program Files/CMake/sbin/rc.com"
+      - "C:/Program Files/CMake/sbin/rc.exe"
+      - "C:/Program Files/CMake/sbin/rc"
+      - "C:/Program Files/CMake/rc.com"
+      - "C:/Program Files/CMake/rc.exe"
+      - "C:/Program Files/CMake/rc"
+      - "C:/Program Files (x86)/EASTL/bin/rc.com"
+      - "C:/Program Files (x86)/EASTL/bin/rc.exe"
+      - "C:/Program Files (x86)/EASTL/bin/rc"
+      - "C:/Program Files (x86)/EASTL/sbin/rc.com"
+      - "C:/Program Files (x86)/EASTL/sbin/rc.exe"
+      - "C:/Program Files (x86)/EASTL/sbin/rc"
+      - "C:/Program Files (x86)/EASTL/rc.com"
+      - "C:/Program Files (x86)/EASTL/rc.exe"
+      - "C:/Program Files (x86)/EASTL/rc"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\bin"
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\libnvvp"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\Downloads\\platform-tools-latest-windows\\platform-tools\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web\\Addins"
+        - "C:\\Program Files\\Java\\jdk-23\\bin"
+        - "C:\\Program Files\\NVIDIA Corporation\\Nsight Compute 2025.1.1\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.2.2\\bin"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2024.3.2.2\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\GitHubDesktop\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/EASTL"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/EASTL"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:6 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/CMakeScratch/TryCompile-xgjr80"
+      binary: "E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/CMakeScratch/TryCompile-xgjr80"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/CMakeScratch/TryCompile-xgjr80'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_6c2b1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        msbuild 踰꾩쟾 17.14.14+a129329f1(.NET Framework??
+        鍮뚮뱶 ?쒖옉: 2025-07-29 ?ㅽ썑 3:03:11
+        
+        1 ?몃뱶??"E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-xgjr80\\cmTC_6c2b1.vcxproj" ?꾨줈?앺듃(湲곕낯 ?\xc2\x80???낅땲??
+        PrepareForBuild:
+          "cmTC_6c2b1.dir\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          援ъ“??異쒕젰???ъ슜?????덉뒿?덈떎. 而댄뙆?쇰윭 吏꾨떒???쒖떇?\xc2\x80 ?ㅻ쪟 怨꾩링 援ъ“瑜?諛섏쁺?⑸땲?? ?먯꽭???댁슜?\xc2\x80 https://aka.ms/cpp/structured-output??李몄“?섏꽭??
+          "E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-xgjr80\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_6c2b1.dir\\Debug\\cmTC_6c2b1.tlog\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+        InitializeBuildStatus:
+          "AlwaysCreate"??媛\xc2\x80) 吏\xc2\x80?뺣릺?덇린 ?뚮Ц??"cmTC_6c2b1.dir\\Debug\\cmTC_6c2b1.tlog\\unsuccessfulbuild"??瑜? 留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_6c2b1.dir\\Debug\\cmTC_6c2b1.tlog\\unsuccessfulbuild"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Fo"cmTC_6c2b1.dir\\Debug\\\\" /Fd"cmTC_6c2b1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          Microsoft (R) C/C++ 理쒖쟻??而댄뙆?쇰윭 踰꾩쟾 19.44.35211(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Fo"cmTC_6c2b1.dir\\Debug\\\\" /Fd"cmTC_6c2b1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-xgjr80\\Debug\\cmTC_6c2b1.exe" /INCREMENTAL /ILK:"cmTC_6c2b1.dir\\Debug\\cmTC_6c2b1.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/CMakeScratch/TryCompile-xgjr80/Debug/cmTC_6c2b1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/CMakeScratch/TryCompile-xgjr80/Debug/cmTC_6c2b1.lib" /MACHINE:X64  /machine:x64 cmTC_6c2b1.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_6c2b1.vcxproj -> E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-xgjr80\\Debug\\cmTC_6c2b1.exe
+        FinalizeBuildStatus:
+          "cmTC_6c2b1.dir\\Debug\\cmTC_6c2b1.tlog\\unsuccessfulbuild" ?뚯씪????젣?섍퀬 ?덉뒿?덈떎.
+          "cmTC_6c2b1.dir\\Debug\\cmTC_6c2b1.tlog\\cmTC_6c2b1.lastbuildstate"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+        "E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-xgjr80\\cmTC_6c2b1.vcxproj" ?꾨줈?앺듃瑜?鍮뚮뱶?덉뒿?덈떎(湲곕낯 ?\xc2\x80??.
+        
+        鍮뚮뱶?덉뒿?덈떎.
+            寃쎄퀬 0媛?
+            ?ㅻ쪟 0媛?
+        
+        寃쎄낵 ?쒓컙: 00:00:00.55
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.44.35211.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake:103 (cmake_check_compiler_flag)"
+      - "scripts/CMake/CommonCppFlags.cmake:6 (check_cxx_compiler_flag)"
+      - "CMakeLists.txt:24 (include)"
+    checks:
+      - "Performing Test EASTL_HAS_FCHAR8T_FLAG"
+    directories:
+      source: "E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/CMakeScratch/TryCompile-znu6yh"
+      binary: "E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/CMakeScratch/TryCompile-znu6yh"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: ";E:/directx_practice/d3d11_setup/EASTL-master/scripts/CMake"
+    buildResult:
+      variable: "EASTL_HAS_FCHAR8T_FLAG"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/CMakeScratch/TryCompile-znu6yh'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_cb587.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        msbuild 踰꾩쟾 17.14.14+a129329f1(.NET Framework??
+        鍮뚮뱶 ?쒖옉: 2025-07-29 ?ㅽ썑 3:03:12
+        
+        1 ?몃뱶??"E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-znu6yh\\cmTC_cb587.vcxproj" ?꾨줈?앺듃(湲곕낯 ?\xc2\x80???낅땲??
+        PrepareForBuild:
+          "cmTC_cb587.dir\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          援ъ“??異쒕젰???ъ슜?????덉뒿?덈떎. 而댄뙆?쇰윭 吏꾨떒???쒖떇?\xc2\x80 ?ㅻ쪟 怨꾩링 援ъ“瑜?諛섏쁺?⑸땲?? ?먯꽭???댁슜?\xc2\x80 https://aka.ms/cpp/structured-output??李몄“?섏꽭??
+          "E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-znu6yh\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_cb587.dir\\Debug\\cmTC_cb587.tlog\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+        InitializeBuildStatus:
+          "AlwaysCreate"??媛\xc2\x80) 吏\xc2\x80?뺣릺?덇린 ?뚮Ц??"cmTC_cb587.dir\\Debug\\cmTC_cb587.tlog\\unsuccessfulbuild"??瑜? 留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_cb587.dir\\Debug\\cmTC_cb587.tlog\\unsuccessfulbuild"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D EASTL_HAS_FCHAR8T_FLAG /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Fo"cmTC_cb587.dir\\Debug\\\\" /Fd"cmTC_cb587.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue  -fchar8_t "E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-znu6yh\\src.cxx"
+          Microsoft (R) C/C++ 理쒖쟻??而댄뙆?쇰윭 踰꾩쟾 19.44.35211(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D EASTL_HAS_FCHAR8T_FLAG /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Fo"cmTC_cb587.dir\\Debug\\\\" /Fd"cmTC_cb587.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue  -fchar8_t "E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-znu6yh\\src.cxx"
+        cl : 紐낅졊以? warning D9002: ?????녿뒗 '-fchar8_t' ?듭뀡??臾댁떆?⑸땲?? [E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-znu6yh\\cmTC_cb587.vcxproj]
+          src.cxx
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-znu6yh\\Debug\\cmTC_cb587.exe" /INCREMENTAL /ILK:"cmTC_cb587.dir\\Debug\\cmTC_cb587.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/CMakeScratch/TryCompile-znu6yh/Debug/cmTC_cb587.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/CMakeScratch/TryCompile-znu6yh/Debug/cmTC_cb587.lib" /MACHINE:X64  /machine:x64 cmTC_cb587.dir\\Debug\\src.obj
+          cmTC_cb587.vcxproj -> E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-znu6yh\\Debug\\cmTC_cb587.exe
+        FinalizeBuildStatus:
+          "cmTC_cb587.dir\\Debug\\cmTC_cb587.tlog\\unsuccessfulbuild" ?뚯씪????젣?섍퀬 ?덉뒿?덈떎.
+          "cmTC_cb587.dir\\Debug\\cmTC_cb587.tlog\\cmTC_cb587.lastbuildstate"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+        "E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-znu6yh\\cmTC_cb587.vcxproj" ?꾨줈?앺듃瑜?鍮뚮뱶?덉뒿?덈떎(湲곕낯 ?\xc2\x80??.
+        
+        鍮뚮뱶?덉뒿?덈떎.
+        
+        "E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-znu6yh\\cmTC_cb587.vcxproj"(湲곕낯 ?\xc2\x80??(1)->
+        (ClCompile ?\xc2\x80?? -> 
+          cl : 紐낅졊以? warning D9002: ?????녿뒗 '-fchar8_t' ?듭뀡??臾댁떆?⑸땲?? [E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-znu6yh\\cmTC_cb587.vcxproj]
+        
+            寃쎄퀬 1媛?
+            ?ㅻ쪟 0媛?
+        
+        寃쎄낵 ?쒓컙: 00:00:00.56
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake:103 (cmake_check_compiler_flag)"
+      - "scripts/CMake/CommonCppFlags.cmake:7 (check_cxx_compiler_flag)"
+      - "CMakeLists.txt:24 (include)"
+    checks:
+      - "Performing Test EASTL_HAS_ZCCHAR8T_FLAG"
+    directories:
+      source: "E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/CMakeScratch/TryCompile-7wvurg"
+      binary: "E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/CMakeScratch/TryCompile-7wvurg"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: ";E:/directx_practice/d3d11_setup/EASTL-master/scripts/CMake"
+    buildResult:
+      variable: "EASTL_HAS_ZCCHAR8T_FLAG"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/CMakeScratch/TryCompile-7wvurg'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_c7c1b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        msbuild 踰꾩쟾 17.14.14+a129329f1(.NET Framework??
+        鍮뚮뱶 ?쒖옉: 2025-07-29 ?ㅽ썑 3:03:13
+        
+        1 ?몃뱶??"E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-7wvurg\\cmTC_c7c1b.vcxproj" ?꾨줈?앺듃(湲곕낯 ?\xc2\x80???낅땲??
+        PrepareForBuild:
+          "cmTC_c7c1b.dir\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          援ъ“??異쒕젰???ъ슜?????덉뒿?덈떎. 而댄뙆?쇰윭 吏꾨떒???쒖떇?\xc2\x80 ?ㅻ쪟 怨꾩링 援ъ“瑜?諛섏쁺?⑸땲?? ?먯꽭???댁슜?\xc2\x80 https://aka.ms/cpp/structured-output??李몄“?섏꽭??
+          "E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-7wvurg\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_c7c1b.dir\\Debug\\cmTC_c7c1b.tlog\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+        InitializeBuildStatus:
+          "AlwaysCreate"??媛\xc2\x80) 吏\xc2\x80?뺣릺?덇린 ?뚮Ц??"cmTC_c7c1b.dir\\Debug\\cmTC_c7c1b.tlog\\unsuccessfulbuild"??瑜? 留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_c7c1b.dir\\Debug\\cmTC_c7c1b.tlog\\unsuccessfulbuild"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D EASTL_HAS_ZCCHAR8T_FLAG /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Fo"cmTC_c7c1b.dir\\Debug\\\\" /Fd"cmTC_c7c1b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue  /Zc:char8_t "E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-7wvurg\\src.cxx"
+          Microsoft (R) C/C++ 理쒖쟻??而댄뙆?쇰윭 踰꾩쟾 19.44.35211(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D EASTL_HAS_ZCCHAR8T_FLAG /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Fo"cmTC_c7c1b.dir\\Debug\\\\" /Fd"cmTC_c7c1b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue  /Zc:char8_t "E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-7wvurg\\src.cxx"
+          src.cxx
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-7wvurg\\Debug\\cmTC_c7c1b.exe" /INCREMENTAL /ILK:"cmTC_c7c1b.dir\\Debug\\cmTC_c7c1b.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/CMakeScratch/TryCompile-7wvurg/Debug/cmTC_c7c1b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"E:/directx_practice/d3d11_setup/EASTL-master/bin/CMakeFiles/CMakeScratch/TryCompile-7wvurg/Debug/cmTC_c7c1b.lib" /MACHINE:X64  /machine:x64 cmTC_c7c1b.dir\\Debug\\src.obj
+          cmTC_c7c1b.vcxproj -> E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-7wvurg\\Debug\\cmTC_c7c1b.exe
+        FinalizeBuildStatus:
+          "cmTC_c7c1b.dir\\Debug\\cmTC_c7c1b.tlog\\unsuccessfulbuild" ?뚯씪????젣?섍퀬 ?덉뒿?덈떎.
+          "cmTC_c7c1b.dir\\Debug\\cmTC_c7c1b.tlog\\cmTC_c7c1b.lastbuildstate"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+        "E:\\directx_practice\\d3d11_setup\\EASTL-master\\bin\\CMakeFiles\\CMakeScratch\\TryCompile-7wvurg\\cmTC_c7c1b.vcxproj" ?꾨줈?앺듃瑜?鍮뚮뱶?덉뒿?덈떎(湲곕낯 ?\xc2\x80??.
+        
+        鍮뚮뱶?덉뒿?덈떎.
+            寃쎄퀬 0媛?
+            ?ㅻ쪟 0媛?
+        
+        寃쎄낵 ?쒓컙: 00:00:00.53
+        
+      exitCode: 0
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FindGit.cmake:86 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake:1874 (find_package)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake:1609 (__FetchContent_populateSubbuild)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake:2145:EVAL:2 (__FetchContent_doPopulation)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake:2145 (cmake_language)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake:2384 (__FetchContent_Populate)"
+      - "CMakeLists.txt:80 (FetchContent_MakeAvailable)"
+    mode: "program"
+    variable: "GIT_EXECUTABLE"
+    description: "Git command line client"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "git.cmd"
+      - "git"
+    candidate_directories:
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/"
+      - "C:/Program Files/Java/jdk-23/bin/"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/CMake/sbin/"
+      - "C:/Program Files/CMake/"
+      - "C:/Program Files (x86)/EASTL/bin/"
+      - "C:/Program Files (x86)/EASTL/sbin/"
+      - "C:/Program Files (x86)/EASTL/"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Atlassian/SourceTree/git_local/bin/"
+    searched_directories:
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/git.cmd.com"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/git.cmd.exe"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/git.cmd"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/git.cmd.com"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/git.cmd.exe"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/git.cmd"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git.cmd.com"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git.cmd.exe"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git.cmd"
+      - "C:/Windows/System32/git.cmd.com"
+      - "C:/Windows/System32/git.cmd.exe"
+      - "C:/Windows/System32/git.cmd"
+      - "C:/Windows/git.cmd.com"
+      - "C:/Windows/git.cmd.exe"
+      - "C:/Windows/git.cmd"
+      - "C:/Windows/System32/wbem/git.cmd.com"
+      - "C:/Windows/System32/wbem/git.cmd.exe"
+      - "C:/Windows/System32/wbem/git.cmd"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git.cmd.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git.cmd.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git.cmd"
+      - "C:/Windows/System32/OpenSSH/git.cmd.com"
+      - "C:/Windows/System32/OpenSSH/git.cmd.exe"
+      - "C:/Windows/System32/OpenSSH/git.cmd"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/git.cmd.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/git.cmd.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/git.cmd"
+      - "C:/Program Files/dotnet/git.cmd.com"
+      - "C:/Program Files/dotnet/git.cmd.exe"
+      - "C:/Program Files/dotnet/git.cmd"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/git.cmd.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/git.cmd.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/git.cmd"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/git.cmd.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/git.cmd.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/git.cmd"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/git.cmd.com"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/git.cmd.exe"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/git.cmd"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/git.cmd.com"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/git.cmd.exe"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/git.cmd"
+      - "C:/Program Files/Java/jdk-23/bin/git.cmd.com"
+      - "C:/Program Files/Java/jdk-23/bin/git.cmd.exe"
+      - "C:/Program Files/Java/jdk-23/bin/git.cmd"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/git.cmd.com"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/git.cmd.exe"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/git.cmd"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/git.cmd.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/git.cmd.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/git.cmd"
+      - "C:/Program Files/CMake/bin/git.cmd.com"
+      - "C:/Program Files/CMake/bin/git.cmd.exe"
+      - "C:/Program Files/CMake/bin/git.cmd"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/git.cmd.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/git.cmd.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/git.cmd"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/git.cmd.com"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/git.cmd.exe"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/git.cmd"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/git.cmd.com"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/git.cmd.exe"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/git.cmd"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/git.cmd.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/git.cmd.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/git.cmd"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/git.cmd.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/git.cmd.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/git.cmd"
+      - "C:/Program Files/bin/git.cmd.com"
+      - "C:/Program Files/bin/git.cmd.exe"
+      - "C:/Program Files/bin/git.cmd"
+      - "C:/Program Files/sbin/git.cmd.com"
+      - "C:/Program Files/sbin/git.cmd.exe"
+      - "C:/Program Files/sbin/git.cmd"
+      - "C:/Program Files/git.cmd.com"
+      - "C:/Program Files/git.cmd.exe"
+      - "C:/Program Files/git.cmd"
+      - "C:/Program Files (x86)/bin/git.cmd.com"
+      - "C:/Program Files (x86)/bin/git.cmd.exe"
+      - "C:/Program Files (x86)/bin/git.cmd"
+      - "C:/Program Files (x86)/sbin/git.cmd.com"
+      - "C:/Program Files (x86)/sbin/git.cmd.exe"
+      - "C:/Program Files (x86)/sbin/git.cmd"
+      - "C:/Program Files (x86)/git.cmd.com"
+      - "C:/Program Files (x86)/git.cmd.exe"
+      - "C:/Program Files (x86)/git.cmd"
+      - "C:/Program Files/CMake/bin/git.cmd.com"
+      - "C:/Program Files/CMake/bin/git.cmd.exe"
+      - "C:/Program Files/CMake/bin/git.cmd"
+      - "C:/Program Files/CMake/sbin/git.cmd.com"
+      - "C:/Program Files/CMake/sbin/git.cmd.exe"
+      - "C:/Program Files/CMake/sbin/git.cmd"
+      - "C:/Program Files/CMake/git.cmd.com"
+      - "C:/Program Files/CMake/git.cmd.exe"
+      - "C:/Program Files/CMake/git.cmd"
+      - "C:/Program Files (x86)/EASTL/bin/git.cmd.com"
+      - "C:/Program Files (x86)/EASTL/bin/git.cmd.exe"
+      - "C:/Program Files (x86)/EASTL/bin/git.cmd"
+      - "C:/Program Files (x86)/EASTL/sbin/git.cmd.com"
+      - "C:/Program Files (x86)/EASTL/sbin/git.cmd.exe"
+      - "C:/Program Files (x86)/EASTL/sbin/git.cmd"
+      - "C:/Program Files (x86)/EASTL/git.cmd.com"
+      - "C:/Program Files (x86)/EASTL/git.cmd.exe"
+      - "C:/Program Files (x86)/EASTL/git.cmd"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Atlassian/SourceTree/git_local/bin/git.cmd.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Atlassian/SourceTree/git_local/bin/git.cmd.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Atlassian/SourceTree/git_local/bin/git.cmd"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/git.com"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/git.exe"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin/git"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/git.com"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/git.exe"
+      - "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp/git"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git.com"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git.exe"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git"
+      - "C:/Windows/System32/git.com"
+      - "C:/Windows/System32/git.exe"
+      - "C:/Windows/System32/git"
+      - "C:/Windows/git.com"
+      - "C:/Windows/git.exe"
+      - "C:/Windows/git"
+      - "C:/Windows/System32/wbem/git.com"
+      - "C:/Windows/System32/wbem/git.exe"
+      - "C:/Windows/System32/wbem/git"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git"
+      - "C:/Windows/System32/OpenSSH/git.com"
+      - "C:/Windows/System32/OpenSSH/git.exe"
+      - "C:/Windows/System32/OpenSSH/git"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/git.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/git.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/git"
+      - "C:/Program Files/dotnet/git.com"
+      - "C:/Program Files/dotnet/git.exe"
+      - "C:/Program Files/dotnet/git"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/git.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/git.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/Downloads/platform-tools-latest-windows/platform-tools/git"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/git.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/git.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/git"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/git.com"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/git.exe"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/git"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/git.com"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/git.exe"
+      - "C:/Program Files (x86)/ePapyrus/Papyrus-PlugIn-web/Addins/git"
+      - "C:/Program Files/Java/jdk-23/bin/git.com"
+      - "C:/Program Files/Java/jdk-23/bin/git.exe"
+      - "C:/Program Files/Java/jdk-23/bin/git"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/git.com"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/git.exe"
+      - "C:/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/git"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/git.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/git.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/git"
+      - "C:/Program Files/CMake/bin/git.com"
+      - "C:/Program Files/CMake/bin/git.exe"
+      - "C:/Program Files/CMake/bin/git"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/git.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/git.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Microsoft/WindowsApps/git"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/git.com"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/git.exe"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA 2024.3.2.2/bin/git"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/git.com"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/git.exe"
+      - "C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.2.2/bin/git"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/git.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/git.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Programs/Microsoft VS Code/bin/git"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/git.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/git.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/GitHubDesktop/bin/git"
+      - "C:/Program Files/bin/git.com"
+      - "C:/Program Files/bin/git.exe"
+      - "C:/Program Files/bin/git"
+      - "C:/Program Files/sbin/git.com"
+      - "C:/Program Files/sbin/git.exe"
+      - "C:/Program Files/sbin/git"
+      - "C:/Program Files/git.com"
+      - "C:/Program Files/git.exe"
+      - "C:/Program Files/git"
+      - "C:/Program Files (x86)/bin/git.com"
+      - "C:/Program Files (x86)/bin/git.exe"
+      - "C:/Program Files (x86)/bin/git"
+      - "C:/Program Files (x86)/sbin/git.com"
+      - "C:/Program Files (x86)/sbin/git.exe"
+      - "C:/Program Files (x86)/sbin/git"
+      - "C:/Program Files (x86)/git.com"
+      - "C:/Program Files (x86)/git.exe"
+      - "C:/Program Files (x86)/git"
+      - "C:/Program Files/CMake/bin/git.com"
+      - "C:/Program Files/CMake/bin/git.exe"
+      - "C:/Program Files/CMake/bin/git"
+      - "C:/Program Files/CMake/sbin/git.com"
+      - "C:/Program Files/CMake/sbin/git.exe"
+      - "C:/Program Files/CMake/sbin/git"
+      - "C:/Program Files/CMake/git.com"
+      - "C:/Program Files/CMake/git.exe"
+      - "C:/Program Files/CMake/git"
+      - "C:/Program Files (x86)/EASTL/bin/git.com"
+      - "C:/Program Files (x86)/EASTL/bin/git.exe"
+      - "C:/Program Files (x86)/EASTL/bin/git"
+      - "C:/Program Files (x86)/EASTL/sbin/git.com"
+      - "C:/Program Files (x86)/EASTL/sbin/git.exe"
+      - "C:/Program Files (x86)/EASTL/sbin/git"
+      - "C:/Program Files (x86)/EASTL/git.com"
+      - "C:/Program Files (x86)/EASTL/git.exe"
+      - "C:/Program Files (x86)/EASTL/git"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Atlassian/SourceTree/git_local/bin/git.com"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Atlassian/SourceTree/git_local/bin/git.exe"
+      - "C:/Users/\uae40\ubbfc\uc7ac/AppData/Local/Atlassian/SourceTree/git_local/bin/git"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\bin"
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\libnvvp"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\Downloads\\platform-tools-latest-windows\\platform-tools\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web\\Addins"
+        - "C:\\Program Files\\Java\\jdk-23\\bin"
+        - "C:\\Program Files\\NVIDIA Corporation\\Nsight Compute 2025.1.1\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.2.2\\bin"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2024.3.2.2\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\GitHubDesktop\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/EASTL"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/EASTL"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FindGit.cmake:97 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake:1874 (find_package)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake:1609 (__FetchContent_populateSubbuild)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake:2145:EVAL:2 (__FetchContent_doPopulation)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake:2145 (cmake_language)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake:2384 (__FetchContent_Populate)"
+      - "CMakeLists.txt:80 (FetchContent_MakeAvailable)"
+    mode: "program"
+    variable: "GIT_EXECUTABLE"
+    description: "Git command line client"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "git.cmd"
+      - "git"
+    candidate_directories:
+      - "C:/Program Files/bin/Git/cmd/"
+      - "C:/Program Files/bin/Git/bin/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/Git/cmd/"
+      - "C:/Program Files/sbin/Git/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Git/bin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/Git/cmd/"
+      - "C:/Program Files (x86)/bin/Git/bin/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/Git/cmd/"
+      - "C:/Program Files (x86)/sbin/Git/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/Git/cmd/"
+      - "C:/Program Files (x86)/Git/bin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Program Files/CMake/bin/Git/cmd/"
+      - "C:/Program Files/CMake/bin/Git/bin/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/CMake/sbin/Git/cmd/"
+      - "C:/Program Files/CMake/sbin/Git/bin/"
+      - "C:/Program Files/CMake/sbin/"
+      - "C:/Program Files/CMake/Git/cmd/"
+      - "C:/Program Files/CMake/Git/bin/"
+      - "C:/Program Files/CMake/"
+      - "C:/Program Files (x86)/EASTL/bin/Git/cmd/"
+      - "C:/Program Files (x86)/EASTL/bin/Git/bin/"
+      - "C:/Program Files (x86)/EASTL/bin/"
+      - "C:/Program Files (x86)/EASTL/sbin/Git/cmd/"
+      - "C:/Program Files (x86)/EASTL/sbin/Git/bin/"
+      - "C:/Program Files (x86)/EASTL/sbin/"
+      - "C:/Program Files (x86)/EASTL/Git/cmd/"
+      - "C:/Program Files (x86)/EASTL/Git/bin/"
+      - "C:/Program Files (x86)/EASTL/"
+    searched_directories:
+      - "C:/Program Files/bin/Git/cmd/git.cmd.com"
+      - "C:/Program Files/bin/Git/cmd/git.cmd.exe"
+      - "C:/Program Files/bin/Git/cmd/git.cmd"
+      - "C:/Program Files/bin/Git/bin/git.cmd.com"
+      - "C:/Program Files/bin/Git/bin/git.cmd.exe"
+      - "C:/Program Files/bin/Git/bin/git.cmd"
+      - "C:/Program Files/bin/git.cmd.com"
+      - "C:/Program Files/bin/git.cmd.exe"
+      - "C:/Program Files/bin/git.cmd"
+      - "C:/Program Files/sbin/Git/cmd/git.cmd.com"
+      - "C:/Program Files/sbin/Git/cmd/git.cmd.exe"
+      - "C:/Program Files/sbin/Git/cmd/git.cmd"
+      - "C:/Program Files/sbin/Git/bin/git.cmd.com"
+      - "C:/Program Files/sbin/Git/bin/git.cmd.exe"
+      - "C:/Program Files/sbin/Git/bin/git.cmd"
+      - "C:/Program Files/sbin/git.cmd.com"
+      - "C:/Program Files/sbin/git.cmd.exe"
+      - "C:/Program Files/sbin/git.cmd"
+      - "C:/Program Files/Git/cmd/git.cmd.com"
+      - "C:/Program Files/Git/cmd/git.cmd.exe"
+      - "C:/Program Files/Git/cmd/git.cmd"
+      - "C:/Program Files/Git/bin/git.cmd.com"
+      - "C:/Program Files/Git/bin/git.cmd.exe"
+      - "C:/Program Files/Git/bin/git.cmd"
+      - "C:/Program Files/git.cmd.com"
+      - "C:/Program Files/git.cmd.exe"
+      - "C:/Program Files/git.cmd"
+      - "C:/Program Files (x86)/bin/Git/cmd/git.cmd.com"
+      - "C:/Program Files (x86)/bin/Git/cmd/git.cmd.exe"
+      - "C:/Program Files (x86)/bin/Git/cmd/git.cmd"
+      - "C:/Program Files (x86)/bin/Git/bin/git.cmd.com"
+      - "C:/Program Files (x86)/bin/Git/bin/git.cmd.exe"
+      - "C:/Program Files (x86)/bin/Git/bin/git.cmd"
+      - "C:/Program Files (x86)/bin/git.cmd.com"
+      - "C:/Program Files (x86)/bin/git.cmd.exe"
+      - "C:/Program Files (x86)/bin/git.cmd"
+      - "C:/Program Files (x86)/sbin/Git/cmd/git.cmd.com"
+      - "C:/Program Files (x86)/sbin/Git/cmd/git.cmd.exe"
+      - "C:/Program Files (x86)/sbin/Git/cmd/git.cmd"
+      - "C:/Program Files (x86)/sbin/Git/bin/git.cmd.com"
+      - "C:/Program Files (x86)/sbin/Git/bin/git.cmd.exe"
+      - "C:/Program Files (x86)/sbin/Git/bin/git.cmd"
+      - "C:/Program Files (x86)/sbin/git.cmd.com"
+      - "C:/Program Files (x86)/sbin/git.cmd.exe"
+      - "C:/Program Files (x86)/sbin/git.cmd"
+      - "C:/Program Files (x86)/Git/cmd/git.cmd.com"
+      - "C:/Program Files (x86)/Git/cmd/git.cmd.exe"
+      - "C:/Program Files (x86)/Git/cmd/git.cmd"
+      - "C:/Program Files (x86)/Git/bin/git.cmd.com"
+      - "C:/Program Files (x86)/Git/bin/git.cmd.exe"
+      - "C:/Program Files (x86)/Git/bin/git.cmd"
+      - "C:/Program Files (x86)/git.cmd.com"
+      - "C:/Program Files (x86)/git.cmd.exe"
+      - "C:/Program Files (x86)/git.cmd"
+      - "C:/Program Files/CMake/bin/Git/cmd/git.cmd.com"
+      - "C:/Program Files/CMake/bin/Git/cmd/git.cmd.exe"
+      - "C:/Program Files/CMake/bin/Git/cmd/git.cmd"
+      - "C:/Program Files/CMake/bin/Git/bin/git.cmd.com"
+      - "C:/Program Files/CMake/bin/Git/bin/git.cmd.exe"
+      - "C:/Program Files/CMake/bin/Git/bin/git.cmd"
+      - "C:/Program Files/CMake/bin/git.cmd.com"
+      - "C:/Program Files/CMake/bin/git.cmd.exe"
+      - "C:/Program Files/CMake/bin/git.cmd"
+      - "C:/Program Files/CMake/sbin/Git/cmd/git.cmd.com"
+      - "C:/Program Files/CMake/sbin/Git/cmd/git.cmd.exe"
+      - "C:/Program Files/CMake/sbin/Git/cmd/git.cmd"
+      - "C:/Program Files/CMake/sbin/Git/bin/git.cmd.com"
+      - "C:/Program Files/CMake/sbin/Git/bin/git.cmd.exe"
+      - "C:/Program Files/CMake/sbin/Git/bin/git.cmd"
+      - "C:/Program Files/CMake/sbin/git.cmd.com"
+      - "C:/Program Files/CMake/sbin/git.cmd.exe"
+      - "C:/Program Files/CMake/sbin/git.cmd"
+      - "C:/Program Files/CMake/Git/cmd/git.cmd.com"
+      - "C:/Program Files/CMake/Git/cmd/git.cmd.exe"
+      - "C:/Program Files/CMake/Git/cmd/git.cmd"
+      - "C:/Program Files/CMake/Git/bin/git.cmd.com"
+      - "C:/Program Files/CMake/Git/bin/git.cmd.exe"
+      - "C:/Program Files/CMake/Git/bin/git.cmd"
+      - "C:/Program Files/CMake/git.cmd.com"
+      - "C:/Program Files/CMake/git.cmd.exe"
+      - "C:/Program Files/CMake/git.cmd"
+      - "C:/Program Files (x86)/EASTL/bin/Git/cmd/git.cmd.com"
+      - "C:/Program Files (x86)/EASTL/bin/Git/cmd/git.cmd.exe"
+      - "C:/Program Files (x86)/EASTL/bin/Git/cmd/git.cmd"
+      - "C:/Program Files (x86)/EASTL/bin/Git/bin/git.cmd.com"
+      - "C:/Program Files (x86)/EASTL/bin/Git/bin/git.cmd.exe"
+      - "C:/Program Files (x86)/EASTL/bin/Git/bin/git.cmd"
+      - "C:/Program Files (x86)/EASTL/bin/git.cmd.com"
+      - "C:/Program Files (x86)/EASTL/bin/git.cmd.exe"
+      - "C:/Program Files (x86)/EASTL/bin/git.cmd"
+      - "C:/Program Files (x86)/EASTL/sbin/Git/cmd/git.cmd.com"
+      - "C:/Program Files (x86)/EASTL/sbin/Git/cmd/git.cmd.exe"
+      - "C:/Program Files (x86)/EASTL/sbin/Git/cmd/git.cmd"
+      - "C:/Program Files (x86)/EASTL/sbin/Git/bin/git.cmd.com"
+      - "C:/Program Files (x86)/EASTL/sbin/Git/bin/git.cmd.exe"
+      - "C:/Program Files (x86)/EASTL/sbin/Git/bin/git.cmd"
+      - "C:/Program Files (x86)/EASTL/sbin/git.cmd.com"
+      - "C:/Program Files (x86)/EASTL/sbin/git.cmd.exe"
+      - "C:/Program Files (x86)/EASTL/sbin/git.cmd"
+      - "C:/Program Files (x86)/EASTL/Git/cmd/git.cmd.com"
+      - "C:/Program Files (x86)/EASTL/Git/cmd/git.cmd.exe"
+      - "C:/Program Files (x86)/EASTL/Git/cmd/git.cmd"
+      - "C:/Program Files (x86)/EASTL/Git/bin/git.cmd.com"
+      - "C:/Program Files (x86)/EASTL/Git/bin/git.cmd.exe"
+      - "C:/Program Files (x86)/EASTL/Git/bin/git.cmd"
+      - "C:/Program Files (x86)/EASTL/git.cmd.com"
+      - "C:/Program Files (x86)/EASTL/git.cmd.exe"
+      - "C:/Program Files (x86)/EASTL/git.cmd"
+      - "C:/Program Files/bin/Git/cmd/git.com"
+      - "C:/Program Files/bin/Git/cmd/git.exe"
+      - "C:/Program Files/bin/Git/cmd/git"
+      - "C:/Program Files/bin/Git/bin/git.com"
+      - "C:/Program Files/bin/Git/bin/git.exe"
+      - "C:/Program Files/bin/Git/bin/git"
+      - "C:/Program Files/bin/git.com"
+      - "C:/Program Files/bin/git.exe"
+      - "C:/Program Files/bin/git"
+      - "C:/Program Files/sbin/Git/cmd/git.com"
+      - "C:/Program Files/sbin/Git/cmd/git.exe"
+      - "C:/Program Files/sbin/Git/cmd/git"
+      - "C:/Program Files/sbin/Git/bin/git.com"
+      - "C:/Program Files/sbin/Git/bin/git.exe"
+      - "C:/Program Files/sbin/Git/bin/git"
+      - "C:/Program Files/sbin/git.com"
+      - "C:/Program Files/sbin/git.exe"
+      - "C:/Program Files/sbin/git"
+      - "C:/Program Files/Git/cmd/git.com"
+    found: "C:/Program Files/Git/cmd/git.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\bin"
+        - "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.8\\libnvvp"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\Downloads\\platform-tools-latest-windows\\platform-tools\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web"
+        - "C:\\Program Files (x86)\\ePapyrus\\Papyrus-PlugIn-web\\Addins"
+        - "C:\\Program Files\\Java\\jdk-23\\bin"
+        - "C:\\Program Files\\NVIDIA Corporation\\Nsight Compute 2025.1.1\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.2.2\\bin"
+        - "C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2024.3.2.2\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\\uae40\ubbfc\uc7ac\\AppData\\Local\\GitHubDesktop\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/EASTL"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/EASTL"
+...

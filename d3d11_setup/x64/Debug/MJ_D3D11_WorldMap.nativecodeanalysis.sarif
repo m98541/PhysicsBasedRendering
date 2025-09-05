@@ -1,0 +1,493 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "'Map::MapObject::mBoxVolumeTree' 변수가 초기화되지 않았습니다. 항상 멤버 변수를 초기화하세요(type.6)."
+          },
+          "analysisTarget": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/mj_d3d11_worldmap.cpp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/directx_practice/d3d11_setup/d3d11_setup/MJ_D3D11_WorldMap.cpp"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 12
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Map::MapObject::{ctor}",
+                  "decoratedName": "??0MapObject@Map@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Map::MapObject::mBoxVolumeTree"
+          }
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "MSVC Code Analysis",
+          "version": "14.44.35211.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/mj_d3d11_worldmap.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "a3e8fa5e659ddf71f076f0b835fd3d80f175dc4ea31920ff3839ec63a5921b00"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/sort.h"
+          },
+          "hashes": {
+            "sha-256": "196a019f108006be0341a6a804f27c16b3312d21bc6f295777ca04c96054f594"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/config.h"
+          },
+          "hashes": {
+            "sha-256": "2ee119ef4570fba8fe6d20a24b6765ed6a3ca01ef4ed2c11ac610c000ab8b4ec"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/eabase.h"
+          },
+          "hashes": {
+            "sha-256": "c8d0e6de399e7599562bd626199e0e97ae2880c1c0629b52c0217b177be0cc5b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/config/eacompiler.h"
+          },
+          "hashes": {
+            "sha-256": "410470043e59fc2cbcf07482b7609125905a59a2f9b63492d22249541b338c8d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/config/eaplatform.h"
+          },
+          "hashes": {
+            "sha-256": "d2c4cdeb2cbffd5840752a813eff43dbbc5a528e22b5cb84be11014b6fcdad7b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/config/eacompilertraits.h"
+          },
+          "hashes": {
+            "sha-256": "e87d41bccd2d83eca902178f6bc92c16a8d171cdb7abbac3735773a8853ad2df"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/version.h"
+          },
+          "hashes": {
+            "sha-256": "5e1345cf24f8eec5c991556b29b599ab3201fa5b56f3919fc6c56b848aeb0d30"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/eaunits.h"
+          },
+          "hashes": {
+            "sha-256": "eafd913f1a00be5ad2001d029ee9c029443f01723e17a906c15f124cfaba5564"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/int128.h"
+          },
+          "hashes": {
+            "sha-256": "c5cc92db0884f65fe5732f947f9c4fd747e4aa3122d11e95aa5f30a35edb8c70"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/eadeprecated.h"
+          },
+          "hashes": {
+            "sha-256": "6da80575cc4bdf897a3f8eccbb57ed55fe22d63da62090c349d26ec13eca6101"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/eahave.h"
+          },
+          "hashes": {
+            "sha-256": "debffb972aa0966b01edbcd01b763ad1910008edbe09c005ca0aba9b79ccea34"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/move_help.h"
+          },
+          "hashes": {
+            "sha-256": "1e88b1aeab3edd657c20c01cd3acabc75b7dcaa408cb89316818cb24b09c90d4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/type_traits.h"
+          },
+          "hashes": {
+            "sha-256": "7f3f1e8131134cadb3f886725d60baa4b8587c37a22e9a22ed16a0eb8835bd0c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/type_fundamental.h"
+          },
+          "hashes": {
+            "sha-256": "f01e4540d4b59611e7d03c4ff9f0b038fdc19b88321fb2187096dcae91d8b8d7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/bin/_deps/eabase-src/include/common/eabase/nullptr.h"
+          },
+          "hashes": {
+            "sha-256": "9017f9ffba213e9a48e7e839f5b5a4bf1a50252ef3a7e265f7b3005f7b7a13e6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/type_transformations.h"
+          },
+          "hashes": {
+            "sha-256": "e9b0e19313be1c0035b93fe6cc582d1a5081bd11c1873c3e403dd21530c4bac3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/type_void_t.h"
+          },
+          "hashes": {
+            "sha-256": "03354c48d9057c4b5b96aca7d0f727b3e9b2fb8628de8543402cf4e830c4aed4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/type_properties.h"
+          },
+          "hashes": {
+            "sha-256": "4b2df92bd287c85290be0ed86ccde335bfa28a5d5e948fc28c4cf30277526878"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/type_compound.h"
+          },
+          "hashes": {
+            "sha-256": "c197c57e29da14ea6a106c99c5a2508a8cb05d627ba6ac649643b98b37bfd6e0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/type_pod.h"
+          },
+          "hashes": {
+            "sha-256": "a3ec5a1ecde6f0106f8d27b66e0fe8150ddfaaccacca318239f6771a27310edb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/type_detected.h"
+          },
+          "hashes": {
+            "sha-256": "00229cd2b5a9a19bb4aead2664028904db4b94f79ab5f76f9da5654edab4930d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/iterator.h"
+          },
+          "hashes": {
+            "sha-256": "ec30e7416930a03b3bb346a522542f846b05232064f0cee29a3c03d18d126f47"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/memory_base.h"
+          },
+          "hashes": {
+            "sha-256": "e2c6e8d9591334012109ba676d6a63d2904871a29c59da7226f8f06c61ab9d80"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/initializer_list.h"
+          },
+          "hashes": {
+            "sha-256": "fb31bb15a9baedbb2991628892afe935ebbeae1693b91c4c63f111c04c0dec75"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/memory.h"
+          },
+          "hashes": {
+            "sha-256": "fd6376f2abd16aee53bd53abae91b31c0c3b24eee96277ac96c04e161f7de2d6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/pair_fwd_decls.h"
+          },
+          "hashes": {
+            "sha-256": "378bb2bd9bba4f453e14275036975bdf021a2a92b87cd77042a821dbf6bb9832"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/functional_base.h"
+          },
+          "hashes": {
+            "sha-256": "86346bc629e271549d3b10c02262259562019092b5457bd2b7710899476fcc1c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/algorithm.h"
+          },
+          "hashes": {
+            "sha-256": "2033da7b3c22a1e5909392495890fae7ca04de248ac56208099a0972245cd219"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/copy_help.h"
+          },
+          "hashes": {
+            "sha-256": "9b36348d515e0a08464650c2bdbc8389f11a7fc7a7453627c0dd9f9f0db7a828"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/fill_help.h"
+          },
+          "hashes": {
+            "sha-256": "231da8c9abf7c7e6c2b022a35c4ecb57f21b07c3ef624a2ea90133af95b6e355"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/functional.h"
+          },
+          "hashes": {
+            "sha-256": "4ddf5820587ed016824270af81b58ae33a3554246a429e31f2b531a2a1ba67bf"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/mem_fn.h"
+          },
+          "hashes": {
+            "sha-256": "52ce4ca77f2c535f5b3d8fe0cdbd1803432ab39be09ca858ba555573d3f0c359"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/function.h"
+          },
+          "hashes": {
+            "sha-256": "34075ec93d5ab1c68a12285ebb142f2a0cfefa5a8999c096e1d55b5155561819"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/function_detail.h"
+          },
+          "hashes": {
+            "sha-256": "bf42c1590b531afbfe14ef69a70f385d0f935b961316128fa7f8390ecc4d1a74"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/function_help.h"
+          },
+          "hashes": {
+            "sha-256": "351d82d0994df6d7dbc6fcd6a94eb5f5e390a409fcc5b69eaa686cf7dfd50e5e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/utility.h"
+          },
+          "hashes": {
+            "sha-256": "158c115975b0f5015c36a1345b8cbc2485b38c33c32b438b3c83058c6be6fc80"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/numeric_limits.h"
+          },
+          "hashes": {
+            "sha-256": "682b9249d9a3c1fc645c6eb8ebfcd4d581c3ee69cfa6a7e33130e8424569db10"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/compare.h"
+          },
+          "hashes": {
+            "sha-256": "062d6cda1bf0ec2f84f502bf84c9ac17286b4f9d7d0668ff7cb4bdeaa385903a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/meta.h"
+          },
+          "hashes": {
+            "sha-256": "50e97daba5b95622344d6edd9a339c235729ed91a4174718035adf6678c434c7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/integer_sequence.h"
+          },
+          "hashes": {
+            "sha-256": "8b05850694864603836249a2911380593a2d81c67c8d8d582c36b32a1593866d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/tuple_fwd_decls.h"
+          },
+          "hashes": {
+            "sha-256": "b651f55e6eb2f8012011dba22ef74b1295b8609d9ce178b28b9586c3007f5eaf"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/in_place_t.h"
+          },
+          "hashes": {
+            "sha-256": "24bfec0808e8cd752fcac7c39cad004760b4551fa8514d3dc7de0c350c3eabfa"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/internal/piecewise_construct_t.h"
+          },
+          "hashes": {
+            "sha-256": "9609dc789588c161c039f28ba2940848180c736bbd10305e800774ba27f0323e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/allocator.h"
+          },
+          "hashes": {
+            "sha-256": "0fbb375809e677bba6412ed43415479df4700ecfcff0c3fdc3c13cf1cf12fe30"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/random.h"
+          },
+          "hashes": {
+            "sha-256": "645b826a907b93d2e782c2a852ab25996cc0973e31fd378825c3a49555f8ba74"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/heap.h"
+          },
+          "hashes": {
+            "sha-256": "6d10da31165d610c7df2205580b70c470f9cc126ef9c579f80a981c02562110a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/vector.h"
+          },
+          "hashes": {
+            "sha-256": "44437034cc6689ef2bf837d39cd9d823b788d36d9942d7708157a0f328f837be"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/bonus/compressed_pair.h"
+          },
+          "hashes": {
+            "sha-256": "1f189874ed277c74d216aa6b5d23796d57ff14e692dda5bd11bb372095e77034"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/eastl-master/include/eastl/bonus/call_traits.h"
+          },
+          "hashes": {
+            "sha-256": "1bfe77a1be31c2d2a928b13e7e7fcba6e59c08d8249b2fd148d4e8a5e03916f0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/mj_d3d11_worldmap.h"
+          },
+          "hashes": {
+            "sha-256": "c9e2f95900698e2b133c3bf9ef2da2c5c3ae3240d129b201ea01e99216c41fd8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/vertextype.h"
+          },
+          "hashes": {
+            "sha-256": "6ff12071f558b7e511bf8a98b15487441d034d0259212914d5c858030fdacb1b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/mj_d3d11_bvtree.h"
+          },
+          "hashes": {
+            "sha-256": "d6276f252c8b4764d6d77a5d7a48ad2e87e9a68401a64e8e5296413d44b53ffe"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///e:/directx_practice/d3d11_setup/d3d11_setup/mj_d3d11_collision.h"
+          },
+          "hashes": {
+            "sha-256": "5ed609e61d986a0ef882ee7ec06185ff8146960a67500d3f61a9e5cb2c4a5a93"
+          }
+        }
+      ]
+    }
+  ]
+}

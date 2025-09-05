@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"E:/directx_practice/d3d11_setup/EASTL-master/bin/cmake_install.cmake",
+		"E:/directx_practice/d3d11_setup/EASTL-master/bin/_deps/eabase-build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
