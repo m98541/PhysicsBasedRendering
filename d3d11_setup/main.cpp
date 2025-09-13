@@ -86,7 +86,7 @@ MJD3D11OBJ_HANDLE_t* objHandle;
 BasicCam* singleCam;
 BasicCam* singleNextCam;
 
-constexpr float gravity = 0.5F;
+constexpr float gravity = 0.F;
 
 int mouseMoveOn;
 XMVECTOR mouseMoveVector;
@@ -100,8 +100,6 @@ float camJumpSpeed = 0.5F;
 
 ULONGLONG jumpStartTick;
 ULONGLONG jumpCurTick;
-
-
 
 struct MVP
 {
@@ -441,7 +439,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			XMVECTOR remainMove = move;
 
 			
-			for (int i = 0; i < 5; i++)
+			for (int i = 0; i < 3; i++)
 			{
 				int next = 0;
 				bool swpTest = testMapObj->IsMapSwpCollisionDetect(collider, nextColider.Collider , swpHitSet);
@@ -468,8 +466,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 				{
 					break;
 				}
-				
-
+	
 				for (int j = 0; j < swpHitSet.size(); j++)
 				{
 
@@ -479,7 +476,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 						//printf("°ãÄ§ normal : %f %f %f %f \n", swpHitSet[0].normal.m128_f32[0], swpHitSet[0].normal.m128_f32[1], swpHitSet[0].normal.m128_f32[2], swpHitSet[0].normal.m128_f32[3]);
 						singleNextCam->Element.pos = singleNextCam->Element.pos + swpHitSet[j].normal * swpHitSet[j].penetrationDepth;
 						singleNextCam->Element.at = singleNextCam->Element.at + swpHitSet[j].normal * swpHitSet[j].penetrationDepth;
-					
+
 
 						nextColider.Collider.head = singleNextCam->Element.pos;
 						nextColider.Collider.foot = nextColider.Collider.head;
@@ -488,7 +485,10 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 						remainMove = singleNextCam->Element.pos - singleCam->Element.pos;
 					}
 				}
+				
 			}
+
+			
 
 
 
@@ -588,7 +588,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		case 'B':
 		case 'b':
-			BoxDrawDepth = (BoxDrawDepth + 1) % 10;
+			BoxDrawDepth = (BoxDrawDepth + 1) % 15;
 			break;
 		case VK_SPACE:
 			if(!camJumpState)

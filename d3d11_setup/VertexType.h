@@ -12,6 +12,11 @@ typedef struct VERTEX_S
 
 }VERTEX_T;
 
+typedef struct TRIPLANE_S
+{
+	DirectX::XMFLOAT4 Vertex[3];
+	DirectX::XMFLOAT4 Norm;
+}TRIPLANE_T;
 
 typedef struct TRIPOLY_S
 {
@@ -20,5 +25,8 @@ typedef struct TRIPOLY_S
 	DirectX::XMVECTOR MaxCoord;
 	DirectX::XMVECTOR MinCoord;
 }TRIPOLY_T;
+
+
+
 
 #endif // !VERTEXTYPE_H
