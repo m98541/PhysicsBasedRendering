@@ -27,6 +27,7 @@ MJ_D3D11_ 다음의 표시가 붙은 경우(비표준 라이브러리(?)) directX11 라이브러리에 �
 #include "MJ_D3D11_BasicCam.h"
 #include "MJ_D3D11_Collision.h"
 #include "MJ_D3D11_WorldMap.h"
+#include "MJ_D3D11_HalfEdge.h"
 
 #define SCREEN_SIZE_WIDTH 1920
 #define SCREEN_SIZE_HEIGHT 1080
@@ -308,7 +309,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 	VERTEX_T* collVertexBuffer = (VERTEX_T*)malloc(sizeof(VERTEX_T) * collTestObjBuf->objectBufferLen);
 
-	XMMATRIX tempMat = { {1.F, 0.F , 0.F , 0.F} , {0.F, 0.F , -1.F , 0.F} ,  {0.F, 1.F , 0.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
+	XMMATRIX tempMat = { {1.F, 0.F , 0.F , 0.F} , {0.F, 0.F , -1.F , 0.F} ,  {0.F, 1.F ,0.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
 	tempMat = XMMatrixTranspose(tempMat);
 
 	XMFLOAT4* testMapBuffer = (XMFLOAT4*)malloc(sizeof(XMFLOAT4) * collTestObjBuf->objectBufferLen);
@@ -338,8 +339,8 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	ClientToScreen(hWnd, &initCursor);
 	SetCursorPos(initCursor.x, initCursor.y);
 	mouseMoveVector = {0.F, 0.F, 0.F, 0.F};
-	float radius = 10.0F;
-	float height = 50.0F;
+	float radius = 30.F;
+	float height = 30.F;
 	CAPSULE_T initCapsule = {
 		{0.F , height + radius, 0.F, 1.F},
 		{0.F , radius , 0.F , 1.F},
@@ -363,6 +364,100 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	ULONGLONG startTick = GetTickCount64();
 	ULONGLONG curTick;
 
+
+
+	XMVECTOR testVbuf[] = {
+		{0.F , 0.F , 0.F , 1.F},
+		{0.5F , 0.5F , 0.F , 1.F},
+		{0.2F , 1.F , 0.F , 1.F},
+		{-0.2F , 1.F , 0.F , 1.F},
+		{-0.5F , 0.5F , 0.F , 1.F},
+	};
+
+	
+
+	unsigned int testIbuf[] = {
+		0,1,2,
+		0,2,3,
+		0,3,4
+	};
+
+
+	HalfEdge::HE_SET_T testHESet;
+	printf("!");
+	HalfEdge::CreateHESetFromVertexBuffer(testVbuf,5, testIbuf,9,&testHESet);
+	printf("!");
+
+	for (int i = 0; i < 9; i++)
+	{
+		printf("%d :edge point : %f %f %f ->  %f %f %f \n", i,
+			testHESet.edgeSet[i].origin.m128_f32[0],
+			testHESet.edgeSet[i].origin.m128_f32[1],
+			testHESet.edgeSet[i].origin.m128_f32[2],
+			testHESet.edgeSet[i].vert->pos.m128_f32[0],
+			testHESet.edgeSet[i].vert->pos.m128_f32[1],
+			testHESet.edgeSet[i].vert->pos.m128_f32[2]
+			);
+		if (testHESet.edgeSet[i].pair != nullptr)
+		{
+			printf("%d : edge point  : %f %f %f %f \n\n", i,
+				testHESet.edgeSet[i].pair->vert->pos.m128_f32[0],
+				testHESet.edgeSet[i].pair->vert->pos.m128_f32[1],
+				testHESet.edgeSet[i].pair->vert->pos.m128_f32[2],
+				testHESet.edgeSet[i].pair->vert->pos.m128_f32[3]);
+		}
+		else
+		{
+			printf("%d : edge pair is null \n", i);
+		}
+
+		printf("tri\n");
+		HalfEdge::HE_EDGE_T* tri = &testHESet.edgeSet[i];
+		for (int j = 0; j < 3; j++)
+		{
+			printf("%d : %f %f %f ->  %f %f %f \n", j,
+				tri->origin.m128_f32[0],
+				tri->origin.m128_f32[1],
+				tri->origin.m128_f32[2],
+				tri->vert->pos.m128_f32[0],
+				tri->vert->pos.m128_f32[1],
+				tri->vert->pos.m128_f32[2]
+			);
+			tri = tri->next;
+
+		}
+
+		HalfEdge::HE_VERT_T* vert = testHESet.edgeSet[i].next->next->vert;
+		printf("vert edge : %f %f %f ->  %f %f %f \n",
+			vert->pos.m128_f32[0],
+			vert->pos.m128_f32[1],
+			vert->pos.m128_f32[2],
+			vert->edge->vert->pos.m128_f32[0],
+			vert->edge->vert->pos.m128_f32[1],
+			vert->edge->vert->pos.m128_f32[2]
+		);
+		eastl::vector<HalfEdge::HE_FACE_T*> faceSet = HalfEdge::GetVertAdjFaces(vert);
+
+		for (int j = 0; j < faceSet.size(); j++)
+		{
+			printf("adj face : %f %f %f %f \n",
+				  faceSet[j]->edge->face->edge->vert->pos.m128_f32[0]
+				, faceSet[j]->edge->face->edge->vert->pos.m128_f32[1]
+				, faceSet[j]->edge->face->edge->vert->pos.m128_f32[2]
+				, faceSet[j]->edge->face->edge->vert->pos.m128_f32[3]);
+		}
+		
+
+		printf("\n");
+
+	}
+
+
+
+
+
+
+
 	while (true)
 	{		
 		
@@ -385,7 +480,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			curTick = GetTickCount64();
 			if (curTick - startTick > 1000)
 			{
-				printf("fps: %u \n", frameTick);
+				//printf("fps: %u \n", frameTick);
 				frameTick = 0;
 				startTick = curTick;
 			}
@@ -502,7 +597,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			D3D11_MAPPED_SUBRESOURCE mapped;
 
 
-			matrices.model = { {1.F, 0.F , 0.F , 0.F} , {0.F, 0.F , -1.F , 0.F} ,  {0.F, 1.F , 0.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
+			matrices.model = { {1.F, 0.F , 0.F , 0.F} , {0.F, 0.F , -1.F , 0.F} ,  {0.F, 1.F ,0.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
 			matrices.view = XMMatrixLookAtLH(singleCam->Element.pos, singleCam->Element.at, singleCam->Element.up);
 			matrices.proj = XMMatrixPerspectiveFovLH(XM_PIDIV4, 800.0F / 600.0F, 0.01F, 8000.F);
 
@@ -516,7 +611,8 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 			if (BoxViewMode)
 			{
-				matrices.model = { {1.F, 0.F , 0.F , 0.F} , {0.F, 1.F , 0.F , 0.F} ,  {0.F, 0.F , 1.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
+
+				matrices.model = { {1.F, 0.F , 0.F , 0.F} , {0.F, 0.F , -1.F , 0.F} ,  {0.F, 1.F ,0.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
 				matrices.view = XMMatrixLookAtLH(singleCam->Element.pos, singleCam->Element.at, singleCam->Element.up);
 				matrices.proj = XMMatrixPerspectiveFovLH(XM_PIDIV4, 800.0F / 600.0F, 0.01F, 8000.F);
 

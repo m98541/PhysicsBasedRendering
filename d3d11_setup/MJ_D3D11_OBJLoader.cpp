@@ -5,9 +5,6 @@
 #include <EASTL/array.h>
 #include <EASTL/vector.h>
 
-
-
-
 struct VertexCompare {
 	bool operator()(const VERTEX_T& lhs, const VERTEX_T& rhs) const {
 		// 위와 동일한 비교 로직
@@ -24,7 +21,7 @@ struct VertexCompare {
 		return lhs.textureIdx < rhs.textureIdx;
 	}
 
-	
+
 };
 
 
@@ -32,9 +29,9 @@ struct VertexCompare {
 void CreateSRVFromBMPFile(ID3D11Device* device, const char* fileName, UINT bmp_format, ID3D11ShaderResourceView** Texture_SRV);
 void CreateSRVArrayFromBMPFile(ID3D11Device* device, OBJFILE_BUFFER_T* objFileBuffer, UINT bmp_format, ID3D11ShaderResourceView** Texture_SRV);
 
-bool MJD3D11LoadOBJ(ID3D11Device* Dev,ID3D11DeviceContext* DevCon, ID3D10Blob* vsShader,  MJD3D11OBJ_HANDLE_t** ObjHandle, const char* FileName)
+bool MJD3D11LoadOBJ(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, ID3D10Blob* vsShader, MJD3D11OBJ_HANDLE_t** ObjHandle, const char* FileName)
 {
-	
+
 
 	D3D11_BUFFER_DESC vertexBufferDesc = {};
 	memset(&vertexBufferDesc, 0, sizeof(D3D11_BUFFER_DESC));
@@ -52,12 +49,12 @@ bool MJD3D11LoadOBJ(ID3D11Device* Dev,ID3D11DeviceContext* DevCon, ID3D10Blob* v
 
 	*ObjHandle = (MJD3D11OBJ_HANDLE_t*)malloc(sizeof(MJD3D11OBJ_HANDLE_t));
 
-	if (!ParseOBJFile(&objFileDesc , FileName))
+	if (!ParseOBJFile(&objFileDesc, FileName))
 	{
 		printf("file access fail \n");
 		return 0;
 	}
-	else 
+	else
 	{
 		printf("file parse success \n");
 
@@ -66,15 +63,15 @@ bool MJD3D11LoadOBJ(ID3D11Device* Dev,ID3D11DeviceContext* DevCon, ID3D10Blob* v
 	if (!ReadOBJFile(&objFileDesc, &objFileBuffer))
 	{
 		printf("file read fail \n");
-	
+
 		return 0;
 	}
 	else
 		printf("file read success \n");
-	
+
 
 	D3D11_SAMPLER_DESC samplerDesc;
-	ZeroMemory(&samplerDesc , sizeof(D3D11_SAMPLER_DESC));
+	ZeroMemory(&samplerDesc, sizeof(D3D11_SAMPLER_DESC));
 	samplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
 	samplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
 	samplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
@@ -82,7 +79,7 @@ bool MJD3D11LoadOBJ(ID3D11Device* Dev,ID3D11DeviceContext* DevCon, ID3D10Blob* v
 	samplerDesc.ComparisonFunc = D3D11_COMPARISON_NEVER;
 	samplerDesc.MinLOD = 0;
 	samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
-	
+
 
 
 	//일단 텍스처 bmp로 고정...결과는 봐야지..
@@ -92,9 +89,9 @@ bool MJD3D11LoadOBJ(ID3D11Device* Dev,ID3D11DeviceContext* DevCon, ID3D10Blob* v
 
 	(*ObjHandle)->textureResourceViewHandleArr = (ID3D11ShaderResourceView**)malloc(sizeof(ID3D11ShaderResourceView*) * 1);
 	// resource ready
-	CreateSRVArrayFromBMPFile(Dev,objFileBuffer,BMP_FORMAT_BGR, (*ObjHandle)->textureResourceViewHandleArr);
+	CreateSRVArrayFromBMPFile(Dev, objFileBuffer, BMP_FORMAT_BGR, (*ObjHandle)->textureResourceViewHandleArr);
 	Dev->CreateSamplerState(&samplerDesc, &(*ObjHandle)->samplerHandle);
-	DevCon->PSSetShaderResources(0,1, (*ObjHandle)->textureResourceViewHandleArr);
+	DevCon->PSSetShaderResources(0, 1, (*ObjHandle)->textureResourceViewHandleArr);
 	DevCon->PSSetSamplers(0, 1, &(*ObjHandle)->samplerHandle);
 
 	eastl::map<VERTEX_T, unsigned int, VertexCompare> uniqueVertexMap;//vertex 랑 tex 만
@@ -104,15 +101,15 @@ bool MJD3D11LoadOBJ(ID3D11Device* Dev,ID3D11DeviceContext* DevCon, ID3D10Blob* v
 
 	for (int i = 0; tempVertexBuffer != NULL && i < objFileBuffer->objectBufferLen; i++)
 	{
-		
+
 		memcpy(&tempVertexBuffer[i].pos, objFileBuffer->objectBuffer + i * objFileBuffer->objectBufferLineSize, sizeof(float) * 4);
-		
+
 		memcpy(&tempVertexBuffer[i].tex, objFileBuffer->objectBuffer + i * objFileBuffer->objectBufferLineSize + 4, sizeof(float) * 2);
 		// norm 과 vertex 일치
 		memcpy(&tempVertexBuffer[i].norm, objFileBuffer->objectBuffer + i * objFileBuffer->objectBufferLineSize + 6, sizeof(float) * 4);
 		tempVertexBuffer[i].textureIdx = objFileBuffer->mtlBuffer[objFileBuffer->materialIdxBuffer[i]].textureIdx;
-		
-		
+
+
 		tempVertexBuffer[i].norm.x = 0;
 		tempVertexBuffer[i].norm.y = 0;
 		tempVertexBuffer[i].norm.z = 0;
@@ -120,26 +117,27 @@ bool MJD3D11LoadOBJ(ID3D11Device* Dev,ID3D11DeviceContext* DevCon, ID3D10Blob* v
 		/*
 		tempVertexBuffer[i].tex.x = 0;
 		tempVertexBuffer[i].tex.y = 0;
-		*/
+
+	*/
 
 
 		key = tempVertexBuffer[i];
-		
+
 		if (uniqueVertexMap.count(key) == 0)
 		{
 			uniqueVertexMap[key] = uniqueVertexMapCount;
 			(*ObjHandle)->indexBuffer[i] = uniqueVertexMapCount;
-			
+
 			tempUniqueVertexSet.push_back(tempVertexBuffer[i]);
-			printf("%d || %d %f %f %f || %f %f || %f %f %f  ||%d\n", i , uniqueVertexMapCount,
+			printf("%d || %d %f %f %f || %f %f || %f %f %f  ||%d\n", i, uniqueVertexMapCount,
 				tempUniqueVertexSet[uniqueVertexMapCount].pos.x,
 				tempUniqueVertexSet[uniqueVertexMapCount].pos.y,
-				tempUniqueVertexSet[uniqueVertexMapCount].pos.z, 
+				tempUniqueVertexSet[uniqueVertexMapCount].pos.z,
 				tempUniqueVertexSet[uniqueVertexMapCount].tex.x,
-				tempUniqueVertexSet[uniqueVertexMapCount].tex.y, 
+				tempUniqueVertexSet[uniqueVertexMapCount].tex.y,
 				tempUniqueVertexSet[uniqueVertexMapCount].norm.x,
 				tempUniqueVertexSet[uniqueVertexMapCount].norm.y,
-				tempUniqueVertexSet[uniqueVertexMapCount].norm.z, 
+				tempUniqueVertexSet[uniqueVertexMapCount].norm.z,
 				tempUniqueVertexSet[uniqueVertexMapCount].textureIdx);
 			uniqueVertexMapCount++;
 		}
@@ -159,7 +157,7 @@ bool MJD3D11LoadOBJ(ID3D11Device* Dev,ID3D11DeviceContext* DevCon, ID3D10Blob* v
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	vertexBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 
-	Dev->CreateBuffer(&vertexBufferDesc, NULL , &(*ObjHandle)->vertexBufferHandle);
+	Dev->CreateBuffer(&vertexBufferDesc, NULL, &(*ObjHandle)->vertexBufferHandle);
 
 
 	indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
@@ -171,15 +169,15 @@ bool MJD3D11LoadOBJ(ID3D11Device* Dev,ID3D11DeviceContext* DevCon, ID3D10Blob* v
 	D3D11_SUBRESOURCE_DATA indexData;
 	indexData.pSysMem = (*ObjHandle)->indexBuffer;
 
-	Dev->CreateBuffer(&indexBufferDesc ,&indexData, &(*ObjHandle)->indexBufferHandle);
+	Dev->CreateBuffer(&indexBufferDesc, &indexData, &(*ObjHandle)->indexBufferHandle);
 
-	DevCon->IASetIndexBuffer((*ObjHandle)->indexBufferHandle , DXGI_FORMAT_R32_UINT, 0);
+	DevCon->IASetIndexBuffer((*ObjHandle)->indexBufferHandle, DXGI_FORMAT_R32_UINT, 0);
 
 
 	D3D11_MAPPED_SUBRESOURCE mappingSrc;
-	DevCon->Map((*ObjHandle)->vertexBufferHandle , NULL , D3D11_MAP_WRITE_DISCARD , NULL ,&mappingSrc);
+	DevCon->Map((*ObjHandle)->vertexBufferHandle, NULL, D3D11_MAP_WRITE_DISCARD, NULL, &mappingSrc);
 	memcpy(mappingSrc.pData, tempUniqueVertexSet.data(), sizeof(VERTEX_T) * tempUniqueVertexSet.size());
-	DevCon->Unmap((*ObjHandle)->vertexBufferHandle , NULL);
+	DevCon->Unmap((*ObjHandle)->vertexBufferHandle, NULL);
 
 	D3D11_INPUT_ELEMENT_DESC inputElement[4] = {
 		//0바이트 부터 
@@ -212,12 +210,12 @@ bool MJD3D11DrawOBJ(ID3D11DeviceContext* DevCon, MJD3D11OBJ_HANDLE_t* ObjHandle)
 	UINT stride = sizeof(VERTEX_T);
 	UINT offset = 0;
 
-	DevCon->IASetVertexBuffers(0 ,1 ,&ObjHandle->vertexBufferHandle,&stride,&offset);
+	DevCon->IASetVertexBuffers(0, 1, &ObjHandle->vertexBufferHandle, &stride, &offset);
 	DevCon->IASetIndexBuffer(ObjHandle->indexBufferHandle, DXGI_FORMAT_R32_UINT, 0);
 
-	DevCon->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	DevCon->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
 	int len = ObjHandle->groupSetLen;
-	DevCon->DrawIndexed(ObjHandle->indexBufferSize,0 , 0);
+	DevCon->DrawIndexed(ObjHandle->indexBufferSize, 0, 0);
 	//DevCon->Draw(ObjHandle->vertexCount, 0);
 	start = 0;
 
@@ -308,22 +306,22 @@ void CreateSRVArrayFromBMPFile(ID3D11Device* device, OBJFILE_BUFFER_T* objFileBu
 
 	for (int i = 0; i < objFileBuffer->textureImageNameLen; i++)
 	{
-		
-		imageArr_32bit[i] = (BYTE*)malloc( maxWidth * maxHeight * 4);
+
+		imageArr_32bit[i] = (BYTE*)malloc(maxWidth * maxHeight * 4);
 		for (int k = 0; k < maxHeight; k++)
 		{
-			int h_idx = (int)(((float)(k*textureImage[i].height) / maxHeight) );
+			int h_idx = (int)(((float)(k * textureImage[i].height) / maxHeight));
 			int srcRowOffset = h_idx * (textureImage[i].width * textureImage[i].format + textureImage[i].widthPadding);
 			int dstRowOffset = k * maxWidth * 4;
 
 			for (int j = 0; j < maxWidth; j++)
 			{
-					int w_idx = (int)(((float)(j*textureImage[i].width) / maxWidth));
-					imageArr_32bit[i][dstRowOffset + j * 4 + 0] = textureImage[i].data[srcRowOffset + w_idx * textureImage[i].format + 0];
-					imageArr_32bit[i][dstRowOffset + j * 4 + 1] = textureImage[i].data[srcRowOffset + w_idx * textureImage[i].format + 1];
-					imageArr_32bit[i][dstRowOffset + j * 4 + 2] = textureImage[i].data[srcRowOffset + w_idx * textureImage[i].format + 2];
-					imageArr_32bit[i][dstRowOffset + j * 4 + 3] = (bmp_format == BMP_FORMAT_BGR) ? 255 : textureImage[i].data[srcRowOffset + w_idx * textureImage[i].format + 3];
-				
+				int w_idx = (int)(((float)(j * textureImage[i].width) / maxWidth));
+				imageArr_32bit[i][dstRowOffset + j * 4 + 0] = textureImage[i].data[srcRowOffset + w_idx * textureImage[i].format + 0];
+				imageArr_32bit[i][dstRowOffset + j * 4 + 1] = textureImage[i].data[srcRowOffset + w_idx * textureImage[i].format + 1];
+				imageArr_32bit[i][dstRowOffset + j * 4 + 2] = textureImage[i].data[srcRowOffset + w_idx * textureImage[i].format + 2];
+				imageArr_32bit[i][dstRowOffset + j * 4 + 3] = (bmp_format == BMP_FORMAT_BGR) ? 255 : textureImage[i].data[srcRowOffset + w_idx * textureImage[i].format + 3];
+
 			}
 
 
@@ -345,14 +343,14 @@ void CreateSRVArrayFromBMPFile(ID3D11Device* device, OBJFILE_BUFFER_T* objFileBu
 	textureDesc.SampleDesc.Quality = 0;
 	textureDesc.Usage = D3D11_USAGE_DEFAULT;
 	textureDesc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
-	
+
 	textureDesc.CPUAccessFlags = 0;
 	textureDesc.MiscFlags = 0;
 
 	//texture2D 구조 생성
 	ID3D11Texture2D* pTexture2D = nullptr;
 	device->CreateTexture2D(&textureDesc, sourceArr_data, &pTexture2D);
-	
+
 	//SRV 생성 DirectX 에서는 view단위로???
 	D3D11_SHADER_RESOURCE_VIEW_DESC srv_desc = {};
 	srv_desc.Format = textureDesc.Format;

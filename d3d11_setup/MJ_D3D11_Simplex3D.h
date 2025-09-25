@@ -2,7 +2,6 @@
 #ifndef MJ_D3D11_SIMPLEX3D_H
 #define MJ_D3D11_SIMPLEX3D_H
 #include <DirectXMath.h>
-
 class Simpelx3D
 {
 public:

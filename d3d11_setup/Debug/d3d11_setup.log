@@ -1,116 +1,13 @@
-﻿  compilation object save succeeded; see E:\directx_practice\d3d11_setup\Debug\VertexShader.cso
-  BmpFileIO.cpp
-  main.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(12,1): warning C4005: 'DXGI_STATUS_OCCLUDED': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58160,1):
-  'DXGI_STATUS_OCCLUDED'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(13,1): warning C4005: 'DXGI_STATUS_CLIPPED': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58169,1):
-  'DXGI_STATUS_CLIPPED'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(14,1): warning C4005: 'DXGI_STATUS_NO_REDIRECTION': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58178,1):
-  'DXGI_STATUS_NO_REDIRECTION'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(15,1): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58187,1):
-  'DXGI_STATUS_NO_DESKTOP_ACCESS'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(16,1): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58196,1):
-  'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(17,1): warning C4005: 'DXGI_STATUS_MODE_CHANGED': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58205,1):
-  'DXGI_STATUS_MODE_CHANGED'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(18,1): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58214,1):
-  'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(21,1): warning C4005: 'DXGI_ERROR_INVALID_CALL': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58229,1):
-  'DXGI_ERROR_INVALID_CALL'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(22,1): warning C4005: 'DXGI_ERROR_NOT_FOUND': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58238,1):
-  'DXGI_ERROR_NOT_FOUND'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(23,1): warning C4005: 'DXGI_ERROR_MORE_DATA': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58247,1):
-  'DXGI_ERROR_MORE_DATA'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(24,1): warning C4005: 'DXGI_ERROR_UNSUPPORTED': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58256,1):
-  'DXGI_ERROR_UNSUPPORTED'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(25,1): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58265,1):
-  'DXGI_ERROR_DEVICE_REMOVED'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(26,1): warning C4005: 'DXGI_ERROR_DEVICE_HUNG': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58274,1):
-  'DXGI_ERROR_DEVICE_HUNG'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(27,1): warning C4005: 'DXGI_ERROR_DEVICE_RESET': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58284,1):
-  'DXGI_ERROR_DEVICE_RESET'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(28,1): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58293,1):
-  'DXGI_ERROR_WAS_STILL_DRAWING'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(29,1): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58303,1):
-  'DXGI_ERROR_FRAME_STATISTICS_DISJOINT'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(30,1): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58312,1):
-  'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(31,1): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58322,1):
-  'DXGI_ERROR_DRIVER_INTERNAL_ERROR'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(32,1): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58331,1):
-  'DXGI_ERROR_NONEXCLUSIVE'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(33,1): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58340,1):
-  'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(34,1): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58350,1):
-  'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED'의 이전 정의를 참조하십시오.
-  
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\dxgitype.h(35,1): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58359,1):
-  'DXGI_ERROR_REMOTE_OUTOFMEMORY'의 이전 정의를 참조하십시오.
-  
-E:\directx_practice\d3d11_setup\d3d11_setup\main.cpp(535,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  코드를 생성하고 있습니다...
-  d3d11_setup.vcxproj -> E:\directx_practice\d3d11_setup\Debug\d3d11_setup.exe
+﻿  MJ_D3D11_HalfEdge.cpp
+MJ_D3D11_Collision.obj : error LNK2001: 확인할 수 없는 외부 기호 "void __cdecl eastl::AssertionFailure(char const *)" (?AssertionFailure@eastl@@YAXPBD@Z)
+main.obj : error LNK2001: 확인할 수 없는 외부 기호 "void __cdecl eastl::AssertionFailure(char const *)" (?AssertionFailure@eastl@@YAXPBD@Z)
+MJ_D3D11_OBJLoader.obj : error LNK2001: 확인할 수 없는 외부 기호 "void __cdecl eastl::AssertionFailure(char const *)" (?AssertionFailure@eastl@@YAXPBD@Z)
+MJ_D3D11_HalfEdge.obj : error LNK2001: 확인할 수 없는 외부 기호 "void __cdecl eastl::AssertionFailure(char const *)" (?AssertionFailure@eastl@@YAXPBD@Z)
+MJ_D3D11_Simplex3D.obj : error LNK2001: 확인할 수 없는 외부 기호 "void __cdecl eastl::AssertionFailure(char const *)" (?AssertionFailure@eastl@@YAXPBD@Z)
+MJ_D3D11_ConvexHull.obj : error LNK2001: 확인할 수 없는 외부 기호 "void __cdecl eastl::AssertionFailure(char const *)" (?AssertionFailure@eastl@@YAXPBD@Z)
+MJ_D3D11_WorldMap.obj : error LNK2001: 확인할 수 없는 외부 기호 "void __cdecl eastl::AssertionFailure(char const *)" (?AssertionFailure@eastl@@YAXPBD@Z)
+MJ_D3D11_OBJLoader.obj : error LNK2019: "struct eastl::rbtree_node_base * __cdecl eastl::RBTreeIncrement(struct eastl::rbtree_node_base const *)" (?RBTreeIncrement@eastl@@YAPAUrbtree_node_base@1@PBU21@@Z)"public: struct eastl::rbtree_iterator<struct eastl::pair<struct VERTEX_S const ,unsigned int>,struct eastl::pair<struct VERTEX_S const ,unsigned int> *,struct eastl::pair<struct VERTEX_S const ,unsigned int> &> & __thiscall eastl::rbtree_iterator<struct eastl::pair<struct VERTEX_S const ,unsigned int>,struct eastl::pair<struct VERTEX_S const ,unsigned int> *,struct eastl::pair<struct VERTEX_S const ,unsigned int> &>::operator++(void)" (??E?$rbtree_iterator@U?$pair@$$CBUVERTEX_S@@I@eastl@@PAU12@AAU12@@eastl@@QAEAAU01@XZ) 함수에서 참조되는 확인할 수 없는 외부 기호
+MJ_D3D11_OBJLoader.obj : error LNK2019: "struct eastl::rbtree_node_base * __cdecl eastl::RBTreeDecrement(struct eastl::rbtree_node_base const *)" (?RBTreeDecrement@eastl@@YAPAUrbtree_node_base@1@PBU21@@Z)"protected: struct eastl::rbtree_node_base * __thiscall eastl::rbtree<struct VERTEX_S,struct eastl::pair<struct VERTEX_S const ,unsigned int>,struct VertexCompare,class eastl::allocator,struct eastl::use_first<struct eastl::pair<struct VERTEX_S const ,unsigned int> >,1,1>::DoGetKeyInsertionPositionUniqueKeys(bool &,struct VERTEX_S const &)" (?DoGetKeyInsertionPositionUniqueKeys@?$rbtree@UVERTEX_S@@U?$pair@$$CBUVERTEX_S@@I@eastl@@UVertexCompare@@Vallocator@3@U?$use_first@U?$pair@$$CBUVERTEX_S@@I@eastl@@@3@$00$00@eastl@@IAEPAUrbtree_node_base@2@AA_NABUVERTEX_S@@@Z) 함수에서 참조되는 확인할 수 없는 외부 기호
+MJ_D3D11_OBJLoader.obj : error LNK2019: "void __cdecl eastl::RBTreeInsert(struct eastl::rbtree_node_base *,struct eastl::rbtree_node_base *,struct eastl::rbtree_node_base *,enum eastl::RBTreeSide)" (?RBTreeInsert@eastl@@YAXPAUrbtree_node_base@1@00W4RBTreeSide@1@@Z)"protected: struct eastl::rbtree_iterator<struct eastl::pair<struct VERTEX_S const ,unsigned int>,struct eastl::pair<struct VERTEX_S const ,unsigned int> *,struct eastl::pair<struct VERTEX_S const ,unsigned int> &> __thiscall eastl::rbtree<struct VERTEX_S,struct eastl::pair<struct VERTEX_S const ,unsigned int>,struct VertexCompare,class eastl::allocator,struct eastl::use_first<struct eastl::pair<struct VERTEX_S const ,unsigned int> >,1,1>::DoInsertKeyImpl(struct eastl::rbtree_node_base *,bool,struct VERTEX_S const &)" (?DoInsertKeyImpl@?$rbtree@UVERTEX_S@@U?$pair@$$CBUVERTEX_S@@I@eastl@@UVertexCompare@@Vallocator@3@U?$use_first@U?$pair@$$CBUVERTEX_S@@I@eastl@@@3@$00$00@eastl@@IAE?AU?$rbtree_iterator@U?$pair@$$CBUVERTEX_S@@I@eastl@@PAU12@AAU12@@2@PAUrbtree_node_base@2@_NABUVERTEX_S@@@Z) 함수에서 참조되는 확인할 수 없는 외부 기호
+E:\PhysicsBasedRendering\EASTL-master\bin\Debug\EASTL.lib : warning LNK4272: 'x64' 라이브러리 컴퓨터 종류가 'x86' 대상 컴퓨터 종류와 충돌합니다.
+E:\PhysicsBasedRendering\Debug\d3d11_setup.exe : fatal error LNK1120: 4개의 확인할 수 없는 외부 참조입니다.

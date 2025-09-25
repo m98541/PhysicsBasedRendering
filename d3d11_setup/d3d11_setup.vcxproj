@@ -147,7 +147,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="MJ_D3D11_HalfEdge.cpp" />
+    <ClCompile Include="MJ_D3D11_Simplex3D.cpp" />
     <ClCompile Include="MJ_D3D11_BVTree.cpp" />
+    <ClCompile Include="MJ_D3D11_ConvexHull.cpp" />
     <ClCompile Include="MJ_D3D11_WorldMap.cpp" />
     <ClCompile Include="MJ_D3D11_Collision.cpp" />
     <ClCompile Include="MJ_D3D11_BasicCam.cpp" />
@@ -180,6 +183,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MJ_D3D11_BVTree.h" />
+    <ClInclude Include="MJ_D3D11_Convex.h" />
+    <ClInclude Include="MJ_D3D11_ConvexHull.h" />
+    <ClInclude Include="MJ_D3D11_HalfEdge.h" />
+    <ClInclude Include="MJ_D3D11_Simplex3D.h" />
     <ClInclude Include="MJ_D3D11_WorldMap.h" />
     <ClInclude Include="MJ_D3D11_Collision.h" />
     <ClInclude Include="MJ_D3D11_BasicCam.h" />

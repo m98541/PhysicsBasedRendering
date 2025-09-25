@@ -126,9 +126,7 @@ bool ReadOBJFile(OBJFILE_DESC_T* OBJFileDESC ,OBJFILE_BUFFER_T** OBJFileBuffer)
 		char* lineOffset = nullptr;
 		int lineType = MtlLineTypeSearch(line,&lineOffset);
 		if (lineType == LINE_TYPE_NOP) continue;
-		
-
-		(*OBJFileBuffer)->mtlBuffer[mtlIdx].mtlKeyWordEnable[lineType] = 1;
+	
 		int result = 1;
 		switch (lineType)
 		{
@@ -209,6 +207,17 @@ bool ReadOBJFile(OBJFILE_DESC_T* OBJFileDESC ,OBJFILE_BUFFER_T** OBJFileBuffer)
 		default:
 				break;
 		}
+
+		if (mtlIdx >= 0)
+		{
+			(*OBJFileBuffer)->mtlBuffer[mtlIdx].mtlKeyWordEnable[lineType] = 1;
+		}
+
+		if (!result && mtlIdx >= 0)
+		{
+			(*OBJFileBuffer)->mtlBuffer[mtlIdx].mtlKeyWordEnable[lineType] = 0; 
+		}
+
 		
 		if (!result && mtlIdx >= 0 )
 		{

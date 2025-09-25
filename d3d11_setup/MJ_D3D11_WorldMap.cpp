@@ -298,7 +298,7 @@ bool MapObject::IsMapSwpCollisionDetect(CapsuleCollider& player,CAPSULE nextCaps
 
 	SearchBVTreeSwpCollision(&collision,&firstCollision, 14 , player.Collider.head, mMapDataBuffer, mBoxVolumeTree, &result , player, nextCapsule , outSwpSet);
 
-	SearchBVTreeSwpCollision(&collision, &firstCollision, 14 , player.Collider.foot, mMapDataBuffer, mBoxVolumeTree, &result, player, nextCapsule, outSwpSet);
+	SearchBVTreeSwpCollision(&collision, &firstCollision,14 , player.Collider.foot, mMapDataBuffer, mBoxVolumeTree, &result, player, nextCapsule, outSwpSet);
 	//printf("size : %d \n", swpSet.size());
 
 

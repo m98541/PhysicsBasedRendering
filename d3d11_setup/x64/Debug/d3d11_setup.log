@@ -14,8 +14,8 @@ E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(20,10): warning C4099: 'B
       E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
       'BVtree::BvNode' 선언을 참조하십시오.
   
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(316,46): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(536,16): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(878,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(883,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(317,46): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(632,16): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(974,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(979,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   d3d11_setup.vcxproj -> E:\PhysicsBasedRendering\x64\Debug\d3d11_setup.exe
