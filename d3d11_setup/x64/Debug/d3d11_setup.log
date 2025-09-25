@@ -1,21 +1,4 @@
-﻿  main.cpp
-E:\PhysicsBasedRendering\d3d11_setup\OBJFileIO.h(40,9): warning C4005: 'ERROR': 매크로 재정의
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\wingdi.h(118,9):
-      'ERROR'의 이전 정의를 참조하십시오.
-  
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(19,10): warning C4099: 'BVtree::BvNode': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
-      'BVtree::BvNode' 선언을 참조하십시오.
-  
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(20,10): warning C4099: 'BVtree::BvNode': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
-      'BVtree::BvNode' 선언을 참조하십시오.
-  
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(317,46): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(632,16): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(974,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(979,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+﻿  MJ_D3D11_Simplex3D.cpp
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Simplex3D.cpp(60,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Simplex3D.cpp(73,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   d3d11_setup.vcxproj -> E:\PhysicsBasedRendering\x64\Debug\d3d11_setup.exe

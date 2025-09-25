@@ -3,6 +3,7 @@
 
 using namespace DirectX;
 using namespace eastl;
+using namespace HalfEdge;
 
 Simpelx3D::Simpelx3D()
 {
@@ -10,11 +11,6 @@ Simpelx3D::Simpelx3D()
 	point[1] = { 0, };
 	point[2] = { 0, };
 	point[3] = { 0, };
-	norm[0] = { 0, };
-	norm[1] = { 0, };
-	norm[2] = { 0, };
-	norm[3] = { 0, };
-
 }
 
 Simpelx3D::~Simpelx3D()
@@ -84,22 +80,26 @@ void Simpelx3D::CreateSimplex3D(XMVECTOR* inVertexArray, unsigned int size)
 		}
 	}
 
-	this->norm[0] = XMVector3Normalize(XMVector3Cross((this->point[2] - this->point[0]), (this->point[1] - this->point[2])));
-	this->norm[1] = XMVector3Normalize(XMVector3Cross((this->point[3] - this->point[0]), (this->point[2] - this->point[3])));
-	this->norm[2] = XMVector3Normalize(XMVector3Cross((this->point[2] - this->point[1]), (this->point[3] - this->point[2])));
-	this->norm[3] = XMVector3Normalize(XMVector3Cross((this->point[1] - this->point[0]), (this->point[3] - this->point[1])));
 
+	//init simplex tetrahedron index buf
+	unsigned int indexArr[12] = {
+		0,2,1,
+		0,3,2,
+		0,1,3,
+		1,2,3
+	};
 
+	CreateHESetFromVertexBuffer(this->point,4 ,indexArr ,12 , &this->simplexHESet);
 	free(tempVertArray);
 }
 
 bool Simpelx3D::IsPointInSimplex(XMVECTOR point)
 {
 	if (
-		XMVector3Dot(this->norm[0], point).m128_f32[0] <= 0.0 &&
-		XMVector3Dot(this->norm[1], point).m128_f32[0] <= 0.0 &&
-		XMVector3Dot(this->norm[2], point).m128_f32[0] <= 0.0 &&
-		XMVector3Dot(this->norm[3], point).m128_f32[0] <= 0.0
+		XMVector3Dot(this->simplexHESet.faceSet[0].norm, point).m128_f32[0] <= 0.0 &&
+		XMVector3Dot(this->simplexHESet.faceSet[1].norm, point).m128_f32[0] <= 0.0 &&
+		XMVector3Dot(this->simplexHESet.faceSet[2].norm, point).m128_f32[0] <= 0.0 &&
+		XMVector3Dot(this->simplexHESet.faceSet[3].norm, point).m128_f32[0] <= 0.0
 		)
 	{
 		return true;

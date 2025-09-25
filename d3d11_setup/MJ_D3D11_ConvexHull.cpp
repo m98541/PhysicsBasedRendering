@@ -1,5 +1,6 @@
 #include "MJ_D3D11_ConvexHull.h"
 #include "MJ_D3D11_Simplex3D.h"
+#include "MJ_D3D11_HalfEdge.h"
 #include <EASTL/vector.h>
 
 using namespace DirectX;

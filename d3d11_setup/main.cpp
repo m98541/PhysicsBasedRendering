@@ -440,11 +440,15 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 		for (int j = 0; j < faceSet.size(); j++)
 		{
-			printf("adj face : %f %f %f %f \n",
+			printf("adj face edge: %f %f %f %f norm : %f %f %f %f\n",
 				  faceSet[j]->edge->face->edge->vert->pos.m128_f32[0]
 				, faceSet[j]->edge->face->edge->vert->pos.m128_f32[1]
 				, faceSet[j]->edge->face->edge->vert->pos.m128_f32[2]
-				, faceSet[j]->edge->face->edge->vert->pos.m128_f32[3]);
+				, faceSet[j]->edge->face->edge->vert->pos.m128_f32[3]
+				, faceSet[j]->edge->face->norm.m128_f32[0]
+				, faceSet[j]->edge->face->norm.m128_f32[1]
+				, faceSet[j]->edge->face->norm.m128_f32[2]
+				, faceSet[j]->edge->face->norm.m128_f32[3]);
 		}
 		
 

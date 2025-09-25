@@ -29,6 +29,7 @@ namespace HalfEdge
 	typedef struct HE_FACE_S
 	{
 		HE_EDGE_T* edge;
+		DirectX::XMVECTOR norm;
 	}HE_FACE_T;
 
 	typedef struct HE_SET_S

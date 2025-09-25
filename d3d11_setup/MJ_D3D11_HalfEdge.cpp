@@ -114,6 +114,8 @@ void HalfEdge::CreateHESetFromVertexBuffer(DirectX::XMVECTOR* vertArr,int vertSi
 
 		//face set
 		(outHESet)->faceSet[i / 3].edge = &(outHESet)->edgeSet[i + 0];
+		(outHESet)->faceSet[i / 3].norm = XMVector3Normalize(XMVector3Cross((vertArr[indexArr[i + 2]] - vertArr[indexArr[i + 0]]), (vertArr[indexArr[i + 1]] - vertArr[indexArr[i + 2]])));
+
 
 		//edge set
 		(outHESet)->edgeSet[i + 0].next = &(outHESet)->edgeSet[i + 1];
