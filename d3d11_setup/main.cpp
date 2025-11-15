@@ -7,6 +7,7 @@
 #include <DirectXMath.h>
 #include <EASTL/vector.h>
 
+
 #ifdef _DEBUG
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 #endif // _DEBUG
@@ -28,6 +29,8 @@ MJ_D3D11_ 다음의 표시가 붙은 경우(비표준 라이브러리(?)) directX11 라이브러리에 �
 #include "MJ_D3D11_Collision.h"
 #include "MJ_D3D11_WorldMap.h"
 #include "MJ_D3D11_HalfEdge.h"
+#include "MJ_D3D11_ConvexHull.h"
+#include "MJ_D3D11_UnitObject.h"
 
 #define SCREEN_SIZE_WIDTH 1920
 #define SCREEN_SIZE_HEIGHT 1080
@@ -73,6 +76,10 @@ ID3D11InputLayout* pLayout;
 
 ID3D11Buffer* pTRBuffer = nullptr;
 
+ID3D11Buffer* pCamBuffer = nullptr;
+ID3D11Buffer* pModelBuffer = nullptr;
+
+
 ID3D11ShaderResourceView* pTextureSRV = nullptr;
 
 ID3D11SamplerState* pSampler = nullptr;
@@ -102,13 +109,19 @@ float camJumpSpeed = 0.5F;
 ULONGLONG jumpStartTick;
 ULONGLONG jumpCurTick;
 
-struct MVP
+struct Model
 {
-	XMMATRIX model;
+	XMMATRIX m;
+};
+struct VP
+{
+	
 	XMMATRIX view;
 	XMMATRIX proj;
 };
 
+eastl::vector<UnitObject::UnitObj*> unitManager;
+UnitObject::UNIT_DESC_T globalCat;
 
 D3D_FEATURE_LEVEL featureLevelarr[] = {
 	D3D_FEATURE_LEVEL_11_1,
@@ -159,7 +172,6 @@ void __cdecl operator delete[](void* ptr)
 {
 	free(ptr);
 }
-
 
 
 
@@ -301,6 +313,10 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	InitD3D(hWnd);
 	InitPipeline();
 
+
+	
+
+
 	OBJFILE_DESC_T collTestObject;
 	OBJFILE_BUFFER_T* collTestObjBuf;
 
@@ -366,100 +382,48 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 
 
-	XMVECTOR testVbuf[] = {
-		{0.F , 0.F , 0.F , 1.F},
-		{0.5F , 0.5F , 0.F , 1.F},
-		{0.2F , 1.F , 0.F , 1.F},
-		{-0.2F , 1.F , 0.F , 1.F},
-		{-0.5F , 0.5F , 0.F , 1.F},
+
+	OBJFILE_DESC_T catModelObject;
+	OBJFILE_BUFFER_T* catModelObjectBuf;
+	MJD3D11OBJ_HANDLE_t* catOBJHandle;
+	ParseOBJFile(&catModelObject, "cat.obj");
+	ReadOBJFile(&catModelObject, &catModelObjectBuf);
+	printf("read cat obj\n");
+	ConvexHull* catConvexHull = new ConvexHull((XMVECTOR*)catModelObjectBuf->vertBuffer, catModelObjectBuf->vertBufferLen);
+
+	float catRadius = 10.F;
+	float catHeight = 10.F;
+	MJD3D11LoadOBJ(dev,devCon,VS,&catOBJHandle , "cat.obj");
+	CAPSULE_T catCapsule = {
+		{0.F , catHeight + catRadius, 0.F, 1.F},
+		{0.F , catRadius , 0.F , 1.F},
+		{0.F , catHeight, 0.F , 0.F},
+		catRadius
 	};
 
-	
 
-	unsigned int testIbuf[] = {
-		0,1,2,
-		0,2,3,
-		0,3,4
-	};
-
-
-	HalfEdge::HE_SET_T testHESet;
-	printf("!");
-	HalfEdge::CreateHESetFromVertexBuffer(testVbuf,5, testIbuf,9,&testHESet);
-	printf("!");
-
-	for (int i = 0; i < 9; i++)
+	for (int i = 0; i < catConvexHull->vertexArray.size(); i++)
 	{
-		printf("%d :edge point : %f %f %f ->  %f %f %f \n", i,
-			testHESet.edgeSet[i].origin.m128_f32[0],
-			testHESet.edgeSet[i].origin.m128_f32[1],
-			testHESet.edgeSet[i].origin.m128_f32[2],
-			testHESet.edgeSet[i].vert->pos.m128_f32[0],
-			testHESet.edgeSet[i].vert->pos.m128_f32[1],
-			testHESet.edgeSet[i].vert->pos.m128_f32[2]
-			);
-		if (testHESet.edgeSet[i].pair != nullptr)
-		{
-			printf("%d : edge point  : %f %f %f %f \n\n", i,
-				testHESet.edgeSet[i].pair->vert->pos.m128_f32[0],
-				testHESet.edgeSet[i].pair->vert->pos.m128_f32[1],
-				testHESet.edgeSet[i].pair->vert->pos.m128_f32[2],
-				testHESet.edgeSet[i].pair->vert->pos.m128_f32[3]);
-		}
-		else
-		{
-			printf("%d : edge pair is null \n", i);
-		}
-
-		printf("tri\n");
-		HalfEdge::HE_EDGE_T* tri = &testHESet.edgeSet[i];
-		for (int j = 0; j < 3; j++)
-		{
-			printf("%d : %f %f %f ->  %f %f %f \n", j,
-				tri->origin.m128_f32[0],
-				tri->origin.m128_f32[1],
-				tri->origin.m128_f32[2],
-				tri->vert->pos.m128_f32[0],
-				tri->vert->pos.m128_f32[1],
-				tri->vert->pos.m128_f32[2]
-			);
-			tri = tri->next;
-
-		}
-
-		HalfEdge::HE_VERT_T* vert = testHESet.edgeSet[i].next->next->vert;
-		printf("vert edge : %f %f %f ->  %f %f %f \n",
-			vert->pos.m128_f32[0],
-			vert->pos.m128_f32[1],
-			vert->pos.m128_f32[2],
-			vert->edge->vert->pos.m128_f32[0],
-			vert->edge->vert->pos.m128_f32[1],
-			vert->edge->vert->pos.m128_f32[2]
-		);
-		eastl::vector<HalfEdge::HE_FACE_T*> faceSet = HalfEdge::GetVertAdjFaces(vert);
-
-		for (int j = 0; j < faceSet.size(); j++)
-		{
-			printf("adj face edge: %f %f %f %f norm : %f %f %f %f\n",
-				  faceSet[j]->edge->face->edge->vert->pos.m128_f32[0]
-				, faceSet[j]->edge->face->edge->vert->pos.m128_f32[1]
-				, faceSet[j]->edge->face->edge->vert->pos.m128_f32[2]
-				, faceSet[j]->edge->face->edge->vert->pos.m128_f32[3]
-				, faceSet[j]->edge->face->norm.m128_f32[0]
-				, faceSet[j]->edge->face->norm.m128_f32[1]
-				, faceSet[j]->edge->face->norm.m128_f32[2]
-				, faceSet[j]->edge->face->norm.m128_f32[3]);
-		}
-		
-
-		printf("\n");
-
+		printf("vert : %f %f %f %f \n"
+			, catConvexHull->vertexArray[i].pos.x
+			, catConvexHull->vertexArray[i].pos.y
+			, catConvexHull->vertexArray[i].pos.z
+			, catConvexHull->vertexArray[i].pos.w);
 	}
 
-
-
-
-
+	for (int i = 0; i < catConvexHull->indexArray.size(); i += 3)
+	{
+		printf("idx : %d %d %d \n"
+			, catConvexHull->indexArray[i]
+			, catConvexHull->indexArray[i + 1]
+			, catConvexHull->indexArray[i + 2]
+		);
+	}
+	
+	globalCat = {
+		dev,devCon,VS,
+		catOBJHandle,catCapsule,catConvexHull
+	};
 
 
 	while (true)
@@ -489,10 +453,12 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 				startTick = curTick;
 			}
 			// 셰이더에 바인딩
-			devCon->VSSetConstantBuffers(0, 1, &pTRBuffer);
+			devCon->VSSetConstantBuffers(0, 1, &pCamBuffer);
+			devCon->VSSetConstantBuffers(1, 1, &pModelBuffer);
 			devCon->ClearDepthStencilView(depthBuffer, D3D11_CLEAR_DEPTH, 1.0f, 0);
-			MVP matrices;
-		
+			
+			Model model;
+			VP cam;
 
 			singleNextCam->MoveFrontBack(camAccV);
 			singleNextCam->MoveLeftRight(camAccRLV);
@@ -601,32 +567,51 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			D3D11_MAPPED_SUBRESOURCE mapped;
 
 
-			matrices.model = { {1.F, 0.F , 0.F , 0.F} , {0.F, 0.F , -1.F , 0.F} ,  {0.F, 1.F ,0.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
-			matrices.view = XMMatrixLookAtLH(singleCam->Element.pos, singleCam->Element.at, singleCam->Element.up);
-			matrices.proj = XMMatrixPerspectiveFovLH(XM_PIDIV4, 800.0F / 600.0F, 0.01F, 8000.F);
+			model.m = { {1.F, 0.F , 0.F , 0.F} , {0.F, 0.F , -1.F , 0.F} ,  {0.F, 1.F ,0.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
+			cam.view = XMMatrixLookAtLH(singleCam->Element.pos, singleCam->Element.at, singleCam->Element.up);
+			cam.proj = XMMatrixPerspectiveFovLH(XM_PIDIV4, 800.0F / 600.0F, 0.01F, 8000.F);
+
+			devCon->Map(pCamBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
+			memcpy(mapped.pData, &cam, sizeof(cam));
+			devCon->Unmap(pCamBuffer, 0);
 
 
 			
-			devCon->Map(pTRBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
-			memcpy(mapped.pData, &matrices, sizeof(matrices));
-			devCon->Unmap(pTRBuffer, 0);
+			devCon->Map(pModelBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
+			memcpy(mapped.pData, &model, sizeof(model));
+			devCon->Unmap(pModelBuffer, 0);
 
 			RenderFrame();
 
 			if (BoxViewMode)
 			{
 
-				matrices.model = { {1.F, 0.F , 0.F , 0.F} , {0.F, 0.F , -1.F , 0.F} ,  {0.F, 1.F ,0.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
-				matrices.view = XMMatrixLookAtLH(singleCam->Element.pos, singleCam->Element.at, singleCam->Element.up);
-				matrices.proj = XMMatrixPerspectiveFovLH(XM_PIDIV4, 800.0F / 600.0F, 0.01F, 8000.F);
+				model.m = { {1.F, 0.F , 0.F , 0.F} , {0.F, -1.F , 0.F , 0.F} ,  {0.F, 0.F ,1.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
+				cam.view = XMMatrixLookAtLH(singleCam->Element.pos, singleCam->Element.at, singleCam->Element.up);
+				cam.proj = XMMatrixPerspectiveFovLH(XM_PIDIV4, 800.0F / 600.0F, 0.01F, 8000.F);
 
-				devCon->Map(pTRBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
-				memcpy(mapped.pData, &matrices, sizeof(matrices));
-				devCon->Unmap(pTRBuffer, 0);
+				devCon->Map(pModelBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
+				memcpy(mapped.pData, &model, sizeof(model));
+				devCon->Unmap(pModelBuffer, 0);
 				DrawMapBox(testMapObj->mBoxVolumeTree, BoxDrawDepth);
 			}
 			
+
+			for (int i = 0; i < unitManager.size(); i++)
+			{
+			
+
+
+
+				unitManager[i]->DrawObject();
+				unitManager[i]->DrawCollider();
+
+			}
+			
 			swapChain->Present(0, 0);
+
+
+			
 		}
 		//game loop;
 
@@ -640,6 +625,17 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 }
 
+void pushUnit(XMVECTOR camPos)
+{
+	UnitObject::UnitObj* catOBJ = new UnitObject::UnitObj(globalCat.Dev, globalCat.DevCon, globalCat.vsShader, globalCat.objHandle, globalCat.mapCollider, globalCat.objCollider);
+	XMFLOAT4 catScale = { 5.F , 5.F ,5.F , 1.F };
+	catOBJ->setScale(catScale);
+	XMFLOAT4 catPos;
+	XMStoreFloat4(&catPos, singleCam->Element.pos);
+	catOBJ->setPos(catPos);
+	unitManager.push_back(catOBJ);
+	printf("cat push! pos : %f %f %f \n" , catPos.x , catPos.y , catPos.z);
+}
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
@@ -689,6 +685,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		case 'B':
 		case 'b':
 			BoxDrawDepth = (BoxDrawDepth + 1) % 15;
+			break;
+
+		case 'c':
+		case 'C':
+			pushUnit(singleCam->Element.pos);
 			break;
 		case VK_SPACE:
 			if(!camJumpState)
@@ -924,24 +925,38 @@ void init_MVPtrans(void)
 
 	D3D11_BUFFER_DESC cbd = {};
 	cbd.Usage = D3D11_USAGE_DYNAMIC;
-	cbd.ByteWidth = sizeof(MVP);
+	cbd.ByteWidth = sizeof(VP);
 	cbd.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 	cbd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
-	dev->CreateBuffer(&cbd, nullptr, &pTRBuffer);
+	dev->CreateBuffer(&cbd, nullptr, &pCamBuffer);
 
-	MVP matrices;
-	matrices.model = { {1.F, 0.F , 0.F , 0.F} , {0.F, 0.F , -1.F , 0.F} ,  {0.F, 1.F , 0.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
-	matrices.view = XMMatrixLookAtLH(singleCam->Element.pos, singleCam->Element.at, singleCam->Element.up);
-	matrices.proj = XMMatrixPerspectiveFovLH(XM_PIDIV4, 800.0f / 600.0f, 0.1f, 3000.0f);
+	D3D11_BUFFER_DESC cbdModel = {};
+	cbdModel.Usage = D3D11_USAGE_DYNAMIC;
+	cbdModel.ByteWidth = sizeof(Model);
+	cbdModel.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	cbdModel.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	dev->CreateBuffer(&cbdModel, nullptr, &pModelBuffer);
+
+
+	Model modelMat;
+	VP cam;
+	modelMat.m = { {1.F, 0.F , 0.F , 0.F} , {0.F, 0.F , -1.F , 0.F} ,  {0.F, 1.F , 0.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
+	cam.view = XMMatrixLookAtLH(singleCam->Element.pos, singleCam->Element.at, singleCam->Element.up);
+	cam.proj = XMMatrixPerspectiveFovLH(XM_PIDIV4, 800.0f / 600.0f, 0.1f, 3000.0f);
 
 	
 	D3D11_MAPPED_SUBRESOURCE mapped;
-	devCon->Map(pTRBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
-	memcpy(mapped.pData, &matrices, sizeof(matrices));
-	devCon->Unmap(pTRBuffer, 0);
+	devCon->Map(pModelBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
+	memcpy(mapped.pData, &modelMat, sizeof(Model));
+	devCon->Unmap(pModelBuffer, 0);
+
+	devCon->Map(pCamBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
+	memcpy(mapped.pData, &cam, sizeof(VP));
+	devCon->Unmap(pCamBuffer, 0);
 
 	// 셰이더에 바인딩
-	devCon->VSSetConstantBuffers(0, 1, &pTRBuffer);
+	devCon->VSSetConstantBuffers(0, 1, &pCamBuffer);
+	devCon->VSSetConstantBuffers(1, 1, &pModelBuffer);
 
 }
 

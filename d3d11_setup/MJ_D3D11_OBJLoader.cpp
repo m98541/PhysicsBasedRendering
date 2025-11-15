@@ -129,16 +129,7 @@ bool MJD3D11LoadOBJ(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, ID3D10Blob* 
 			(*ObjHandle)->indexBuffer[i] = uniqueVertexMapCount;
 
 			tempUniqueVertexSet.push_back(tempVertexBuffer[i]);
-			printf("%d || %d %f %f %f || %f %f || %f %f %f  ||%d\n", i, uniqueVertexMapCount,
-				tempUniqueVertexSet[uniqueVertexMapCount].pos.x,
-				tempUniqueVertexSet[uniqueVertexMapCount].pos.y,
-				tempUniqueVertexSet[uniqueVertexMapCount].pos.z,
-				tempUniqueVertexSet[uniqueVertexMapCount].tex.x,
-				tempUniqueVertexSet[uniqueVertexMapCount].tex.y,
-				tempUniqueVertexSet[uniqueVertexMapCount].norm.x,
-				tempUniqueVertexSet[uniqueVertexMapCount].norm.y,
-				tempUniqueVertexSet[uniqueVertexMapCount].norm.z,
-				tempUniqueVertexSet[uniqueVertexMapCount].textureIdx);
+			
 			uniqueVertexMapCount++;
 		}
 		else
@@ -209,11 +200,13 @@ bool MJD3D11DrawOBJ(ID3D11DeviceContext* DevCon, MJD3D11OBJ_HANDLE_t* ObjHandle)
 {
 	UINT stride = sizeof(VERTEX_T);
 	UINT offset = 0;
+	DevCon->PSSetShaderResources(0, 1, (ObjHandle)->textureResourceViewHandleArr);
+	DevCon->PSSetSamplers(0, 1, &(ObjHandle)->samplerHandle);
 
 	DevCon->IASetVertexBuffers(0, 1, &ObjHandle->vertexBufferHandle, &stride, &offset);
 	DevCon->IASetIndexBuffer(ObjHandle->indexBufferHandle, DXGI_FORMAT_R32_UINT, 0);
 
-	DevCon->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
+	DevCon->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	int len = ObjHandle->groupSetLen;
 	DevCon->DrawIndexed(ObjHandle->indexBufferSize, 0, 0);
 	//DevCon->Draw(ObjHandle->vertexCount, 0);

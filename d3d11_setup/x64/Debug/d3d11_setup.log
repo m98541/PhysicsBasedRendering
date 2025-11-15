@@ -1,4 +1,66 @@
-﻿  MJ_D3D11_Simplex3D.cpp
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Simplex3D.cpp(60,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Simplex3D.cpp(73,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+﻿  MJ_D3D11_ConvexHull.cpp
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(211,9): warning C4477: 'printf' : 서식 문자열 '%x'에 'unsigned int' 형식의 인수가 필요하지만 variadic 인수 13의 형식이 'ConvexHullFace_T *'입니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(211,9): warning C4313: 'printf': 서식 문자열의 '%x'이(가) ConvexHullFace_T *' 형식의 인수 13과(와) 충돌합니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(231,10): warning C4477: 'printf' : 서식 문자열 '%x'에 'unsigned int' 형식의 인수가 필요하지만 variadic 인수 13의 형식이 'const T'입니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(231,10): warning C4477:         with
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(231,10): warning C4477:         [
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(231,10): warning C4477:             T=ConvexHullFace_T *
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(231,10): warning C4477:         ]
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(231,10): warning C4313: 'printf': 서식 문자열의 '%x'이(가) const T' 형식의 인수 13과(와) 충돌합니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(231,10): warning C4313:         with
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(231,10): warning C4313:         [
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(231,10): warning C4313:             T=ConvexHullFace_T *
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(231,10): warning C4313:         ]
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(316,13): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(320,11): warning C4477: 'printf' : 서식 문자열 '%x'에 'unsigned int' 형식의 인수가 필요하지만 variadic 인수 13의 형식이 'T'입니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(320,11): warning C4477:         with
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(320,11): warning C4477:         [
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(320,11): warning C4477:             T=ConvexHullFace_T *
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(320,11): warning C4477:         ]
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(320,11): warning C4313: 'printf': 서식 문자열의 '%x'이(가) T' 형식의 인수 13과(와) 충돌합니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(320,11): warning C4313:         with
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(320,11): warning C4313:         [
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(320,11): warning C4313:             T=ConvexHullFace_T *
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(320,11): warning C4313:         ]
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(395,60): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(501,61): warning C4244: '+=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(535,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(544,11): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 3의 형식이 'eastl::vector<DirectX::XMVECTOR *,eastl::allocator>::size_type'입니다.
+      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(544,11):
+      서식 문자열에서 '%zd'을(를) 사용하는 것이 좋습니다.
+  
+  MJ_D3D11_HalfEdge.cpp
+  MJ_D3D11_Simplex3D.cpp
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Simplex3D.cpp(77,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Simplex3D.cpp(90,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  MJ_D3D11_UnitObject.cpp
+E:\PhysicsBasedRendering\d3d11_setup\OBJFileIO.h(40,9): warning C4005: 'ERROR': 매크로 재정의
+  (소스 파일 'MJ_D3D11_UnitObject.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\wingdi.h(118,9):
+      'ERROR'의 이전 정의를 참조하십시오.
+  
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_UnitObject.cpp(73,76): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_UnitObject.cpp(74,79): warning C4267: '=': 'size_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_UnitObject.cpp(158,37): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  main.cpp
+E:\PhysicsBasedRendering\d3d11_setup\OBJFileIO.h(40,9): warning C4005: 'ERROR': 매크로 재정의
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\wingdi.h(118,9):
+      'ERROR'의 이전 정의를 참조하십시오.
+  
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(19,10): warning C4099: 'BVtree::BvNode': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
+      'BVtree::BvNode' 선언을 참조하십시오.
+  
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(20,10): warning C4099: 'BVtree::BvNode': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
+      'BVtree::BvNode' 선언을 참조하십시오.
+  
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(333,46): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(621,16): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(993,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(998,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   d3d11_setup.vcxproj -> E:\PhysicsBasedRendering\x64\Debug\d3d11_setup.exe

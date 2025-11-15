@@ -8,13 +8,18 @@ class Simpelx3D
 {
 public:
 	Simpelx3D();
+	Simpelx3D(DirectX::XMVECTOR* inVertexArray, unsigned int size);
+
 	~Simpelx3D();
-	DirectX::XMVECTOR point[4];
+
+	
 	HalfEdge::HE_SET_T simplexHESet;
-
+	
+	int faceCount;
 	void CreateSimplex3D(DirectX::XMVECTOR* inVertexArray, unsigned int size);
-	bool IsPointInSimplex(DirectX::XMVECTOR point);
-
+	bool IsPointInSimplex(DirectX::XMVECTOR point, int* outFaceId);
+private:
+	DirectX::XMVECTOR* tempVertArray;
 };
 
 #endif // !MJ_D3D11_SIMPLEX3D_H

@@ -1,8 +1,12 @@
-cbuffer MatrixBuffer : register(b0)
+cbuffer camBuffer : register(b0)
 {
-	matrix model;
 	matrix view;
 	matrix proj;
+};
+
+cbuffer modelBuffer : register(b1)
+{
+	matrix model;
 };
 
 struct PS_INPUT {

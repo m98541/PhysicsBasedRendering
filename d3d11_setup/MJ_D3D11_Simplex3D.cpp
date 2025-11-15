@@ -7,28 +7,45 @@ using namespace HalfEdge;
 
 Simpelx3D::Simpelx3D()
 {
-	point[0] = {0,};
-	point[1] = { 0, };
-	point[2] = { 0, };
-	point[3] = { 0, };
+	faceCount = 0;
+	tempVertArray = nullptr; 
+}
+
+
+
+Simpelx3D::Simpelx3D(XMVECTOR* inVertexArray, unsigned int size)
+{
+	faceCount = 0;
+	tempVertArray = (DirectX::XMVECTOR*)malloc(sizeof(DirectX::XMVECTOR) * size);
+	CreateSimplex3D(inVertexArray, size);
 }
 
 Simpelx3D::~Simpelx3D()
 {
-
+	free(tempVertArray);
 }
 
 void Simpelx3D::CreateSimplex3D(XMVECTOR* inVertexArray, unsigned int size)
 {
+	
 
-	DirectX::XMVECTOR* tempVertArray = (DirectX::XMVECTOR*)malloc(sizeof(DirectX::XMVECTOR) * size);
+	
+
 	if (tempVertArray != NULL)
 		memcpy(tempVertArray, inVertexArray, sizeof(DirectX::XMVECTOR) * size);
 	else
 		return;
 
 	XMVECTOR axisMaxMin[6];
-
+	//init simplex tetrahedron vertex buf
+	DirectX::XMVECTOR point[4];
+	//init simplex tetrahedron index buf
+	unsigned int indexArr[12] = {
+		0,2,1,
+		0,3,2,
+		0,1,3,
+		1,2,3
+	};
 	for (int axis = 0; axis < 3; axis++)
 	{
 		eastl::sort(tempVertArray + 0, tempVertArray + size, [axis](const DirectX::XMVECTOR& lVert, const DirectX::XMVECTOR& rVert) {
@@ -50,8 +67,8 @@ void Simpelx3D::CreateSimplex3D(XMVECTOR* inVertexArray, unsigned int size)
 			if (curLen > maxLineLen)
 			{
 				maxLineLen = curLen;
-				this->point[0] = axisMaxMin[i];
-				this->point[1] = axisMaxMin[j];
+				point[0] = axisMaxMin[i];
+				point[1] = axisMaxMin[j];
 			}
 		}
 	}
@@ -59,53 +76,54 @@ void Simpelx3D::CreateSimplex3D(XMVECTOR* inVertexArray, unsigned int size)
 	maxLineLen = 0.F;
 	for (int i = 0; i < size; i++)
 	{
-		double curLen = XMVector3LinePointDistance(this->point[0], this->point[1], tempVertArray[i]).m128_f32[0];
+		double curLen = XMVector3LinePointDistance(point[0], point[1], tempVertArray[i]).m128_f32[0];
 		if (curLen > maxLineLen)
 		{
 			maxLineLen = curLen;
-			this->point[2] = axisMaxMin[i];
+			point[2] = tempVertArray[i];
 		}
 	}
 
 
 	maxLineLen = 0.F;
-	XMVECTOR simplexNormal = XMVector3Normalize(XMVector3Cross((this->point[1] - this->point[0]), (this->point[2] - this->point[0])));
+	XMVECTOR simplexNormal = XMVector3Normalize(XMVector3Cross((point[1] - point[0]), (point[2] - point[0])));
 	for (int i = 0; i < size; i++)
 	{
-		double curLen = XMVector3Dot(simplexNormal, tempVertArray[i]).m128_f32[0];
-		if (curLen > maxLineLen)
+		double curLen = XMVector3Dot(simplexNormal, tempVertArray[i] - point[0] ).m128_f32[0];
+		if (abs(curLen) > maxLineLen)
 		{
-			maxLineLen = curLen;
-			this->point[3] = axisMaxMin[i];
+			maxLineLen = abs(curLen);
+			point[3] = tempVertArray[i];
 		}
 	}
 
 
-	//init simplex tetrahedron index buf
-	unsigned int indexArr[12] = {
-		0,2,1,
-		0,3,2,
-		0,1,3,
-		1,2,3
-	};
+	double testLen = XMVector3Dot(simplexNormal, point[3] - point[0]).m128_f32[0];
+	if (testLen < 0)
+	{
+		
 
-	CreateHESetFromVertexBuffer(this->point,4 ,indexArr ,12 , &this->simplexHESet);
-	free(tempVertArray);
+		indexArr[0] = 0; indexArr[1] = 2; indexArr[2] = 1; // (0, 2, 1)
+		indexArr[3] = 0; indexArr[4] = 3; indexArr[5] = 2; // (0, 3, 2)
+		indexArr[6] = 0; indexArr[7] = 1; indexArr[8] = 3; // (0, 1, 3)
+		indexArr[9] = 1; indexArr[10] = 2; indexArr[11] = 3; // (1, 2, 3)
+	}
+	CreateHESetFromVertexBuffer(point,4 ,indexArr ,12 , &this->simplexHESet);
+	this->faceCount = 4;
+	
 }
 
-bool Simpelx3D::IsPointInSimplex(XMVECTOR point)
+bool Simpelx3D::IsPointInSimplex(XMVECTOR point ,int* outFaceId)
 {
-	if (
-		XMVector3Dot(this->simplexHESet.faceSet[0].norm, point).m128_f32[0] <= 0.0 &&
-		XMVector3Dot(this->simplexHESet.faceSet[1].norm, point).m128_f32[0] <= 0.0 &&
-		XMVector3Dot(this->simplexHESet.faceSet[2].norm, point).m128_f32[0] <= 0.0 &&
-		XMVector3Dot(this->simplexHESet.faceSet[3].norm, point).m128_f32[0] <= 0.0
-		)
+	for (int i = 0; i < this->faceCount; i++)
 	{
-		return true;
+		HalfEdge::HE_FACE_T* face = &this->simplexHESet.faceSet[i];
+		XMVECTOR p0 = this->simplexHESet.edgeSet[i * 3].originVert->pos;
+		if (XMVector3Dot(face->norm, point - p0 ).m128_f32[0] > 0) 
+		{
+			*outFaceId = i;
+			return false;
+		}
 	}
-	else
-	{
-		return false;
-	}
+	return true;
 }

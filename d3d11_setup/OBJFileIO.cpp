@@ -431,6 +431,7 @@ bool ReadOBJFile(OBJFILE_DESC_T* OBJFileDESC ,OBJFILE_BUFFER_T** OBJFileBuffer)
 
 	
 	//Create Object 
+	(*OBJFileBuffer)->vertBufferLen = vIdx;
 	(*OBJFileBuffer)->polygonSetLen = OBJFileDESC->len.useMtl;
 	(*OBJFileBuffer)->groupSetLen = OBJFileDESC->len.group;
 	(*OBJFileBuffer)->objectBufferLineSize = bufferLineSize;
