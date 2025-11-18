@@ -23,3 +23,4 @@ private:
 };
 
 #endif // !MJ_D3D11_SIMPLEX3D_H
+	

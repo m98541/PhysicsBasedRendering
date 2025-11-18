@@ -29,12 +29,12 @@ public:
 	void SetAtV4f(DirectX::XMVECTOR at);
 
 
-	void TracballRoate(DirectX::XMINT2 ScreenStart, DirectX::XMINT2 ScreenCur, int ScreenWidth, int ScreenHeight, float RotateRatio);
-	void TracballRoateNormVector(DirectX::XMVECTOR MoveVector, float RotateRatio);
+	void TracballRoate(DirectX::XMINT2 ScreenStart, DirectX::XMINT2 ScreenCur, int ScreenWidth, int ScreenHeight, double RotateRatio);
+	void TracballRoateNormVector(DirectX::XMVECTOR MoveVector, double RotateRatio);
 
-	void MoveFrontBack(float speed);
-	void MoveLeftRight(float speed);
-	void RotToAt(DirectX::FXMVECTOR axis, float angle);
+	void MoveFrontBack(double speed);
+	void MoveLeftRight(double speed);
+	void RotToAt(DirectX::FXMVECTOR axis, double angle);
 	void CamTranform();
 
 };

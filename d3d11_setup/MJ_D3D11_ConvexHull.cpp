@@ -3,6 +3,7 @@
 #include <EASTL/set.h>
 #include <EASTL/sort.h>
 #include <EASTL/map.h>
+#include <float.h>
 #include <stdio.h>
 using namespace DirectX;
 using namespace eastl;
@@ -616,3 +617,32 @@ void ConvexHull::CreateConvexHull(DirectX::XMVECTOR* inVertexArray, unsigned int
 
 
 }
+
+
+DirectX::XMVECTOR ConvexHull::Support(XMVECTOR direction, XMMATRIX matTRS)
+{
+	XMMATRIX inverseTRS = XMMatrixInverse( nullptr , matTRS);
+
+	XMVECTOR localDirection = XMVector3TransformNormal(direction , inverseTRS);
+
+	XMVECTOR farthestVert = {0,};
+	float farthestLen = -FLT_MAX;
+
+	for (int i = 0; i < this->vertexArray.size(); i++)
+	{
+		XMVECTOR vert = XMLoadFloat4(&vertexArray[i].pos);
+		XMVECTOR len = XMVector3Dot(vert, localDirection);
+
+		if (len.m128_f32[0] > farthestLen)
+		{
+			farthestLen = len.m128_f32[0];
+			farthestVert = vert;
+		}
+	}
+
+	farthestVert = XMVector3Transform(farthestVert , matTRS);
+
+	return farthestVert;
+}
+
+

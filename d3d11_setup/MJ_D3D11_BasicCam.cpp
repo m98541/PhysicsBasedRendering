@@ -50,7 +50,7 @@ void BasicCam::SetAtV4f(XMVECTOR at)
 
    
 
-void BasicCam::MoveFrontBack(float speed)
+void BasicCam::MoveFrontBack(double speed)
 {
 	XMVECTOR dir = XMVectorSubtract(this->Element.at ,this->Element.pos);// 여기서 w는 0이됨
 
@@ -68,7 +68,7 @@ void BasicCam::MoveFrontBack(float speed)
 }
 
 
-void BasicCam::MoveLeftRight(float speed)
+void BasicCam::MoveLeftRight(double speed)
 {
 	XMVECTOR dir = XMVectorSubtract(this->Element.at, this->Element.pos);// 여기서 w는 0이됨
 
@@ -94,7 +94,7 @@ void BasicCam::MoveLeftRight(float speed)
 
 
 
-void BasicCam::RotToAt(FXMVECTOR axis, float angle)
+void BasicCam::RotToAt(FXMVECTOR axis, double angle)
 {
 	FXMVECTOR quatRotVector = XMQuaternionRotationAxis(axis, angle);
 	XMMATRIX quatRotMat = XMMatrixRotationQuaternion(quatRotVector);
@@ -119,11 +119,11 @@ void BasicCam::CamTranform()
 }
 
 
-void BasicCam::TracballRoate(DirectX::XMINT2 ScreenStart, DirectX::XMINT2 ScreenCur, int ScreenWidth, int ScreenHeight, float RotateRatio)
+void BasicCam::TracballRoate(DirectX::XMINT2 ScreenStart, DirectX::XMINT2 ScreenCur, int ScreenWidth, int ScreenHeight, double RotateRatio)
 {
 	//인풋 정규화 과정
-	XMVECTOR mouseStartV2f = { ((float)ScreenStart.x / ScreenWidth) * 2.F - 1.F ,-1*((float)ScreenStart.y / ScreenHeight) * 2.F + 1.F , 0.F , 0.F };
-	XMVECTOR mouseCurV2f = { ((float)ScreenCur.x / ScreenWidth) * 2.F - 1.F ,-1*((float)ScreenCur.y / ScreenHeight) * 2.F + 1.F , 0.F ,0.F };
+	XMVECTOR mouseStartV2f = { ((double)ScreenStart.x / ScreenWidth) * 2.F - 1.F ,-1*((double)ScreenStart.y / ScreenHeight) * 2.F + 1.F , 0.F , 0.F };
+	XMVECTOR mouseCurV2f = { ((double)ScreenCur.x / ScreenWidth) * 2.F - 1.F ,-1*((double)ScreenCur.y / ScreenHeight) * 2.F + 1.F , 0.F ,0.F };
 
 
 	XMVECTOR moveVector = XMVectorSubtract(mouseCurV2f , mouseStartV2f);
@@ -146,7 +146,7 @@ void BasicCam::TracballRoate(DirectX::XMINT2 ScreenStart, DirectX::XMINT2 Screen
 }
 
 
-void BasicCam::TracballRoateNormVector(XMVECTOR MoveVector, float RotateRatio)
+void BasicCam::TracballRoateNormVector(XMVECTOR MoveVector, double RotateRatio)
 {
 	if (XMVector4Equal(MoveVector, { 0,0,0,0.F })) return;
 	

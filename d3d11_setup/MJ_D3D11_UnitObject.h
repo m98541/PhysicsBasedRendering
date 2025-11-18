@@ -5,6 +5,11 @@
 
 namespace UnitObject
 {
+	typedef struct UNIT_BOX_S
+	{
+		DirectX::XMVECTOR boxMax;
+		DirectX::XMVECTOR boxMin;
+	}UNIT_BOX_T;
 	
 	typedef struct UNIT_DESC_S
 	{
@@ -23,7 +28,6 @@ namespace UnitObject
 		UnitObj(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, ID3D10Blob* vsShader, MJD3D11OBJ_HANDLE_t* objHandle, CapsuleCollision::CAPSULE_T mapCollider, ConvexHull* objCollider);
 		~UnitObj();
 		CapsuleCollision::CAPSULE_T mapCollider;
-		
 		ConvexHull* objCollider;
 
 		void setPos(DirectX::XMFLOAT4 pos);
@@ -32,13 +36,22 @@ namespace UnitObject
 
 		DirectX::XMFLOAT4 getPos();
 		DirectX::XMFLOAT4 getScale();
+		DirectX::XMMATRIX getTRS();
+		
+		UNIT_BOX_T getBOXCollider();
+		bool unitAABBCollCheck(UnitObj* other);
 		double getRotate();
 
 		void DrawObject();
 		void DrawCollider();
+		void Stop();
+		bool moveState();
 		
-
+		void setBox();
+		
 	private:
+	
+		bool moveActive;
 		//object file info
 		MJD3D11OBJ_HANDLE_t* objHandle;
 		MJD3D11OBJ_HANDLE_t* colliderObjHandle;
@@ -64,6 +77,8 @@ namespace UnitObject
 		ID3D11RasterizerState* pWireframeRS;   // 와이어프레임(선) 상태
 
 		void updateTRS();
+
+		UNIT_BOX_T boxCollider;
 		
 	};
 

@@ -10,6 +10,7 @@ UnitObj::UnitObj(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, ID3D10Blob* vsS
 	this->scale = XMFLOAT4(1.F , 1.F , 1.F, 1.F);
 	this->rotate = 0.0;
 	this->pos = XMFLOAT4(0 , 0, 0, 1.F);
+	this->moveActive = true;
 
 	this->mapCollider = mapCollider;
 	this->Dev = Dev;
@@ -49,6 +50,7 @@ UnitObj::UnitObj(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, ID3D10Blob* vsS
 	rsDesc.FrontCounterClockwise = false;
 	rsDesc.DepthClipEnable = true;
 	Dev->CreateRasterizerState(&rsDesc, &this->pSolidRS);
+
 
 }
 
@@ -167,18 +169,28 @@ void UnitObj::updateTRS()
 
 void UnitObj::setPos(XMFLOAT4 pos)
 {
-	this->pos = pos;
-	this->updateTRS();
+	if (this->moveActive)
+	{
+		this->pos = pos;
+		this->updateTRS();
+	}
+	
 }
 void UnitObj::setRotate(double rotate)
 {
-	this->rotate = rotate;
-	this->updateTRS();
+	if (this->moveActive)
+	{
+		this->rotate = rotate;
+		this->updateTRS();
+	}
 }
 void UnitObj::setScale(XMFLOAT4 scale)
 {
-	this->scale = scale;
-	this->updateTRS();
+	if (this->moveActive)
+	{
+		this->scale = scale;
+		this->updateTRS();
+	}
 }
 
 XMFLOAT4 UnitObj::getPos()
@@ -193,4 +205,88 @@ double UnitObj::getRotate()
 {
 	return this->rotate;
 }
+XMMATRIX UnitObj::getTRS()
+{
+	return this->TRS;
+}
 
+void UnitObj::Stop()
+{
+	this->moveActive = false;
+}
+
+UNIT_BOX_T UnitObj::getBOXCollider()
+{
+	return this->boxCollider;
+}
+
+bool UnitObj::moveState()
+{
+	return this->moveActive;
+}
+
+void UnitObj::setBox()
+{
+	
+	this->boxCollider.boxMax = XMVector3Transform(XMLoadFloat4(&this->objCollider->vertexArray[0].pos), this->TRS);
+	this->boxCollider.boxMin = this->boxCollider.boxMax;
+
+	XMVECTOR v;
+	for (int i = 1; i < this->objCollider->vertexArray.size(); i++)
+	{
+		v = XMVector3Transform(XMVectorScale(XMLoadFloat4(&this->objCollider->vertexArray[i].pos), 1.1), this->TRS);
+		
+		if (v.m128_f32[0] > this->boxCollider.boxMax.m128_f32[0])
+		{
+			this->boxCollider.boxMax.m128_f32[0] = v.m128_f32[0];
+		}
+
+		if ( v.m128_f32[1] > this->boxCollider.boxMax.m128_f32[1])
+		{
+			this->boxCollider.boxMax.m128_f32[1] = v.m128_f32[1];
+		}
+
+		if (v.m128_f32[2] > this->boxCollider.boxMax.m128_f32[2])
+		{
+			this->boxCollider.boxMax.m128_f32[2] = v.m128_f32[2];
+		}
+
+
+
+
+		if (v.m128_f32[0] < this->boxCollider.boxMin.m128_f32[0])
+		{
+			this->boxCollider.boxMin.m128_f32[0] = v.m128_f32[0];
+		}
+
+		if (v.m128_f32[1] < this->boxCollider.boxMin.m128_f32[1])
+		{
+			this->boxCollider.boxMin.m128_f32[1] = v.m128_f32[1];
+		}
+
+		if (v.m128_f32[2] < this->boxCollider.boxMin.m128_f32[2])
+		{
+			this->boxCollider.boxMin.m128_f32[2] = v.m128_f32[2];
+		}
+	}
+
+}
+
+bool UnitObj::unitAABBCollCheck(UnitObj* other)
+{
+
+	UNIT_BOX_T boxA = this->getBOXCollider();
+	UNIT_BOX_T boxB = other->getBOXCollider();
+	// 한 축이라도 분리되어 있으면 충돌하지 않음
+	if (boxA.boxMax.m128_f32[0] <= boxB.boxMin.m128_f32[0] || // A가 B의 왼쪽
+		boxA.boxMin.m128_f32[0] >= boxB.boxMax.m128_f32[0] || // A가 B의 오른쪽
+		boxA.boxMax.m128_f32[1] <= boxB.boxMin.m128_f32[1] || // A가 B의 아래
+		boxA.boxMin.m128_f32[1] >= boxB.boxMax.m128_f32[1] || // A가 B의 위
+		boxA.boxMax.m128_f32[2] <= boxB.boxMin.m128_f32[2] || // A가 B의 뒤
+		boxA.boxMin.m128_f32[2] >= boxB.boxMax.m128_f32[2])   // A가 B의 앞
+	{
+		return true; // 분리됨 (충돌 아님)
+	}
+
+	return false; // 분리되지 않음 (충돌)
+}

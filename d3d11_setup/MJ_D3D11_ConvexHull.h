@@ -37,7 +37,7 @@ class ConvexHull : public Convex
 		ConvexHull();
 		ConvexHull(DirectX::XMVECTOR* inVertexArray, unsigned int size);
 		~ConvexHull();
-		//DirectX::XMVECTOR Support(DirectX::XMVECTOR direction); GJK 구현시 필요
+		DirectX::XMVECTOR Support(DirectX::XMVECTOR direction ,DirectX::XMMATRIX matTRS); //GJK 구현시 필요
 	private:
 		eastl::vector<ConvexHullFace_T*> activeFaces;
 		

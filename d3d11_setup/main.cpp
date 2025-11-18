@@ -31,6 +31,7 @@ MJ_D3D11_ 다음의 표시가 붙은 경우(비표준 라이브러리(?)) directX11 라이브러리에 �
 #include "MJ_D3D11_HalfEdge.h"
 #include "MJ_D3D11_ConvexHull.h"
 #include "MJ_D3D11_UnitObject.h"
+#include "MJ_D3D11_GJK.h"
 
 #define SCREEN_SIZE_WIDTH 1920
 #define SCREEN_SIZE_HEIGHT 1080
@@ -94,17 +95,18 @@ MJD3D11OBJ_HANDLE_t* objHandle;
 BasicCam* singleCam;
 BasicCam* singleNextCam;
 
-constexpr float gravity = 0.F;
+constexpr double gravity = 100.F;
+constexpr double catGravity = 100.0F;
 
 int mouseMoveOn;
 XMVECTOR mouseMoveVector;
 
-float camAccV = 0.F;
-float camAccRLV = 0.F;//left right speed scale
-float camAccR = 0.F;
+double camAccV = 0.F;
+double camAccRLV = 0.F;//left right speed scale
+double camAccR = 0.F;
 
 bool camJumpState = false;
-float camJumpSpeed = 0.5F;
+double camJumpSpeed = 500.F;
 
 ULONGLONG jumpStartTick;
 ULONGLONG jumpCurTick;
@@ -134,7 +136,6 @@ D3D_FEATURE_LEVEL featureLevelarr[] = {
 };
 
 int mouseTick = 0;
-int frameTick = 0;
 
 void InitD3D(HWND hWnd); // sets up & init D3D
 void InitData(void);//verts data mapping memory
@@ -377,8 +378,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	collider.Collider.head = singleCam->Element.pos;
 	collider.Collider.foot = singleCam->Element.pos;
 	collider.Collider.foot.m128_f32[1] -= height;
-	ULONGLONG startTick = GetTickCount64();
-	ULONGLONG curTick;
+	
 
 
 
@@ -391,8 +391,8 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	printf("read cat obj\n");
 	ConvexHull* catConvexHull = new ConvexHull((XMVECTOR*)catModelObjectBuf->vertBuffer, catModelObjectBuf->vertBufferLen);
 
-	float catRadius = 10.F;
-	float catHeight = 10.F;
+	float catRadius = 16.F;
+	float catHeight = 1.F;
 	MJD3D11LoadOBJ(dev,devCon,VS,&catOBJHandle , "cat.obj");
 	CAPSULE_T catCapsule = {
 		{0.F , catHeight + catRadius, 0.F, 1.F},
@@ -425,6 +425,15 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 		catOBJHandle,catCapsule,catConvexHull
 	};
 
+	CapsuleCollider nextCatCollider(catCapsule);
+	CapsuleCollider catCollider(catCapsule);
+
+	int frameTick = 0;
+
+
+	ULONGLONG lastTick = GetTickCount64();
+	ULONGLONG startTick = lastTick;
+	ULONGLONG curTick;
 
 	while (true)
 	{		
@@ -446,9 +455,14 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 			frameTick++;
 			curTick = GetTickCount64();
+
+			double deltaTimeMS = (double)(curTick - lastTick);
+			double deltaTime = deltaTimeMS / 1000;
+
+			lastTick = curTick;
 			if (curTick - startTick > 1000)
 			{
-				//printf("fps: %u \n", frameTick);
+				printf("fps: %u \n", frameTick);
 				frameTick = 0;
 				startTick = curTick;
 			}
@@ -460,15 +474,15 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			Model model;
 			VP cam;
 
-			singleNextCam->MoveFrontBack(camAccV);
-			singleNextCam->MoveLeftRight(camAccRLV);
+			singleNextCam->MoveFrontBack(camAccV * deltaTime);
+			singleNextCam->MoveLeftRight(camAccRLV * deltaTime);
 			
 			
 
 			if (camJumpState)
 			{
-				singleNextCam->Element.pos.m128_f32[1] += camJumpSpeed;
-				singleNextCam->Element.at.m128_f32[1] += camJumpSpeed;
+				singleNextCam->Element.pos.m128_f32[1] += camJumpSpeed * deltaTime;
+				singleNextCam->Element.at.m128_f32[1] += camJumpSpeed * deltaTime;
 				
 				jumpCurTick = GetTickCount64();
 				if (jumpCurTick - jumpStartTick > 150)
@@ -482,8 +496,8 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			}
 			else
 			{
-				singleNextCam->Element.pos.m128_f32[1] -= gravity;
-				singleNextCam->Element.at.m128_f32[1] -= gravity;
+				singleNextCam->Element.pos.m128_f32[1] -= gravity * deltaTime;
+				singleNextCam->Element.at.m128_f32[1] -= gravity * deltaTime;
 			}
 		
 			
@@ -599,9 +613,103 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 			for (int i = 0; i < unitManager.size(); i++)
 			{
-			
+
+				if (unitManager[i]->moveState())
+				{
+					XMFLOAT4 setPos = unitManager[i]->getPos();
+					XMVECTOR pos = XMLoadFloat4(&setPos);
+
+					double curRot = unitManager[i]->getRotate();
+					bool rot = false;
+					catCollider.Collider.head = pos;
+					catCollider.Collider.foot = pos;
+					catCollider.Collider.foot.m128_f32[1] -= catHeight;
+
+					XMVECTOR nextPos = XMLoadFloat4(&setPos);
+
+					nextPos.m128_f32[1] -= catGravity * deltaTime;
+					nextCatCollider.Collider.head = nextPos;
+					nextCatCollider.Collider.foot = nextPos;
+					nextCatCollider.Collider.foot.m128_f32[1] -= catHeight;
 
 
+
+					eastl::vector<SWEEP_HIT_T> swpHitSet;
+
+					XMVECTOR move = nextPos - pos;
+					XMVECTOR remainMove = move;
+
+
+					for (int i = 0; i < 2; i++)
+					{
+						int next = 0;
+						bool swpTest = testMapObj->IsMapSwpCollisionDetect(catCollider, nextCatCollider.Collider, swpHitSet);
+						if (swpTest)
+						{
+							rot = swpTest || rot;
+							nextCatCollider.CollisionSlide(swpHitSet[0].normal, remainMove);
+							nextPos = pos + nextCatCollider.nextMove;
+
+							nextCatCollider.Collider.head = nextPos;
+							nextCatCollider.Collider.foot = nextCatCollider.Collider.head;
+							nextCatCollider.Collider.foot.m128_f32[1] -= catHeight;
+
+							remainMove = nextCatCollider.nextMove;
+						}
+						else
+						{
+							break;
+						}
+
+						for (int j = 0; j < swpHitSet.size(); j++)
+						{
+
+							if (nextCatCollider.TriAngleCollisionTest(swpHitSet[j].tri))
+							{
+								nextPos = pos + swpHitSet[j].normal * swpHitSet[j].penetrationDepth;
+
+								nextCatCollider.Collider.head = nextPos;
+								nextCatCollider.Collider.foot = nextCatCollider.Collider.head;
+								nextCatCollider.Collider.foot.m128_f32[1] -= catHeight;
+
+								remainMove = nextPos - pos;
+							}
+						}
+
+					}
+					unitManager[i]->mapCollider = nextCatCollider.Collider;
+					XMStoreFloat4(&setPos, nextPos);
+
+
+					if (rot)
+					{
+						curRot += 1.5 * deltaTime;
+					}
+
+
+					unitManager[i]->setPos(setPos);
+					unitManager[i]->setRotate(curRot);
+					unitManager[i]->setBox();
+				}
+				
+				
+				
+
+				for (int j = 0; j < unitManager.size(); j++)
+				{
+					if (i == j) continue;
+					if (!unitManager[i]->unitAABBCollCheck(unitManager[j]))
+					{
+						if (gjkCollisionCheck(unitManager[i]->objCollider, unitManager[i]->getTRS(), unitManager[j]->objCollider, unitManager[j]->getTRS()))
+						{
+
+							unitManager[i]->Stop();
+							unitManager[j]->Stop();
+						}
+					}
+					
+
+				}
 
 				unitManager[i]->DrawObject();
 				unitManager[i]->DrawCollider();
@@ -628,13 +736,13 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 void pushUnit(XMVECTOR camPos)
 {
 	UnitObject::UnitObj* catOBJ = new UnitObject::UnitObj(globalCat.Dev, globalCat.DevCon, globalCat.vsShader, globalCat.objHandle, globalCat.mapCollider, globalCat.objCollider);
-	XMFLOAT4 catScale = { 5.F , 5.F ,5.F , 1.F };
+	XMFLOAT4 catScale = { 3.F , 5.F ,3.F , 1.F };
 	catOBJ->setScale(catScale);
 	XMFLOAT4 catPos;
 	XMStoreFloat4(&catPos, singleCam->Element.pos);
 	catOBJ->setPos(catPos);
 	unitManager.push_back(catOBJ);
-	printf("cat push! pos : %f %f %f \n" , catPos.x , catPos.y , catPos.z);
+	
 }
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
@@ -643,7 +751,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	POINT cursor;
 	static int mouseInWindow = 0;
 	
-	float speed = 1.f;
+	double speed = 500.0;
 	
 	switch (iMessage)
 	{
