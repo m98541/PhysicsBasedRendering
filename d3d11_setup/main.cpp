@@ -32,9 +32,10 @@ MJ_D3D11_ 다음의 표시가 붙은 경우(비표준 라이브러리(?)) directX11 라이브러리에 �
 #include "MJ_D3D11_ConvexHull.h"
 #include "MJ_D3D11_UnitObject.h"
 #include "MJ_D3D11_GJK.h"
+#include "MJ_D3D11_EPA.h"
 
 #define SCREEN_SIZE_WIDTH 1920
-#define SCREEN_SIZE_HEIGHT 1080
+#define SCREEN_SIZE_HEIGHT 1200
 
 using namespace DirectX;
 using namespace CapsuleCollision;
@@ -95,8 +96,9 @@ MJD3D11OBJ_HANDLE_t* objHandle;
 BasicCam* singleCam;
 BasicCam* singleNextCam;
 
-constexpr double gravity = 100.F;
-constexpr double catGravity = 100.0F;
+constexpr double gravity = 0.F;
+constexpr double catGravity = 150.0F;
+int catCount = 0;
 
 int mouseMoveOn;
 XMVECTOR mouseMoveVector;
@@ -378,9 +380,6 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	collider.Collider.head = singleCam->Element.pos;
 	collider.Collider.foot = singleCam->Element.pos;
 	collider.Collider.foot.m128_f32[1] -= height;
-	
-
-
 
 
 	OBJFILE_DESC_T catModelObject;
@@ -462,7 +461,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			lastTick = curTick;
 			if (curTick - startTick > 1000)
 			{
-				printf("fps: %u \n", frameTick);
+				printf("fps: %u catCount : %d \n", frameTick , catCount);
 				frameTick = 0;
 				startTick = curTick;
 			}
@@ -613,6 +612,39 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 			for (int i = 0; i < unitManager.size(); i++)
 			{
+				for (int j = 0; j < unitManager.size(); j++)
+				{
+					if (i == j) continue;
+					int cnt = 0;
+					while (!unitManager[i]->unitAABBCollCheck(unitManager[j]) && cnt < 4)
+					{
+						gjkSimplex simplex;
+						EPA_INFO_T info;
+						if (gjkCollisionCheck(unitManager[i]->objCollider, unitManager[i]->getTRS(), unitManager[j]->objCollider, unitManager[j]->getTRS(), simplex))
+						{
+
+							info = CreateEPAInfo(simplex, unitManager[i]->objCollider, unitManager[i]->getTRS(), unitManager[j]->objCollider, unitManager[j]->getTRS());
+							XMFLOAT4 next = unitManager[i]->getPos();
+							XMVECTOR nextPosI = XMLoadFloat4(&next);
+							info.direction.m128_f32[1] = 0.F;
+							nextPosI += (0.5) * info.direction * info.distance * deltaTime;
+						
+							XMStoreFloat4(&next, nextPosI);
+							unitManager[i]->setPos(next);
+
+							next = unitManager[j]->getPos();
+							XMVECTOR nextPosJ = XMLoadFloat4(&next);
+							nextPosJ -= (0.5) * info.direction * info.distance * deltaTime;
+							XMStoreFloat4(&next, nextPosJ);
+							unitManager[j]->setPos(next);
+						}
+						cnt++;
+
+
+					}
+
+
+				}
 
 				if (unitManager[i]->moveState())
 				{
@@ -640,7 +672,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 					XMVECTOR remainMove = move;
 
 
-					for (int i = 0; i < 2; i++)
+					for (int i = 0; i < 3; i++)
 					{
 						int next = 0;
 						bool swpTest = testMapObj->IsMapSwpCollisionDetect(catCollider, nextCatCollider.Collider, swpHitSet);
@@ -695,21 +727,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 				
 				
 
-				for (int j = 0; j < unitManager.size(); j++)
-				{
-					if (i == j) continue;
-					if (!unitManager[i]->unitAABBCollCheck(unitManager[j]))
-					{
-						if (gjkCollisionCheck(unitManager[i]->objCollider, unitManager[i]->getTRS(), unitManager[j]->objCollider, unitManager[j]->getTRS()))
-						{
-
-							unitManager[i]->Stop();
-							unitManager[j]->Stop();
-						}
-					}
-					
-
-				}
+				
 
 				unitManager[i]->DrawObject();
 				unitManager[i]->DrawCollider();
@@ -798,6 +816,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		case 'c':
 		case 'C':
 			pushUnit(singleCam->Element.pos);
+			catCount++;
 			break;
 		case VK_SPACE:
 			if(!camJumpState)

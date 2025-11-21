@@ -136,6 +136,7 @@ void HalfEdge::DeleteHETriFace(HE_FACE_T* face)
 	HE_EDGE_T* edge1 = edge0->next;
 	HE_EDGE_T* edge2 = edge1->next;
 
+	
 	HE_VERT_T* vert0 = edge0->originVert;
 	HE_VERT_T* vert1 = edge1->originVert;
 	HE_VERT_T* vert2 = edge2->originVert;

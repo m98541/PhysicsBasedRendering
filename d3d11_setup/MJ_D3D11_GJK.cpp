@@ -78,8 +78,8 @@ bool selectSimplexHandle(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 
 }
 
-#include <stdio.h>
-bool gjkCollisionCheck(ConvexHull* convexA, DirectX::XMMATRIX matTRS_A, ConvexHull* convexB, DirectX::XMMATRIX matTRS_B)
+
+bool gjkCollisionCheck(ConvexHull* convexA, DirectX::XMMATRIX matTRS_A, ConvexHull* convexB, DirectX::XMMATRIX matTRS_B, gjkSimplex& simplex)
 {
 	XMVECTOR posA = {0 , 0 , 0 , 1.F}; 
 
@@ -87,8 +87,6 @@ bool gjkCollisionCheck(ConvexHull* convexA, DirectX::XMMATRIX matTRS_A, ConvexHu
 
 	XMVECTOR posB = { 0 , 0 , 0 , 1.F };
 	posB = XMVector3Transform(posB, matTRS_B);
-	
-	gjkSimplex simplex;
 
 	XMVECTOR direction = XMVector3Normalize(posB - posA);
 
@@ -216,6 +214,8 @@ bool HandleSimplexTetrahedron(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 		{point0 ,point1 ,point3 },
 		{point1 ,point2 ,point3 },
 	};
+
+	memcpy(simplex.faces , face , sizeof(XMVECTOR)*12);
 
 
 	for (int i = 0; i < 4; i++)

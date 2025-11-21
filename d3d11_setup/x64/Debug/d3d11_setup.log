@@ -14,13 +14,17 @@ E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(20,10): warning C4099: 'B
       E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
       'BVtree::BvNode' 선언을 참조하십시오.
   
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(334,46): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(484,60): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(485,59): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(499,55): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(500,54): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(630,40): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(729,16): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(1101,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(1106,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(336,46): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(483,60): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(484,59): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(498,55): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(499,54): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(630,49): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(630,61): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(637,49): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(637,61): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(662,40): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(747,16): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(1120,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(1125,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   d3d11_setup.vcxproj -> E:\PhysicsBasedRendering\x64\Debug\d3d11_setup.exe

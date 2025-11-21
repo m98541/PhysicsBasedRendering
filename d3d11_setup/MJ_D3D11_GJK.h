@@ -8,6 +8,7 @@ class gjkSimplex
 {
 	public:
 		DirectX::XMVECTOR points[4];
+		DirectX::XMVECTOR faces[4][3];//3 tetrahedron format
 		int level;// 0 point , 1 line , 2 tri , 3 tetrahedron
 		gjkSimplex();
 		~gjkSimplex();
@@ -22,7 +23,7 @@ class gjkSimplex
 };
 
 
-bool gjkCollisionCheck(ConvexHull* A,DirectX::XMMATRIX matTRS_A,ConvexHull* B, DirectX::XMMATRIX matTRS_B);
+bool gjkCollisionCheck(ConvexHull* A,DirectX::XMMATRIX matTRS_A,ConvexHull* B, DirectX::XMMATRIX matTRS_B, gjkSimplex& simplex);
 
 #endif // !MJ_D3D11_GJK_H
 
