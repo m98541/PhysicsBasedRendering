@@ -1,6 +1,6 @@
 #include "MJ_D3D11_EPA.h"
 #include <EASTL/map.h>
-#define EPSILON 1e-6f
+#define EPSILON 1e-5f
 
 using namespace eastl;
 using namespace DirectX;
@@ -25,6 +25,26 @@ struct HorizonEdge {
 	XMVECTOR start;
 	XMVECTOR end;
 };
+
+bool FaceVisible(const XMVECTOR& faceNomral, const XMVECTOR& point , const XMVECTOR& facePoint0)
+{
+	XMVECTOR distance = XMVector3Dot(faceNomral, facePoint0);
+	return XMVector3Dot(faceNomral , point).m128_f32[0] - distance.m128_f32[0] > EPSILON;
+}
+
+bool IsDuplicateVertex(const vector<EPA_FACE_T>& faceArr, const XMVECTOR& point)
+{
+	float allowableErrorSq = EPSILON * EPSILON;
+	for (const auto& face : faceArr) {
+		for (int i = 0; i < 3; ++i) {
+			XMVECTOR diff = face.points[i] - point;
+			XMVECTOR diffSq = XMVector3LengthSq(diff);
+			float len = diffSq.m128_f32[0]; 
+			if (len <= allowableErrorSq) return true;
+		}
+	}
+	return false;
+}
 
 #include <stdio.h>
 EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX matTRS_A, ConvexHull* B, DirectX::XMMATRIX matTRS_B)
@@ -74,7 +94,14 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 
 		XMVECTOR farestVector = B->Support(nearestFace.norm, matTRS_B) - A->Support(-nearestFace.norm, matTRS_A);
 		float projDist = XMVector3Dot(farestVector, nearestFace.norm).m128_f32[0];
-		if (projDist - nearestFace.distance <= EPSILON || cnt > 30 || faceArr.size() > 30)
+
+		if (IsDuplicateVertex(faceArr, farestVector)) {
+			outInfo.direction = nearestFace.norm;
+			outInfo.distance = nearestFace.distance;
+			return outInfo;
+		}
+
+		if (projDist - nearestFace.distance <= EPSILON || cnt > 100 || faceArr.size() > 1000)
 		{
 			outInfo.direction = nearestFace.norm;
 			outInfo.distance = nearestFace.distance;
@@ -87,7 +114,7 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 			EPA_FACE_T* face = &faceArr[i];
 			XMVECTOR normal = face->norm;
 
-			if (XMVector3Dot(face->norm, farestVector - face->points[0]).m128_f32[0] >= EPSILON)
+			if (FaceVisible(face->norm, farestVector, face->points[0]))
 			{// 보이는 면 
 				for (int j = 0; j < 3; j++)
 				{

@@ -38,6 +38,8 @@ namespace UnitObject
 		DirectX::XMFLOAT4 getScale();
 		DirectX::XMMATRIX getTRS();
 		
+		double rotateMomente;
+
 		UNIT_BOX_T getBOXCollider();
 		bool unitAABBCollCheck(UnitObj* other);
 		double getRotate();

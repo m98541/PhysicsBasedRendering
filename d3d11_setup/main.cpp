@@ -35,7 +35,7 @@ MJ_D3D11_ 다음의 표시가 붙은 경우(비표준 라이브러리(?)) directX11 라이브러리에 �
 #include "MJ_D3D11_EPA.h"
 
 #define SCREEN_SIZE_WIDTH 1920
-#define SCREEN_SIZE_HEIGHT 1200
+#define SCREEN_SIZE_HEIGHT 1080
 
 using namespace DirectX;
 using namespace CapsuleCollision;
@@ -97,8 +97,10 @@ BasicCam* singleCam;
 BasicCam* singleNextCam;
 
 constexpr double gravity = 0.F;
-constexpr double catGravity = 150.0F;
+constexpr double catGravity = 100.0F;
 int catCount = 0;
+bool catConvexColliderView = false;
+bool catBoxColliderView = false;
 
 int mouseMoveOn;
 XMVECTOR mouseMoveVector;
@@ -152,7 +154,6 @@ void CreateShaderResourceViewFromBMPFile(ID3D11Device* device, const char* fileN
 
 bool BoxViewMode = false;
 int BoxDrawDepth = 0;
-
 
 void* __cdecl operator new[](size_t size, size_t alignment, size_t alignmentOffset, const char* pName, int flags, unsigned debugFlags, const char* file, int line)
 {
@@ -210,7 +211,7 @@ void Draw_Box(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, XMVECTOR max, XMVE
 	for (int i = 0; i < 24; ++i)
 	{
 		boxVertices[i].pos = corners[edgeIndices[i]];
-		boxVertices[i].tex = XMFLOAT2(0.5f, 0.5f); // not used
+		boxVertices[i].tex = XMFLOAT2(0.f, 0.f); // not used
 		boxVertices[i].norm = XMFLOAT4(10000.F, 0.F , 0.F, 1.0f); // dummy normal
 		boxVertices[i].textureIdx = 1; // dummy texture index
 	}
@@ -609,6 +610,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 				DrawMapBox(testMapObj->mBoxVolumeTree, BoxDrawDepth);
 			}
 			
+			int iterateCount = 10;
 
 			for (int i = 0; i < unitManager.size(); i++)
 			{
@@ -616,7 +618,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 				{
 					if (i == j) continue;
 					int cnt = 0;
-					while (!unitManager[i]->unitAABBCollCheck(unitManager[j]) && cnt < 4)
+					while (!unitManager[i]->unitAABBCollCheck(unitManager[j]) && cnt < iterateCount)
 					{
 						gjkSimplex simplex;
 						EPA_INFO_T info;
@@ -626,17 +628,19 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 							info = CreateEPAInfo(simplex, unitManager[i]->objCollider, unitManager[i]->getTRS(), unitManager[j]->objCollider, unitManager[j]->getTRS());
 							XMFLOAT4 next = unitManager[i]->getPos();
 							XMVECTOR nextPosI = XMLoadFloat4(&next);
-							info.direction.m128_f32[1] = 0.F;
-							nextPosI += (0.5) * info.direction * info.distance * deltaTime;
+							info.direction.m128_f32[1] *=  0.F;
+							info.direction = XMVector3Normalize(info.direction);
+							nextPosI +=  (0.5) * info.direction * info.distance ;
 						
 							XMStoreFloat4(&next, nextPosI);
 							unitManager[i]->setPos(next);
 
 							next = unitManager[j]->getPos();
 							XMVECTOR nextPosJ = XMLoadFloat4(&next);
-							nextPosJ -= (0.5) * info.direction * info.distance * deltaTime;
+							nextPosJ -= (0.5) * info.direction * info.distance;
 							XMStoreFloat4(&next, nextPosJ);
 							unitManager[j]->setPos(next);
+						
 						}
 						cnt++;
 
@@ -672,7 +676,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 					XMVECTOR remainMove = move;
 
 
-					for (int i = 0; i < 3; i++)
+					for (int i = 0; i < 5; i++)
 					{
 						int next = 0;
 						bool swpTest = testMapObj->IsMapSwpCollisionDetect(catCollider, nextCatCollider.Collider, swpHitSet);
@@ -715,7 +719,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 					if (rot)
 					{
-						curRot += 1.5 * deltaTime;
+						curRot -= 1.0 * deltaTime;
 					}
 
 
@@ -724,16 +728,29 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 					unitManager[i]->setBox();
 				}
 				
-				
-				
-
-				
-
-				unitManager[i]->DrawObject();
-				unitManager[i]->DrawCollider();
 
 			}
-			
+			for (int j = 0; j < unitManager.size(); j++)
+			{
+				unitManager[j]->DrawObject();
+				if (catConvexColliderView)
+				{
+					unitManager[j]->DrawCollider();
+				}
+				
+				if (catBoxColliderView)
+				{
+					UnitObject::UNIT_BOX_T box = unitManager[j]->getBOXCollider();		
+					XMMATRIX m = XMMatrixIdentity();
+					devCon->Map(pModelBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
+					memcpy(mapped.pData, &m, sizeof(XMMATRIX));
+					devCon->Unmap(pModelBuffer, 0);
+					devCon->VSSetConstantBuffers(1, 1, &pModelBuffer);
+					Draw_Box(dev, devCon, box.boxMax, box.boxMin);
+				}
+
+				
+			}
 			swapChain->Present(0, 0);
 
 
@@ -751,13 +768,13 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 }
 
-void pushUnit(XMVECTOR camPos)
+void pushUnit(XMVECTOR pos)
 {
 	UnitObject::UnitObj* catOBJ = new UnitObject::UnitObj(globalCat.Dev, globalCat.DevCon, globalCat.vsShader, globalCat.objHandle, globalCat.mapCollider, globalCat.objCollider);
 	XMFLOAT4 catScale = { 3.F , 5.F ,3.F , 1.F };
 	catOBJ->setScale(catScale);
 	XMFLOAT4 catPos;
-	XMStoreFloat4(&catPos, singleCam->Element.pos);
+	XMStoreFloat4(&catPos,pos);
 	catOBJ->setPos(catPos);
 	unitManager.push_back(catOBJ);
 	
@@ -768,7 +785,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	
 	POINT cursor;
 	static int mouseInWindow = 0;
-	
+	XMVECTOR initPos0 = { -372.254456 ,  138.186737 ,-1082.889526 , 1.F };
+	XMVECTOR initPos1 = { -1042.446655 , 240.237793 , -2248.686768 , 1.F };
+	XMVECTOR initPos2 = { -1017.693909 , 218.114868 , - 2326.060303 , 1.F };
+	XMVECTOR initPos3 = { 453.103607  , 170.620117 , 69.081215 , 1.F };
 	double speed = 500.0;
 	
 	switch (iMessage)
@@ -812,12 +832,38 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		case 'b':
 			BoxDrawDepth = (BoxDrawDepth + 1) % 15;
 			break;
-
+		//-377.538269 338.951141 -664.057922
+		
 		case 'c':
 		case 'C':
 			pushUnit(singleCam->Element.pos);
 			catCount++;
 			break;
+		case '0':
+			pushUnit(initPos0);
+			catCount++;
+			break;
+		case '1':
+			pushUnit(initPos1);
+			catCount++;
+			break;
+		case '2':
+			pushUnit(initPos2);
+			catCount++;
+			break;
+		case '3':
+			pushUnit(initPos3);
+			catCount++;
+			break;
+		case 'n':
+		case 'N':
+			catConvexColliderView = !catConvexColliderView;
+			break;
+		case 'm':
+		case 'M':
+			catBoxColliderView = !catBoxColliderView;
+			break;
+
 		case VK_SPACE:
 			if(!camJumpState)
 				jumpStartTick = GetTickCount64();
