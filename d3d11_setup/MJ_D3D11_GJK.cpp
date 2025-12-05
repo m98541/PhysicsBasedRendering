@@ -1,13 +1,13 @@
 #include "MJ_D3D11_GJK.h"
-
+#define EPSILON 1e-5f
 using namespace DirectX;
 
 gjkSimplex::gjkSimplex()
 {
-	points[0] = { 0, };
-	points[1] = { 0, };
-	points[2] = { 0, };
-	points[3] = { 0, };
+	points[0] = XMFLOAT4(0.F ,0.F , 0.F , 0.F);
+	points[1] = XMFLOAT4(0.F ,0.F , 0.F , 0.F);
+	points[2] = XMFLOAT4(0.F ,0.F , 0.F , 0.F);
+	points[3] = XMFLOAT4(0.F ,0.F , 0.F , 0.F);
 	level = 0;
 }
 
@@ -18,38 +18,38 @@ gjkSimplex::~gjkSimplex()
 
 void gjkSimplex::addPoint(XMVECTOR point)
 {
-	points[level] = point;
+	XMStoreFloat4(&points[level], point);
 	level++;
 }
 
 void gjkSimplex::SetPoints(DirectX::XMVECTOR point)
 {
 	level = 1;
-	points[0] = point;
+	XMStoreFloat4(&points[0], point);
 }
 
 void gjkSimplex::SetPoints(DirectX::XMVECTOR point0, DirectX::XMVECTOR point1)
 {
 	level = 2;
-	points[0] = point0;
-	points[1] = point1;
+	XMStoreFloat4(&points[0], point0);
+	XMStoreFloat4(&points[1], point1);
 }
 
 void gjkSimplex::SetPoints(DirectX::XMVECTOR point0, DirectX::XMVECTOR point1, DirectX::XMVECTOR point2)
 {
 	level = 3;
-	points[0] = point0;
-	points[1] = point1;
-	points[2] = point2;
+	XMStoreFloat4(&points[0], point0);
+	XMStoreFloat4(&points[1], point1);
+	XMStoreFloat4(&points[2], point2);
 }
 
 void gjkSimplex::SetPoints(DirectX::XMVECTOR point0, DirectX::XMVECTOR point1, DirectX::XMVECTOR point2 , DirectX::XMVECTOR point3)
 {
 	level = 4;
-	points[0] = point0;
-	points[1] = point1;
-	points[2] = point2;
-	points[3] = point3;
+	XMStoreFloat4( &points[0],point0);
+	XMStoreFloat4( &points[1],point1);
+	XMStoreFloat4( &points[2],point2);
+	XMStoreFloat4( &points[3],point3);
 }
 
 const XMVECTOR ORIGIN = {0,0,0,0};
@@ -98,7 +98,7 @@ bool gjkCollisionCheck(ConvexHull* convexA, DirectX::XMMATRIX matTRS_A, ConvexHu
 	{
 
 		farVector = convexB->Support(-direction, matTRS_B) - convexA->Support(direction, matTRS_A);
-		if (XMVector3Dot(farVector, direction).m128_f32[0] >= 0)
+		if (XMVector3Dot(farVector, direction).m128_f32[0] >= EPSILON)
 		{
 			return false;
 		}
@@ -122,7 +122,7 @@ bool gjkCollisionCheck(ConvexHull* convexA, DirectX::XMMATRIX matTRS_A, ConvexHu
 
 bool HandleSimplexPoint(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 {
-	XMVECTOR point = simplex.points[0];
+	XMVECTOR point = XMLoadFloat4( &simplex.points[0]);
 
 	if (XMVector3Equal(point, ORIGIN))
 	{
@@ -135,14 +135,14 @@ bool HandleSimplexPoint(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 
 bool HandleSimplexLine(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 {
-	XMVECTOR pointA = simplex.points[0];
-	XMVECTOR pointB = simplex.points[1];
+	XMVECTOR pointA = XMLoadFloat4( &simplex.points[0]);
+	XMVECTOR pointB = XMLoadFloat4( &simplex.points[1]);
 	XMVECTOR lineBA = pointB - pointA;
 	XMVECTOR lineAO = ORIGIN - pointA;
 
 	direction = XMVector3Cross(XMVector3Cross(lineBA , lineAO) , lineBA);
 
-	if (XMVector3LengthSq(direction).m128_f32[0] < 1e-6f)
+	if (XMVector3LengthSq(direction).m128_f32[0] < EPSILON)
 	{
 		XMVECTOR ratio = XMVector3Dot(lineAO, lineBA) / XMVector3LengthSq(lineBA);
 
@@ -173,16 +173,16 @@ bool HandleSimplexLine(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 
 bool HandleSimplexTriangle(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 {
-	XMVECTOR pointA = simplex.points[0];
-	XMVECTOR pointB = simplex.points[1];
-	XMVECTOR pointC = simplex.points[2];
+	XMVECTOR pointA = XMLoadFloat4( &simplex.points[0] );
+	XMVECTOR pointB = XMLoadFloat4( &simplex.points[1] );
+	XMVECTOR pointC = XMLoadFloat4( &simplex.points[2] );
 
 	XMVECTOR lineAB = pointB - pointA;
 	XMVECTOR lineAC = pointC - pointA;
 	XMVECTOR lineAO = ORIGIN - pointA;
 
 	XMVECTOR triNormal = XMVector3Cross(lineAB , lineAC);
-	if (XMVector3Dot(triNormal, lineAO).m128_f32[0] > 0)
+	if (XMVector3Dot(triNormal, lineAO).m128_f32[0] > EPSILON)
 	{
 		direction = XMVector3Normalize(triNormal);
 	}
@@ -195,6 +195,7 @@ bool HandleSimplexTriangle(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 
 }
 
+#include <stdio.h>
 bool HandleSimplexTetrahedron(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 {
 	/*
@@ -203,10 +204,10 @@ bool HandleSimplexTetrahedron(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 	0,1,3,
 	1,2,3
 	*/
-	XMVECTOR point0 = simplex.points[0];
-	XMVECTOR point1 = simplex.points[1];
-	XMVECTOR point2 = simplex.points[2];
-	XMVECTOR point3 = simplex.points[3];
+	XMVECTOR point0 = XMLoadFloat4( &simplex.points[0] );
+	XMVECTOR point1 = XMLoadFloat4( &simplex.points[1] );
+	XMVECTOR point2 = XMLoadFloat4( &simplex.points[2] );
+	XMVECTOR point3 = XMLoadFloat4( &simplex.points[3] );
 
 	XMVECTOR face[4][3] = {
 		{point0 ,point2 ,point1 },
@@ -217,26 +218,29 @@ bool HandleSimplexTetrahedron(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 
 	memcpy(simplex.faces , face , sizeof(XMVECTOR)*12);
 
+	bool check = false;
 
 	for (int i = 0; i < 4; i++)
 	{
 		XMVECTOR faceNorm = XMVector3Cross(face[i][1] - face[i][0], face[i][2] - face[i][0]);
-		
-
+	
 		XMVECTOR p0 = face[i][0];
-		if (XMVector3Dot(faceNorm, p0).m128_f32[0] < 0.F)
+		if (XMVector3Dot(faceNorm, p0).m128_f32[0] < -EPSILON)
 		{
 			faceNorm = -faceNorm;
 		}
 
-		if (XMVector3Dot(faceNorm , ORIGIN - p0).m128_f32[0] > 0.F)
+		if (XMVector3Dot(faceNorm , ORIGIN - p0).m128_f32[0] > EPSILON)
 		{
 			direction = XMVector3Normalize(faceNorm);
 			simplex.SetPoints(face[i][0], face[i][1], face[i][2]);
 
-			return false;
+			check = true;
 		}
+
 	}
-	return true;
+
+	if (check) return false;
+	else return true;
 
 }

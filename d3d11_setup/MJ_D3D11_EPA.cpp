@@ -59,10 +59,83 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 
 	for (int i = 0; i < 4; i++)
 	{
-		XMVECTOR* face = gjkInfo.faces[i];
-		XMVECTOR normal = XMVector3Normalize( XMVector3Cross(face[1] - face[0] , face[2] - face[0]));
+		
+		XMFLOAT4* face = gjkInfo.faces[i];
+		XMVECTOR f0 = XMLoadFloat4(&face[0]);
+		XMVECTOR f1 = XMLoadFloat4(&face[1]);
+		XMVECTOR f2 = XMLoadFloat4(&face[2]);
+	
+		XMVECTOR normal = XMVector3Normalize( XMVector3Cross(f1 - f0 , f2 - f0));
+		if ((XMVector3Equal(normal ,  XMVectorZero())))
+		{
+			//printf("초기 오류 gjk level %d  \n", gjkInfo.level);
+			double min = XMVector3Length(f0).m128_f32[0];
+			double temp;
+			double lineLen;
+			XMVECTOR tempDir;
+			XMVECTOR tempLine;
+			XMVECTOR tempLineDir;
 
-		if (XMVector3Dot(normal, face[0] - ORIGIN).m128_f32[0] < 0)
+			if (!XMVector3Equal(f0, f1))
+			{
+				temp = XMVector3Length(f1).m128_f32[0];
+				tempDir = f1;
+				tempLine = f1 - f0;
+
+
+			}
+			else
+			{
+				temp = XMVector3Length(f2).m128_f32[0];
+				tempDir = f2;
+				tempLine = f2 - f0;
+			}
+
+
+
+			tempLineDir = XMVector3Cross(XMVector3Cross(tempLine, -f0), tempLine);
+			lineLen = XMVector3Length(tempLineDir).m128_f32[0];
+
+			if (min < temp)
+			{
+				if (min < lineLen)
+				{
+					outInfo.direction = XMVector3Normalize(-f0);
+					outInfo.distance = min / 10;
+					return outInfo;
+				}
+				else
+				{
+					outInfo.direction = XMVector3Normalize(tempLineDir);
+					outInfo.distance = lineLen / 10;
+					return outInfo;
+				}
+				
+			}
+			else
+			{
+				if (temp < lineLen)
+				{
+					outInfo.direction = XMVector3Normalize(-tempDir);
+					outInfo.distance = temp / 10;
+					return outInfo;
+				}
+				else
+				{
+					outInfo.direction = XMVector3Normalize(tempLineDir);
+					outInfo.distance = lineLen / 10;
+					return outInfo;
+				}
+
+			}
+			
+
+		
+		}
+
+
+
+		if (XMVector3Dot(normal, f0 - ORIGIN).m128_f32[0] < 0)
 		{// 벡터의 노말이 안쪽을 보고 있는 상황
 
 			swap(face[1] , face[2]);
@@ -72,7 +145,7 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 
 		memcpy(newFace.points , face , sizeof(XMVECTOR) * 3);
 		newFace.norm = normal;
-		newFace.distance =XMVector3Dot(normal , face[0]).m128_f32[0];
+		newFace.distance =XMVector3Dot(normal , f0).m128_f32[0];
 		faceArr.push_back(newFace);
 	}
 	
@@ -80,7 +153,7 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 	while (true)
 	{
 		if (cnt > 1000) 
-			assert(cnt > 1000 && "infinity loop!!!");
+			assert(cnt > 1000 && "infinity loop");
 		cnt++;
 		EPA_FACE_T nearestFace = faceArr[0];
 		
@@ -100,13 +173,13 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 			outInfo.distance = nearestFace.distance;
 			return outInfo;
 		}
-
-		if (projDist - nearestFace.distance <= EPSILON || cnt > 100 || faceArr.size() > 1000)
+		if (cnt > 64 || faceArr.size() > 90)
 		{
 			outInfo.direction = nearestFace.norm;
 			outInfo.distance = nearestFace.distance;
 			return outInfo;
 		}
+		
 
 
 		for (int i = 0, size = faceArr.size(); i < size; i++) // 경계면 생성 루프
@@ -151,6 +224,8 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 		for (int i = 0; i < faceArr.size();)// 보이는 면 삭제 
 		{
 			EPA_FACE_T* face = &faceArr[i];
+
+			
 			XMVECTOR normal = face->norm;
 
 			if (XMVector3Dot(face->norm, farestVector - face->points[0]).m128_f32[0] >= EPSILON)
@@ -171,15 +246,46 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 			newFace.points[0] = edge.start;
 			newFace.points[1] = edge.end;
 			newFace.points[2] = farestVector;
-			newFace.norm = XMVector3Normalize(XMVector3Cross(newFace.points[1] - newFace.points[0], newFace.points[2] - newFace.points[0]));
-			if (XMVector3Dot(newFace.norm, newFace.points[0] - ORIGIN).m128_f32[0] < 0)
+
+			XMVECTOR e1 = newFace.points[1] - newFace.points[0];
+			XMVECTOR e2 = newFace.points[2] - newFace.points[0];
+			XMVECTOR cross = XMVector3Cross(e1, e2);
+			float lenSq = XMVectorGetX(XMVector3LengthSq(cross));
+			if (lenSq < EPSILON) {
+				
+				outInfo.direction = nearestFace.norm;
+				if (nearestFace.distance <= EPSILON)
+				{
+					nearestFace.distance = 0.5F;
+				}
+				outInfo.distance = nearestFace.distance * 1.5;
+				return outInfo;
+			}
+
+			XMVECTOR norm = XMVector3Normalize(XMVector3Cross(newFace.points[1] - newFace.points[0], newFace.points[2] - newFace.points[0]));
+			
+			if (XMVector3Dot(norm, newFace.points[0] - ORIGIN).m128_f32[0] < 0)
 			{// 벡터의 노말이 안쪽을 보고 있는 상황
 
 				swap(newFace.points[1], newFace.points[2]);
-				newFace.norm = -newFace.norm;
+				norm = -norm;
 			}
+			double dist = XMVector3Dot(norm, newFace.points[0]).m128_f32[0];
 
-			newFace.distance = XMVector3Dot(newFace.norm, newFace.points[0]).m128_f32[0];
+			
+
+			if (dist >= EPSILON && !(XMVector3Equal(norm, XMVectorZero())))
+			{
+				newFace.norm = norm;
+				newFace.distance = dist;
+			}
+			else
+			{
+				outInfo.direction = nearestFace.norm;
+				outInfo.distance = nearestFace.distance;
+				return outInfo;
+			}
+			
 			faceArr.push_back(newFace);
 		}
 		

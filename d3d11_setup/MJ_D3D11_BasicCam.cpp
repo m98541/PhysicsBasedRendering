@@ -112,7 +112,7 @@ void BasicCam::CamTranform()
 	this->camElementMat = XMMatrixMultiply(originCam , this->rotMat);
 	// up 벡터의 선형성을 보존하기 위해서 up 벡터의 경우 방향 벡터이므로 translate 연산이 이루어지면 안됨
 	this->camElementMat.r[2] = { 0 , 1 ,0 ,0 };
-
+	
 	this->camElementMat = XMMatrixMultiply(this->camElementMat , this->moveMat);
 	
 	
@@ -140,7 +140,6 @@ void BasicCam::TracballRoate(DirectX::XMINT2 ScreenStart, DirectX::XMINT2 Screen
 
 	if (XMVector4Equal(axis, { 0,0,0,0.F })) return;
 	
-	
 	this->RotToAt(axis, theta1f.m128_f32[0]);
 
 }
@@ -160,8 +159,6 @@ void BasicCam::TracballRoateNormVector(XMVECTOR MoveVector, double RotateRatio)
 	axis.m128_f32[2] = XMVector4Dot(inverseRotMat.r[2], tempAxis).m128_f32[2];
 	axis.m128_f32[3] = XMVector4Dot(inverseRotMat.r[3], tempAxis).m128_f32[3];
 	if (XMVector4Equal(axis, { 0,0,0,0.F })) return;
-
-	
 	this->RotToAt(axis, XMVector2Length(MoveVector).m128_f32[0] * RotateRatio);
 
 }

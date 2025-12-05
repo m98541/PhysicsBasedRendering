@@ -97,7 +97,7 @@ BasicCam* singleCam;
 BasicCam* singleNextCam;
 
 constexpr double gravity = 0.F;
-constexpr double catGravity = 100.0F;
+constexpr double catGravity = 50.0F;
 int catCount = 0;
 bool catConvexColliderView = false;
 bool catBoxColliderView = false;
@@ -213,7 +213,7 @@ void Draw_Box(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, XMVECTOR max, XMVE
 		boxVertices[i].pos = corners[edgeIndices[i]];
 		boxVertices[i].tex = XMFLOAT2(0.f, 0.f); // not used
 		boxVertices[i].norm = XMFLOAT4(10000.F, 0.F , 0.F, 1.0f); // dummy normal
-		boxVertices[i].textureIdx = 1; // dummy texture index
+		boxVertices[i].textureIdx = 3; // dummy texture index
 	}
 
 	// Create vertex buffer
@@ -391,8 +391,8 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	printf("read cat obj\n");
 	ConvexHull* catConvexHull = new ConvexHull((XMVECTOR*)catModelObjectBuf->vertBuffer, catModelObjectBuf->vertBufferLen);
 
-	float catRadius = 16.F;
-	float catHeight = 1.F;
+	float catRadius = 30.F;
+	float catHeight = 10.F;
 	MJD3D11LoadOBJ(dev,devCon,VS,&catOBJHandle , "cat.obj");
 	CAPSULE_T catCapsule = {
 		{0.F , catHeight + catRadius, 0.F, 1.F},
@@ -569,17 +569,11 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 			
 
-
-
-			
 			collider.Collider = nextColider.Collider;
 			
 			*singleCam = *singleNextCam;
 			
-			
-
 			D3D11_MAPPED_SUBRESOURCE mapped;
-
 
 			model.m = { {1.F, 0.F , 0.F , 0.F} , {0.F, 0.F , -1.F , 0.F} ,  {0.F, 1.F ,0.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
 			cam.view = XMMatrixLookAtLH(singleCam->Element.pos, singleCam->Element.at, singleCam->Element.up);
@@ -589,8 +583,6 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			memcpy(mapped.pData, &cam, sizeof(cam));
 			devCon->Unmap(pCamBuffer, 0);
 
-
-			
 			devCon->Map(pModelBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
 			memcpy(mapped.pData, &model, sizeof(model));
 			devCon->Unmap(pModelBuffer, 0);
@@ -600,7 +592,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			if (BoxViewMode)
 			{
 
-				model.m = { {1.F, 0.F , 0.F , 0.F} , {0.F, -1.F , 0.F , 0.F} ,  {0.F, 0.F ,1.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
+				model.m = { {1.F, 0.F , 0.F , 0.F} , {0.F, 1.F , 0.F , 0.F} ,  {0.F, 0.F ,1.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
 				cam.view = XMMatrixLookAtLH(singleCam->Element.pos, singleCam->Element.at, singleCam->Element.up);
 				cam.proj = XMMatrixPerspectiveFovLH(XM_PIDIV4, 800.0F / 600.0F, 0.01F, 8000.F);
 
@@ -610,46 +602,59 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 				DrawMapBox(testMapObj->mBoxVolumeTree, BoxDrawDepth);
 			}
 			
-			int iterateCount = 10;
+			int iterateCount = 5;
+			int unitCount = (int)unitManager.size();
+			eastl::vector<XMVECTOR> corrections(unitCount, XMVectorZero());
 
-			for (int i = 0; i < unitManager.size(); i++)
+
+			for (int i = 0; i < unitCount; i++)
 			{
-				for (int j = 0; j < unitManager.size(); j++)
+				for (int j = i + 1; j < unitCount; j++)
 				{
 					if (i == j) continue;
-					int cnt = 0;
-					while (!unitManager[i]->unitAABBCollCheck(unitManager[j]) && cnt < iterateCount)
+					for (int k = 0; k < iterateCount; k++)
 					{
 						gjkSimplex simplex;
 						EPA_INFO_T info;
-						if (gjkCollisionCheck(unitManager[i]->objCollider, unitManager[i]->getTRS(), unitManager[j]->objCollider, unitManager[j]->getTRS(), simplex))
+
+						if (unitManager[i]->unitAABBCollCheck(unitManager[j])) continue;
+
+						if (!gjkCollisionCheck(unitManager[i]->objCollider, unitManager[i]->getTRS(), unitManager[j]->objCollider, unitManager[j]->getTRS(), simplex))
 						{
-
-							info = CreateEPAInfo(simplex, unitManager[i]->objCollider, unitManager[i]->getTRS(), unitManager[j]->objCollider, unitManager[j]->getTRS());
-							XMFLOAT4 next = unitManager[i]->getPos();
-							XMVECTOR nextPosI = XMLoadFloat4(&next);
-							info.direction.m128_f32[1] *=  0.F;
-							info.direction = XMVector3Normalize(info.direction);
-							nextPosI +=  (0.5) * info.direction * info.distance ;
-						
-							XMStoreFloat4(&next, nextPosI);
-							unitManager[i]->setPos(next);
-
-							next = unitManager[j]->getPos();
-							XMVECTOR nextPosJ = XMLoadFloat4(&next);
-							nextPosJ -= (0.5) * info.direction * info.distance;
-							XMStoreFloat4(&next, nextPosJ);
-							unitManager[j]->setPos(next);
-						
+							break;
 						}
-						cnt++;
+						///printf("충돌감지 i %d j %d", i , j);
+						info = CreateEPAInfo(simplex, unitManager[i]->objCollider, unitManager[i]->getTRS(), unitManager[j]->objCollider, unitManager[j]->getTRS());
+						XMFLOAT4 next = unitManager[i]->getPos();
+						XMVECTOR nextPosI = XMLoadFloat4(&next);
 
+						if (info.distance <= 0.1) info.distance = 0.1;
+						
+							
+						XMVECTOR move = (0.5) * info.direction * info.distance;
+						//printf("충돌대응 move %f %f %f %f  : %f\n", move.m128_f32[0], move.m128_f32[1], move.m128_f32[2], move.m128_f32[3], info.distance);
+						info.direction.m128_f32[1] *= 0.F;
+						//info.direction = XMVector3Normalize(info.direction);
+						nextPosI += (0.5) * info.direction * info.distance;
 
+						XMStoreFloat4(&next, nextPosI);
+						unitManager[i]->setPos(next);
+
+						next = unitManager[j]->getPos();
+						XMVECTOR nextPosJ = XMLoadFloat4(&next);
+						
+						nextPosJ -= (0.5) * info.direction * info.distance;
+						XMStoreFloat4(&next, nextPosJ);
+						unitManager[j]->setPos(next);
+						
 					}
 
-
 				}
+			}
 
+
+			for (int i = 0; i < unitCount; i++)
+			{
 				if (unitManager[i]->moveState())
 				{
 					XMFLOAT4 setPos = unitManager[i]->getPos();

@@ -7,8 +7,8 @@
 class gjkSimplex
 {
 	public:
-		DirectX::XMVECTOR points[4];
-		DirectX::XMVECTOR faces[4][3];//3 tetrahedron format
+		DirectX::XMFLOAT4 points[4];
+		DirectX::XMFLOAT4 faces[4][3];//3 tetrahedron format
 		int level;// 0 point , 1 line , 2 tri , 3 tetrahedron
 		gjkSimplex();
 		~gjkSimplex();
