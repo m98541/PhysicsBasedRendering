@@ -66,9 +66,12 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 		XMVECTOR f2 = XMLoadFloat4(&face[2]);
 	
 		XMVECTOR normal = XMVector3Normalize( XMVector3Cross(f1 - f0 , f2 - f0));
-		if ((XMVector3Equal(normal ,  XMVectorZero())))
+
+
+
+		if ( gjkInfo.level != 4 || (XMVector3Equal(normal ,  XMVectorZero())))
 		{
-			//printf("초기 오류 gjk level %d  \n", gjkInfo.level);
+			printf("초기 오류 gjk level %d  \n", gjkInfo.level);
 			double min = XMVector3Length(f0).m128_f32[0];
 			double temp;
 			double lineLen;

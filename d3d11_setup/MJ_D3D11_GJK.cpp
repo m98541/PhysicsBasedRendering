@@ -1,4 +1,7 @@
 #include "MJ_D3D11_GJK.h"
+
+#include <stdio.h>
+
 #define EPSILON 1e-5f
 using namespace DirectX;
 
@@ -90,28 +93,95 @@ bool gjkCollisionCheck(ConvexHull* convexA, DirectX::XMMATRIX matTRS_A, ConvexHu
 
 	XMVECTOR direction = XMVector3Normalize(posB - posA);
 
-	simplex.addPoint(convexB->Support(-direction, matTRS_B) - convexA->Support(direction, matTRS_A));
+	XMVECTOR startVector = convexB->Support(-direction, matTRS_B) - convexA->Support(direction, matTRS_A);
+	simplex.addPoint(startVector);
 	
-	XMVECTOR farVector;
+	direction = XMVector3Normalize(-startVector);
 
+	XMVECTOR farVector;
+	int printCnt = 0;
 	while (true)
-	{
+	{	
+		printf("%d \n", printCnt++);
 
 		farVector = convexB->Support(-direction, matTRS_B) - convexA->Support(direction, matTRS_A);
 		if (XMVector3Dot(farVector, direction).m128_f32[0] >= EPSILON)
 		{
 			return false;
 		}
+		
+
+		for (int i = 0; i < simplex.level; i++)
+		{
+			XMVECTOR existingPoint = XMLoadFloat4(&simplex.points[i]);
+			XMVECTOR lenSq = XMVector3LengthSq(existingPoint - farVector);
+
+			if (lenSq.m128_f32[0]  <= EPSILON)
+			{
+				printf("중복! cur level  :%d\n", simplex.level);
+
+
+
+				return true;
+			}
+
+		}
+
+		if (simplex.level == 2)
+		{
+			XMVECTOR existingLine0 = XMLoadFloat4(&simplex.points[0]);
+			XMVECTOR existingLine1 = XMLoadFloat4(&simplex.points[1]);
+
+			if (XMVector3LinePointDistance(existingLine0, existingLine1, farVector).m128_f32[0] <= EPSILON)
+			{
+				XMVECTOR line = existingLine1 - existingLine0;
+				XMVECTOR originDir = ORIGIN - existingLine0;
+				
+				if (XMVector3LengthSq(XMVector3Cross(line, originDir)).m128_f32[0] <= EPSILON * EPSILON)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+				
+			}
+		}
+		else if (simplex.level == 3)
+		{
+			XMVECTOR existingPoint0 = XMLoadFloat4(&simplex.points[0]);
+			XMVECTOR existingPoint1 = XMLoadFloat4(&simplex.points[1]);
+			XMVECTOR existingPoint2 = XMLoadFloat4(&simplex.points[2]);
+			XMVECTOR planeNormal = XMVector3Normalize(XMVector3Cross(existingPoint1 - existingPoint0 , existingPoint2 - existingPoint0));
+			float distanceSq = XMVector3Dot(planeNormal, farVector - existingPoint0).m128_f32[0];
+			distanceSq *= distanceSq;
+
+			if (distanceSq <= EPSILON * EPSILON)
+			{
+				float dist = XMVector3Dot(planeNormal, ORIGIN - existingPoint0).m128_f32[0];
+				if (dist * dist <= EPSILON * EPSILON)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			
+				
+			}
+		}
+		
+		//simplex 확장
+		simplex.addPoint(convexB->Support(-direction, matTRS_B) - convexA->Support(direction, matTRS_A));
 
 		if (selectSimplexHandle(simplex, direction))
 		{// 0점을 찾아낸 경우
-			
+		
 			return true;
 		}
-		else
-		{	//못찾은 경우 simplex 확장
-			simplex.addPoint(convexB->Support(-direction, matTRS_B) - convexA->Support(direction, matTRS_A));
-		}
+		
 
 	}
 	
@@ -182,6 +252,7 @@ bool HandleSimplexTriangle(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 	XMVECTOR lineAO = ORIGIN - pointA;
 
 	XMVECTOR triNormal = XMVector3Cross(lineAB , lineAC);
+	
 	if (XMVector3Dot(triNormal, lineAO).m128_f32[0] > EPSILON)
 	{
 		direction = XMVector3Normalize(triNormal);
@@ -195,7 +266,6 @@ bool HandleSimplexTriangle(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 
 }
 
-#include <stdio.h>
 bool HandleSimplexTetrahedron(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 {
 	/*
@@ -209,6 +279,13 @@ bool HandleSimplexTetrahedron(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 	XMVECTOR point2 = XMLoadFloat4( &simplex.points[2] );
 	XMVECTOR point3 = XMLoadFloat4( &simplex.points[3] );
 
+	/*
+	printf("%f %f %f | %f %f %f | %f %f %f | %f %f %f \n"
+		,point0.m128_f32[0], point0.m128_f32[1], point0.m128_f32[2]
+		, point1.m128_f32[0], point1.m128_f32[1], point1.m128_f32[2]
+		, point2.m128_f32[0], point2.m128_f32[1], point2.m128_f32[2]
+		, point3.m128_f32[0], point3.m128_f32[1], point3.m128_f32[2]);
+	*/
 	XMVECTOR face[4][3] = {
 		{point0 ,point2 ,point1 },
 		{point0 ,point3 ,point2 },
@@ -237,8 +314,12 @@ bool HandleSimplexTetrahedron(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 
 			check = true;
 		}
+		else // 퇴화된 삼각형 
+		{
+		}
 
 	}
+
 
 	if (check) return false;
 	else return true;
