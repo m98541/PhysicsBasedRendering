@@ -46,7 +46,6 @@ bool IsDuplicateVertex(const vector<EPA_FACE_T>& faceArr, const XMVECTOR& point)
 	return false;
 }
 
-#include <stdio.h>
 EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX matTRS_A, ConvexHull* B, DirectX::XMMATRIX matTRS_B)
 {
 	//init
@@ -71,7 +70,6 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 
 		if ( gjkInfo.level != 4 || (XMVector3Equal(normal ,  XMVectorZero())))
 		{
-			printf("초기 오류 gjk level %d  \n", gjkInfo.level);
 			double min = XMVector3Length(f0).m128_f32[0];
 			double temp;
 			double lineLen;

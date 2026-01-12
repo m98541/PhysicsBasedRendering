@@ -1,7 +1,5 @@
 #include "MJ_D3D11_GJK.h"
 
-#include <stdio.h>
-
 #define EPSILON 1e-5f
 using namespace DirectX;
 
@@ -102,8 +100,7 @@ bool gjkCollisionCheck(ConvexHull* convexA, DirectX::XMMATRIX matTRS_A, ConvexHu
 	int printCnt = 0;
 	while (true)
 	{	
-		printf("%d \n", printCnt++);
-
+		
 		farVector = convexB->Support(-direction, matTRS_B) - convexA->Support(direction, matTRS_A);
 		if (XMVector3Dot(farVector, direction).m128_f32[0] >= EPSILON)
 		{
@@ -118,9 +115,6 @@ bool gjkCollisionCheck(ConvexHull* convexA, DirectX::XMMATRIX matTRS_A, ConvexHu
 
 			if (lenSq.m128_f32[0]  <= EPSILON)
 			{
-				printf("ม฿บน! cur level  :%d\n", simplex.level);
-
-
 
 				return true;
 			}

@@ -33,6 +33,7 @@ MJ_D3D11_ 다음의 표시가 붙은 경우(비표준 라이브러리(?)) directX11 라이브러리에 �
 #include "MJ_D3D11_UnitObject.h"
 #include "MJ_D3D11_GJK.h"
 #include "MJ_D3D11_EPA.h"
+#include "MS_GLTFLoader.h"
 
 #define SCREEN_SIZE_WIDTH 1920
 #define SCREEN_SIZE_HEIGHT 1080
@@ -96,7 +97,7 @@ MJD3D11OBJ_HANDLE_t* objHandle;
 BasicCam* singleCam;
 BasicCam* singleNextCam;
 
-constexpr double gravity = 0.F;
+constexpr double gravity = 50.F;
 constexpr double catGravity = 50.0F;
 int catCount = 0;
 bool catConvexColliderView = false;
@@ -267,6 +268,14 @@ void DrawMapBox(BVtree::BvNode* root, int depth)
 LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam);
 
 int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLine ,int nCmdShow){
+
+
+
+	MSGLTFLoader* characterModel = new MSGLTFLoader("model/scene.gltf");
+
+
+
+
 
 	HWND hWnd;
 	MSG Message;
