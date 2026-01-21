@@ -6,8 +6,6 @@ typedef struct Joint_S
 {
 	DirectX::XMFLOAT4X4 inverseBindPose;
 	unsigned int parentIndex;
-	unsigned int childrenCount;
-	unsigned int* childrenIndices;
 	std::string jointName;
 }Joint_T;
 

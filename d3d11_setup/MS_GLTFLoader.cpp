@@ -1,6 +1,7 @@
 #include "MS_GLTFLoader.h"
-#include <EASTL/hash_map.h>
+#include <EASTL/map.h>
 #include <EASTL/vector.h>
+#include <EASTL/string.h>
 #include <assert.h>
 
 using namespace Microsoft::glTF;
@@ -47,38 +48,48 @@ bool MSGLTFLoader::LoadModel(const string& path)
 }
 
 void MSGLTFLoader::GetSkeletonResource(SkeletonResource_T& outData)
-{
+{   
 	// GLTF 데이터 -> 스켈레톤 자원으로 변환 
 	const Skin& srcSkin = document.skins.Get(0);
 	const Accessor& skinAccessor = document.accessors.Get(srcSkin.inverseBindMatricesAccessorId);
-	vector<float> inverseMatData = resourceReader->ReadBinaryData<float>(document,skinAccessor);
+	vector<float> inverseMatData = resourceReader->ReadFloatData(document,skinAccessor);
 
 	outData.count = srcSkin.jointIds.size();
-	outData.array = (Joint_T*)malloc(sizeof(Joint_T) * outData.count);
+	outData.array = new Joint_T[outData.count];
 	
 	int matrixSize = sizeof(DirectX::XMFLOAT4X4);
+	//string 형태 ID를 키로 , i 번째 의 index를 value로
+	eastl::map<eastl::string, int> jointMap;
 	
 	for (int i = 0; i < outData.count; i++)
 	{
 		memcpy(&outData.array[i].inverseBindPose, 
-			&inverseMatData[i * matrixSize] 
+			&inverseMatData[i * 16] 
 			, matrixSize);
 
 		const Node& node = document.nodes.Get(srcSkin.jointIds[i]);
+		jointMap[srcSkin.jointIds[i].c_str()] = i;
+
 		outData.array[i].jointName = node.name;
-		
-		outData.array[i].childrenCount = document.nodes.Get(srcSkin.jointIds[i]).children.size();
-		outData.array[i].childrenIndices = (unsigned int*)malloc( outData.array[i].childrenCount * sizeof(unsigned int));
-
-		memcpy(&outData.array[i].childrenIndices , 
-			&document.nodes.Get(srcSkin.jointIds[i]).children ,
-			outData.array[i].childrenCount);
-
-		outData.array[i].parentIndex;
-		
-
-		
+		outData.array[i].parentIndex = 0;
 	}
+
+	for (int i = 0; i < outData.count; i++)
+	{
+		const Node& node = document.nodes.Get(srcSkin.jointIds[i]);
+		
+		int size = node.children.size();
+
+		for (int j = 0; j < size; j++)
+		{
+			eastl::string jointName(node.children[j].c_str());
+
+			Joint_T* child = &outData.array[jointMap[node.children[j].c_str()]];
+			child->parentIndex = i;
+		}
+	}
+
+
 
 }
 

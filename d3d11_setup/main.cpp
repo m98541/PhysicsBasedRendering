@@ -273,7 +273,17 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 	MSGLTFLoader* characterModel = new MSGLTFLoader("model/scene.gltf");
 
+	SkeletonResource_T skRsrc;
+	characterModel->GetSkeletonResource(skRsrc);
 
+	for (int i = 0; i < skRsrc.count; i++)
+	{
+		printf("%s %d : p:%d \n %f %f %f %f\n %f %f %f %f\n%f %f %f %f\n%f %f %f %f\n\n", skRsrc.array[i].jointName.c_str(), i,  skRsrc.array[i].parentIndex,
+			skRsrc.array[i].inverseBindPose.m[0][0], skRsrc.array[i].inverseBindPose.m[0][1], skRsrc.array[i].inverseBindPose.m[0][2], skRsrc.array[i].inverseBindPose.m[0][3],
+			skRsrc.array[i].inverseBindPose.m[1][0], skRsrc.array[i].inverseBindPose.m[1][1], skRsrc.array[i].inverseBindPose.m[1][2], skRsrc.array[i].inverseBindPose.m[1][3], 
+			skRsrc.array[i].inverseBindPose.m[2][0], skRsrc.array[i].inverseBindPose.m[2][1], skRsrc.array[i].inverseBindPose.m[2][2], skRsrc.array[i].inverseBindPose.m[2][3], 
+			skRsrc.array[i].inverseBindPose.m[3][0], skRsrc.array[i].inverseBindPose.m[3][1], skRsrc.array[i].inverseBindPose.m[3][2], skRsrc.array[i].inverseBindPose.m[3][3]);
+	}
 
 
 
@@ -313,9 +323,6 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 		NULL );
 	
 	ShowWindow(hWnd , nCmdShow);
-
-
-	
 
 	ShowCursor(TRUE);
 	
