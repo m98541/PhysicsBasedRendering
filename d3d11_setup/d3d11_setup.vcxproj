@@ -153,6 +153,7 @@
     <ClCompile Include="MJ_D3D11_Simplex3D.cpp" />
     <ClCompile Include="MJ_D3D11_BVTree.cpp" />
     <ClCompile Include="MJ_D3D11_ConvexHull.cpp" />
+    <ClCompile Include="MJ_D3D11_Skeleton.cpp" />
     <ClCompile Include="MJ_D3D11_UnitObject.cpp" />
     <ClCompile Include="MJ_D3D11_WorldMap.cpp" />
     <ClCompile Include="MJ_D3D11_Collision.cpp" />

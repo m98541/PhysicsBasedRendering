@@ -267,7 +267,8 @@ void DrawMapBox(BVtree::BvNode* root, int depth)
 
 LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam);
 
-int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLine ,int nCmdShow){
+int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLine ,int nCmdShow)
+{
 
 
 
@@ -276,6 +277,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	SkeletonResource_T skRsrc;
 	characterModel->GetSkeletonResource(skRsrc);
 
+	Skeleton* skeleton = new Skeleton(&skRsrc);
 	for (int i = 0; i < skRsrc.count; i++)
 	{
 		printf("%s %d : p:%d \n %f %f %f %f\n %f %f %f %f\n%f %f %f %f\n%f %f %f %f\n\n", skRsrc.array[i].jointName.c_str(), i,  skRsrc.array[i].parentIndex,
