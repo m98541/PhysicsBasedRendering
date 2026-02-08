@@ -150,6 +150,7 @@
     <ClCompile Include="MJ_D3D11_EPA.cpp" />
     <ClCompile Include="MJ_D3D11_GJK.cpp" />
     <ClCompile Include="MJ_D3D11_HalfEdge.cpp" />
+    <ClCompile Include="MJ_D3D11_Mesh.cpp" />
     <ClCompile Include="MJ_D3D11_Simplex3D.cpp" />
     <ClCompile Include="MJ_D3D11_BVTree.cpp" />
     <ClCompile Include="MJ_D3D11_ConvexHull.cpp" />
@@ -187,6 +188,7 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MJ_D3D11_Mesh.h" />
     <ClInclude Include="MJ_D3D11_BVTree.h" />
     <ClInclude Include="MJ_D3D11_Character.h" />
     <ClInclude Include="MJ_D3D11_Convex.h" />

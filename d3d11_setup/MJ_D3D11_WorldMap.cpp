@@ -204,9 +204,6 @@ float Map::ComputePenetration(SWEEP_HIT_T& swpHit,CAPSULE_T& capsule)
 }
 
 
-
-#include <stdio.h>
-
 void SearchBVTreeSwpCollision(COLLISION_INFO_T* maxCollisionInfo,int* firstCol,int depth , XMVECTOR point,TRIPOLY_T* map,BvNode* tree,bool* result, CapsuleCollider& player, CAPSULE nextCapsule, eastl::vector<SWEEP_HIT_T>& outSwpSet)
 {
 	

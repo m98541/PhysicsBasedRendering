@@ -16,6 +16,9 @@
     <Filter Include="헤더 파일\MJ_D3D11_CharacterAnimation">
       <UniqueIdentifier>{7ecef5ac-a3ef-4c88-a7ab-ab891122c83e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\MJ_D3D11_CharacterAnimation">
+      <UniqueIdentifier>{944afc6a-6083-4b63-ae49-705a3e6937a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -60,8 +63,14 @@
     <ClCompile Include="MJ_D3D11_EPA.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="MJ_D3D11_Skeleton.cpp">
+      <Filter>소스 파일\MJ_D3D11_CharacterAnimation</Filter>
+    </ClCompile>
     <ClCompile Include="MS_GLTFLoader.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\MJ_D3D11_CharacterAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="MJ_D3D11_Mesh.cpp">
+      <Filter>소스 파일\MJ_D3D11_CharacterAnimation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -124,10 +133,13 @@
     <ClInclude Include="MJ_D3D11_Skeleton.h">
       <Filter>헤더 파일\MJ_D3D11_CharacterAnimation</Filter>
     </ClInclude>
-    <ClInclude Include="MS_GLTFLoader.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="MJ_D3D11_Character.h">
+      <Filter>헤더 파일\MJ_D3D11_CharacterAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="MJ_D3D11_Mesh.h">
+      <Filter>헤더 파일\MJ_D3D11_CharacterAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="MS_GLTFLoader.h">
       <Filter>헤더 파일\MJ_D3D11_CharacterAnimation</Filter>
     </ClInclude>
   </ItemGroup>

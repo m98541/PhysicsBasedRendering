@@ -14,9 +14,14 @@ Skeleton::Skeleton()
 //Skeleton 생성자임 절대로 업데이트의 대용(특히 loop 내에서)으로 사용 금지
 Skeleton::Skeleton(SkeletonResource_T* jointsData)
 {
+
 	this->jointsData = jointsData;
-	this->pose.count = this->jointsData->count; 
-	this->jointsDataSort();// 데이터 정규화 , 부모-자식간 선 후 순위 보장 , 및 행렬 전치
+	this->pose.count = this->jointsData->count;
+
+	this->pose.jointsLocalPoseArr = new XMFLOAT4X4[this->pose.count];
+	this->pose.jointsGlobalPoseArr = new XMFLOAT4X4[this->pose.count];
+
+	this->JointsDataSort();// 데이터 정규화 , 부모-자식간 선 후 순위 보장 , 및 행렬 전치
 
 }
 
@@ -32,10 +37,21 @@ typedef struct SortBucket_S
 }SortBucket_T;
 
 
-//리소스의 부모 - 자식 관계 순서 보장 원본 리소스 수정
-void Skeleton::jointsDataSort()
+void Skeleton::Update(float deltaTime)
 {
-	//init
+	this->JointsLocalInit();
+
+	this->JointsGlobalPoseCompute();
+
+}
+
+// 2026.02.02 JointsDataSort 기능 -> GLTFLoader 로 이전/
+// 이전 완료 및 character 완료시 해당 파일에서는 삭제 예정
+// 데이터 정렬은 Loader 에서 해결이 되어야함 Skeleton 은 정렬이 보장된 데이터 만을 받아야함
+// 정렬 체크만 지원하여 정렬 안되있음면 error 발생
+//리소스의 부모 - 자식 관계 순서 보장 원본 리소스 수정 
+void Skeleton::JointsDataSort()
+{
 	int maxCount = this->jointsData->count;
 	eastl::queue<SortBucket_T> orderQueue;
 	Joint_T* resultBuffer = new Joint_T[maxCount];
@@ -92,6 +108,49 @@ void Skeleton::jointsDataSort()
 	//정렬된 데이터 셋 기존 데이터와 교체
 	memcpy(this->jointsData->array, resultBuffer , this->jointsData->count * sizeof(Joint_T));
 
+}
+
+//pose quat rot , trans , scale 행렬 변환
+void Skeleton::JointsLocalInit()
+{
+
+	XMVECTOR trans;
+	XMVECTOR quatRot;
+	XMVECTOR scale;
+	for (int i = 0; i < this->jointsData->count; i++)
+	{
+		trans = XMLoadFloat3( &this->jointsData->array[i].jointLocalPose.trans);
+		XMVectorSetW(trans, 1.F);
+
+		quatRot = XMLoadFloat4(&this->jointsData->array[i].jointLocalPose.quatRot);
+
+		scale = XMVectorReplicate(this->jointsData->array[i].jointLocalPose.scale);
+		XMVectorSetW(scale, 1.F);
 	
 	
+
+		XMStoreFloat4x4(this->pose.jointsLocalPoseArr + i , XMMatrixTranspose( XMMatrixAffineTransformation(scale,g_XMZero,quatRot,trans) ));
+		
+	}
+}
+
+void Skeleton::JointsGlobalPoseCompute()
+{
+	XMMATRIX xmCurLocalMat;
+	XMMATRIX xmGlobalParentMat;
+	for (int i = 0; i < this->pose.count; i++)
+	{
+		if (i == this->jointsData->array[i].parentIndex)
+		{//root 인 경우
+			this->pose.jointsGlobalPoseArr[i] = this->pose.jointsLocalPoseArr[i];
+		}
+		else
+		{//root 아닌 경우 , 부모 joint 무조건 배열 앞 임으로 자식 글로벌 = 자식 로컬 * 부모 글로벌
+			xmCurLocalMat = XMLoadFloat4x4(&this->pose.jointsLocalPoseArr[i]);
+			xmGlobalParentMat = XMLoadFloat4x4(&this->pose.jointsGlobalPoseArr[this->jointsData->array[i].parentIndex]);
+			XMStoreFloat4x4(this->pose.jointsGlobalPoseArr + i ,xmCurLocalMat * xmGlobalParentMat );
+		}
+	}
+
+
 }

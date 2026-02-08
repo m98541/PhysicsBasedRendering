@@ -2,11 +2,28 @@
 #define MJ_D3D11_SKELETON_H
 #include <DirectXMath.h>
 #include <string>
+
+typedef struct Joint_S Joint_T;
+typedef struct SkeletonResource_S SkeletonResource_T;
+typedef struct JointPose_S JointPose_T;
+typedef struct SkeletonPose_S SkeletonPose_T;
+
+
+typedef struct JointPose_S
+{
+	DirectX::XMFLOAT4 quatRot;
+	DirectX::XMFLOAT3 trans;
+	float scale;
+
+}JointPose_T;
+
 typedef struct Joint_S
 {
 	DirectX::XMFLOAT4X4 inverseBindPose;
 	unsigned int parentIndex;
 	std::string jointName;
+	std::string nodeId;
+	JointPose_T jointLocalPose;
 }Joint_T;
 
 typedef struct SkeletonResource_S
@@ -15,20 +32,14 @@ typedef struct SkeletonResource_S
 	Joint_T* array;
 }SkeletonResource_T;
 
-typedef struct JointPose_S
-{
-	DirectX::XMFLOAT4 quatRot;
-	DirectX::XMFLOAT3 trans;
-	float scale;
-}JointPose_T;
+
 
 typedef struct SkeletonPose_S
 {
 	unsigned int count;
-	bool* computedMatrixArr;// 동적 프로그래밍 기법 통해 자식 에서 부모로 곱 일어날 때 중복 연산 제거 
-	JointPose_T* jointLocalPoseArr;
-	DirectX::XMFLOAT4X4* jointGlobalPoseArr;
-	
+	DirectX::XMFLOAT4X4* jointsLocalPoseArr;
+	DirectX::XMFLOAT4X4* jointsGlobalPoseArr;
+
 }SkeletonPose_T;
 
 class Skeleton {
@@ -38,10 +49,14 @@ class Skeleton {
 		Skeleton(SkeletonResource_T* jointsData);
 		~Skeleton();
 		void Update(float deltaTime);
-	private:
-		void jointsDataSort();
-		SkeletonResource_T* jointsData;
 		SkeletonPose_T pose;
+	private:
+		void JointsDataSort();
+		void JointsLocalInit();
+		void JointsGlobalPoseCompute();
+
+		SkeletonResource_T* jointsData;
+		
 		DirectX::XMFLOAT4X4 wordTransMat;
 	
 };

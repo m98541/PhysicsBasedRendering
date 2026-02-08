@@ -93,9 +93,9 @@ bool IsPointInTriAngle(XMVECTOR TriVector[3] , XMVECTOR Point)
 	XMVECTOR dir2 = XMVector3Dot(triNormal, XMVector3Cross(edge2, pointLineT2));
 
 
-	if ((dir0.m128_f32[0] >= -EPSILON) &&
-		(dir1.m128_f32[0] >= -EPSILON) &&
-		(dir2.m128_f32[0] >= -EPSILON))
+	if ((dir0.m128_f32[0] >= EPSILON) &&
+		(dir1.m128_f32[0] >= EPSILON) &&
+		(dir2.m128_f32[0] >= EPSILON))
 	{
 		return true;
 	}
@@ -173,7 +173,7 @@ bool IsSphereTriAngleSweepHitEdge(XMVECTOR curPoint, XMVECTOR nextPoint, float r
 			swpInfo->normal = XMVector3Normalize(n);
 			
 			swpInfo->hitTime = lineP0;
-			if (swpInfo->hitTime < 0 || swpInfo->hitTime > 1) continue;
+			if (swpInfo->hitTime < 0 - EPSILON || swpInfo->hitTime > 1 + EPSILON) continue;
 			return true;
 		}
 			
@@ -209,7 +209,7 @@ bool IsSphereTriAngleSweepHitVertex(XMVECTOR curPoint, XMVECTOR nextPoint, float
 			else
 				swpInfo->hitTime = XMVector3Dot(triPos[i] - curPoint, nextPoint - curPoint).m128_f32[0] / lineLen;
 
-			if (swpInfo->hitTime < 0 || swpInfo->hitTime > 1) continue;
+			if (swpInfo->hitTime < 0 - EPSILON || swpInfo->hitTime > 1 + EPSILON) continue;
 			else
 			{
 				swpInfo->point = line * swpInfo->hitTime + curPoint;
@@ -283,9 +283,9 @@ bool CapsuleCollider::TriAngleCollisionTest(XMVECTOR* triPos, CAPSULE_T& NextPos
 	
 
 	bool cyilinderTest = (
-		((XMVector3Dot(nextPointV0 - curPointV0, triPos[0] - curPointV0).m128_f32[0] > 0) && ((XMVector3Length(triPos[0] - curPointV0).m128_f32[0] < this->Collider.radius) && (curDotV0.m128_f32[0] > 0) && (curDotV0.m128_f32[0] < axisLenNorm.m128_f32[0]))) ||
-		((XMVector3Dot(nextPointV1 - curPointV1, triPos[1] - curPointV1).m128_f32[0] > 0) && ((XMVector3Length(triPos[1] - curPointV1).m128_f32[0] < this->Collider.radius) && (curDotV1.m128_f32[0] > 0) && (curDotV1.m128_f32[0] < axisLenNorm.m128_f32[0]))) ||
-		((XMVector3Dot(nextPointV2 - curPointV2, triPos[2] - curPointV2).m128_f32[0] > 0) && ((XMVector3Length(triPos[2] - curPointV2).m128_f32[0] < this->Collider.radius) && (curDotV2.m128_f32[0] > 0) && (curDotV2.m128_f32[0] < axisLenNorm.m128_f32[0])))
+		((XMVector3Dot(nextPointV0 - curPointV0, triPos[0] - curPointV0).m128_f32[0] > 0 + EPSILON) && ((XMVector3Length(triPos[0] - curPointV0).m128_f32[0] < this->Collider.radius - EPSILON) && (curDotV0.m128_f32[0] > 0 + EPSILON) && (curDotV0.m128_f32[0] < axisLenNorm.m128_f32[0]))) ||
+		((XMVector3Dot(nextPointV1 - curPointV1, triPos[1] - curPointV1).m128_f32[0] > 0 + EPSILON) && ((XMVector3Length(triPos[1] - curPointV1).m128_f32[0] < this->Collider.radius - EPSILON) && (curDotV1.m128_f32[0] > 0 + EPSILON) && (curDotV1.m128_f32[0] < axisLenNorm.m128_f32[0]))) ||
+		((XMVector3Dot(nextPointV2 - curPointV2, triPos[2] - curPointV2).m128_f32[0] > 0 + EPSILON) && ((XMVector3Length(triPos[2] - curPointV2).m128_f32[0] < this->Collider.radius - EPSILON) && (curDotV2.m128_f32[0] > 0 + EPSILON) && (curDotV2.m128_f32[0] < axisLenNorm.m128_f32[0])))
 		);
 	if (cyilinderTest) {		
 		printf("cyilinder Ãæµ¹\n");
@@ -474,7 +474,7 @@ bool CapsuleCollider::TriAngleCollisionTest(XMVECTOR* triPos)
 void CapsuleCollider::CollisionSlide(XMVECTOR normal,XMVECTOR moveVec )
 {
 	XMVECTOR finalMove = moveVec - (XMVector3Dot(normal, moveVec) * normal);
-	finalMove.m128_f32[1] += EPSILON;
+	
 	this->nextMove = finalMove;
 }
 

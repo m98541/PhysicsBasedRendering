@@ -97,7 +97,7 @@ MJD3D11OBJ_HANDLE_t* objHandle;
 BasicCam* singleCam;
 BasicCam* singleNextCam;
 
-constexpr double gravity = 50.F;
+constexpr double gravity = 70.F;
 constexpr double catGravity = 50.0F;
 int catCount = 0;
 bool catConvexColliderView = false;
@@ -286,6 +286,18 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			skRsrc.array[i].inverseBindPose.m[2][0], skRsrc.array[i].inverseBindPose.m[2][1], skRsrc.array[i].inverseBindPose.m[2][2], skRsrc.array[i].inverseBindPose.m[2][3], 
 			skRsrc.array[i].inverseBindPose.m[3][0], skRsrc.array[i].inverseBindPose.m[3][1], skRsrc.array[i].inverseBindPose.m[3][2], skRsrc.array[i].inverseBindPose.m[3][3]);
 	}
+	skeleton->Update(0.1);
+	printf("GLobal bone \n");
+	
+	for (int i = 0; i < skRsrc.count; i++)
+	{
+		printf("%s %d p: %d \n%f %f %f %f\n%f %f %f %f\n%f %f %f %f\n%f %f %f %f\n", skRsrc.array[i].jointName.c_str(), i, skRsrc.array[i].parentIndex,
+			skeleton->pose.jointsGlobalPoseArr[i].m[0][0], skeleton->pose.jointsGlobalPoseArr[i].m[0][1], skeleton->pose.jointsGlobalPoseArr[i].m[0][2], skeleton->pose.jointsGlobalPoseArr[i].m[0][3],
+			skeleton->pose.jointsGlobalPoseArr[i].m[1][0], skeleton->pose.jointsGlobalPoseArr[i].m[1][1], skeleton->pose.jointsGlobalPoseArr[i].m[1][2], skeleton->pose.jointsGlobalPoseArr[i].m[1][3], 
+			skeleton->pose.jointsGlobalPoseArr[i].m[2][0], skeleton->pose.jointsGlobalPoseArr[i].m[2][1], skeleton->pose.jointsGlobalPoseArr[i].m[2][2], skeleton->pose.jointsGlobalPoseArr[i].m[2][3], 
+			skeleton->pose.jointsGlobalPoseArr[i].m[3][0], skeleton->pose.jointsGlobalPoseArr[i].m[3][1], skeleton->pose.jointsGlobalPoseArr[i].m[3][2], skeleton->pose.jointsGlobalPoseArr[i].m[3][3]);
+	}
+
 
 
 
