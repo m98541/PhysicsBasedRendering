@@ -12,9 +12,6 @@ typedef struct SortBucket_S
 }SortBucket_T;
 
 string ReadFile(const string& path);
-void JointsDataSort(Joint_T* data, size_t size);
-
-
 class StreamReader : public IStreamReader
 {
 	public:
@@ -77,7 +74,7 @@ void MSGLTFLoader::GetSkeletonResource(SkeletonResource_T& outData)
 
 		const Node& node = document.nodes.Get(srcSkin.jointIds[i]);
 		jointMap[srcSkin.jointIds[i].c_str()] = i;
-		this->nodeToJointIdTable[node.id.c_str()] = i;
+		outData.array[i].jointId = srcSkin.jointIds[i].c_str();
 		outData.array[i].nodeId = node.id;
 		outData.array[i].jointName = node.name;
 		outData.array[i].parentIndex = 0;
@@ -102,10 +99,10 @@ void MSGLTFLoader::GetSkeletonResource(SkeletonResource_T& outData)
 		}
 	}
 
-
+	
 }
 
-void MSGLTFLoader::GetMeshResource(MeshResource_T &outData)
+void MSGLTFLoader::GetMeshResource(MeshResource_T &outData , eastl::map<eastl::string, int>& textureIdMap)
 {
 
 	const Skin& srcSkin = document.skins.Get(0);
@@ -114,36 +111,43 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData)
 	vector<const Node*> skinNodes;
 	skinNodes.reserve(nodeMaxCount);
 
+	int test = 0;
+	outData.count = 0;
 	for (int i = 0; i < nodeMaxCount; ++i)
 	{
 		const Node& node = document.nodes.Get(i);
 
+		if (node.skinId == "")
+		{
+			test++;
+		}
 		
 		if (node.skinId == srcSkin.id)
 		{
+			outData.count++;
 			skinNodes.push_back(&node);
 		}
 	}
 
-	outData.count = skinNodes.size();
+
 	outData.array = new Mesh_T[outData.count];
 
-
+	int textureId; // 이후 materialId 로 교체 예정 material 정보 내에 textureID 존재
 	vector<float> posData;
 	vector<float> normData;
 	vector<float> texData;
 	vector<uint32_t> indicesData;
 	vector<uint16_t> inputIndicesData;
 	vector<uint32_t> globalIndicesData;
+	vector<uint16_t> jointsData;
+	vector<float> weightsData;
+
 
 	for (int i = 0; i < outData.count; ++i)
 	{
 		const Node* node = skinNodes[i];
 		
 		const Mesh& mesh = document.meshes.Get(node->meshId);
-
-		outData.array[i].jointId = nodeToJointIdTable[node->id.c_str()];
-		
 		uint32_t meshVertexCount = 0;
 		for (int j = 0; j < mesh.primitives.size(); ++j)
 		{
@@ -160,11 +164,49 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData)
 		for (int j = 0; j < mesh.primitives.size(); ++j)
 		{
 
+			//이후 로직에서 texture를 Material로 확장 확장시에 너무 코드가 무거워짐에 따라 내부를 함수로 쪼개거나 필요...
+			if (mesh.primitives[j].materialId.empty())
+			{
+				textureId = -1;
+			}
+			else
+			{
+				const Material& material = document.materials.Get(mesh.primitives[j].materialId);
+
+				if (material.emissiveTexture.textureId.empty())
+				{
+					textureId = -1;
+				}
+				else
+				{
+					const Texture& texture = document.textures.Get(material.emissiveTexture.textureId);
+					auto it = textureIdMap.find(texture.imageId.c_str());
+
+					if (it != textureIdMap.end())
+					{
+						textureId = it->second;
+					}
+					else
+					{
+						assert(false && "Critical Error: Referenced Image ID not found in TextureMap!");
+					}
+					
+				}
+				
+			}
+			
+			
+
 			auto posIt = mesh.primitives[j].attributes.find("POSITION");
 			auto normIt = mesh.primitives[j].attributes.find("NORMAL");
 			auto texIt = mesh.primitives[j].attributes.find("TEXCOORD_0");
+			auto jointIt = mesh.primitives[j].attributes.find("JOINTS_0");
+			auto weightIt = mesh.primitives[j].attributes.find("WEIGHTS_0");
 
+			mesh.primitives[j].materialId;
 			string indicesId = mesh.primitives[j].indicesAccessorId;
+
+			
 
 			int primitiveVertexCount = 0;
 			if (posIt != mesh.primitives[j].attributes.end())
@@ -205,6 +247,19 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData)
 
 			}
 
+			if (jointIt != mesh.primitives[j].attributes.end())
+			{
+				const Accessor& jointAccessor = document.accessors.Get(jointIt->second);
+				jointsData = resourceReader->ReadBinaryData<uint16_t>(document , jointAccessor);
+			}
+			
+			if (weightIt != mesh.primitives[j].attributes.end())
+			{
+				const Accessor& weightAccessor = document.accessors.Get(weightIt->second);
+				weightsData = resourceReader->ReadFloatData(document , weightAccessor);
+			}
+
+
 			for (int k = 0; k < primitiveVertexCount; ++k)
 			{
 
@@ -234,8 +289,28 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData)
 					memset(& outData.array[i].vertices[outDataIndex].uv, 0, sizeof(float) * 2);
 				}
 				
+
+
+				for (uint32_t boneIdx = 0; boneIdx < 4; ++boneIdx)
+				{
+					uint16_t srcSkinJointIdIndex = jointsData[k * 4 + boneIdx];
+					string srcSkinJointId = srcSkin.jointIds[srcSkinJointIdIndex];
+
+					uint32_t jointsArrIndex = JointIdToIndexTable[srcSkinJointId.c_str()];
+
+					float weight = weightsData[k * 4 + boneIdx];
+
+					outData.array[i].vertices[outDataIndex].joints[boneIdx] = jointsArrIndex;
+					outData.array[i].vertices[outDataIndex].weights[boneIdx] = weight;
+				}
+
+				
+
+
+				outData.array[i].vertices[outDataIndex].textureId = textureId;
+
 				outDataIndex++;
-			}
+			} 
 
 			if (!indicesData.empty())
 			{
@@ -247,33 +322,88 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData)
 				}
 			}
 			
+
+
+
+
+
 			outDataVertexOffset += primitiveVertexCount;
 			posData.clear();
 			normData.clear();
 			texData.clear();
 			indicesData.clear();
+			jointsData.clear();
+			weightsData.clear();
 		}
 		outData.array[i].indicesCount = globalIndicesData.size();
 		outData.array[i].indices = new uint32_t[outData.array[i].indicesCount];
 		memcpy(outData.array[i].indices , globalIndicesData.data() , sizeof(uint32_t) * outData.array[i].indicesCount);
 		globalIndicesData.clear();
 	}
+
+
 }
 
-void MSGLTFLoader::GetCharacterResource(CharacterResource_T* resourceData)
+void MSGLTFLoader::GetTextureResource(TextureResourec_T& outTexData, eastl::map<eastl::string, int>& textureIdMap)
 {
+	outTexData.size = document.images.Size();
+	outTexData.Images = new DirectX::ScratchImage[outTexData.size];
+
+	vector<uint8_t> tempBinImageBuffer;
+
+	
+	int index = 0;
+	for (const auto& srcImage : document.images.Elements())
+	{
+		tempBinImageBuffer = resourceReader->ReadBinaryData(document , srcImage);
+
+		//binary rgba 변환 - 1
+
+		DirectX::ScratchImage image;
+		HRESULT hr = DirectX::LoadFromWICMemory(
+			tempBinImageBuffer.data(),
+			tempBinImageBuffer.size(),
+			DirectX::WIC_FLAGS_NONE,
+			nullptr,
+			image
+		);
+
+		printf("\n error code 0x%x \n" , hr);
+		if (FAILED(hr))
+			assert(FALSE && "Image Load Fail");
+
+		// 1 에 의해 새롭게 적용될 변경되어야 할 부분  
+		outTexData.Images[index] = std::move(image);
+		textureIdMap[srcImage.id.c_str()] = index;
+
+		tempBinImageBuffer.clear();
+		index++;
+	}
+
+
+}
+
+void MSGLTFLoader::GetCharacterResource(CharacterResource* resourceData)
+{
+	CoInitializeEx(nullptr, COINIT_MULTITHREADED);
+
+	eastl::map<eastl::string, int> textureIdMap;
 	
 	GetSkeletonResource(resourceData->skeletonResource);
 	
 	JointsDataSort(resourceData->skeletonResource.array ,resourceData->skeletonResource.count);
 	
-	for (int i = 0; i < resourceData->skeletonResource.count; ++i)
-	{// 정렬되어 변경된 array 의 index 에 맞게 nodeToJointIdTable 업데이트
-		nodeToJointIdTable[ resourceData->skeletonResource.array[i].nodeId.c_str() ] = i;
-	}
+	
+	//텍스처 정보 받음 여기서 이미지 정수 식별자와 문자열 식별자 번역 맵 구성
+	GetTextureResource(resourceData->TextureResource, textureIdMap);
 
-	GetMeshResource(resourceData->meshResource);
 
+	//메쉬 정보 받음
+	GetMeshResource(resourceData->meshResource, textureIdMap);
+
+	CoUninitialize();
+
+	
 }
 
 
@@ -297,7 +427,7 @@ string ReadFile(const string& path)
 	return buffer;
 }
 
-void JointsDataSort(Joint_T* data ,size_t size)
+void MSGLTFLoader::JointsDataSort(Joint_T* data ,size_t size)
 {
 	eastl::queue<SortBucket_T> orderQueue;
 	Joint_T* resultBuffer = new Joint_T[size];
@@ -330,8 +460,13 @@ void JointsDataSort(Joint_T* data ,size_t size)
 
 			
 			resultBuffer[bufferSizeCount] = data[reciveBucket.originIndex];
-	
+
+			//참조! 추가된 부분 
+			JointIdToIndexTable[data[reciveBucket.originIndex].jointId.c_str()] = bufferSizeCount;
+
 			resultBuffer[bufferSizeCount].parentIndex = reciveBucket.updateParent;
+			
+
 
 			XMMATRIX transposeMat4X4 = XMLoadFloat4x4(&resultBuffer[bufferSizeCount].inverseBindPose);
 			transposeMat4X4 = XMMatrixTranspose(transposeMat4X4);
@@ -355,5 +490,5 @@ void JointsDataSort(Joint_T* data ,size_t size)
 	}
 	//정렬된 데이터 셋 기존 데이터와 교체
 	memcpy(data, resultBuffer, size * sizeof(Joint_T));
-
+	delete[] resultBuffer;
 }

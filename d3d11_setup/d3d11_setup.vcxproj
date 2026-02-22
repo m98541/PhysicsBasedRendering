@@ -147,10 +147,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="MJ_D3D11_Character.cpp" />
+    <ClCompile Include="MJ_D3D11_CharacterRenderer.cpp" />
     <ClCompile Include="MJ_D3D11_EPA.cpp" />
     <ClCompile Include="MJ_D3D11_GJK.cpp" />
     <ClCompile Include="MJ_D3D11_HalfEdge.cpp" />
     <ClCompile Include="MJ_D3D11_Mesh.cpp" />
+    <ClCompile Include="MJ_D3D11_ShaderFile.cpp" />
     <ClCompile Include="MJ_D3D11_Simplex3D.cpp" />
     <ClCompile Include="MJ_D3D11_BVTree.cpp" />
     <ClCompile Include="MJ_D3D11_ConvexHull.cpp" />
@@ -168,6 +171,18 @@
     <ClCompile Include="OBJFileIO.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <FxCompile Include="Character_Pixel_Shader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Character_Vertex_Shader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+    </FxCompile>
     <FxCompile Include="PixelShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
@@ -188,6 +203,8 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MJ_D3D11_CharacterRenderer.h" />
+    <ClInclude Include="MJ_D3D11_CharacterResource.h" />
     <ClInclude Include="MJ_D3D11_Mesh.h" />
     <ClInclude Include="MJ_D3D11_BVTree.h" />
     <ClInclude Include="MJ_D3D11_Character.h" />
@@ -196,6 +213,7 @@
     <ClInclude Include="MJ_D3D11_EPA.h" />
     <ClInclude Include="MJ_D3D11_GJK.h" />
     <ClInclude Include="MJ_D3D11_HalfEdge.h" />
+    <ClInclude Include="MJ_D3D11_ShaderFile.h" />
     <ClInclude Include="MJ_D3D11_Simplex3D.h" />
     <ClInclude Include="MJ_D3D11_UnitObject.h" />
     <ClInclude Include="MJ_D3D11_WorldMap.h" />

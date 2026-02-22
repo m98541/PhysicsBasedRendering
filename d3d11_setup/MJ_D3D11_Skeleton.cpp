@@ -1,8 +1,5 @@
-#include <EASTL/queue.h>
-#include <EASTL/vector.h>
-
-
 #include "MJ_D3D11_Skeleton.h"
+#include "MJ_D3D11_CharacterResource.h"
 
 using namespace DirectX;
 
@@ -21,7 +18,7 @@ Skeleton::Skeleton(SkeletonResource_T* jointsData)
 	this->pose.jointsLocalPoseArr = new XMFLOAT4X4[this->pose.count];
 	this->pose.jointsGlobalPoseArr = new XMFLOAT4X4[this->pose.count];
 
-	this->JointsDataSort();// 데이터 정규화 , 부모-자식간 선 후 순위 보장 , 및 행렬 전치
+	//this->JointsDataSort();// 데이터 정규화 , 부모-자식간 선 후 순위 보장 , 및 행렬 전치 , // 리소스에서 정규화 보장되어야함
 
 }
 
@@ -50,6 +47,7 @@ void Skeleton::Update(float deltaTime)
 // 데이터 정렬은 Loader 에서 해결이 되어야함 Skeleton 은 정렬이 보장된 데이터 만을 받아야함
 // 정렬 체크만 지원하여 정렬 안되있음면 error 발생
 //리소스의 부모 - 자식 관계 순서 보장 원본 리소스 수정 
+/*
 void Skeleton::JointsDataSort()
 {
 	int maxCount = this->jointsData->count;
@@ -109,8 +107,11 @@ void Skeleton::JointsDataSort()
 	memcpy(this->jointsData->array, resultBuffer , this->jointsData->count * sizeof(Joint_T));
 
 }
+*/
 
 //pose quat rot , trans , scale 행렬 변환
+
+
 void Skeleton::JointsLocalInit()
 {
 

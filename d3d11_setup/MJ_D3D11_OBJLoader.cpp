@@ -170,6 +170,9 @@ bool MJD3D11LoadOBJ(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, ID3D10Blob* 
 	memcpy(mappingSrc.pData, tempUniqueVertexSet.data(), sizeof(VERTEX_T) * tempUniqueVertexSet.size());
 	DevCon->Unmap((*ObjHandle)->vertexBufferHandle, NULL);
 
+
+
+
 	D3D11_INPUT_ELEMENT_DESC inputElement[4] = {
 		//0바이트 부터 
 		{"POSITION" , 0 , DXGI_FORMAT_R32G32B32A32_FLOAT, 0 , 0  , D3D11_INPUT_PER_VERTEX_DATA , 0},

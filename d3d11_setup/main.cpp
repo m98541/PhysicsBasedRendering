@@ -15,7 +15,6 @@
 #pragma comment(lib , "d3d11.lib")
 #pragma comment(lib , "d3dcompiler.lib")
 
-
 /*
 라이브러리 이름 분류
 BmpFileIO 다음과 같이 기능 이름만 있는경우 => standard(?) 라이브러리 지원 모든 윈도우즈에서 사용가능
@@ -34,6 +33,7 @@ MJ_D3D11_ 다음의 표시가 붙은 경우(비표준 라이브러리(?)) directX11 라이브러리에 �
 #include "MJ_D3D11_GJK.h"
 #include "MJ_D3D11_EPA.h"
 #include "MS_GLTFLoader.h"
+#include "MJ_D3D11_CharacterRenderer.h"
 
 #define SCREEN_SIZE_WIDTH 1920
 #define SCREEN_SIZE_HEIGHT 1080
@@ -150,6 +150,7 @@ void SelectDisplayAdapter(void);
 void RenderFrame(void);
 void init_DepthBuffer(void);
 void init_MVPtrans(void);
+void SetMainPipeLine(void);
 void CreateShaderResourceViewFromBMPFile(ID3D11Device* device, const char* fileName, UINT bmp_format, ID3D11ShaderResourceView** Texture_SRV);
 
 
@@ -272,7 +273,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 
 
-	MSGLTFLoader* characterModel = new MSGLTFLoader("model/scene.gltf");
+	MSGLTFLoader* characterModel = new MSGLTFLoader("scene.gltf");
 
 	SkeletonResource_T skRsrc;
 	characterModel->GetSkeletonResource(skRsrc);
@@ -299,6 +300,11 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	}
 
 
+	CharacterResource characterResourceData;
+	characterModel->GetCharacterResource(&characterResourceData);
+	//Character* testCharacter = new Character(&characterResourceData);
+
+	
 
 
 	HWND hWnd;
@@ -345,6 +351,11 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	singleCam = new BasicCam();
 	singleNextCam = new BasicCam();
 	InitD3D(hWnd);
+
+
+	//CharacterRenderer* characterRenderer = new CharacterRenderer(dev , devCon , *testCharacter);
+
+
 	InitPipeline();
 
 
@@ -465,6 +476,14 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	ULONGLONG startTick = lastTick;
 	ULONGLONG curTick;
 
+
+
+
+
+
+
+
+
 	while (true)
 	{		
 		
@@ -497,6 +516,8 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 				startTick = curTick;
 			}
 			// 셰이더에 바인딩
+			
+			SetMainPipeLine();
 			devCon->VSSetConstantBuffers(0, 1, &pCamBuffer);
 			devCon->VSSetConstantBuffers(1, 1, &pModelBuffer);
 			devCon->ClearDepthStencilView(depthBuffer, D3D11_CLEAR_DEPTH, 1.0f, 0);
@@ -786,6 +807,9 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 				
 			}
+		//	characterRenderer->SetPipeLine(devCon);
+		//	characterRenderer->Draw(devCon);
+
 			swapChain->Present(0, 0);
 
 
@@ -1088,6 +1112,12 @@ void SelectDisplayAdapter(void)
 	printf("adapter DeviceId %u \n", AdapterDesc.DeviceId);
 	printf("adapter SubSysId %u \n", AdapterDesc.SubSysId);
 	
+}
+
+void SetMainPipeLine()
+{
+	devCon->VSSetShader(pVS, 0, 0);
+	devCon->PSSetShader(pPS, 0, 0);
 }
 
 void InitPipeline()

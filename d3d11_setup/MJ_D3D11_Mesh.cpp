@@ -1,28 +1,20 @@
-#include "MJ_D3D11_Mesh.h"
+#include "MJ_D3D11_CharacterResource.h"
 
 using namespace DirectX;
 
-Mesh::Mesh()
+MeshInfo::MeshInfo()
 {
 	this->meshData = nullptr;
 }
 
-Mesh::Mesh(MeshResource_T* meshData)
+MeshInfo::MeshInfo(MeshResource_T* meshData)
 {
+	
 	this->meshData = meshData;
 }
 
-Mesh::~Mesh()
+MeshInfo::~MeshInfo()
 {
 
 }
 
-void Mesh::D3D11Load()
-{
-
-}
-
-void Mesh::D3D11Draw()
-{
-
-}

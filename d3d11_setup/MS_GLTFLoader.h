@@ -13,7 +13,7 @@
 #include <fstream>
 #include <string>
 #include <memory>
-
+#include <DirectXTex.h>
 #include "MJ_D3D11_Character.h"
 
 //클래스 이름 변경 필요 GLTF LOADER 아님 GLTF CHRACTER LOADER 로 변경 필요
@@ -26,17 +26,21 @@ class MSGLTFLoader {
 
 		// 네이밍 변경 필요 Get -> Load 
 		//내부 데이터로 변환 하여 스켈레톤 데이터 통일
-		void GetCharacterResource(CharacterResource_T* resourceData);
+		void GetCharacterResource(CharacterResource* resourceData);
 
 		//private 로 이동 예정 외부에서는 GetCharacterResource만 보이도록 할 것임
 		void GetSkeletonResource(SkeletonResource_T& outData);
-		void GetMeshResource(MeshResource_T& outDatasrcSkin);
+		void GetMeshResource(MeshResource_T& outDatasrcSkin , eastl::map<eastl::string, int>& textureIdMap);
+		void GetTextureResource(TextureResourec_T& outTexData , eastl::map<eastl::string , int>& textureIdMap);
+	
+
 	private:
+		void JointsDataSort(Joint_T* data, size_t size);
 		Microsoft::glTF::Document document;
 		std::unique_ptr<Microsoft::glTF::GLTFResourceReader> resourceReader;
 
-		//node id 와 jointResource 의 index 간 번역을 위한 집합 테이블
-		eastl::map<eastl::string , int> nodeToJointIdTable;
+		//str id 와 jointResource 의 index 간 번역을 위한 집합 테이블
+		eastl::map<eastl::string , int> JointIdToIndexTable;
 };
 
 
