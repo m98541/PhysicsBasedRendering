@@ -18,6 +18,17 @@ typedef struct MeshVertex_S
 	float weights[4];
 }MeshVertex_T;
 
+/*
+	float4 pos : POSITION,
+	float4 norm : NORM,
+	float2 texCoord : TEXCOORD,
+	uint texIdx : TEXIDX ,
+	uint4 jointsIdx : JOINTS ,
+	float4 weights : WEIGHTS
+
+
+
+*/
 
 typedef struct Mesh_S
 {

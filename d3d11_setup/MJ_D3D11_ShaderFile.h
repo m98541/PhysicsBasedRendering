@@ -22,7 +22,7 @@ class ShaderFile
 
 		ID3D11VertexShader* VertexShaderCompile(ID3D11Device* dev);
 		ID3D11PixelShader* PixelShaderCompile(ID3D11Device* dev);
-		const ID3D10Blob* GetBlob();
+		LPVOID GetBufferPointer();
 		size_t GetBlobSize();
 	private:
 		

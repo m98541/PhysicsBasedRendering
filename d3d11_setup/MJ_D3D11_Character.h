@@ -1,6 +1,7 @@
 #ifndef MJ_D3D11_CHARACTER_H
 #define MJ_D3D11_CHARACTER_H
 #define NOMINMAX
+#include <DirectXMath.h>
 #include "MJ_D3D11_CharacterResource.h"
 #include "MJ_D3D11_Skeleton.h"
 #include "MJ_D3D11_Mesh.h"
@@ -25,11 +26,21 @@ class Character
 		const MeshInfo* GetMeshInfo() const;
 		const Skeleton* GetSkeleton() const;
 		const TextureResourec_T* GetTextureResource() const;
+		DirectX::XMMATRIX GetModelMatrix() const;
+		const DirectX::XMFLOAT4X4* GetModelNDCMat() const;
+
+		const DirectX::XMFLOAT4X4* GetCurrentJointsMatrix(uint32_t* count);
+		const DirectX::XMFLOAT4X4* GetInverseJoints(uint32_t* count);
+		
 	private:
 		CharacterResource* resourceData;
 		Skeleton* skeleton;
 		MeshInfo* mesh;
-	
+
+		DirectX::XMFLOAT4X4* modelNDCMat;
+		DirectX::XMFLOAT4 pos;
+		DirectX::XMFLOAT4 direction;
+		DirectX::XMFLOAT4 scale;
 };
 
 

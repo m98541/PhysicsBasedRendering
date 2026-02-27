@@ -35,5 +35,6 @@ class CharacterResource
 		MeshResource_T meshResource;
 		SkeletonResource_T skeletonResource;
 		TextureResourec_T TextureResource;
+		DirectX::XMFLOAT4X4 modelNDCMat;
 };
 #endif // !MJ_D3D11_CHARACTERRE_SOURCE_H

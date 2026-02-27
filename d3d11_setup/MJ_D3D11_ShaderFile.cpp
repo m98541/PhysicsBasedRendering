@@ -16,9 +16,10 @@ ShaderFile::~ShaderFile()
 
 }
 
-const ID3D10Blob* ShaderFile::GetBlob()
+LPVOID ShaderFile::GetBufferPointer()
 {
-	return (const ID3D10Blob*)buffer;
+	return buffer->GetBufferPointer();
+
 }
 
 size_t ShaderFile::GetBlobSize()

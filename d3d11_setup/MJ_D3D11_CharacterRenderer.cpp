@@ -3,28 +3,33 @@
 #include <EASTL/vector.h>
 
 // 해당 character shdaer 내부 input layout 에 매칭 되는 정점 구조
-uint32_t g_CharacterInputElementCount = 5;
-D3D11_INPUT_ELEMENT_DESC g_CharacterInputElement[5] =
+constexpr uint32_t g_CharacterInputElementCount = 6;
+D3D11_INPUT_ELEMENT_DESC g_CharacterInputElement[g_CharacterInputElementCount] =
 {
-	//0바이트 부터 
-		{"POSITION" , 0 , DXGI_FORMAT_R32G32B32A32_FLOAT, 0 , 0  , D3D11_INPUT_PER_VERTEX_DATA , 0},
-		//12바이트 부터
-		{"TEXCOORD" , 0 , DXGI_FORMAT_R32G32_FLOAT, 0 , 16 , D3D11_INPUT_PER_VERTEX_DATA , 0},
-
-		{"NORM" , 0 , DXGI_FORMAT_R32G32B32A32_FLOAT, 0 , 24 , D3D11_INPUT_PER_VERTEX_DATA , 0},
-
-		{"TEXIDX" , 0 ,DXGI_FORMAT_R32_UINT , 0 , 40 , D3D11_INPUT_PER_VERTEX_DATA , 0},
-
-		{ "JOINTIDX" , 0 ,DXGI_FORMAT_R32_UINT , 0 , 44 , D3D11_INPUT_PER_VERTEX_DATA , 0 }
+    {"POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
+	{"NORM",     0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0},
+	{"TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT,       0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0},
+    {"TEXIDX",   0, DXGI_FORMAT_R32_UINT,           0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0},
+    {"JOINTS",   0, DXGI_FORMAT_R32G32B32A32_UINT,  0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0},
+    {"WEIGHTS",  0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0}
 };
 
 
-// input 정보는 mesh정보의 확장형 
-typedef struct InputVertex_S
+/*
+
+typedef struct MeshVertex_S
 {
-	MeshVertex_T meshInfo;
-	uint32_t jointId;
-}InputVertex_T;
+	DirectX::XMFLOAT4 position;
+	DirectX::XMFLOAT4 normal;
+	DirectX::XMFLOAT2 uv;
+	uint32_t textureId;// 이후 material ID 로 교체 예정 material 정보 내에 textureID 존재
+	uint32_t joints[4];
+	float weights[4];
+}MeshVertex_T;
+*/
+// input 정보는 mesh정보의 확장형 
+
+
 
 
 struct Cam_S
@@ -35,7 +40,7 @@ struct Cam_S
 
 struct Joints_S
 {
-	DirectX::XMMATRIX joints[64];
+	DirectX::XMMATRIX joints[128];
 	uint32_t activeJointsCount;
 };
 
@@ -43,7 +48,7 @@ void CreateSRVArrayFromTextureResource(ID3D11Device* dev, const TextureResourec_
 
 CharacterRenderer::CharacterRenderer()
 {
-
+	jointsMatrixBuffer = nullptr;
 	characterVertexShader = nullptr;
 	characterPixelShader = nullptr;
 	pCamBuffer = nullptr;
@@ -57,11 +62,28 @@ CharacterRenderer::CharacterRenderer(ID3D11Device* dev, ID3D11DeviceContext* dev
 
 	ShaderFile* vsShader = new ShaderFile(L"Character_Vertex_Shader.hlsl","main","vs_5_0",VERTEX_SHADER_FILE);
 	ShaderFile* psShader = new ShaderFile(L"Character_Pixel_Shader.hlsl","main","ps_5_0",PIXEL_SHADER_FILE);
+	
+	
 	InitPipeLine(dev , devCon , *vsShader ,*psShader , g_CharacterInputElement , g_CharacterInputElementCount);
 
 	InitData(dev , devCon , character);
 
 	CBInit(dev);
+
+	DirectX::XMMATRIX initModel = character.GetModelMatrix();
+	const DirectX::XMFLOAT4X4* joints = character.GetCurrentJointsMatrix(&jointsCount);
+	const DirectX::XMFLOAT4X4* inverseJoints = character.GetInverseJoints(&jointsCount);
+	jointsMatrixBuffer = new DirectX::XMMATRIX[jointsCount];
+
+	for (int i = 0; i < jointsCount; ++i)
+	{
+		jointsMatrixBuffer[i] =  DirectX::XMLoadFloat4x4(&joints[i]) *  DirectX::XMLoadFloat4x4(&inverseJoints[i]);
+	}
+
+	CBJointsUpdate(devCon, jointsMatrixBuffer, jointsCount);
+
+	CBModelUpdate(devCon , initModel);
+	
 }
 
 
@@ -81,11 +103,24 @@ void CharacterRenderer::InitPipeLine(
 {
 	characterVertexShader = vsFile.VertexShaderCompile(dev);
 	characterPixelShader = psFile.PixelShaderCompile(dev);
+	if ( vsFile.GetBlobSize() == 0)
+	{
+		printf("HLSL 컴파일 실패! 셰이더 코드를 확인하세요.\n");
+		assert(false && "Vertex Shader Blob is NULL!");
+	}
+
+
+	
+	HRESULT hr =  dev->CreateInputLayout(inputElement, inputElementCount, vsFile.GetBufferPointer(), vsFile.GetBlobSize(), &inputLayout);
+
+	if (FAILED(hr))
+	{
+		// 여기서 브레이크포인트가 걸린다면 C++ InputLayout과 HLSL Signature가 불일치하는 것입니다.
+		printf("Character Input Layout Create Failed!\n");
+		assert(false && "Input Layout Mismatch!");
+	}
 
 	this->SetPipeLine(devCon);
-
-	dev->CreateInputLayout(inputElement, inputElementCount, vsFile.GetBlob() , vsFile.GetBlobSize() , &inputLayout);
-	devCon->IASetInputLayout(inputLayout);
 
 }
 
@@ -101,7 +136,7 @@ void CharacterRenderer::InitData(ID3D11Device* dev, ID3D11DeviceContext* devCon,
 	memset(&indexBufferDesc, 0, sizeof(D3D11_BUFFER_DESC));
 	
 
-	eastl::vector<InputVertex_T> inputVerticesTempBuffer;
+	eastl::vector<MeshVertex_T> inputVerticesTempBuffer;
 	eastl::vector<uint32_t> inputIndicesTempBuffer;
 
 	uint32_t totalInputVerticesSize = 0;
@@ -116,21 +151,20 @@ void CharacterRenderer::InitData(ID3D11Device* dev, ID3D11DeviceContext* devCon,
 		totalInputIndicesSize += meshInfo->meshData->array[i].indicesCount;
 	}
 
-	inputVerticesTempBuffer.resize(totalInputVerticesSize+1);
-	inputIndicesTempBuffer.resize(totalInputIndicesSize+1);
+	inputVerticesTempBuffer.reserve(totalInputVerticesSize);
+	inputIndicesTempBuffer.reserve(totalInputIndicesSize);
 	
 	indicesBufferSize = totalInputIndicesSize;
 	uint32_t vertexIndexOffset = 0;
 	int num = 0;
+	int cnt = 0;
 	for (uint32_t i = 0; i < meshMaxCount; ++i)
 	{
-		for (uint32_t j = 0, size = meshInfo->meshData->array[i].verticesCount; j < size; ++j)
+		for (uint32_t j = 0; j < meshInfo->meshData->array[i].verticesCount; ++j)
 		{
-			InputVertex_T data = {
-				meshInfo->meshData->array[i].vertices[j],
-				//meshInfo->meshData->array[i].jointId
-			};
+			MeshVertex_T data = meshInfo->meshData->array[i].vertices[j];
 
+			printf("v %d : %f %f %f %f uv : %f , %f \n", cnt++, data.position.x , data.position.y , data.position.z, data.position.w , data.uv.x , data.uv.y);
 			
 			inputVerticesTempBuffer.push_back(data);
 		}
@@ -145,7 +179,7 @@ void CharacterRenderer::InitData(ID3D11Device* dev, ID3D11DeviceContext* devCon,
 	}
 
 	vertexBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
-	vertexBufferDesc.ByteWidth = sizeof(InputVertex_T) * inputVerticesTempBuffer.size();
+	vertexBufferDesc.ByteWidth = sizeof(MeshVertex_T) * inputVerticesTempBuffer.size();
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	vertexBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 
@@ -161,10 +195,16 @@ void CharacterRenderer::InitData(ID3D11Device* dev, ID3D11DeviceContext* devCon,
 	D3D11_SUBRESOURCE_DATA indicesData; 
 	indicesData.pSysMem =  inputIndicesTempBuffer.data();
 
-	dev->CreateBuffer(&vertexBufferDesc, &verticesData, &verticesBufferHandle);
-
-	dev->CreateBuffer(&indexBufferDesc, &indicesData, &indicesBufferHandle);
-
+	HRESULT hr = dev->CreateBuffer(&vertexBufferDesc, &verticesData, &verticesBufferHandle);
+	if (!SUCCEEDED(hr))
+	{
+		assert(false && "create vertexBuffer fail");
+	}
+	hr = dev->CreateBuffer(&indexBufferDesc, &indicesData, &indicesBufferHandle);
+	if (!SUCCEEDED(hr))
+	{
+		assert(false && "create indexBuffer fail");
+	}
 
 	//texture data init
 	D3D11_SAMPLER_DESC samplerDesc;
@@ -188,7 +228,7 @@ void CharacterRenderer::InitData(ID3D11Device* dev, ID3D11DeviceContext* devCon,
 void CharacterRenderer::CBInit(ID3D11Device* dev)
 {
 	D3D11_BUFFER_DESC camBufferDesc = {};
-	camBufferDesc.ByteWidth = sizeof(DirectX::XMFLOAT4X4);
+	camBufferDesc.ByteWidth = sizeof(DirectX::XMFLOAT4X4) * 2;
 	camBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
 	camBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 	camBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
@@ -199,7 +239,7 @@ void CharacterRenderer::CBInit(ID3D11Device* dev)
 
 
 	D3D11_BUFFER_DESC modelBufferDesc = {};
-	modelBufferDesc.ByteWidth = sizeof(DirectX::XMFLOAT4X4) * 2;
+	modelBufferDesc.ByteWidth = sizeof(DirectX::XMFLOAT4X4) * 1;
 	modelBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
 	modelBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 	modelBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
@@ -210,7 +250,7 @@ void CharacterRenderer::CBInit(ID3D11Device* dev)
 
 
 	D3D11_BUFFER_DESC jointsBufferDesc = {};
-	jointsBufferDesc.ByteWidth = sizeof(DirectX::XMFLOAT4X4) * 64;
+	jointsBufferDesc.ByteWidth = sizeof(DirectX::XMFLOAT4X4)* 128;
 	jointsBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
 	jointsBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 	jointsBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
@@ -218,6 +258,17 @@ void CharacterRenderer::CBInit(ID3D11Device* dev)
 	jointsBufferDesc.StructureByteStride = 0;
 
 	dev->CreateBuffer(&jointsBufferDesc, nullptr, &pJointsBuffer);
+
+
+	D3D11_BUFFER_DESC modelNDCBufferDesc = {};
+	modelNDCBufferDesc.ByteWidth = sizeof(DirectX::XMFLOAT4X4) * 1;
+	modelNDCBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	modelNDCBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	modelNDCBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	modelNDCBufferDesc.MiscFlags = 0;
+	modelNDCBufferDesc.StructureByteStride = 0;
+
+	dev->CreateBuffer(&modelNDCBufferDesc, nullptr, &pModelNDCBuffer);
 }
 
 void CharacterRenderer::CBModelUpdate(ID3D11DeviceContext* devCon , DirectX::XMMATRIX& modelMat)
@@ -239,9 +290,9 @@ void CharacterRenderer::CBCamUpdate(ID3D11DeviceContext* devCon, DirectX::XMMATR
 		viewMat,
 		projMat
 	};
-	devCon->Map(pModelBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
+	devCon->Map(pCamBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
 	memcpy(mapped.pData,&cam, sizeof(cam));
-	devCon->Unmap(pModelBuffer, 0);
+	devCon->Unmap(pCamBuffer, 0);
 
 	devCon->VSSetConstantBuffers(0 , 1, &pCamBuffer);
 }
@@ -250,29 +301,76 @@ void CharacterRenderer::CBJointsUpdate(ID3D11DeviceContext* devCon, DirectX::XMM
 {
 	D3D11_MAPPED_SUBRESOURCE mapped;
 
-	Joints_S joints;
-	memcpy(&joints.joints , jointsPoseMatArr , sizeof(DirectX::XMMATRIX) * activeJointsCount);
-	joints.activeJointsCount = activeJointsCount;
 
 	devCon->Map(pJointsBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
-	memcpy(mapped.pData, &joints, sizeof(joints));
+	memcpy(mapped.pData, jointsPoseMatArr, sizeof(DirectX::XMMATRIX) * activeJointsCount);
 	devCon->Unmap(pJointsBuffer, 0);
 
 	devCon->VSSetConstantBuffers(2, 1, &pJointsBuffer);
 
 }
 
+void CharacterRenderer::CBModelNDCUpdate(ID3D11DeviceContext* devCon, Character& character)
+{
+
+	D3D11_MAPPED_SUBRESOURCE mapped;
+	const DirectX::XMFLOAT4X4* m = character.GetModelNDCMat();
+	DirectX::XMMATRIX data = DirectX::XMLoadFloat4x4(m);
+
+	devCon->Map(pModelNDCBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
+	memcpy(mapped.pData, &data, sizeof(DirectX::XMMATRIX));
+	devCon->Unmap(pModelNDCBuffer, 0);
+
+	devCon->VSSetConstantBuffers(3, 1, &pModelNDCBuffer);
+
+}
+
 void CharacterRenderer::SetPipeLine(ID3D11DeviceContext* devCon)
 {
-	devCon->IASetInputLayout(inputLayout);
+	uint32_t stride = sizeof(MeshVertex_T);
+	uint32_t offset = 0;
+
 	devCon->VSSetShader(characterVertexShader, nullptr, 0);
 	devCon->PSSetShader(characterPixelShader, nullptr, 0);
+	devCon->IASetInputLayout(inputLayout);
 
+	devCon->VSSetConstantBuffers(0, 1, &pCamBuffer);    
+	devCon->VSSetConstantBuffers(1, 1, &pModelBuffer); 
+	devCon->VSSetConstantBuffers(2, 1, &pJointsBuffer); 
+	devCon->VSSetConstantBuffers(3, 1, &pModelNDCBuffer);
+}
+
+void CharacterRenderer::SetCharacter(ID3D11DeviceContext* devCon , Character& character)
+{
+
+
+	DirectX::XMMATRIX initModel =   {50.F , 0.F , 0.F , 0.F,
+									 0.F ,50.F , 0.F , 0.F ,
+									 0.F , 0.F , 50.F , 0.F ,
+									  -376.000000F , 61.004238F ,  -608.926636F , 1.F };
+
+	const DirectX::XMFLOAT4X4* joints = character.GetCurrentJointsMatrix(&jointsCount);
+	const DirectX::XMFLOAT4X4* inverseJoints = character.GetInverseJoints(&jointsCount);
+	jointsMatrixBuffer = new DirectX::XMMATRIX[jointsCount];
+
+	for (int i = 0; i < jointsCount; ++i)
+	{
+		
+		jointsMatrixBuffer[i] = DirectX::XMLoadFloat4x4(&inverseJoints[i]) * DirectX::XMLoadFloat4x4(&joints[i]);
+		jointsMatrixBuffer[i] = DirectX::XMMatrixTranspose(jointsMatrixBuffer[i]);
+		
+	}//
+
+	CBJointsUpdate(devCon, jointsMatrixBuffer, jointsCount);
+
+	CBModelUpdate(devCon, initModel);
+
+	CBModelNDCUpdate(devCon , character);
 }
 
 void CharacterRenderer::Draw(ID3D11DeviceContext* devCon)
 {
-	uint32_t stride = sizeof(InputVertex_T);
+	uint32_t stride = sizeof(MeshVertex_T);
 	uint32_t offset = 0;
 
 	devCon->PSSetShaderResources(0, 1, textureSRVHandleArr);
@@ -286,6 +384,7 @@ void CharacterRenderer::Draw(ID3D11DeviceContext* devCon)
 	devCon->DrawIndexed(indicesBufferSize,0, 0);
 	
 }
+
 
 void CreateSRVArrayFromTextureResource(ID3D11Device* dev,const TextureResourec_T* textureRrsData,ID3D11ShaderResourceView** textureSRV)
 {
@@ -332,16 +431,17 @@ void CreateSRVArrayFromTextureResource(ID3D11Device* dev,const TextureResourec_T
 		for (uint32_t h = 0; h < maxHeight; ++h)
 		{
 			uint32_t hIdx = (uint32_t)(((float)(h * srcImage->height) / maxHeight));
-			uint32_t dstRowOffset = h * srcImage->width * 4;
+			uint32_t dstRowOffset = h * maxWidth * 4;
+			uint32_t srcRowOffset = (uint32_t)(hIdx * srcImage->rowPitch ); 
 
 			for (uint32_t w = 0; w < maxWidth; ++w)
 			{
 				
 				uint32_t wIdx = (uint32_t)(((float)(w * srcImage->width ) / maxWidth));
-				imageArr[i][dstRowOffset + w * 4 + 0] = srcImage->pixels[0];
-				imageArr[i][dstRowOffset + w * 4 + 1] = srcImage->pixels[1];
-				imageArr[i][dstRowOffset + w * 4 + 2] = srcImage->pixels[2];
-				imageArr[i][dstRowOffset + w * 4 + 3] = srcImage->pixels[3];
+				imageArr[i][dstRowOffset + w * 4 + 0] = srcImage->pixels[srcRowOffset + wIdx * 4 + 0];
+				imageArr[i][dstRowOffset + w * 4 + 1] = srcImage->pixels[srcRowOffset + wIdx * 4 + 1];
+				imageArr[i][dstRowOffset + w * 4 + 2] = srcImage->pixels[srcRowOffset + wIdx * 4 + 2];
+				imageArr[i][dstRowOffset + w * 4 + 3] = srcImage->pixels[srcRowOffset + wIdx * 4 + 3];
 			}
 		}
 
@@ -357,7 +457,7 @@ void CreateSRVArrayFromTextureResource(ID3D11Device* dev,const TextureResourec_T
 	textureDesc.MipLevels = 1;
 	textureDesc.ArraySize = textureRrsData->size;
 
-	textureDesc.Format = DXGI_FORMAT_B8G8R8A8_UNORM;
+	textureDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 	textureDesc.SampleDesc.Count = 1;
 	textureDesc.SampleDesc.Quality = 0;
 	textureDesc.Usage = D3D11_USAGE_DEFAULT;

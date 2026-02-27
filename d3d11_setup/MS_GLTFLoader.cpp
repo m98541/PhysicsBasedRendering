@@ -1,6 +1,6 @@
 #include "MS_GLTFLoader.h"
 #include <assert.h>
-
+constexpr float WEIGHT_EPSILON = 1e-5f;
 using namespace DirectX;
 using namespace Microsoft::glTF;
 using namespace std;
@@ -116,11 +116,6 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData , eastl::map<eastl::s
 	for (int i = 0; i < nodeMaxCount; ++i)
 	{
 		const Node& node = document.nodes.Get(i);
-
-		if (node.skinId == "")
-		{
-			test++;
-		}
 		
 		if (node.skinId == srcSkin.id)
 		{
@@ -132,7 +127,7 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData , eastl::map<eastl::s
 
 	outData.array = new Mesh_T[outData.count];
 
-	int textureId; // 이후 materialId 로 교체 예정 material 정보 내에 textureID 존재
+	int textureId = 0; // 이후 materialId 로 교체 예정 material 정보 내에 textureID 존재
 	vector<float> posData;
 	vector<float> normData;
 	vector<float> texData;
@@ -163,7 +158,6 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData , eastl::map<eastl::s
 
 		for (int j = 0; j < mesh.primitives.size(); ++j)
 		{
-
 			//이후 로직에서 texture를 Material로 확장 확장시에 너무 코드가 무거워짐에 따라 내부를 함수로 쪼개거나 필요...
 			if (mesh.primitives[j].materialId.empty())
 			{
@@ -173,13 +167,14 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData , eastl::map<eastl::s
 			{
 				const Material& material = document.materials.Get(mesh.primitives[j].materialId);
 
-				if (material.emissiveTexture.textureId.empty())
+				if (material.metallicRoughness.baseColorTexture.textureId.empty())
 				{
 					textureId = -1;
+
 				}
 				else
 				{
-					const Texture& texture = document.textures.Get(material.emissiveTexture.textureId);
+					const Texture& texture = document.textures.Get(material.metallicRoughness.baseColorTexture.textureId);
 					auto it = textureIdMap.find(texture.imageId.c_str());
 
 					if (it != textureIdMap.end())
@@ -282,7 +277,8 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData , eastl::map<eastl::s
 				
 				if (!texData.empty())
 				{
-					memcpy(&outData.array[i].vertices[outDataIndex].uv, &texData[k * 2], sizeof(float) * 2);
+					memcpy(&outData.array[i].vertices[outDataIndex].uv , &texData[k * 2], sizeof(float) * 2);
+					
 				}
 				else
 				{
@@ -291,6 +287,8 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData , eastl::map<eastl::s
 				
 
 
+				float weightSum = 0;
+				printf("%d jointIndex :", test++);
 				for (uint32_t boneIdx = 0; boneIdx < 4; ++boneIdx)
 				{
 					uint16_t srcSkinJointIdIndex = jointsData[k * 4 + boneIdx];
@@ -301,16 +299,35 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData , eastl::map<eastl::s
 					float weight = weightsData[k * 4 + boneIdx];
 
 					outData.array[i].vertices[outDataIndex].joints[boneIdx] = jointsArrIndex;
+					printf("[W %f I %d S %s ]", weight, jointsArrIndex , srcSkinJointId.c_str());
 					outData.array[i].vertices[outDataIndex].weights[boneIdx] = weight;
+
+					weightSum += weight;
 				}
+				printf("\n");
 
-				
-
-
+				//weight 정규화
+				if (weightSum < WEIGHT_EPSILON)
+				{
+					assert(weightSum > WEIGHT_EPSILON && "find zero weight vertex");
+				}
+				else if (fabs(weightSum - 1.0) > WEIGHT_EPSILON)
+				{
+					for (uint32_t boneIdx = 0; boneIdx < 4; ++boneIdx)
+					{
+						outData.array[i].vertices[outDataIndex].weights[boneIdx] /= weightSum;
+					}
+				}
 				outData.array[i].vertices[outDataIndex].textureId = textureId;
 
 				outDataIndex++;
 			} 
+
+
+
+
+
+
 
 			if (!indicesData.empty())
 			{
@@ -350,8 +367,6 @@ void MSGLTFLoader::GetTextureResource(TextureResourec_T& outTexData, eastl::map<
 	outTexData.Images = new DirectX::ScratchImage[outTexData.size];
 
 	vector<uint8_t> tempBinImageBuffer;
-
-	
 	int index = 0;
 	for (const auto& srcImage : document.images.Elements())
 	{
@@ -368,14 +383,37 @@ void MSGLTFLoader::GetTextureResource(TextureResourec_T& outTexData, eastl::map<
 			image
 		);
 
+		//convert
 		printf("\n error code 0x%x \n" , hr);
 		if (FAILED(hr))
 			assert(FALSE && "Image Load Fail");
 
-		// 1 에 의해 새롭게 적용될 변경되어야 할 부분  
-		outTexData.Images[index] = std::move(image);
-		textureIdMap[srcImage.id.c_str()] = index;
+		if (image.GetMetadata().format != DXGI_FORMAT_R8G8B8A8_UNORM)
+		{
+			//convert
+			ScratchImage convertImage;
+			Convert(
+				image.GetImages(),
+				image.GetImageCount(),
+				image.GetMetadata(),
+				DXGI_FORMAT_R8G8B8A8_UNORM,
+				TEX_FILTER_DEFAULT,
+				TEX_THRESHOLD_DEFAULT,
+				convertImage
+			);
 
+			outTexData.Images[index] = std::move(convertImage);
+		
+		}
+		else
+		{
+			// 1 에 의해 새롭게 적용될 변경되어야 할 부분  
+			outTexData.Images[index] = std::move(image);
+		}
+
+
+		
+		textureIdMap[srcImage.id.c_str()] = index;
 		tempBinImageBuffer.clear();
 		index++;
 	}
@@ -400,6 +438,9 @@ void MSGLTFLoader::GetCharacterResource(CharacterResource* resourceData)
 
 	//메쉬 정보 받음
 	GetMeshResource(resourceData->meshResource, textureIdMap);
+
+	//pos 좌표 정규화 스키닝 때문에 정규화 행렬를 상수 버퍼로 올려서 model * normalizeMat * skinnedMAt * pos 로 연산시킬 예정
+	PosDataNormalization(resourceData);
 
 	CoUninitialize();
 
@@ -469,7 +510,7 @@ void MSGLTFLoader::JointsDataSort(Joint_T* data ,size_t size)
 
 
 			XMMATRIX transposeMat4X4 = XMLoadFloat4x4(&resultBuffer[bufferSizeCount].inverseBindPose);
-			transposeMat4X4 = XMMatrixTranspose(transposeMat4X4);
+			//transposeMat4X4 = XMMatrixTranspose(transposeMat4X4);
 			XMStoreFloat4x4(&resultBuffer[bufferSizeCount].inverseBindPose, transposeMat4X4);
 
 			updateParent = bufferSizeCount++;
@@ -491,4 +532,57 @@ void MSGLTFLoader::JointsDataSort(Joint_T* data ,size_t size)
 	//정렬된 데이터 셋 기존 데이터와 교체
 	memcpy(data, resultBuffer, size * sizeof(Joint_T));
 	delete[] resultBuffer;
+}
+
+void MSGLTFLoader::PosDataNormalization(CharacterResource* resourceData)
+{	
+	if (resourceData->meshResource.count == 0) return;
+
+	XMFLOAT4 max = resourceData->meshResource.array[0].vertices[0].position;
+	XMFLOAT4 min = max;
+
+	for (uint32_t i = 0; i < resourceData->meshResource.count; ++i)
+	{
+		for (uint32_t j = 0; j < resourceData->meshResource.array[i].verticesCount; ++j)
+		{
+			const XMFLOAT4& pos = resourceData->meshResource.array[i].vertices[j].position;
+
+			if (pos.x > max.x) max.x = pos.x;
+			else if (pos.x < min.x) min.x = pos.x;
+
+			if (pos.y > max.y) max.y = pos.y;
+			else if (pos.y < min.y) min.y = pos.y;
+
+			if (pos.z > max.z) max.z = pos.z;
+			else if (pos.z < min.z) min.z = pos.z;
+
+		}
+	}
+	XMVECTOR diffV = XMLoadFloat4(&max) - XMLoadFloat4(&min);
+	diffV = XMVectorAbs(diffV);
+	XMFLOAT4 diff;
+	XMStoreFloat4(&diff, diffV);
+
+	float maxDiff = diff.x;
+	if (diff.y > maxDiff) maxDiff = diff.y;
+	if (diff.z > maxDiff) maxDiff = diff.z;
+
+	XMFLOAT3 center = {
+		(max.x + min.x) * 0.5F,
+		(max.y + min.y) * 0.5F,
+		(max.z + min.z) * 0.5F
+	
+	};
+	float scale = 2.F / maxDiff;
+	//모델 정규화 행렬 [-1 , 1] NDC 로 
+	resourceData->modelNDCMat = {
+		scale , 0 , 0 , 0 ,
+		0, scale , 0, 0,
+		0 , 0 , scale , 0,
+		(-center.x * scale) , (-center.y * scale) , (-center.z * scale), 1.F
+	};
+
+
+
+
 }

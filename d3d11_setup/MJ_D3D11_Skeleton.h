@@ -36,7 +36,7 @@ typedef struct SkeletonPose_S
 	unsigned int count;
 	DirectX::XMFLOAT4X4* jointsLocalPoseArr;
 	DirectX::XMFLOAT4X4* jointsGlobalPoseArr;
-
+	DirectX::XMFLOAT4X4* jointsInversePoseArr;
 }SkeletonPose_T;
 
 class Skeleton {
@@ -53,7 +53,13 @@ class Skeleton {
 		Skeleton();
 		Skeleton(SkeletonResource_T* jointsData);
 		~Skeleton();
-		void Update(float deltaTime);
+		void Update();
+
+		const DirectX::XMFLOAT4X4* GetGlobalJoints();
+		const DirectX::XMFLOAT4X4* GetInverseJoints();
+		uint32_t GetGlobalJointsCount();
+
+
 		SkeletonPose_T pose;// curPose
 
 
@@ -61,7 +67,7 @@ class Skeleton {
 	//	void PoseRegister(std::string keyPoseName ,SkeletonPose_T& pose);
 
 	private:
-		void JointsDataSort();
+		//void JointsDataSort(); loader∑Œ ¿Ã¿¸µ 
 		void JointsLocalInit();
 		void JointsGlobalPoseCompute();
 		uint32_t poseCount;

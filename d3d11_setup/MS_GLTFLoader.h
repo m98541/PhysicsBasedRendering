@@ -36,6 +36,7 @@ class MSGLTFLoader {
 
 	private:
 		void JointsDataSort(Joint_T* data, size_t size);
+		void PosDataNormalization(CharacterResource* resourceData);
 		Microsoft::glTF::Document document;
 		std::unique_ptr<Microsoft::glTF::GLTFResourceReader> resourceReader;
 

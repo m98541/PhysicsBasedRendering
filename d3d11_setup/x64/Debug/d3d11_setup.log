@@ -1,14 +1,6 @@
-﻿  MS_GLTFLoader.cpp
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(62,39): warning C4267: '=': 'size_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(69,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(87,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(91,12): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(146,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(155,34): warning C4267: '+=': 'size_t'에서 'uint32_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(216,39): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(317,31): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(338,57): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(420,19): warning C4244: '=': 'std::streamoff'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  MJ_D3D11_Skeleton.cpp
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Skeleton.cpp(122,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Skeleton.cpp(143,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   d3d11_setup.vcxproj -> E:\PhysicsBasedRendering\x64\Debug\d3d11_setup.exe
   'pwsh.exe'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
   배치 파일이 아닙니다.

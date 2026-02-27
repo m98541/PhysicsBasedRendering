@@ -15,6 +15,7 @@ class CharacterRenderer
 		~CharacterRenderer();
 
 		void SetPipeLine(ID3D11DeviceContext* devCon);
+		void SetCharacter	(ID3D11DeviceContext* devCon, Character& character);
 
 		void InitPipeLine(
 			ID3D11Device* dev,
@@ -40,6 +41,7 @@ class CharacterRenderer
 
 		void CBInit(ID3D11Device* dev);
 		
+		void CBModelNDCUpdate(ID3D11DeviceContext* devCon, Character& character);
 
 		ID3D11VertexShader* characterVertexShader;
 		ID3D11PixelShader* characterPixelShader;
@@ -53,7 +55,11 @@ class CharacterRenderer
 		ID3D11Buffer* pCamBuffer;
 		ID3D11Buffer* pModelBuffer;
 		ID3D11Buffer* pJointsBuffer;
+		ID3D11Buffer* pModelNDCBuffer;
 
+		DirectX::XMMATRIX* jointsMatrixBuffer;
+
+		uint32_t jointsCount;
 };
 
 

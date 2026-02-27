@@ -23,5 +23,6 @@ PS_INPUT main(float4 pos : POSITION, float2 tex_coord : TEXCOORD, float4 norm : 
 	outData.position = mul( proj , mul(view ,mul(model, pos)));
 	outData.tex_coord = tex_coord;
 	outData.tex_idx = texidx;
+   
 	return outData;
 }

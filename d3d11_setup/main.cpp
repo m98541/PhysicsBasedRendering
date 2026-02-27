@@ -97,7 +97,7 @@ MJD3D11OBJ_HANDLE_t* objHandle;
 BasicCam* singleCam;
 BasicCam* singleNextCam;
 
-constexpr double gravity = 70.F;
+constexpr double gravity = 0.F;
 constexpr double catGravity = 50.0F;
 int catCount = 0;
 bool catConvexColliderView = false;
@@ -287,7 +287,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			skRsrc.array[i].inverseBindPose.m[2][0], skRsrc.array[i].inverseBindPose.m[2][1], skRsrc.array[i].inverseBindPose.m[2][2], skRsrc.array[i].inverseBindPose.m[2][3], 
 			skRsrc.array[i].inverseBindPose.m[3][0], skRsrc.array[i].inverseBindPose.m[3][1], skRsrc.array[i].inverseBindPose.m[3][2], skRsrc.array[i].inverseBindPose.m[3][3]);
 	}
-	skeleton->Update(0.1);
+	skeleton->Update();
 	printf("GLobal bone \n");
 	
 	for (int i = 0; i < skRsrc.count; i++)
@@ -302,7 +302,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 	CharacterResource characterResourceData;
 	characterModel->GetCharacterResource(&characterResourceData);
-	//Character* testCharacter = new Character(&characterResourceData);
+	Character* testCharacter = new Character(&characterResourceData);
 
 	
 
@@ -353,7 +353,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	InitD3D(hWnd);
 
 
-	//CharacterRenderer* characterRenderer = new CharacterRenderer(dev , devCon , *testCharacter);
+	CharacterRenderer* characterRenderer = new CharacterRenderer(dev , devCon , *testCharacter);
 
 
 	InitPipeline();
@@ -434,6 +434,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 	float catRadius = 30.F;
 	float catHeight = 10.F;
+
 	MJD3D11LoadOBJ(dev,devCon,VS,&catOBJHandle , "cat.obj");
 	CAPSULE_T catCapsule = {
 		{0.F , catHeight + catRadius, 0.F, 1.F},
@@ -630,6 +631,8 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			cam.view = XMMatrixLookAtLH(singleCam->Element.pos, singleCam->Element.at, singleCam->Element.up);
 			cam.proj = XMMatrixPerspectiveFovLH(XM_PIDIV4, 800.0F / 600.0F, 0.01F, 8000.F);
 
+			
+
 			devCon->Map(pCamBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
 			memcpy(mapped.pData, &cam, sizeof(cam));
 			devCon->Unmap(pCamBuffer, 0);
@@ -807,8 +810,12 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 				
 			}
-		//	characterRenderer->SetPipeLine(devCon);
-		//	characterRenderer->Draw(devCon);
+			
+			characterRenderer->SetPipeLine(devCon);
+			characterRenderer->SetCharacter(devCon, *testCharacter);
+			characterRenderer->CBCamUpdate(devCon, cam.view, cam.proj);
+		
+			characterRenderer->Draw(devCon);
 
 			swapChain->Present(0, 0);
 
@@ -988,7 +995,9 @@ void InitD3D(HWND hWnd)
 	ZeroMemory(&scd, sizeof(DXGI_SWAP_CHAIN_DESC));
 	D3D_FEATURE_LEVEL featureLevel = D3D_FEATURE_LEVEL_11_0;
 	UINT DeviceAndSwapchainFlag = 0;
-
+#ifdef _DEBUG
+	DeviceAndSwapchainFlag |= D3D11_CREATE_DEVICE_DEBUG; // 디버그 레이어 켜기!
+#endif
 	scd.BufferCount = 1;
 	scd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 	scd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
@@ -1118,6 +1127,8 @@ void SetMainPipeLine()
 {
 	devCon->VSSetShader(pVS, 0, 0);
 	devCon->PSSetShader(pPS, 0, 0);
+	
+	devCon->IASetInputLayout(pLayout);
 }
 
 void InitPipeline()

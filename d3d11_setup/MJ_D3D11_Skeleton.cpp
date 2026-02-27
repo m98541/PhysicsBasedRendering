@@ -17,7 +17,9 @@ Skeleton::Skeleton(SkeletonResource_T* jointsData)
 
 	this->pose.jointsLocalPoseArr = new XMFLOAT4X4[this->pose.count];
 	this->pose.jointsGlobalPoseArr = new XMFLOAT4X4[this->pose.count];
+	this->pose.jointsInversePoseArr = new XMFLOAT4X4[this->pose.count];
 
+	Skeleton::Update();
 	//this->JointsDataSort();// 데이터 정규화 , 부모-자식간 선 후 순위 보장 , 및 행렬 전치 , // 리소스에서 정규화 보장되어야함
 
 }
@@ -34,12 +36,11 @@ typedef struct SortBucket_S
 }SortBucket_T;
 
 
-void Skeleton::Update(float deltaTime)
+void Skeleton::Update()
 {
 	this->JointsLocalInit();
 
 	this->JointsGlobalPoseCompute();
-
 }
 
 // 2026.02.02 JointsDataSort 기능 -> GLTFLoader 로 이전/
@@ -130,12 +131,12 @@ void Skeleton::JointsLocalInit()
 	
 	
 
-		XMStoreFloat4x4(this->pose.jointsLocalPoseArr + i , XMMatrixTranspose( XMMatrixAffineTransformation(scale,g_XMZero,quatRot,trans) ));
-		
+		XMStoreFloat4x4(this->pose.jointsLocalPoseArr + i ,XMMatrixAffineTransformation(scale,g_XMZero,quatRot,trans) );
+		this->pose.jointsInversePoseArr[i] = jointsData->array[i].inverseBindPose;
 	}
 }
 
-void Skeleton::JointsGlobalPoseCompute()
+void Skeleton::JointsGlobalPoseCompute()// 
 {
 	XMMATRIX xmCurLocalMat;
 	XMMATRIX xmGlobalParentMat;
@@ -154,4 +155,21 @@ void Skeleton::JointsGlobalPoseCompute()
 	}
 
 
+}
+
+const DirectX::XMFLOAT4X4* Skeleton::GetGlobalJoints()
+{
+	JointsGlobalPoseCompute();
+	return this->pose.jointsGlobalPoseArr;
+}
+
+
+const DirectX::XMFLOAT4X4* Skeleton::GetInverseJoints()
+{
+	return this->pose.jointsInversePoseArr;
+}
+
+uint32_t Skeleton::GetGlobalJointsCount()
+{
+	return this->pose.count;
 }
