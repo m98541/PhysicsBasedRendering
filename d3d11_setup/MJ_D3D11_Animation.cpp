@@ -9,7 +9,7 @@ AnimationManager::AnimationManager()
 	localTime = 0;
 	targetSkeleton = nullptr;
 }
-
+ 
 AnimationManager::~AnimationManager()
 {
 
