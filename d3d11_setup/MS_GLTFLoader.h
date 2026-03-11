@@ -32,7 +32,7 @@ class MSGLTFLoader {
 		void GetSkeletonResource(SkeletonResource_T& outData);
 		void GetMeshResource(MeshResource_T& outDatasrcSkin , eastl::map<eastl::string, int>& textureIdMap);
 		void GetTextureResource(TextureResourec_T& outTexData , eastl::map<eastl::string , int>& textureIdMap);
-	
+		void GetAnimationResource(AnimationResource_T& outData , size_t jointsCount);
 
 	private:
 		void JointsDataSort(Joint_T* data, size_t size);
@@ -42,6 +42,7 @@ class MSGLTFLoader {
 
 		//str id 와 jointResource 의 index 간 번역을 위한 집합 테이블
 		eastl::map<eastl::string , int> JointIdToIndexTable;
+		eastl::map<eastl::string, int> nodeIdToIndexTable;
 };
 
 

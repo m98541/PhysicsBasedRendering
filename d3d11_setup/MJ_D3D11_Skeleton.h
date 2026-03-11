@@ -16,7 +16,6 @@ typedef struct JointPose_S
 	DirectX::XMFLOAT4 quatRot;
 	DirectX::XMFLOAT3 trans;
 	float scale;
-
 }JointPose_T;
 
 typedef struct Joint_S
@@ -59,7 +58,7 @@ class Skeleton {
 		const DirectX::XMFLOAT4X4* GetInverseJoints();
 		uint32_t GetGlobalJointsCount();
 
-
+		SkeletonResource_T* jointsData;
 		SkeletonPose_T pose;// curPose
 
 
@@ -68,10 +67,10 @@ class Skeleton {
 
 	private:
 		//void JointsDataSort(); loader∑Œ ¿Ã¿¸µ 
-		void JointsLocalInit();
+		void JointsLocalUpdate();
 		void JointsGlobalPoseCompute();
 		uint32_t poseCount;
-		SkeletonResource_T* jointsData;
+		
 		DirectX::XMFLOAT4X4 wordTransMat;
 		
 	//	eastl::vector<eastl::string> nameList;

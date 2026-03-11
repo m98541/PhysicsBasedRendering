@@ -38,7 +38,7 @@ typedef struct SortBucket_S
 
 void Skeleton::Update()
 {
-	this->JointsLocalInit();
+	this->JointsLocalUpdate();
 
 	this->JointsGlobalPoseCompute();
 }
@@ -113,7 +113,7 @@ void Skeleton::JointsDataSort()
 //pose quat rot , trans , scale 행렬 변환
 
 
-void Skeleton::JointsLocalInit()
+void Skeleton::JointsLocalUpdate()
 {
 
 	XMVECTOR trans;

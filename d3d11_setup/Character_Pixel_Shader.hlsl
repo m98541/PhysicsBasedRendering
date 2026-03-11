@@ -12,5 +12,5 @@ struct PS_INPUT {
 float4 main(PS_INPUT ps_input) : SV_TARGET
 {
     float4 pixel = txDiffuse.Sample(samLinear, float3(ps_input.tex_coord, ps_input.tex_idx));
-	return pixel;
+	return pixel;	
 }

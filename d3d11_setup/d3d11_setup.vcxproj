@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="MJ_D3D11_Animation.cpp" />
     <ClCompile Include="MJ_D3D11_Character.cpp" />
     <ClCompile Include="MJ_D3D11_CharacterRenderer.cpp" />
     <ClCompile Include="MJ_D3D11_EPA.cpp" />
@@ -203,6 +204,7 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MJ_D3D11_Animation.h" />
     <ClInclude Include="MJ_D3D11_CharacterRenderer.h" />
     <ClInclude Include="MJ_D3D11_CharacterResource.h" />
     <ClInclude Include="MJ_D3D11_Mesh.h" />

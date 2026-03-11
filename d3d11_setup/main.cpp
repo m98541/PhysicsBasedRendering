@@ -97,8 +97,14 @@ MJD3D11OBJ_HANDLE_t* objHandle;
 BasicCam* singleCam;
 BasicCam* singleNextCam;
 
-constexpr double gravity = 0.F;
-constexpr double catGravity = 50.0F;
+/*
+캡슐 맵 충돌 버그 , 프레임이 떨어지면 5~ 10 fps 정도로 , 충돌 누락이 심해짐  
+
+프레임 마다 충돌검사->but 프레임 떨어져도 이동변위는 일정 -> 이동 변위 대비 충돌 검사 수 하락으로 인한 누락으로 추정..
+
+*/
+constexpr double gravity = 200.F;
+constexpr double catGravity = 200.F;
 int catCount = 0;
 bool catConvexColliderView = false;
 bool catBoxColliderView = false;
@@ -400,10 +406,10 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	ClientToScreen(hWnd, &initCursor);
 	SetCursorPos(initCursor.x, initCursor.y);
 	mouseMoveVector = {0.F, 0.F, 0.F, 0.F};
-	float radius = 30.F;
-	float height = 30.F;
+	float radius = 15.F * 1.0F;
+	float height = 50.F * 1.0F;
 	CAPSULE_T initCapsule = {
-		{0.F , height + radius, 0.F, 1.F},
+		{0.F , height + radius , 0.F, 1.F},
 		{0.F , radius , 0.F , 1.F},
 		{0.F , height, 0.F , 0.F},
 		radius
@@ -546,11 +552,10 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 					
 				
 			}
-			else
-			{
-				singleNextCam->Element.pos.m128_f32[1] -= gravity * deltaTime;
-				singleNextCam->Element.at.m128_f32[1] -= gravity * deltaTime;
-			}
+			
+			singleNextCam->Element.pos.m128_f32[1] -= gravity * deltaTime;
+			singleNextCam->Element.at.m128_f32[1] -= gravity * deltaTime;
+			
 		
 			
 			
@@ -570,7 +575,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			XMVECTOR remainMove = move;
 
 			
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 10; i++)
 			{
 				int next = 0;
 				bool swpTest = testMapObj->IsMapSwpCollisionDetect(collider, nextColider.Collider , swpHitSet);
@@ -810,11 +815,12 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 				
 			}
-			
+		
+			testCharacter->updateAnimation(2,(float)deltaTime / 10.F);
 			characterRenderer->SetPipeLine(devCon);
 			characterRenderer->SetCharacter(devCon, *testCharacter);
 			characterRenderer->CBCamUpdate(devCon, cam.view, cam.proj);
-		
+			
 			characterRenderer->Draw(devCon);
 
 			swapChain->Present(0, 0);

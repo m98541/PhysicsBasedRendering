@@ -288,7 +288,7 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData , eastl::map<eastl::s
 
 
 				float weightSum = 0;
-				printf("%d jointIndex :", test++);
+				
 				for (uint32_t boneIdx = 0; boneIdx < 4; ++boneIdx)
 				{
 					uint16_t srcSkinJointIdIndex = jointsData[k * 4 + boneIdx];
@@ -299,13 +299,12 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData , eastl::map<eastl::s
 					float weight = weightsData[k * 4 + boneIdx];
 
 					outData.array[i].vertices[outDataIndex].joints[boneIdx] = jointsArrIndex;
-					printf("[W %f I %d S %s ]", weight, jointsArrIndex , srcSkinJointId.c_str());
+					
 					outData.array[i].vertices[outDataIndex].weights[boneIdx] = weight;
 
 					weightSum += weight;
 				}
-				printf("\n");
-
+	
 				//weight 정규화
 				if (weightSum < WEIGHT_EPSILON)
 				{
@@ -435,9 +434,11 @@ void MSGLTFLoader::GetCharacterResource(CharacterResource* resourceData)
 	//텍스처 정보 받음 여기서 이미지 정수 식별자와 문자열 식별자 번역 맵 구성
 	GetTextureResource(resourceData->TextureResource, textureIdMap);
 
-
 	//메쉬 정보 받음
 	GetMeshResource(resourceData->meshResource, textureIdMap);
+
+	//에니메이션 정보 받음
+	GetAnimationResource(resourceData->animationResource ,resourceData->skeletonResource.count);
 
 	//pos 좌표 정규화 스키닝 때문에 정규화 행렬를 상수 버퍼로 올려서 model * normalizeMat * skinnedMAt * pos 로 연산시킬 예정
 	PosDataNormalization(resourceData);
@@ -447,6 +448,95 @@ void MSGLTFLoader::GetCharacterResource(CharacterResource* resourceData)
 	
 }
 
+void MSGLTFLoader::GetAnimationResource(AnimationResource_T& outData, size_t jointsCount)
+{
+
+	//여러개의 에니메이션 클립이 들어옴을 고려해야함
+	const uint32_t animationSize = document.animations.Size();
+	outData.count = animationSize;
+	outData.animationClip = new AnimationClipResourec_T[animationSize];
+
+	size_t animationChannelsSize = 0;
+
+	
+
+	for (uint32_t i = 0; i < animationSize; ++i)
+	{
+		const Animation& animation = document.animations.Get(i);
+		animationChannelsSize = animation.channels.Size();
+		outData.animationClip[i].AnimationJoint = new AnimationJoint_T[jointsCount];
+		outData.animationClip[i].count = animationChannelsSize;
+		outData.animationClip[i].totalTime = 0.F;
+
+		for (size_t j = 0; j < animationChannelsSize; j++)
+		{
+			AnimationChannel animationChannel = animation.channels[j];
+			const AnimationSampler& animationSampler = animation.samplers.Get(animationChannel.samplerId);
+			const AnimationTarget& animationTarget = animationChannel.target;
+
+			//data access
+			const Accessor& timeAccessor = document.accessors.Get(animationSampler.inputAccessorId);
+			const Accessor& valueAccessor = document.accessors.Get(animationSampler.outputAccessorId);
+
+			auto timeData = resourceReader->ReadFloatData(document ,timeAccessor );
+			auto valueData = resourceReader->ReadFloatData(document ,valueAccessor);
+			
+
+			//target data index search //아직 연결 안된 테이블임 나중에 이글 보면 연결하고 지워 
+			uint32_t skeletonArrIndex = nodeIdToIndexTable[animationTarget.nodeId.c_str()];
+
+			//data 입력
+			outData.animationClip[i].AnimationJoint[skeletonArrIndex].localPoseArrIndex = skeletonArrIndex;
+
+			uint32_t timeKeyCount = timeData.size();
+			if (timeData[timeKeyCount - 1] > outData.animationClip[i].totalTime)
+			{
+				outData.animationClip[i].totalTime = timeData[timeKeyCount - 1];
+			}
+ 
+
+			if (animationTarget.path == TargetPath::TARGET_TRANSLATION)
+			{
+				for (uint32_t t = 0; t < timeKeyCount; ++t)
+				{
+					AnimationKeyTrans_T data = {
+						timeData[t],
+						{valueData[t * 3 + 0] ,valueData[t * 3 + 1] , valueData[t * 3 + 2] } // translate v3f
+					};
+					outData.animationClip[i].AnimationJoint[skeletonArrIndex].transKeys.push_back(data);
+					
+				}
+			}
+			else if (animationTarget.path == TargetPath::TARGET_ROTATION)
+			{
+				for (uint32_t t = 0; t < timeKeyCount; ++t)
+				{
+					AnimationKeyQuatRot_T data = {
+						timeData[t],
+						{valueData[t * 4 + 0] ,valueData[t * 4 + 1] , valueData[t * 4 + 2] , valueData[t * 4 + 3] } // Quat v4f
+					};
+					outData.animationClip[i].AnimationJoint[skeletonArrIndex].quatRotKeys.push_back(data);
+				}
+			}
+			else if (animationTarget.path == TargetPath::TARGET_SCALE)
+			{
+				for (uint32_t t = 0; t < timeKeyCount; ++t)
+				{
+					AnimationKeyScale_T data = {
+						timeData[t],
+						{valueData[t * 3 + 0] ,valueData[t * 3 + 1] , valueData[t * 3 + 2] } // 0번째 값만 사용 균일 스케일 1f
+					};
+					outData.animationClip[i].AnimationJoint[skeletonArrIndex].scaleKeys.push_back(data);
+				}
+			}
+
+			
+		}
+	}
+
+
+
+}
 
 string ReadFile(const string& path)
 {
@@ -504,7 +594,7 @@ void MSGLTFLoader::JointsDataSort(Joint_T* data ,size_t size)
 
 			//참조! 추가된 부분 
 			JointIdToIndexTable[data[reciveBucket.originIndex].jointId.c_str()] = bufferSizeCount;
-
+			nodeIdToIndexTable[data[reciveBucket.originIndex].nodeId.c_str()] = bufferSizeCount;
 			resultBuffer[bufferSizeCount].parentIndex = reciveBucket.updateParent;
 			
 

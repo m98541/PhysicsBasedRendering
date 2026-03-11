@@ -93,9 +93,9 @@ bool IsPointInTriAngle(XMVECTOR TriVector[3] , XMVECTOR Point)
 	XMVECTOR dir2 = XMVector3Dot(triNormal, XMVector3Cross(edge2, pointLineT2));
 
 
-	if ((dir0.m128_f32[0] >= EPSILON) &&
-		(dir1.m128_f32[0] >= EPSILON) &&
-		(dir2.m128_f32[0] >= EPSILON))
+	if ((dir0.m128_f32[0] >= -EPSILON) &&
+		(dir1.m128_f32[0] >= -EPSILON) &&
+		(dir2.m128_f32[0] >= -EPSILON))
 	{
 		return true;
 	}
@@ -413,7 +413,7 @@ bool CapsuleCollider::TriAngleCollisionTest(XMVECTOR* triPos)
 
 	//foot sphere Triangle
 	float footTriDistance = XMVector3Dot(triPos[0] - this->Collider.foot ,-triFaceNormal).m128_f32[0];
-	if (footTriDistance < 0) footTriDistance = -footTriDistance;
+	if (footTriDistance < 0 - FLT_EPSILON) footTriDistance = 0;
 	
 	XMVECTOR footTriPoint = -triFaceNormal * footTriDistance + this->Collider.foot;
 	
@@ -447,7 +447,7 @@ bool CapsuleCollider::TriAngleCollisionTest(XMVECTOR* triPos)
 
 
 
-	XMVECTOR sillinderRayGradient = -1.F * XMVector3Dot((this->Collider.head - triFaceNormal - triPos[0]), triFaceNormal) / XMVector3Dot((this->Collider.foot - this->Collider.head), triFaceNormal);
+	XMVECTOR sillinderRayGradient = triFaceNormal * this->Collider.radius * XMVector3Dot((this->Collider.head - triFaceNormal - triPos[0]), triFaceNormal) / XMVector3Dot((this->Collider.foot - this->Collider.head), triFaceNormal);
 	XMVECTOR sillinderRayPoint = (this->Collider.head - triFaceNormal) + (this->Collider.foot - this->Collider.head) * sillinderRayGradient;
 	if (IsPointInTriAngle(triPos, sillinderRayPoint) 
 		&& sillinderRayPoint.m128_f32[1] > (this->Collider.foot.m128_f32[1])

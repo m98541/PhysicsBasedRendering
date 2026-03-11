@@ -28,6 +28,9 @@ void Character::LoadResource(CharacterResource* characterResource)
 	mesh = new MeshInfo(&characterResource->meshResource);
 	resourceData = characterResource;
 	modelNDCMat = &characterResource->modelNDCMat;
+	animationManager = new AnimationManager(skeleton , &characterResource->animationResource);
+
+
 }
 
 const MeshInfo* Character::GetMeshInfo()
@@ -81,9 +84,10 @@ const DirectX::XMFLOAT4X4* Character::GetInverseJoints(uint32_t* count)
 	return matArr;
 }
 
-void update()
+void Character::updateAnimation(uint32_t animationId, float deltaT)
 {
-
+	animationManager->SelectAnimation(animationId);
+	animationManager->NextTimePose(deltaT);
 }
 
 
