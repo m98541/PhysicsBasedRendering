@@ -1,4 +1,4 @@
-#include "MJ_D3D11_Collision.h"
+ï»¿#include "MJ_D3D11_Collision.h"
 #include <string.h>
 #include <stdio.h>
 #include <EASTL/algorithm.h>
@@ -158,7 +158,7 @@ bool IsSphereTriAngleSweepHitEdge(XMVECTOR curPoint, XMVECTOR nextPoint, float r
 		
 		if (dist <= radius)
 		{
-			//printf("¼±Ãæµ¹\n");
+			//printf("ì„ ì¶©ëŒ\n");
 
 			swpInfo->tri[0] = triPos[0]; 
 			swpInfo->tri[1] = triPos[1];
@@ -196,7 +196,7 @@ bool IsSphereTriAngleSweepHitVertex(XMVECTOR curPoint, XMVECTOR nextPoint, float
 		float dist = XMVector3LinePointDistance(curPoint, nextPoint, triPos[i]).m128_f32[0];
 		if (dist <= radius)
 		{
-			//printf("Á¡Ãæµ¹\n");
+			//printf("ì ì¶©ëŒ\n");
 			
 			swpInfo->tri[0] = triPos[0];
 			swpInfo->tri[1] = triPos[1];
@@ -288,7 +288,7 @@ bool CapsuleCollider::TriAngleCollisionTest(XMVECTOR* triPos, CAPSULE_T& NextPos
 		((XMVector3Dot(nextPointV2 - curPointV2, triPos[2] - curPointV2).m128_f32[0] > 0 + EPSILON) && ((XMVector3Length(triPos[2] - curPointV2).m128_f32[0] < this->Collider.radius - EPSILON) && (curDotV2.m128_f32[0] > 0 + EPSILON) && (curDotV2.m128_f32[0] < axisLenNorm.m128_f32[0])))
 		);
 	if (cyilinderTest) {		
-		printf("cyilinder Ãæµ¹\n");
+		printf("cyilinder ì¶©ëŒ\n");
 		swpInfo.element = SWEEP_HIT_FACE;
 		swpInfo.tri[0] = triPos[0];
 		swpInfo.tri[1] = triPos[1];
@@ -317,7 +317,7 @@ float CapsuleCollision::TwoLineDistance(XMVECTOR linePointA0, XMVECTOR linePoint
 		return XMVector3Length(linePointA0 - linePointB0).m128_f32[0];
 	}
 	
-	if (aaDt <= EPSILON) // A ¼±ºÐÀÌ ¾ÆÁÖ ÀÛÀº °æ¿ì(»ç½Ç»ó Á¡)
+	if (aaDt <= EPSILON) // A ì„ ë¶„ì´ ì•„ì£¼ ìž‘ì€ ê²½ìš°(ì‚¬ì‹¤ìƒ ì )
 	{
 		lineAParmeter = 0.F;
 		lineBParmeter = eastl::clamp(b0Dt / bbDt , 0.F , 1.F);
@@ -337,7 +337,7 @@ float CapsuleCollision::TwoLineDistance(XMVECTOR linePointA0, XMVECTOR linePoint
 				lineAParmeter =eastl::clamp( (abDt * b0Dt - bbDt * a0Dt) / (aaDt * bbDt - abDt * abDt) , 0.F, 1.F);
 				
 			}
-			else // ÆòÇà ÇÑ °æ¿ì
+			else // í‰í–‰ í•œ ê²½ìš°
 			{
 				lineAParmeter = eastl::clamp(-a0Dt / aaDt , 0.F , 1.F);
 			}
@@ -430,7 +430,7 @@ bool CapsuleCollider::TriAngleCollisionTest(XMVECTOR* triPos)
 
 	if (IsPointInTriAngle(triPos, headTriPoint) && headTriDistance < this->Collider.radius - EPSILON)
 	{
-		//printf("!head °ãÄ§ ! \n");
+		//printf("!head ê²¹ì¹¨ ! \n");
 		return true;
 	}
 
@@ -440,7 +440,7 @@ bool CapsuleCollider::TriAngleCollisionTest(XMVECTOR* triPos)
 	
 	if (sillinderTriDistance < this->Collider.radius - EPSILON)
 	{
-		//printf("!sillinder °Å¸® °ãÄ§ %f! \n", sillinderTriDistance);
+		//printf("!sillinder ê±°ë¦¬ ê²¹ì¹¨ %f! \n", sillinderTriDistance);
 		return true;
 	}
 
@@ -455,7 +455,7 @@ bool CapsuleCollider::TriAngleCollisionTest(XMVECTOR* triPos)
 		)
 	{
 		/*
-		printf("!sillinder »ï°¢Çü ±³Â÷ °ãÄ§(%f %f %f) (%f %f %f) ! \n",
+		printf("!sillinder ì‚¼ê°í˜• êµì°¨ ê²¹ì¹¨(%f %f %f) (%f %f %f) ! \n",
 			this->Collider.foot.m128_f32[0],
 			this->Collider.foot.m128_f32[1],
 			this->Collider.foot.m128_f32[2],

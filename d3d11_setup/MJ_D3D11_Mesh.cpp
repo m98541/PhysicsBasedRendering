@@ -1,4 +1,4 @@
-#include "MJ_D3D11_CharacterResource.h"
+﻿#include "MJ_D3D11_CharacterResource.h"
 
 using namespace DirectX;
 

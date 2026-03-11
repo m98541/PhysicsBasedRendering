@@ -1,4 +1,4 @@
-#ifndef MJ_D3D11_SHADER_FILE_H
+﻿#ifndef MJ_D3D11_SHADER_FILE_H
 #define MJ_D3D11_SHADER_FILE_H
 
 #include <string>

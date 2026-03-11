@@ -1,4 +1,4 @@
-#include "MJ_D3D11_UnitObject.h"
+ï»¿#include "MJ_D3D11_UnitObject.h"
 
 using namespace UnitObject;
 using namespace DirectX;
@@ -37,16 +37,16 @@ UnitObj::UnitObj(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, ID3D10Blob* vsS
 
 	
 	D3D11_RASTERIZER_DESC wfDesc = {};
-	wfDesc.FillMode = D3D11_FILL_WIREFRAME;  // ¼±¸¸ ±×¸³´Ï´Ù.
-	wfDesc.CullMode = D3D11_CULL_NONE;       // ¸ğµç ¼±À» ºÁ¾ß ÇÏ¹Ç·Î ÄÃ¸µÀ» ²ü´Ï´Ù. (È¤Àº CULL_BACK)
+	wfDesc.FillMode = D3D11_FILL_WIREFRAME;  // ì„ ë§Œ ê·¸ë¦½ë‹ˆë‹¤.
+	wfDesc.CullMode = D3D11_CULL_NONE;       // ëª¨ë“  ì„ ì„ ë´ì•¼ í•˜ë¯€ë¡œ ì»¬ë§ì„ ë•ë‹ˆë‹¤. (í˜¹ì€ CULL_BACK)
 	wfDesc.FrontCounterClockwise = false;
 	wfDesc.DepthClipEnable = true;
 	Dev->CreateRasterizerState(&wfDesc, &this->pWireframeRS);
 
 
 	D3D11_RASTERIZER_DESC rsDesc = {};
-	rsDesc.FillMode = D3D11_FILL_SOLID;      // ¸éÀ» Ã¤¿ó´Ï´Ù.
-	rsDesc.CullMode = D3D11_CULL_BACK;       // µŞ¸éÀ» ±×¸®Áö ¾Ê½À´Ï´Ù.
+	rsDesc.FillMode = D3D11_FILL_SOLID;      // ë©´ì„ ì±„ì›ë‹ˆë‹¤.
+	rsDesc.CullMode = D3D11_CULL_BACK;       // ë’·ë©´ì„ ê·¸ë¦¬ì§€ ì•ŠìŠµë‹ˆë‹¤.
 	rsDesc.FrontCounterClockwise = false;
 	rsDesc.DepthClipEnable = true;
 	Dev->CreateRasterizerState(&rsDesc, &this->pSolidRS);
@@ -102,9 +102,9 @@ void UnitObj::LoadColliderView()
 	DevCon->Unmap(this->colliderObjHandle->vertexBufferHandle, NULL);
 
 	D3D11_INPUT_ELEMENT_DESC inputElement[4] = {
-		//0¹ÙÀÌÆ® ºÎÅÍ 
+		//0ë°”ì´íŠ¸ ë¶€í„° 
 		{"POSITION" , 0 , DXGI_FORMAT_R32G32B32A32_FLOAT, 0 , 0  , D3D11_INPUT_PER_VERTEX_DATA , 0},
-		//12¹ÙÀÌÆ® ºÎÅÍ
+		//12ë°”ì´íŠ¸ ë¶€í„°
 		{"TEXCOORD" , 0 , DXGI_FORMAT_R32G32_FLOAT, 0 , 16 , D3D11_INPUT_PER_VERTEX_DATA , 0},
 
 		{"NORM" , 0 , DXGI_FORMAT_R32G32B32A32_FLOAT, 0 , 24 , D3D11_INPUT_PER_VERTEX_DATA , 0},
@@ -155,7 +155,7 @@ void UnitObj::DrawObject()
 void UnitObj::updateTRS()
 {
 	this->TRS = XMMatrixIdentity();
-	// new TRS ¿¡ scale rot trans °ö
+	// new TRS ì— scale rot trans ê³±
 	this->TRS *= XMMatrixScaling(this->scale.x, this->scale.y, this->scale.z);
 	this->TRS *= XMMatrixRotationY(this->rotate);
 	this->TRS *= XMMatrixTranslation(this->pos.x, this->pos.y, this->pos.z);
@@ -277,16 +277,16 @@ bool UnitObj::unitAABBCollCheck(UnitObj* other)
 
 	UNIT_BOX_T boxA = this->getBOXCollider();
 	UNIT_BOX_T boxB = other->getBOXCollider();
-	// ÇÑ ÃàÀÌ¶óµµ ºĞ¸®µÇ¾î ÀÖÀ¸¸é Ãæµ¹ÇÏÁö ¾ÊÀ½
-	if (boxA.boxMax.m128_f32[0] <= boxB.boxMin.m128_f32[0] || // A°¡ BÀÇ ¿ŞÂÊ
-		boxA.boxMin.m128_f32[0] >= boxB.boxMax.m128_f32[0] || // A°¡ BÀÇ ¿À¸¥ÂÊ
-		boxA.boxMax.m128_f32[1] <= boxB.boxMin.m128_f32[1] || // A°¡ BÀÇ ¾Æ·¡
-		boxA.boxMin.m128_f32[1] >= boxB.boxMax.m128_f32[1] || // A°¡ BÀÇ À§
-		boxA.boxMax.m128_f32[2] <= boxB.boxMin.m128_f32[2] || // A°¡ BÀÇ µÚ
-		boxA.boxMin.m128_f32[2] >= boxB.boxMax.m128_f32[2])   // A°¡ BÀÇ ¾Õ
+	// í•œ ì¶•ì´ë¼ë„ ë¶„ë¦¬ë˜ì–´ ìˆìœ¼ë©´ ì¶©ëŒí•˜ì§€ ì•ŠìŒ
+	if (boxA.boxMax.m128_f32[0] <= boxB.boxMin.m128_f32[0] || // Aê°€ Bì˜ ì™¼ìª½
+		boxA.boxMin.m128_f32[0] >= boxB.boxMax.m128_f32[0] || // Aê°€ Bì˜ ì˜¤ë¥¸ìª½
+		boxA.boxMax.m128_f32[1] <= boxB.boxMin.m128_f32[1] || // Aê°€ Bì˜ ì•„ë˜
+		boxA.boxMin.m128_f32[1] >= boxB.boxMax.m128_f32[1] || // Aê°€ Bì˜ ìœ„
+		boxA.boxMax.m128_f32[2] <= boxB.boxMin.m128_f32[2] || // Aê°€ Bì˜ ë’¤
+		boxA.boxMin.m128_f32[2] >= boxB.boxMax.m128_f32[2])   // Aê°€ Bì˜ ì•
 	{
-		return true; // ºĞ¸®µÊ (Ãæµ¹ ¾Æ´Ô)
+		return true; // ë¶„ë¦¬ë¨ (ì¶©ëŒ ì•„ë‹˜)
 	}
 
-	return false; // ºĞ¸®µÇÁö ¾ÊÀ½ (Ãæµ¹)
+	return false; // ë¶„ë¦¬ë˜ì§€ ì•ŠìŒ (ì¶©ëŒ)
 }

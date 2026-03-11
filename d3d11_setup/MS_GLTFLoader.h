@@ -1,4 +1,4 @@
-#ifndef MS_GLTFLOADER_H
+ï»¿#ifndef MS_GLTFLOADER_H
 #define MS_GLTFLOADER_H
 //Based on Microsoft's GLTF_SDK
 #include <GLTFSDK/Deserialize.h>
@@ -16,7 +16,7 @@
 #include <DirectXTex.h>
 #include "MJ_D3D11_Character.h"
 
-//Å¬·¡½º ÀÌ¸§ º¯°æ ÇÊ¿ä GLTF LOADER ¾Æ´Ô GLTF CHRACTER LOADER ·Î º¯°æ ÇÊ¿ä
+//í´ë˜ìŠ¤ ì´ë¦„ ë³€ê²½ í•„ìš” GLTF LOADER ì•„ë‹˜ GLTF CHRACTER LOADER ë¡œ ë³€ê²½ í•„ìš”
 class MSGLTFLoader {
 	public:
 		MSGLTFLoader();
@@ -24,11 +24,11 @@ class MSGLTFLoader {
 		MSGLTFLoader(const std::string& path);
 		bool LoadModel(const std::string& path);
 
-		// ³×ÀÌ¹Ö º¯°æ ÇÊ¿ä Get -> Load 
-		//³»ºÎ µ¥ÀÌÅÍ·Î º¯È¯ ÇÏ¿© ½ºÄÌ·¹Åæ µ¥ÀÌÅÍ ÅëÀÏ
+		// ë„¤ì´ë° ë³€ê²½ í•„ìš” Get -> Load 
+		//ë‚´ë¶€ ë°ì´í„°ë¡œ ë³€í™˜ í•˜ì—¬ ìŠ¤ì¼ˆë ˆí†¤ ë°ì´í„° í†µì¼
 		void GetCharacterResource(CharacterResource* resourceData);
 
-		//private ·Î ÀÌµ¿ ¿¹Á¤ ¿ÜºÎ¿¡¼­´Â GetCharacterResource¸¸ º¸ÀÌµµ·Ï ÇÒ °ÍÀÓ
+		//private ë¡œ ì´ë™ ì˜ˆì • ì™¸ë¶€ì—ì„œëŠ” GetCharacterResourceë§Œ ë³´ì´ë„ë¡ í•  ê²ƒì„
 		void GetSkeletonResource(SkeletonResource_T& outData);
 		void GetMeshResource(MeshResource_T& outDatasrcSkin , eastl::map<eastl::string, int>& textureIdMap);
 		void GetTextureResource(TextureResourec_T& outTexData , eastl::map<eastl::string , int>& textureIdMap);
@@ -40,7 +40,7 @@ class MSGLTFLoader {
 		Microsoft::glTF::Document document;
 		std::unique_ptr<Microsoft::glTF::GLTFResourceReader> resourceReader;
 
-		//str id ¿Í jointResource ÀÇ index °£ ¹ø¿ªÀ» À§ÇÑ ÁıÇÕ Å×ÀÌºí
+		//str id ì™€ jointResource ì˜ index ê°„ ë²ˆì—­ì„ ìœ„í•œ ì§‘í•© í…Œì´ë¸”
 		eastl::map<eastl::string , int> JointIdToIndexTable;
 		eastl::map<eastl::string, int> nodeIdToIndexTable;
 };

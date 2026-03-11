@@ -1,7 +1,7 @@
-Texture2DArray txDiffuse : register(t0);
+ï»¿Texture2DArray txDiffuse : register(t0);
 SamplerState samLinear : register(s0);
 
-// ÇÈ¼¿ ½¦ÀÌ´õ ´Â º¯È­ X -> ±âÁ¸ ±×³É ±×´ë·Î »ç¿ë ¹æ¹ýÀº ¾øÀ»³¢?....
+// í”½ì…€ ì‰ì´ë” ëŠ” ë³€í™” X -> ê¸°ì¡´ ê·¸ëƒ¥ ê·¸ëŒ€ë¡œ ì‚¬ìš© ë°©ë²•ì€ ì—†ì„ë¼?....
 struct PS_INPUT {
 	float4 position : SV_POSITION;
 	float2 tex_coord : TX_CRD;

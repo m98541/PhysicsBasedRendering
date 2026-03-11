@@ -1,6 +1,6 @@
-//{{NO_DEPENDENCIES}}
-// Microsoft Visual C++¿¡¼­ »ý¼ºÇÑ Æ÷ÇÔ ÆÄÀÏÀÔ´Ï´Ù.
-// d3d11_setup.rc¿¡¼­ »ç¿ëµÇ°í ÀÖ½À´Ï´Ù.
+ï»¿//{{NO_DEPENDENCIES}}
+// Microsoft Visual C++ì—ì„œ ìƒì„±í•œ í¬í•¨ íŒŒì¼ìž…ë‹ˆë‹¤.
+// d3d11_setup.rcì—ì„œ ì‚¬ìš©ë˜ê³  ìžˆìŠµë‹ˆë‹¤.
 //
 #define IDR_ACCELERATOR1                101
 #define IDR_MODE_OBJ_FILE1              103

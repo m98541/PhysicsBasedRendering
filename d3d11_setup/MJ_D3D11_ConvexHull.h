@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #ifndef CONVEXHULL_H
 #define CONVEXHULL_H
 #include "MJ_D3D11_Convex.h"
@@ -13,8 +13,8 @@ typedef struct ConvexHullFace_S ConvexHullFace_T;
 struct ConvexHullVert_S
 {
 	DirectX::XMVECTOR* point;
-	ConvexHullFace_T* face;//point ¿¡¼­ ¹«Á¶°Ç º¸ÀÌ´Â ¸é
-	double len;//¸é°ú Á¡ °Å¸®
+	ConvexHullFace_T* face;//point ì—ì„œ ë¬´ì¡°ê±´ ë³´ì´ëŠ” ë©´
+	double len;//ë©´ê³¼ ì  ê±°ë¦¬
 };
 
 struct ConvexHullFace_S : public HalfEdge::HE_FACE_T
@@ -33,11 +33,11 @@ class ConvexHull : public Convex
 {
 	public:
 		eastl::vector<VERTEX_T> vertexArray;
-		eastl::vector<unsigned int> indexArray;//EPA ±¸Çö½Ã ÇÊ¿ä
+		eastl::vector<unsigned int> indexArray;//EPA êµ¬í˜„ì‹œ í•„ìš”
 		ConvexHull();
 		ConvexHull(DirectX::XMVECTOR* inVertexArray, unsigned int size);
 		~ConvexHull();
-		DirectX::XMVECTOR Support(DirectX::XMVECTOR direction ,DirectX::XMMATRIX matTRS); //GJK ±¸Çö½Ã ÇÊ¿ä
+		DirectX::XMVECTOR Support(DirectX::XMVECTOR direction ,DirectX::XMMATRIX matTRS); //GJK êµ¬í˜„ì‹œ í•„ìš”
 	private:
 		eastl::vector<ConvexHullFace_T*> activeFaces;
 		

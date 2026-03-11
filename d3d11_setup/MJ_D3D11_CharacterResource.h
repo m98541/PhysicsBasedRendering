@@ -1,4 +1,4 @@
-#ifndef MJ_D3D11_CHARACTER_RESOURCE_H
+ï»¿#ifndef MJ_D3D11_CHARACTER_RESOURCE_H
 #define MJ_D3D11_CHARACTER_RESOURCE_H
 #include <DirectXTex.h>
 #include "MJ_D3D11_Skeleton.h"
@@ -23,7 +23,7 @@ typedef struct ImageData_S
 	uint8_t* Data;
 }ImageData_T;
 
-// ÀÌÈÄ material µ¥ÀÌÅÍ ·Î È®Àå ÈÄ texture´Â material Á¤º¸¿¡ Æ÷ÇÔ µÉ ¿¹Á¤
+// ì´í›„ material ë°ì´í„° ë¡œ í™•ì¥ í›„ textureëŠ” material ì •ë³´ì— í¬í•¨ ë  ì˜ˆì •
 typedef struct TextureResource_S
 {
 	size_t size;
@@ -35,13 +35,13 @@ typedef struct AnimationClipResourec_S
 {
 	std::string name;
 	float totalTime;
-	uint32_t count;// ´ç¿¬È÷ ÇöÀç Á¶ÀÎÆ®¿Í °°¾Æ¾ß ÇÏÁö¸¸ Àß¸øµÈ ¿¡´Ï¸ŞÀÌ¼ÇÀÏ ¼ö ÀÖ±â¶§¹®¿¡ °ËÁõ¿ë
+	uint32_t count;// ë‹¹ì—°íˆ í˜„ì¬ ì¡°ì¸íŠ¸ì™€ ê°™ì•„ì•¼ í•˜ì§€ë§Œ ì˜ëª»ëœ ì—ë‹ˆë©”ì´ì…˜ì¼ ìˆ˜ ìˆê¸°ë•Œë¬¸ì— ê²€ì¦ìš©
 	AnimationJoint_T* AnimationJoint;
 }AnimationClipResourec_T;
 
 typedef struct AnimationResource_S
 {
-	//ÇÏ³ªÀÇ ¿¡´Ï¸ŞÀÌ¼Ç ¸®¼Ò½º¿¡¼­´Â ¿©·¯ Å¬¸³ÀÇ ¸®¼Ò½º°¡ Á¸ÀçÇÔ
+	//í•˜ë‚˜ì˜ ì—ë‹ˆë©”ì´ì…˜ ë¦¬ì†ŒìŠ¤ì—ì„œëŠ” ì—¬ëŸ¬ í´ë¦½ì˜ ë¦¬ì†ŒìŠ¤ê°€ ì¡´ì¬í•¨
 	uint32_t count;
 	AnimationClipResourec_T* animationClip;
 	

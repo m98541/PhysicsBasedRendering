@@ -1,4 +1,4 @@
-#ifndef BMPFILEIO_H
+﻿#ifndef BMPFILEIO_H
 #define BMPFILEIO_H
 
 #define BMP_FORMAT_BGR 3

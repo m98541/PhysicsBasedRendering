@@ -1,8 +1,8 @@
-#include "MJ_D3D11_CharacterRenderer.h"
+ï»¿#include "MJ_D3D11_CharacterRenderer.h"
 #include <DirectXMath.h>
 #include <EASTL/vector.h>
 
-// ÇØ´ç character shdaer ³»ºÎ input layout ¿¡ ¸ÅÄª µÇ´Â Á¤Á¡ ±¸Á¶
+// í•´ë‹¹ character shdaer ë‚´ë¶€ input layout ì— ë§¤ì¹­ ë˜ëŠ” ì •ì  êµ¬ì¡°
 constexpr uint32_t g_CharacterInputElementCount = 6;
 D3D11_INPUT_ELEMENT_DESC g_CharacterInputElement[g_CharacterInputElementCount] =
 {
@@ -22,12 +22,12 @@ typedef struct MeshVertex_S
 	DirectX::XMFLOAT4 position;
 	DirectX::XMFLOAT4 normal;
 	DirectX::XMFLOAT2 uv;
-	uint32_t textureId;// ÀÌÈÄ material ID ·Î ±³Ã¼ ¿¹Á¤ material Á¤º¸ ³»¿¡ textureID Á¸Àç
+	uint32_t textureId;// ì´í›„ material ID ë¡œ êµì²´ ì˜ˆì • material ì •ë³´ ë‚´ì— textureID ì¡´ì¬
 	uint32_t joints[4];
 	float weights[4];
 }MeshVertex_T;
 */
-// input Á¤º¸´Â meshÁ¤º¸ÀÇ È®ÀåÇü 
+// input ì •ë³´ëŠ” meshì •ë³´ì˜ í™•ì¥í˜• 
 
 
 
@@ -105,7 +105,7 @@ void CharacterRenderer::InitPipeLine(
 	characterPixelShader = psFile.PixelShaderCompile(dev);
 	if ( vsFile.GetBlobSize() == 0)
 	{
-		printf("HLSL ÄÄÆÄÀÏ ½ÇÆĞ! ¼ÎÀÌ´õ ÄÚµå¸¦ È®ÀÎÇÏ¼¼¿ä.\n");
+		printf("HLSL ì»´íŒŒì¼ ì‹¤íŒ¨! ì…°ì´ë” ì½”ë“œë¥¼ í™•ì¸í•˜ì„¸ìš”.\n");
 		assert(false && "Vertex Shader Blob is NULL!");
 	}
 
@@ -115,7 +115,7 @@ void CharacterRenderer::InitPipeLine(
 
 	if (FAILED(hr))
 	{
-		// ¿©±â¼­ ºê·¹ÀÌÅ©Æ÷ÀÎÆ®°¡ °É¸°´Ù¸é C++ InputLayout°ú HLSL Signature°¡ ºÒÀÏÄ¡ÇÏ´Â °ÍÀÔ´Ï´Ù.
+		// ì—¬ê¸°ì„œ ë¸Œë ˆì´í¬í¬ì¸íŠ¸ê°€ ê±¸ë¦°ë‹¤ë©´ C++ InputLayoutê³¼ HLSL Signatureê°€ ë¶ˆì¼ì¹˜í•˜ëŠ” ê²ƒì…ë‹ˆë‹¤.
 		printf("Character Input Layout Create Failed!\n");
 		assert(false && "Input Layout Mismatch!");
 	}
@@ -399,23 +399,23 @@ void CreateSRVArrayFromTextureResource(ID3D11Device* dev,const TextureResourec_T
 
 	}
 	
-	// 1. resize ÀÏ´Ü max »çÀÌÁî·Î 1ÀÌ¹ÌÁö ¿¡´ëÇØ 1ÅØ½ºÃ³ ÀÌ¹ÌÁö »ı¼º
+	// 1. resize ì¼ë‹¨ max ì‚¬ì´ì¦ˆë¡œ 1ì´ë¯¸ì§€ ì—ëŒ€í•´ 1í…ìŠ¤ì²˜ ì´ë¯¸ì§€ ìƒì„±
 	/*
-		1. ÀÇ ¹æ½ÄÀº ¸ğµç ÀÌ¹ÌÁö¸¦ maxÀÌ¹ÌÁö·Î resize ÇÏ¿© GPU ¸Ş¸ğ¸® ³¶ºñ°¡ Å­
-		but 1 È¸ Draw Call À» ÅëÇØ draw ÇÏ±â À§ÇØ¼­´Â D3D11 ¿¡¼­´Â Texture2DArray ÇüÅÂ°¡ ÇÊ¿äÇÏ°í ÀÌ´Â ÅØ½ºÃ³ÀÇ Å©±â°¡ µ¿ÀÏÇØ¾ßÇÔ
+		1. ì˜ ë°©ì‹ì€ ëª¨ë“  ì´ë¯¸ì§€ë¥¼ maxì´ë¯¸ì§€ë¡œ resize í•˜ì—¬ GPU ë©”ëª¨ë¦¬ ë‚­ë¹„ê°€ í¼
+		but 1 íšŒ Draw Call ì„ í†µí•´ draw í•˜ê¸° ìœ„í•´ì„œëŠ” D3D11 ì—ì„œëŠ” Texture2DArray í˜•íƒœê°€ í•„ìš”í•˜ê³  ì´ëŠ” í…ìŠ¤ì²˜ì˜ í¬ê¸°ê°€ ë™ì¼í•´ì•¼í•¨
 
-		ÇöÀç Ä³¸¯ÅÍ °³¹ß ÀÌÈÄ ÇØ´ç resize ¹× ÅØ½ºÃ³ ºÎºĞ ¾Æ·¡¿Í °°ÀÌ ÃÖÀûÈ­ ÇÊ¿ä 
+		í˜„ì¬ ìºë¦­í„° ê°œë°œ ì´í›„ í•´ë‹¹ resize ë° í…ìŠ¤ì²˜ ë¶€ë¶„ ì•„ë˜ì™€ ê°™ì´ ìµœì í™” í•„ìš” 
 
-		 2. UV ÁÂÇ¥¸¦ º¯Á¶ÇÏÁö ¾Ê°í ÀÌ¹ÌÁö¸¦ ÂÉ°µ µÚ¿¡ »ï°¢ÇüÀ» Àü´Ş ½Ã ÅØ½ºÃ³ ÀÎµ¦½ºÀÇ ¹üÀ§ ÇÔ²² Àü´ŞÇØÁÖ´Â ¹æ½Ä
-		 (1 ÀÌ¹ÌÁö n °³ÀÇ ÅØ½ºÃ³·Î ºĞÇÒ Àü¼Û)
-		 ¿¹) ½ÃÀÛ ÀÎµ¦½º 5¹øÀÌ¶ó¸é ºĞÇÒ »çÀÌÁî Á¤º¸ 4¸¦ ³Ñ±è 
-		 Áï 5 ,6 ,7, 8 ÀÎµ¦½º¸¦ ÂüÁ¶ÇÒ ¼ö ÀÖµµ·Ï ¸¸ÀÏ 1°³ ÀÌ¹ÌÁö 4±ú ºĞÇÒ ÈÄ ÀÏ·Ä·Î Á¤·ÄÇÏ¿© Àü´Ş½Ã 
-		 UV ÀÇ u °¡ 0.5 º¸´Ù Å«°¡ ÀÛÀº°¡ v°¡ 0.5 º¸´Ù Å«°¡ ÀÛÀº °¡ ·Î index¸¦ ÁöÁ¤ 
-		 ±×¸®°í 0.5 ÀÇ °æ°è¿¡ °ÉÄ¡¸¦ ºÎºĞÀº ÅØ½ºÃ³°¡ ¼­·Î °ãÄ¡ºÎºĞ ¿À¹ö·¦ ÇÏ¿© °ËÀº ¼±ÀÌ ³ªÅ¸³ª´Â ¹ö±× Â÷´Ü
+		 2. UV ì¢Œí‘œë¥¼ ë³€ì¡°í•˜ì§€ ì•Šê³  ì´ë¯¸ì§€ë¥¼ ìª¼ê°  ë’¤ì— ì‚¼ê°í˜•ì„ ì „ë‹¬ ì‹œ í…ìŠ¤ì²˜ ì¸ë±ìŠ¤ì˜ ë²”ìœ„ í•¨ê»˜ ì „ë‹¬í•´ì£¼ëŠ” ë°©ì‹
+		 (1 ì´ë¯¸ì§€ n ê°œì˜ í…ìŠ¤ì²˜ë¡œ ë¶„í•  ì „ì†¡)
+		 ì˜ˆ) ì‹œì‘ ì¸ë±ìŠ¤ 5ë²ˆì´ë¼ë©´ ë¶„í•  ì‚¬ì´ì¦ˆ ì •ë³´ 4ë¥¼ ë„˜ê¹€ 
+		 ì¦‰ 5 ,6 ,7, 8 ì¸ë±ìŠ¤ë¥¼ ì°¸ì¡°í•  ìˆ˜ ìˆë„ë¡ ë§Œì¼ 1ê°œ ì´ë¯¸ì§€ 4ê¹¨ ë¶„í•  í›„ ì¼ë ¬ë¡œ ì •ë ¬í•˜ì—¬ ì „ë‹¬ì‹œ 
+		 UV ì˜ u ê°€ 0.5 ë³´ë‹¤ í°ê°€ ì‘ì€ê°€ vê°€ 0.5 ë³´ë‹¤ í°ê°€ ì‘ì€ ê°€ ë¡œ indexë¥¼ ì§€ì • 
+		 ê·¸ë¦¬ê³  0.5 ì˜ ê²½ê³„ì— ê±¸ì¹˜ë¥¼ ë¶€ë¶„ì€ í…ìŠ¤ì²˜ê°€ ì„œë¡œ ê²¹ì¹˜ë¶€ë¶„ ì˜¤ë²„ë© í•˜ì—¬ ê²€ì€ ì„ ì´ ë‚˜íƒ€ë‚˜ëŠ” ë²„ê·¸ ì°¨ë‹¨
 
-		 À§ ¹æ½ÄÀ» ÅëÇØ max ÀÇ Å©±â¸¦ ÁÙ¿© ÀÛÀº ÀÌ¹ÌÁö°¡ ±âÁ¸¿¡ max ¸¸Å­ Ä¿Á®¾ß ÇÏ´Â ¸Ş¸ğ¸® ³¶ºñ¸¦ ¸·À¸¸ç 1 Draw Call ·Î Draw °¡´ÉÇÔ
+		 ìœ„ ë°©ì‹ì„ í†µí•´ max ì˜ í¬ê¸°ë¥¼ ì¤„ì—¬ ì‘ì€ ì´ë¯¸ì§€ê°€ ê¸°ì¡´ì— max ë§Œí¼ ì»¤ì ¸ì•¼ í•˜ëŠ” ë©”ëª¨ë¦¬ ë‚­ë¹„ë¥¼ ë§‰ìœ¼ë©° 1 Draw Call ë¡œ Draw ê°€ëŠ¥í•¨
 
-		 2. ¹æ½ÄÀº ½ÇÇèÀû , 1. ¸ÕÀú ¼º°ø ÈÄ 2. ½Ãµµ
+		 2. ë°©ì‹ì€ ì‹¤í—˜ì  , 1. ë¨¼ì € ì„±ê³µ í›„ 2. ì‹œë„
 	
 	*/
 
@@ -467,11 +467,11 @@ void CreateSRVArrayFromTextureResource(ID3D11Device* dev,const TextureResourec_T
 	textureDesc.MiscFlags = 0;
 
 
-	//texture2D ±¸Á¶ »ı¼º
+	//texture2D êµ¬ì¡° ìƒì„±
 	ID3D11Texture2D* pTexture2D = nullptr;
 	dev->CreateTexture2D(&textureDesc, subResourceData, &pTexture2D);
 
-	//SRV »ı¼º DirectX ¿¡¼­´Â view´ÜÀ§·Î???
+	//SRV ìƒì„± DirectX ì—ì„œëŠ” viewë‹¨ìœ„ë¡œ???
 	D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
 	srvDesc.Format = textureDesc.Format;
 	srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2DARRAY;

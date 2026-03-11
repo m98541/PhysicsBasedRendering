@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #ifndef MJ_D3D11_HALFEDGE_H
 #define MJ_D3D11_HALFEDGE_H
 #include <DirectXMath.h>
@@ -45,7 +45,7 @@ namespace HalfEdge
 		HE_EDGE_T* edgeSet;
 		unsigned int edgeLen;
 
-		//ÇÏÇÁ ¿§Áö ÁıÇÕ ±¸Á¶ »ı¼º ¹× È®Àå ½Ã ¹ß»ıµÇ´Â ¸Ş¸ğ¸® ÀüºÎ ±â·Ï!!
+		//í•˜í”„ ì—£ì§€ ì§‘í•© êµ¬ì¡° ìƒì„± ë° í™•ì¥ ì‹œ ë°œìƒë˜ëŠ” ë©”ëª¨ë¦¬ ì „ë¶€ ê¸°ë¡!!
 		eastl::vector<void*> memoryRecorder;
 	}HE_SET_T;
 
@@ -76,7 +76,7 @@ namespace HalfEdge
 
 	eastl::vector<HE_FACE_T*> GetVertAdjFaces(HE_VERT_T* vert);
 	
-	//Ãß°¡µÈ Á¤Á¡°ú ¿§ÁöµéÀº ¸Ş¸ğ¸® ±â·Ï±â¿¡ µû·Î ÀúÀå
+	//ì¶”ê°€ëœ ì •ì ê³¼ ì—£ì§€ë“¤ì€ ë©”ëª¨ë¦¬ ê¸°ë¡ê¸°ì— ë”°ë¡œ ì €ì¥
 	void CreateVertEdgesTriFan(HE_EDGE_T** baseEdges, int size, HE_VERT_T* vert, HE_SET_T* outHESet,eastl::vector<HE_FACE_T*>& outNewFaces);
 
 	void DeleteHETriFace(HE_FACE_T* face);

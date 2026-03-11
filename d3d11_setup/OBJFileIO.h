@@ -1,4 +1,4 @@
-#ifndef OBJFILEIO_H
+ï»¿#ifndef OBJFILEIO_H
 #define OBJFILEIO_H
 
 #define LINE_TYPE_NOP	-1
@@ -16,12 +16,12 @@
 #define MTL_LINE_TYPE_KD 2
 #define MTL_LINE_TYPE_KS 3
 #define MTL_LINE_TYPE_NS 4
-#define MTL_LINE_TYPE_D  5 // ºÒÅõ¸íµµ: 0.0 Åõ¸í 1.0 ºÒÅõ¸í
-#define MTL_LINE_TYPE_TR 6 // Åõ¸íµµ(d ¿Í ¹İ´ë) TR ¹ß°ß½Ã 1-TR ·ÎÇÏ¿©±İ d ·Î º¯È¯
+#define MTL_LINE_TYPE_D  5 // ë¶ˆíˆ¬ëª…ë„: 0.0 íˆ¬ëª… 1.0 ë¶ˆíˆ¬ëª…
+#define MTL_LINE_TYPE_TR 6 // íˆ¬ëª…ë„(d ì™€ ë°˜ëŒ€) TR ë°œê²¬ì‹œ 1-TR ë¡œí•˜ì—¬ê¸ˆ d ë¡œ ë³€í™˜
 #define MTL_LINE_TYPE_ILLUM 7
-#define MTL_LINE_TYPE_MAP_KD 8 // diffuse ÅØ½ºÃ³ ÀÌ¹ÌÁö Áï ±âº» ÅØ½ºÃ³
-#define MTL_LINE_TYPE_BUMP 9 // ¹üÇÁ¸Ê °­µµ ¼³Á¤
-#define MTL_LINE_TYPE_MAP_BUMP 10 //¹üÇÁ¸Ê ÀÌ¹ÌÁö °æ·Î ÁöÁ¤
+#define MTL_LINE_TYPE_MAP_KD 8 // diffuse í…ìŠ¤ì²˜ ì´ë¯¸ì§€ ì¦‰ ê¸°ë³¸ í…ìŠ¤ì²˜
+#define MTL_LINE_TYPE_BUMP 9 // ë²”í”„ë§µ ê°•ë„ ì„¤ì •
+#define MTL_LINE_TYPE_MAP_BUMP 10 //ë²”í”„ë§µ ì´ë¯¸ì§€ ê²½ë¡œ ì§€ì •
 #define MTL_LINE_TYPE_MAP_D 11
 #define MTL_LINE_TYPE_NI 12
 #define MTL_LINE_TYPE_KE 13
@@ -42,7 +42,7 @@
 
 typedef struct MTL_ELEMENT
 {
-	unsigned int mtlKeyWordEnable[15];//0 ÀÌ¸é ºñÈ°¼ºÈ­ »óÅÂÀÓ
+	unsigned int mtlKeyWordEnable[15];//0 ì´ë©´ ë¹„í™œì„±í™” ìƒíƒœì„
 	char materialName[CHAR_NAME_MAX];
 	float ambient[4];
 	float diffuse[4];
@@ -53,7 +53,7 @@ typedef struct MTL_ELEMENT
 	float ni;
 	float ke[3];
 	unsigned int lightModel;
-	//»ç¿ë ¾ÈÇÒ½Ã null Ã³¸®
+	//ì‚¬ìš© ì•ˆí• ì‹œ null ì²˜ë¦¬
 	char textureMapImageName[CHAR_NAME_MAX];
 	char bumpMapImageName[CHAR_NAME_MAX];
 	char specularMapImageName[CHAR_NAME_MAX];
@@ -113,15 +113,15 @@ typedef struct TRI_POLYGON
 
 typedef struct TRI_POLYGON_GROUP
 {
-	unsigned int groupOffset;//group ½ÃÀÛ ÁÖ¼Ò 
-	unsigned int vertexCount;//½ÃÀÛ ÁÖ¼Ò ºÎÅÍ ¾îµğ±îÁö ·»´õ¸µ ÇÒÁö Á¤º¸ ÀúÀå
+	unsigned int groupOffset;//group ì‹œì‘ ì£¼ì†Œ 
+	unsigned int vertexCount;//ì‹œì‘ ì£¼ì†Œ ë¶€í„° ì–´ë””ê¹Œì§€ ë Œë”ë§ í• ì§€ ì •ë³´ ì €ì¥
 }TRI_POLYGON_GROUP_T;
 
 
 typedef struct OBJFILE_BUFFER
 {
-	// size : buffer ÀÇ byte ´ÜÀ§ ÀüÃ¼ Å©±â
-	// len : buffer ´ÜÀ§ ¿ä¼Ò ¼ö size / ´ÜÀ§ ¿ä¼Ò Å©±â
+	// size : buffer ì˜ byte ë‹¨ìœ„ ì „ì²´ í¬ê¸°
+	// len : buffer ë‹¨ìœ„ ìš”ì†Œ ìˆ˜ size / ë‹¨ìœ„ ìš”ì†Œ í¬ê¸°
 	unsigned int faceLen;
 
 	MTL_ELEMENT* mtlBuffer;
@@ -136,7 +136,7 @@ typedef struct OBJFILE_BUFFER
 	unsigned int  vertBufferSize;
 	unsigned int  vertBufferLen;
 
-	float* texBuffer;// ÅØ½ºÃ³ ÁÂÇ¥¿¡ ´ëÇÑ ¹öÆÛ(ÅØ½ºÃ³ ³»¿¡¼­ ¾î¶² ºÎºĞÀÎÁö) 
+	float* texBuffer;// í…ìŠ¤ì²˜ ì¢Œí‘œì— ëŒ€í•œ ë²„í¼(í…ìŠ¤ì²˜ ë‚´ì—ì„œ ì–´ë–¤ ë¶€ë¶„ì¸ì§€) 
 	unsigned int  texBufferSize;
 	unsigned int  texBufferLen;
 
@@ -149,8 +149,8 @@ typedef struct OBJFILE_BUFFER
 	unsigned int  objectBufferSize;
 	unsigned int  objectBufferLen;
 
-	unsigned int* materialIdxBuffer;// °¢Á¤Á¡¿¡ ¾î¶² material ¼Ó¼ºÀ» »ç¿ëÇÒÁö °áÁ¤ ¹öÆÛ
-	//objectBuffer ¿Í 1´ë1 ¸ÊÇÎ°ü°è
+	unsigned int* materialIdxBuffer;// ê°ì •ì ì— ì–´ë–¤ material ì†ì„±ì„ ì‚¬ìš©í• ì§€ ê²°ì • ë²„í¼
+	//objectBuffer ì™€ 1ëŒ€1 ë§µí•‘ê´€ê³„
 
 
 	TRI_POLYGON_GROUP_T* groupSet;

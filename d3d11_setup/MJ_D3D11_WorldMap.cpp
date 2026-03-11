@@ -1,4 +1,4 @@
-#include <EASTL/sort.h>
+Ôªø#include <EASTL/sort.h>
 #include <EASTL/vector.h>
 #include "MJ_D3D11_WorldMap.h"
 
@@ -31,7 +31,7 @@ MapObject::~MapObject()
 
 void MapObject::SetMapData(XMFLOAT4* inMapData, int size)
 {
-	//root 1 ∫Œ≈Õ 
+	//root 1 Î∂ÄÌÑ∞ 
 	mMapDataBuffer = (TRIPOLY_T*)malloc(sizeof(TRIPOLY_T) * ((int)(size / 3) + 1));
 	mMapDataBufferCount = size / 3;
 	mBoxVolumeTree = new BvNode();
@@ -300,16 +300,16 @@ bool MapObject::IsMapSwpCollisionDetect(CapsuleCollider& player,CAPSULE nextCaps
 
 
 	if (outSwpSet.empty()) {
-		return false; // √Êµπ æ¯¿Ω
+		return false; // Ï∂©Îèå ÏóÜÏùå
 	}
 	
 	/**/
 	eastl ::sort(outSwpSet.begin(), outSwpSet.end(),
 		[](const SWEEP_HIT_T& a, const SWEEP_HIT_T& b) {
-			return a.hitTime < b.hitTime; // √Êµπ Ω√¡°¿∏∑Œ ¡§∑ƒ
+			return a.hitTime < b.hitTime; // Ï∂©Îèå ÏãúÏ†êÏúºÎ°ú Ï†ïÎ†¨
 		});
 	
 
-	return true; // √Êµπ¿Ã πﬂª˝«ﬂ¿Ω¿ª æÀ∏≤
+	return true; // Ï∂©ÎèåÏù¥ Î∞úÏÉùÌñàÏùåÏùÑ ÏïåÎ¶º
 
 }

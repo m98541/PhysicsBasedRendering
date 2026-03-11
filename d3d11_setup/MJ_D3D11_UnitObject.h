@@ -1,4 +1,4 @@
-#include "VertexType.h"
+ï»¿#include "VertexType.h"
 #include "MJ_D3D11_OBJLoader.h"
 #include "MJ_D3D11_ConvexHull.h"
 #include "MJ_D3D11_Collision.h"
@@ -74,9 +74,9 @@ namespace UnitObject
 		ID3D11SamplerState* sampler;
 
 		void LoadColliderView();
-		//set ÇÔ¼ö ¸¶Áö¸·¿¡ ¹«Á¶°Ç È£Ãâ!
-		ID3D11RasterizerState* pSolidRS;       // ±âº»(Ã¤¿ì±â) »óÅÂ
-		ID3D11RasterizerState* pWireframeRS;   // ¿ÍÀÌ¾îÇÁ·¹ÀÓ(¼±) »óÅÂ
+		//set í•¨ìˆ˜ ë§ˆì§€ë§‰ì— ë¬´ì¡°ê±´ í˜¸ì¶œ!
+		ID3D11RasterizerState* pSolidRS;       // ê¸°ë³¸(ì±„ìš°ê¸°) ìƒíƒœ
+		ID3D11RasterizerState* pWireframeRS;   // ì™€ì´ì–´í”„ë ˆì„(ì„ ) ìƒíƒœ
 
 		void updateTRS();
 

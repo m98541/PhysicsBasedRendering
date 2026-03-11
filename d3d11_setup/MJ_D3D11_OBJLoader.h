@@ -1,4 +1,4 @@
-#ifndef MJ_D3D11_OBJLOADER_H
+ï»¿#ifndef MJ_D3D11_OBJLOADER_H
 #define MJ_D3D11_OBJLOADER_H
 
 #include <windows.h>
@@ -33,6 +33,6 @@ typedef struct MJD3D11OBJ_HANDLE
 
 bool MJD3D11LoadOBJ(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, ID3D10Blob* vsShader, MJD3D11OBJ_HANDLE_t** ObjHandle, const char* FileName);
 
-// ÀÏ´ÜÀº ÅëÀ¸·Î »Ì±â Â÷ÈÄ ±×·ì´ÜÀ§ 
+// ì¼ë‹¨ì€ í†µìœ¼ë¡œ ë½‘ê¸° ì°¨í›„ ê·¸ë£¹ë‹¨ìœ„ 
 bool MJD3D11DrawOBJ(ID3D11DeviceContext* DevCon, MJD3D11OBJ_HANDLE_t* ObjHandle);
 #endif // !MJ_D3D11_OBJLOADER_H

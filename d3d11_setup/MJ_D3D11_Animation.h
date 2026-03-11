@@ -1,4 +1,4 @@
-#ifndef MJ_D3D11_ANIMATION_H
+ï»¿#ifndef MJ_D3D11_ANIMATION_H
 #define MJ_D3D11_ANIMATION_H
 
 #include "MJ_D3D11_Skeleton.h"
@@ -26,7 +26,7 @@ typedef struct AnimationKeyScale_S
 typedef struct AnimationResource_S AnimationResource_T;
 typedef struct AnimationClipResourec_S AnimationClipResourec_T;
 
-typedef struct AnimationJoint_S// ¿¡´Ï¸ŞÀÌ¼ÇÀÇ Å°Æ÷Áî°¡ µÇ¾îÁü 
+typedef struct AnimationJoint_S// ì—ë‹ˆë©”ì´ì…˜ì˜ í‚¤í¬ì¦ˆê°€ ë˜ì–´ì§ 
 {
 	uint32_t localPoseArrIndex;
 

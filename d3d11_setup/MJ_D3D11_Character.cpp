@@ -1,4 +1,4 @@
-#include "MJ_D3D11_Character.h"
+﻿#include "MJ_D3D11_Character.h"
 
 Character::Character()
 {

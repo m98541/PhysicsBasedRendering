@@ -1,4 +1,4 @@
-#include "MJ_D3D11_BasicCam.h"
+ï»¿#include "MJ_D3D11_BasicCam.h"
 #include <stdio.h>
 using namespace DirectX;
 
@@ -52,7 +52,7 @@ void BasicCam::SetAtV4f(XMVECTOR at)
 
 void BasicCam::MoveFrontBack(double speed)
 {
-	XMVECTOR dir = XMVectorSubtract(this->Element.at ,this->Element.pos);// ¿©±â¼­ w´Â 0ÀÌµÊ
+	XMVECTOR dir = XMVectorSubtract(this->Element.at ,this->Element.pos);// ì—¬ê¸°ì„œ wëŠ” 0ì´ë¨
 
 	XMVECTOR unitAt = XMVector4Normalize(dir);
 	unitAt = XMVectorScale(unitAt , speed);	
@@ -70,7 +70,7 @@ void BasicCam::MoveFrontBack(double speed)
 
 void BasicCam::MoveLeftRight(double speed)
 {
-	XMVECTOR dir = XMVectorSubtract(this->Element.at, this->Element.pos);// ¿©±â¼­ w´Â 0ÀÌµÊ
+	XMVECTOR dir = XMVectorSubtract(this->Element.at, this->Element.pos);// ì—¬ê¸°ì„œ wëŠ” 0ì´ë¨
 
 	XMVECTOR unitAt = XMVector4Normalize(dir);
 	unitAt = XMVector3Cross(this->Element.up , unitAt);
@@ -110,7 +110,7 @@ void BasicCam::CamTranform()
 
 	
 	this->camElementMat = XMMatrixMultiply(originCam , this->rotMat);
-	// up º¤ÅÍÀÇ ¼±Çü¼ºÀ» º¸Á¸ÇÏ±â À§ÇØ¼­ up º¤ÅÍÀÇ °æ¿ì ¹æÇâ º¤ÅÍÀÌ¹Ç·Î translate ¿¬»êÀÌ ÀÌ·ç¾îÁö¸é ¾ÈµÊ
+	// up ë²¡í„°ì˜ ì„ í˜•ì„±ì„ ë³´ì¡´í•˜ê¸° ìœ„í•´ì„œ up ë²¡í„°ì˜ ê²½ìš° ë°©í–¥ ë²¡í„°ì´ë¯€ë¡œ translate ì—°ì‚°ì´ ì´ë£¨ì–´ì§€ë©´ ì•ˆë¨
 	this->camElementMat.r[2] = { 0 , 1 ,0 ,0 };
 	
 	this->camElementMat = XMMatrixMultiply(this->camElementMat , this->moveMat);
@@ -121,7 +121,7 @@ void BasicCam::CamTranform()
 
 void BasicCam::TracballRoate(DirectX::XMINT2 ScreenStart, DirectX::XMINT2 ScreenCur, int ScreenWidth, int ScreenHeight, double RotateRatio)
 {
-	//ÀÎÇ² Á¤±ÔÈ­ °úÁ¤
+	//ì¸í’‹ ì •ê·œí™” ê³¼ì •
 	XMVECTOR mouseStartV2f = { ((double)ScreenStart.x / ScreenWidth) * 2.F - 1.F ,-1*((double)ScreenStart.y / ScreenHeight) * 2.F + 1.F , 0.F , 0.F };
 	XMVECTOR mouseCurV2f = { ((double)ScreenCur.x / ScreenWidth) * 2.F - 1.F ,-1*((double)ScreenCur.y / ScreenHeight) * 2.F + 1.F , 0.F ,0.F };
 
@@ -149,7 +149,7 @@ void BasicCam::TracballRoateNormVector(XMVECTOR MoveVector, double RotateRatio)
 {
 	if (XMVector4Equal(MoveVector, { 0,0,0,0.F })) return;
 	
-	//ÀÎÇ² Á¤±ÔÈ­ °úÁ¤
+	//ì¸í’‹ ì •ê·œí™” ê³¼ì •
 	XMVECTOR theta1f = XMVector4Length(MoveVector);
 	XMVECTOR tempAxis = XMVector3Cross({ 0 , 0, 1.F , 0 }, MoveVector);
 	XMMATRIX inverseRotMat = XMMatrixTranspose(this->rotMat);

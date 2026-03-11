@@ -1,4 +1,4 @@
-#define MAX_JOINTS_SIZE 128
+ï»¿#define MAX_JOINTS_SIZE 128
 
 cbuffer camBuffer : register(b0)
 {
@@ -41,7 +41,7 @@ PS_INPUT main(
 {
 	PS_INPUT outData;
 		
-	// joint ¿¬»ê Ãß°¡
+	// joint ì—°ì‚° ì¶”ê°€
 
 	matrix skinMatrix = weights[0] * joints[jointsIdx[0]] +
                         weights[1] * joints[jointsIdx[1]] +
@@ -50,7 +50,7 @@ PS_INPUT main(
 	
     float4 skinnedPos = mul(pos ,  skinMatrix );
 
-	// ¾ÆÁ÷ ³ë¸» °í·Á X ±¤¿ø µµÀÔ °èÈ¹ X
+	// ì•„ì§ ë…¸ë§ ê³ ë ¤ X ê´‘ì› ë„ì… ê³„íš X
 
     outData.position = mul(proj, mul(view, mul(model, mul(modelNDC, skinnedPos))));
 	outData.tex_coord = texCoord;

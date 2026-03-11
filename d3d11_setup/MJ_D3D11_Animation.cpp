@@ -1,4 +1,4 @@
-#include "MJ_D3D11_Animation.h"
+ï»¿#include "MJ_D3D11_Animation.h"
 #include "MJ_D3D11_CharacterResource.h"
 
 
@@ -58,7 +58,7 @@ void AnimationManager::NextTimePose(float deltaT)
 
 	float clipTime = animationResource->animationClip[curAnimation].totalTime;
 	
-	//float ¸ğµâ·¯ ¾ø¾î¼­ °Á ³ÑÀ¸¸é ÃÊ±âÈ­ÀÓ ÀÏ´Ü
+	//float ëª¨ë“ˆëŸ¬ ì—†ì–´ì„œ ê± ë„˜ìœ¼ë©´ ì´ˆê¸°í™”ì„ ì¼ë‹¨
 	if (localTime > clipTime) localTime = deltaT;
 
 	float nomalTime = localTime / clipTime;
@@ -66,14 +66,14 @@ void AnimationManager::NextTimePose(float deltaT)
 	SkeletonDataUpdate(animationResource->animationClip + curAnimation, nomalTime );
 }
 
-// t -> 0~1 ÀÇ °ªÀ¸·Î ³Ñ°Ü¾ßµÊ
+// t -> 0~1 ì˜ ê°’ìœ¼ë¡œ ë„˜ê²¨ì•¼ë¨
 /*
-Áï ¹ØÀÇ ÇÔ¼ö ¿ÜºÎ(Áï AnimationManager°¡)¿¡¼­ ÇØ´ç Å¬¸³ÀÇ total timeÀ» °¡Á®°¡¼­ t = (local_time / total_time) ÇÏ¿©±İ ¸¸µé¾î Áà¾ßÇÔ
-Áï clip ½ÃÀÛ½Ã local_time ÃÊ±âÈ­ ÇÊ¿ä local_time = (local_time + (cur_global_time - last_global_time)) % total_time  ´ÙÀ½ Ã³·³ ±¸¼ºÇÏ¸é µÉ µí
-clip Init ÀÌ ÇÊ¿äÇÔ -> clip init¿¡¼­ ÀÌÀü clipÀÇ Å¸ÀÓ¶óÀÎ ÀÎµ¦½º ÀÇ ÃÊ±âÈ­µµ ÇÊ¿äÇÔ
+ì¦‰ ë°‘ì˜ í•¨ìˆ˜ ì™¸ë¶€(ì¦‰ AnimationManagerê°€)ì—ì„œ í•´ë‹¹ í´ë¦½ì˜ total timeì„ ê°€ì ¸ê°€ì„œ t = (local_time / total_time) í•˜ì—¬ê¸ˆ ë§Œë“¤ì–´ ì¤˜ì•¼í•¨
+ì¦‰ clip ì‹œì‘ì‹œ local_time ì´ˆê¸°í™” í•„ìš” local_time = (local_time + (cur_global_time - last_global_time)) % total_time  ë‹¤ìŒ ì²˜ëŸ¼ êµ¬ì„±í•˜ë©´ ë  ë“¯
+clip Init ì´ í•„ìš”í•¨ -> clip initì—ì„œ ì´ì „ clipì˜ íƒ€ì„ë¼ì¸ ì¸ë±ìŠ¤ ì˜ ì´ˆê¸°í™”ë„ í•„ìš”í•¨
 */
 
-//Áï ÇØ´ç ¸Å¼­µåÀÇ ¿ªÇÒÀº Æ¯Á¤ Å¬¸³ÀÇ t(0~1)½ÃÁ¡ÀÇ µ¿ÀÛÀ¸·Î ·ÎÄÃ Æ÷Áî¸¦ Àâ¾ÆÁÖ´Â ¿ªÇÒ¸¸À» ¼öÇàÇÏ°Ô ÇÔ.
+//ì¦‰ í•´ë‹¹ ë§¤ì„œë“œì˜ ì—­í• ì€ íŠ¹ì • í´ë¦½ì˜ t(0~1)ì‹œì ì˜ ë™ì‘ìœ¼ë¡œ ë¡œì»¬ í¬ì¦ˆë¥¼ ì¡ì•„ì£¼ëŠ” ì—­í• ë§Œì„ ìˆ˜í–‰í•˜ê²Œ í•¨.
 void AnimationManager::SkeletonDataUpdate(AnimationClipResourec_T* curAnimationClip  , float t)
 {
 	float totalTime =  curAnimationClip->totalTime;
@@ -83,20 +83,20 @@ void AnimationManager::SkeletonDataUpdate(AnimationClipResourec_T* curAnimationC
 	uint32_t searchTimeLineScaleIndex = 0;
 	
 
-	// Á¤±ÔÈ­µÈ »óÅÂ¿¡¼­ÀÇ ±¸°£º° °£°İ {start , end}
+	// ì •ê·œí™”ëœ ìƒíƒœì—ì„œì˜ êµ¬ê°„ë³„ ê°„ê²© {start , end}
 	DirectX::XMFLOAT2 transInterVal = { 0 , 0 };
 	DirectX::XMFLOAT2 quatInterVal = { 0 , 0 };
 	DirectX::XMFLOAT2 scaleInterVal = { 0 , 0 };
 
-	//Á¤±ÔÈ­ µÈ º¸°£°ª ¹«Á¶°Ç 0~1 ¿¡ À§Ä¡ÇØ¾ßÇÔ
-	// debug¸¦ À§ÇÑ assert ÇÊ¿ä
+	//ì •ê·œí™” ëœ ë³´ê°„ê°’ ë¬´ì¡°ê±´ 0~1 ì— ìœ„ì¹˜í•´ì•¼í•¨
+	// debugë¥¼ ìœ„í•œ assert í•„ìš”
 	float transInterpCoeffs = 0;
 	float quatInterpCoeffs = 0;
 	float scaleInterpCoeffs = 0;
 
-	//ÀÏ´ÜÀº ¹«Á¶°Ç ¼±Çü º¸°£ »ç¿ë ÀÌÈÄ ½ºÇÃ¶óÀÎ º¸°£¹ı »ç¿ë ¿¹Á¤
-	//°üÀı¸¶´Ù Å¸ÀÓ ¶óÀÎ ±¸È¹ÀÌ ´Ù¸£¹Ç·Î 
-	// °üÀı Å½»öÇÏ¸é¼­ Àû¿ëÇØÁà¾ßÇÔ
+	//ì¼ë‹¨ì€ ë¬´ì¡°ê±´ ì„ í˜• ë³´ê°„ ì‚¬ìš© ì´í›„ ìŠ¤í”Œë¼ì¸ ë³´ê°„ë²• ì‚¬ìš© ì˜ˆì •
+	//ê´€ì ˆë§ˆë‹¤ íƒ€ì„ ë¼ì¸ êµ¬íšì´ ë‹¤ë¥´ë¯€ë¡œ 
+	// ê´€ì ˆ íƒìƒ‰í•˜ë©´ì„œ ì ìš©í•´ì¤˜ì•¼í•¨
 	for (uint32_t i = 0; i < targetSkeleton->jointsData->count ; ++i)
 	{
 		searchTimeLineQuatRotIndex = curAnimationClip->AnimationJoint[i].lastQuatKeyIndex;
@@ -110,7 +110,7 @@ void AnimationManager::SkeletonDataUpdate(AnimationClipResourec_T* curAnimationC
 
 		if (quatKeySize > 0)
 		{
-			// quat ±¸°£ Å½»ö
+			// quat êµ¬ê°„ íƒìƒ‰
 			for (uint32_t j = searchTimeLineQuatRotIndex; j + 1 < quatKeySize; ++j)
 			{
 
@@ -150,7 +150,7 @@ void AnimationManager::SkeletonDataUpdate(AnimationClipResourec_T* curAnimationC
 
 		if (transKeySize > 0)
 		{
-			// tran ±¸°£ Å½»ö
+			// tran êµ¬ê°„ íƒìƒ‰
 			for (uint32_t j = searchTimeLineTransIndex; j + 1 < transKeySize; ++j)
 			{
 				transInterVal.x = curAnimationClip->AnimationJoint[i].transKeys[j].time / totalTime;
@@ -169,14 +169,14 @@ void AnimationManager::SkeletonDataUpdate(AnimationClipResourec_T* curAnimationC
 
 			if (transKeySize == 1)
 			{
-				//targetSkeleton->jointsData ¸¦ Á÷Á¢ ¼öÁ¤ÇÏ´Â°ÍÀÌ ¸Â´Â ¼±ÅÃÀÏ±î....?
+				//targetSkeleton->jointsData ë¥¼ ì§ì ‘ ìˆ˜ì •í•˜ëŠ”ê²ƒì´ ë§ëŠ” ì„ íƒì¼ê¹Œ....?
 				DirectX::XMVECTOR trans0 = DirectX::XMLoadFloat3(&curAnimationClip->AnimationJoint[i].transKeys[searchTimeLineTransIndex].trans);
 		
 				DirectX::XMStoreFloat3(&targetSkeleton->jointsData->array[i].jointLocalPose.trans, trans0);
 			}
 			else
 			{
-				//targetSkeleton->jointsData ¸¦ Á÷Á¢ ¼öÁ¤ÇÏ´Â°ÍÀÌ ¸Â´Â ¼±ÅÃÀÏ±î....?
+				//targetSkeleton->jointsData ë¥¼ ì§ì ‘ ìˆ˜ì •í•˜ëŠ”ê²ƒì´ ë§ëŠ” ì„ íƒì¼ê¹Œ....?
 				DirectX::XMVECTOR trans0 = DirectX::XMLoadFloat3(&curAnimationClip->AnimationJoint[i].transKeys[searchTimeLineTransIndex].trans);
 				DirectX::XMVECTOR trans1 = DirectX::XMLoadFloat3(&curAnimationClip->AnimationJoint[i].transKeys[searchTimeLineTransIndex + 1].trans);
 				trans0 = DirectX::XMVectorScale(trans0, (1 - transInterpCoeffs));
@@ -190,7 +190,7 @@ void AnimationManager::SkeletonDataUpdate(AnimationClipResourec_T* curAnimationC
 	
 		if (scaleKeySize > 1)
 		{
-			// scale ±¸°£ Å½»ö
+			// scale êµ¬ê°„ íƒìƒ‰
 			for (uint32_t j = searchTimeLineScaleIndex; j + 1 < scaleKeySize; ++j)
 			{
 				scaleInterVal.x = curAnimationClip->AnimationJoint[i].scaleKeys[j].time / totalTime;

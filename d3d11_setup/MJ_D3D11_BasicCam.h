@@ -1,8 +1,8 @@
-#ifndef BASICCAM_H
+ï»¿#ifndef BASICCAM_H
 #define BASICCAM_H
 #include <DirectXMath.h>
 
-//FXMVECTOR´Â ÇÔ¼ö ÀÎÀÚ¿¡¼­¸¸ »ç¿ëÇÏ°í, º¯¼ö ¼±¾ðÀÌ³ª ´ëÀÔ¿¡´Â XMVECTOR¸¦ »ç¿ëÇØ¾ß ÇÕ´Ï´Ù.
+//FXMVECTORëŠ” í•¨ìˆ˜ ì¸ìžì—ì„œë§Œ ì‚¬ìš©í•˜ê³ , ë³€ìˆ˜ ì„ ì–¸ì´ë‚˜ ëŒ€ìž…ì—ëŠ” XMVECTORë¥¼ ì‚¬ìš©í•´ì•¼ í•©ë‹ˆë‹¤.
 class BasicCam
 {
 public:

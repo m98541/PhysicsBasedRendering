@@ -1,4 +1,4 @@
-#ifndef MAPPARTITIONING_H
+﻿#ifndef MAPPARTITIONING_H
 #define MAPPARTITIONING_H
 #include "VertexType.h"
 #include "MJ_D3D11_BVTree.h"

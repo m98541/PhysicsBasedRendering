@@ -1,4 +1,4 @@
-#include "MJ_D3D11_Simplex3D.h"
+﻿#include "MJ_D3D11_Simplex3D.h"
 #include <EASTL/sort.h>
 
 using namespace DirectX;

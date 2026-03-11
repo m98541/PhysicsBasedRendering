@@ -1,4 +1,4 @@
-#include "MJ_D3D11_GJK.h"
+ï»¿#include "MJ_D3D11_GJK.h"
 
 #define EPSILON 1e-5f
 using namespace DirectX;
@@ -167,11 +167,11 @@ bool gjkCollisionCheck(ConvexHull* convexA, DirectX::XMMATRIX matTRS_A, ConvexHu
 			}
 		}
 		
-		//simplex È®Àå
+		//simplex í™•ì¥
 		simplex.addPoint(convexB->Support(-direction, matTRS_B) - convexA->Support(direction, matTRS_A));
 
 		if (selectSimplexHandle(simplex, direction))
-		{// 0Á¡À» Ã£¾Æ³½ °æ¿ì
+		{// 0ì ì„ ì°¾ì•„ë‚¸ ê²½ìš°
 		
 			return true;
 		}
@@ -308,7 +308,7 @@ bool HandleSimplexTetrahedron(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 
 			check = true;
 		}
-		else // ÅğÈ­µÈ »ï°¢Çü 
+		else // í‡´í™”ëœ ì‚¼ê°í˜• 
 		{
 		}
 

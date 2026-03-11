@@ -1,4 +1,4 @@
-#include "MJ_D3D11_Skeleton.h"
+ï»¿#include "MJ_D3D11_Skeleton.h"
 #include "MJ_D3D11_CharacterResource.h"
 
 using namespace DirectX;
@@ -8,7 +8,7 @@ Skeleton::Skeleton()
 
 }
 
-//Skeleton »ı¼ºÀÚÀÓ Àı´ë·Î ¾÷µ¥ÀÌÆ®ÀÇ ´ë¿ë(Æ¯È÷ loop ³»¿¡¼­)À¸·Î »ç¿ë ±İÁö
+//Skeleton ìƒì„±ìì„ ì ˆëŒ€ë¡œ ì—…ë°ì´íŠ¸ì˜ ëŒ€ìš©(íŠ¹íˆ loop ë‚´ì—ì„œ)ìœ¼ë¡œ ì‚¬ìš© ê¸ˆì§€
 Skeleton::Skeleton(SkeletonResource_T* jointsData)
 {
 
@@ -20,7 +20,7 @@ Skeleton::Skeleton(SkeletonResource_T* jointsData)
 	this->pose.jointsInversePoseArr = new XMFLOAT4X4[this->pose.count];
 
 	Skeleton::Update();
-	//this->JointsDataSort();// µ¥ÀÌÅÍ Á¤±ÔÈ­ , ºÎ¸ğ-ÀÚ½Ä°£ ¼± ÈÄ ¼øÀ§ º¸Àå , ¹× Çà·Ä ÀüÄ¡ , // ¸®¼Ò½º¿¡¼­ Á¤±ÔÈ­ º¸ÀåµÇ¾î¾ßÇÔ
+	//this->JointsDataSort();// ë°ì´í„° ì •ê·œí™” , ë¶€ëª¨-ìì‹ê°„ ì„  í›„ ìˆœìœ„ ë³´ì¥ , ë° í–‰ë ¬ ì „ì¹˜ , // ë¦¬ì†ŒìŠ¤ì—ì„œ ì •ê·œí™” ë³´ì¥ë˜ì–´ì•¼í•¨
 
 }
 
@@ -43,11 +43,11 @@ void Skeleton::Update()
 	this->JointsGlobalPoseCompute();
 }
 
-// 2026.02.02 JointsDataSort ±â´É -> GLTFLoader ·Î ÀÌÀü/
-// ÀÌÀü ¿Ï·á ¹× character ¿Ï·á½Ã ÇØ´ç ÆÄÀÏ¿¡¼­´Â »èÁ¦ ¿¹Á¤
-// µ¥ÀÌÅÍ Á¤·ÄÀº Loader ¿¡¼­ ÇØ°áÀÌ µÇ¾î¾ßÇÔ Skeleton Àº Á¤·ÄÀÌ º¸ÀåµÈ µ¥ÀÌÅÍ ¸¸À» ¹Ş¾Æ¾ßÇÔ
-// Á¤·Ä Ã¼Å©¸¸ Áö¿øÇÏ¿© Á¤·Ä ¾ÈµÇÀÖÀ½¸é error ¹ß»ı
-//¸®¼Ò½ºÀÇ ºÎ¸ğ - ÀÚ½Ä °ü°è ¼ø¼­ º¸Àå ¿øº» ¸®¼Ò½º ¼öÁ¤ 
+// 2026.02.02 JointsDataSort ê¸°ëŠ¥ -> GLTFLoader ë¡œ ì´ì „/
+// ì´ì „ ì™„ë£Œ ë° character ì™„ë£Œì‹œ í•´ë‹¹ íŒŒì¼ì—ì„œëŠ” ì‚­ì œ ì˜ˆì •
+// ë°ì´í„° ì •ë ¬ì€ Loader ì—ì„œ í•´ê²°ì´ ë˜ì–´ì•¼í•¨ Skeleton ì€ ì •ë ¬ì´ ë³´ì¥ëœ ë°ì´í„° ë§Œì„ ë°›ì•„ì•¼í•¨
+// ì •ë ¬ ì²´í¬ë§Œ ì§€ì›í•˜ì—¬ ì •ë ¬ ì•ˆë˜ìˆìŒë©´ error ë°œìƒ
+//ë¦¬ì†ŒìŠ¤ì˜ ë¶€ëª¨ - ìì‹ ê´€ê³„ ìˆœì„œ ë³´ì¥ ì›ë³¸ ë¦¬ì†ŒìŠ¤ ìˆ˜ì • 
 /*
 void Skeleton::JointsDataSort()
 {
@@ -62,7 +62,7 @@ void Skeleton::JointsDataSort()
 
 	while (bufferSizeCount != maxCount)
 	{
-		//root Ã£±â Origin µ¥ÀÌÅÍ¿¡¼­ ÇöÀç index ¿Í ºÎ¸ğ index µ¿ÀÏ½Ã root ·Î °£ÁÖÇÔ
+		//root ì°¾ê¸° Origin ë°ì´í„°ì—ì„œ í˜„ì¬ index ì™€ ë¶€ëª¨ index ë™ì¼ì‹œ root ë¡œ ê°„ì£¼í•¨
 		int root = OrgBufferRootMin;
 		for (root; 
 			root < maxCount && 
@@ -75,8 +75,8 @@ void Skeleton::JointsDataSort()
 		SortBucket_T rootJoint = { root  ,bufferSizeCount };
 		orderQueue.push(rootJoint);
 
-		//root ÇÏÀ§¿µ¿ª Ã£±â
-		while (!orderQueue.empty())// Å¥°¡ ºñ¾ú´Ù leap ±îÁö ¸ğµÎ µµ´Ş but  bufferSizeCount != maxCount ¸é root ¿©·¯°³
+		//root í•˜ìœ„ì˜ì—­ ì°¾ê¸°
+		while (!orderQueue.empty())// íê°€ ë¹„ì—ˆë‹¤ leap ê¹Œì§€ ëª¨ë‘ ë„ë‹¬ but  bufferSizeCount != maxCount ë©´ root ì—¬ëŸ¬ê°œ
 		{
 			SortBucket_T reciveBucket = orderQueue.front();
 			orderQueue.pop();
@@ -104,13 +104,13 @@ void Skeleton::JointsDataSort()
 
 		
 	}
-	//Á¤·ÄµÈ µ¥ÀÌÅÍ ¼Â ±âÁ¸ µ¥ÀÌÅÍ¿Í ±³Ã¼
+	//ì •ë ¬ëœ ë°ì´í„° ì…‹ ê¸°ì¡´ ë°ì´í„°ì™€ êµì²´
 	memcpy(this->jointsData->array, resultBuffer , this->jointsData->count * sizeof(Joint_T));
 
 }
 */
 
-//pose quat rot , trans , scale Çà·Ä º¯È¯
+//pose quat rot , trans , scale í–‰ë ¬ ë³€í™˜
 
 
 void Skeleton::JointsLocalUpdate()
@@ -143,11 +143,11 @@ void Skeleton::JointsGlobalPoseCompute()//
 	for (int i = 0; i < this->pose.count; i++)
 	{
 		if (i == this->jointsData->array[i].parentIndex)
-		{//root ÀÎ °æ¿ì
+		{//root ì¸ ê²½ìš°
 			this->pose.jointsGlobalPoseArr[i] = this->pose.jointsLocalPoseArr[i];
 		}
 		else
-		{//root ¾Æ´Ñ °æ¿ì , ºÎ¸ğ joint ¹«Á¶°Ç ¹è¿­ ¾Õ ÀÓÀ¸·Î ÀÚ½Ä ±Û·Î¹ú = ÀÚ½Ä ·ÎÄÃ * ºÎ¸ğ ±Û·Î¹ú
+		{//root ì•„ë‹Œ ê²½ìš° , ë¶€ëª¨ joint ë¬´ì¡°ê±´ ë°°ì—´ ì• ì„ìœ¼ë¡œ ìì‹ ê¸€ë¡œë²Œ = ìì‹ ë¡œì»¬ * ë¶€ëª¨ ê¸€ë¡œë²Œ
 			xmCurLocalMat = XMLoadFloat4x4(&this->pose.jointsLocalPoseArr[i]);
 			xmGlobalParentMat = XMLoadFloat4x4(&this->pose.jointsGlobalPoseArr[this->jointsData->array[i].parentIndex]);
 			XMStoreFloat4x4(this->pose.jointsGlobalPoseArr + i ,xmCurLocalMat * xmGlobalParentMat );

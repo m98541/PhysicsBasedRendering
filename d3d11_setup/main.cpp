@@ -1,4 +1,4 @@
-#include <windows.h>
+ï»¿#include <windows.h>
 #include <stdio.h>
 #include <dxgi.h>
 #include <d3d11.h>
@@ -16,10 +16,10 @@
 #pragma comment(lib , "d3dcompiler.lib")
 
 /*
-¶óÀÌºê·¯¸® ÀÌ¸§ ºĞ·ù
-BmpFileIO ´ÙÀ½°ú °°ÀÌ ±â´É ÀÌ¸§¸¸ ÀÖ´Â°æ¿ì => standard(?) ¶óÀÌºê·¯¸® Áö¿ø ¸ğµç À©µµ¿ìÁî¿¡¼­ »ç¿ë°¡´É
+ë¼ì´ë¸ŒëŸ¬ë¦¬ ì´ë¦„ ë¶„ë¥˜
+BmpFileIO ë‹¤ìŒê³¼ ê°™ì´ ê¸°ëŠ¥ ì´ë¦„ë§Œ ìˆëŠ”ê²½ìš° => standard(?) ë¼ì´ë¸ŒëŸ¬ë¦¬ ì§€ì› ëª¨ë“  ìœˆë„ìš°ì¦ˆì—ì„œ ì‚¬ìš©ê°€ëŠ¥
 
-MJ_D3D11_ ´ÙÀ½ÀÇ Ç¥½Ã°¡ ºÙÀº °æ¿ì(ºñÇ¥ÁØ ¶óÀÌºê·¯¸®(?)) directX11 ¶óÀÌºê·¯¸®¿¡ Á¾¼Ó  directX11 Áö¿ø½Ã¿¡¸¸ »ç¿ë°¡´É
+MJ_D3D11_ ë‹¤ìŒì˜ í‘œì‹œê°€ ë¶™ì€ ê²½ìš°(ë¹„í‘œì¤€ ë¼ì´ë¸ŒëŸ¬ë¦¬(?)) directX11 ë¼ì´ë¸ŒëŸ¬ë¦¬ì— ì¢…ì†  directX11 ì§€ì›ì‹œì—ë§Œ ì‚¬ìš©ê°€ëŠ¥
 */
 #include "BmpFileIO.h"
 #include "OBJFileIO.h"
@@ -43,17 +43,17 @@ using namespace CapsuleCollision;
 using namespace Map;
 IDXGISwapChain* swapChain; // swap chain interface pointer
 /*
-	swap Ã¼ÀÎ = swap ¹öÆÛ -> ÀÌ·¯ÇÑ Ã¼ÀÎ¿¡ ´ëÇÑ ÀÎÅÍÆäÀÌ½º Æ÷ÀÎÅÍ
-	Direct3D¸¦ ±â¹İÀ¸·Î ÇÏ´Â DXGIÀÇ ÀÏºÎ
+	swap ì²´ì¸ = swap ë²„í¼ -> ì´ëŸ¬í•œ ì²´ì¸ì— ëŒ€í•œ ì¸í„°í˜ì´ìŠ¤ í¬ì¸í„°
+	Direct3Dë¥¼ ê¸°ë°˜ìœ¼ë¡œ í•˜ëŠ” DXGIì˜ ì¼ë¶€
 */
 ID3D11Device* dev; // d3d device interface pointer
 /*
-	dev ´Â ÀåÄ¡¿¡ ´ëÇÑ Æ÷ÀÎÅÍ 
-	d3d¿¡¼­ ÀåÄ¡´Â °¡»óÇ¥Çö °´Ã¼ => ID3D11Device ¶ó´Â COM °´Ã¼¸¦ ¸¸µå´Â °Í 
+	dev ëŠ” ì¥ì¹˜ì— ëŒ€í•œ í¬ì¸í„° 
+	d3dì—ì„œ ì¥ì¹˜ëŠ” ê°€ìƒí‘œí˜„ ê°ì²´ => ID3D11Device ë¼ëŠ” COM ê°ì²´ë¥¼ ë§Œë“œëŠ” ê²ƒ 
 */
 ID3D11DeviceContext* devCon; // d3d device context pointer
 /*
-	ÀåÄ¡ ÄÁÅØ½ºÆ® , GPU ¹× ·»´õ¸µ ÆÄÀÌÇÁ¶óÀÎ °ü¸®
+	ì¥ì¹˜ ì»¨í…ìŠ¤íŠ¸ , GPU ë° ë Œë”ë§ íŒŒì´í”„ë¼ì¸ ê´€ë¦¬
 */
 
 ID3D11RenderTargetView* backBuffer;
@@ -98,9 +98,9 @@ BasicCam* singleCam;
 BasicCam* singleNextCam;
 
 /*
-Ä¸½¶ ¸Ê Ãæµ¹ ¹ö±× , ÇÁ·¹ÀÓÀÌ ¶³¾îÁö¸é 5~ 10 fps Á¤µµ·Î , Ãæµ¹ ´©¶ôÀÌ ½ÉÇØÁü  
+ìº¡ìŠ ë§µ ì¶©ëŒ ë²„ê·¸ , í”„ë ˆì„ì´ ë–¨ì–´ì§€ë©´ 5~ 10 fps ì •ë„ë¡œ , ì¶©ëŒ ëˆ„ë½ì´ ì‹¬í•´ì§  
 
-ÇÁ·¹ÀÓ ¸¶´Ù Ãæµ¹°Ë»ç->but ÇÁ·¹ÀÓ ¶³¾îÁ®µµ ÀÌµ¿º¯À§´Â ÀÏÁ¤ -> ÀÌµ¿ º¯À§ ´ëºñ Ãæµ¹ °Ë»ç ¼ö ÇÏ¶ôÀ¸·Î ÀÎÇÑ ´©¶ôÀ¸·Î ÃßÁ¤..
+í”„ë ˆì„ ë§ˆë‹¤ ì¶©ëŒê²€ì‚¬->but í”„ë ˆì„ ë–¨ì–´ì ¸ë„ ì´ë™ë³€ìœ„ëŠ” ì¼ì • -> ì´ë™ ë³€ìœ„ ëŒ€ë¹„ ì¶©ëŒ ê²€ì‚¬ ìˆ˜ í•˜ë½ìœ¼ë¡œ ì¸í•œ ëˆ„ë½ìœ¼ë¡œ ì¶”ì •..
 
 */
 constexpr double gravity = 200.F;
@@ -165,13 +165,13 @@ int BoxDrawDepth = 0;
 
 void* __cdecl operator new[](size_t size, size_t alignment, size_t alignmentOffset, const char* pName, int flags, unsigned debugFlags, const char* file, int line)
 {
-	// Á¤·ÄµÈ ¸Ş¸ğ¸® ÇÒ´ç (Windows ±âÁØ)
+	// ì •ë ¬ëœ ë©”ëª¨ë¦¬ í• ë‹¹ (Windows ê¸°ì¤€)
 	return _aligned_malloc(size, alignment);
 }
 
 void* __cdecl operator new[](size_t size, const char* pName, int flags, unsigned debugFlags, const char* file, int line)
 {
-	// ÀÏ¹İ ÇÒ´ç
+	// ì¼ë°˜ í• ë‹¹
 	return malloc(size);
 }
 /*
@@ -191,7 +191,7 @@ void __cdecl operator delete[](void* ptr)
 
 void Draw_Box(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, XMVECTOR max, XMVECTOR min)
 {
-	VERTEX_T boxVertices[24]; // 12 edges ¡¿ 2 vertices
+	VERTEX_T boxVertices[24]; // 12 edges Ã— 2 vertices
 
 	XMFLOAT4 vMin, vMax;
 	XMStoreFloat4(&vMin, min);
@@ -522,7 +522,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 				frameTick = 0;
 				startTick = curTick;
 			}
-			// ¼ÎÀÌ´õ¿¡ ¹ÙÀÎµù
+			// ì…°ì´ë”ì— ë°”ì¸ë”©
 			
 			SetMainPipeLine();
 			devCon->VSSetConstantBuffers(0, 1, &pCamBuffer);
@@ -609,7 +609,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 					if (nextColider.TriAngleCollisionTest(swpHitSet[j].tri))
 					{
 
-						//printf("°ãÄ§ normal : %f %f %f %f \n", swpHitSet[0].normal.m128_f32[0], swpHitSet[0].normal.m128_f32[1], swpHitSet[0].normal.m128_f32[2], swpHitSet[0].normal.m128_f32[3]);
+						//printf("ê²¹ì¹¨ normal : %f %f %f %f \n", swpHitSet[0].normal.m128_f32[0], swpHitSet[0].normal.m128_f32[1], swpHitSet[0].normal.m128_f32[2], swpHitSet[0].normal.m128_f32[3]);
 						singleNextCam->Element.pos = singleNextCam->Element.pos + swpHitSet[j].normal * swpHitSet[j].penetrationDepth;
 						singleNextCam->Element.at = singleNextCam->Element.at + swpHitSet[j].normal * swpHitSet[j].penetrationDepth;
 
@@ -682,7 +682,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 						{
 							break;
 						}
-						///printf("Ãæµ¹°¨Áö i %d j %d", i , j);
+						///printf("ì¶©ëŒê°ì§€ i %d j %d", i , j);
 						info = CreateEPAInfo(simplex, unitManager[i]->objCollider, unitManager[i]->getTRS(), unitManager[j]->objCollider, unitManager[j]->getTRS());
 						XMFLOAT4 next = unitManager[i]->getPos();
 						XMVECTOR nextPosI = XMLoadFloat4(&next);
@@ -691,7 +691,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 						
 							
 						XMVECTOR move = (0.5) * info.direction * info.distance;
-						//printf("Ãæµ¹´ëÀÀ move %f %f %f %f  : %f\n", move.m128_f32[0], move.m128_f32[1], move.m128_f32[2], move.m128_f32[3], info.distance);
+						//printf("ì¶©ëŒëŒ€ì‘ move %f %f %f %f  : %f\n", move.m128_f32[0], move.m128_f32[1], move.m128_f32[2], move.m128_f32[3], info.distance);
 						info.direction.m128_f32[1] *= 0.F;
 						//info.direction = XMVector3Normalize(info.direction);
 						nextPosI += (0.5) * info.direction * info.distance;
@@ -871,10 +871,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	case WM_CHAR:
 		switch (wParam)
 		{
-		//´ë°¢¼±À¸·Î ¿òÁ÷ÀÌ¸é ¼Óµµ ´õ ³ôÀº°Å´Â À¯Áö ¤¡¤¡ 
+		//ëŒ€ê°ì„ ìœ¼ë¡œ ì›€ì§ì´ë©´ ì†ë„ ë” ë†’ì€ê±°ëŠ” ìœ ì§€ ã„±ã„± 
 		case 'a':
 		case 'A':
-			camAccRLV = -1.F * speed;// 0.00001F ÇØ´ç ºÎºĞÀº ¸Ê »çÀÌÁî¿¡ È¤Àº ·»´õ¸µ ¿ÀºêÁ§Æ® ½ºÄÉÀÏ µû¶ó À¯µ¿Àû 
+			camAccRLV = -1.F * speed;// 0.00001F í•´ë‹¹ ë¶€ë¶„ì€ ë§µ ì‚¬ì´ì¦ˆì— í˜¹ì€ ë Œë”ë§ ì˜¤ë¸Œì íŠ¸ ìŠ¤ì¼€ì¼ ë”°ë¼ ìœ ë™ì  
 			break;
 		case 'd':
 		case 'D':
@@ -979,11 +979,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		break;
 	}
 	// default window procedure  
-	// => app ¿¡¼­ Ã³¸®¾ÈµÈ ¸Ş½ÃÁö Áß ±âº»ÀûÀÎ°Å(?? ¾Æ¸¶ window¿¡¼­ default ·Î  ¹Ì¸® ÁöÁ¤µÈ?) Ã³¸®
-	// ÁÖ¿ä Ã³¸® ¸Ş¼¼Áö ¿¹) WM_CLOSE , WM_DESTROY , WM_PAINT ,WM_KEYDOWN , WM_MOUSEMOVE µîµî
-	// ÁÖ¿ä Ã³¸® ¸Ş¼¼ÁöÀÇ °æ¿ì micro °ø½Ä ¹®¼­ ÂüÁ¶ ÇÏ¿© »ç¿ëÀÚ Á¤ÀÇ ÇÊ¿ä...
+	// => app ì—ì„œ ì²˜ë¦¬ì•ˆëœ ë©”ì‹œì§€ ì¤‘ ê¸°ë³¸ì ì¸ê±°(?? ì•„ë§ˆ windowì—ì„œ default ë¡œ  ë¯¸ë¦¬ ì§€ì •ëœ?) ì²˜ë¦¬
+	// ì£¼ìš” ì²˜ë¦¬ ë©”ì„¸ì§€ ì˜ˆ) WM_CLOSE , WM_DESTROY , WM_PAINT ,WM_KEYDOWN , WM_MOUSEMOVE ë“±ë“±
+	// ì£¼ìš” ì²˜ë¦¬ ë©”ì„¸ì§€ì˜ ê²½ìš° micro ê³µì‹ ë¬¸ì„œ ì°¸ì¡° í•˜ì—¬ ì‚¬ìš©ì ì •ì˜ í•„ìš”...
 	
-	//do while ·Î º¯°æÇÊ¿ä
+	//do while ë¡œ ë³€ê²½í•„ìš”
 	
 
 
@@ -1002,7 +1002,7 @@ void InitD3D(HWND hWnd)
 	D3D_FEATURE_LEVEL featureLevel = D3D_FEATURE_LEVEL_11_0;
 	UINT DeviceAndSwapchainFlag = 0;
 #ifdef _DEBUG
-	DeviceAndSwapchainFlag |= D3D11_CREATE_DEVICE_DEBUG; // µğ¹ö±× ·¹ÀÌ¾î ÄÑ±â!
+	DeviceAndSwapchainFlag |= D3D11_CREATE_DEVICE_DEBUG; // ë””ë²„ê·¸ ë ˆì´ì–´ ì¼œê¸°!
 #endif
 	scd.BufferCount = 1;
 	scd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
@@ -1030,10 +1030,10 @@ void InitD3D(HWND hWnd)
 	);
 
 	/*
-	pAdapter ¸Å°³ º¯¼ö¸¦ NULLÀÌ ¾Æ´Ñ °ªÀ¸·Î ¼³Á¤ÇÏ´Â °æ¿ì DriverType ¸Å°³ º¯¼öµµ D3D_DRIVER_TYPE_UNKNOWN °ªÀ¸·Î ¼³Á¤ÇØ¾ß ÇÕ´Ï´Ù. 
-	pAdapter ¸Å°³ º¯¼ö¸¦ NULLÀÌ ¾Æ´Ñ °ªÀ¸·Î ¼³Á¤ÇÏ°í DriverType ¸Å°³ º¯¼ö¸¦ D3D_DRIVER_TYPE_HARDWARE °ªÀ¸·Î ¼³Á¤ÇÏ¸é
-	D3D11CreateDeviceAndSwapChainÀº E_INVALIDARG HRESULT¸¦ ¹İÈ¯ÇÕ´Ï´Ù.
-	ÃâÃ³:https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-d3d11createdeviceandswapchain
+	pAdapter ë§¤ê°œ ë³€ìˆ˜ë¥¼ NULLì´ ì•„ë‹Œ ê°’ìœ¼ë¡œ ì„¤ì •í•˜ëŠ” ê²½ìš° DriverType ë§¤ê°œ ë³€ìˆ˜ë„ D3D_DRIVER_TYPE_UNKNOWN ê°’ìœ¼ë¡œ ì„¤ì •í•´ì•¼ í•©ë‹ˆë‹¤. 
+	pAdapter ë§¤ê°œ ë³€ìˆ˜ë¥¼ NULLì´ ì•„ë‹Œ ê°’ìœ¼ë¡œ ì„¤ì •í•˜ê³  DriverType ë§¤ê°œ ë³€ìˆ˜ë¥¼ D3D_DRIVER_TYPE_HARDWARE ê°’ìœ¼ë¡œ ì„¤ì •í•˜ë©´
+	D3D11CreateDeviceAndSwapChainì€ E_INVALIDARG HRESULTë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤.
+	ì¶œì²˜:https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-d3d11createdeviceandswapchain
 	*/
 
 	
@@ -1120,7 +1120,7 @@ void SelectDisplayAdapter(void)
 	
 
 	pFactory->EnumAdapters1(max_adapter, &pAdapter);
-	printf("¼±ÅÃµÈ µğ½ºÇÃ·¹ÀÌ ¾îµªÅÍ : ");
+	printf("ì„ íƒëœ ë””ìŠ¤í”Œë ˆì´ ì–´ëí„° : ");
 	pAdapter->GetDesc1(&AdapterDesc);
 	wprintf(L"adapter %ls \n", AdapterDesc.Description);
 	printf("adapter VendorId %u \n", AdapterDesc.VendorId);
@@ -1209,7 +1209,7 @@ void init_MVPtrans(void)
 	memcpy(mapped.pData, &cam, sizeof(VP));
 	devCon->Unmap(pCamBuffer, 0);
 
-	// ¼ÎÀÌ´õ¿¡ ¹ÙÀÎµù
+	// ì…°ì´ë”ì— ë°”ì¸ë”©
 	devCon->VSSetConstantBuffers(0, 1, &pCamBuffer);
 	devCon->VSSetConstantBuffers(1, 1, &pModelBuffer);
 
@@ -1226,7 +1226,7 @@ void init_DepthBuffer(void)
 	depthDESC.MipLevels = 1;
 	depthDESC.ArraySize = 1;
 	depthDESC.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
-	depthDESC.SampleDesc.Count = 4;// swap chain ÀÇ MSAA »ùÇÃ ¼³Á¤°ú µ¿ÀÏÇÏ°Ô
+	depthDESC.SampleDesc.Count = 4;// swap chain ì˜ MSAA ìƒ˜í”Œ ì„¤ì •ê³¼ ë™ì¼í•˜ê²Œ
 	depthDESC.SampleDesc.Quality = 0;
 
 	depthDESC.Usage = D3D11_USAGE_DEFAULT;
@@ -1240,7 +1240,7 @@ void init_DepthBuffer(void)
 
 void CreateShaderResourceViewFromBMPFile(ID3D11Device* device, const char* fileName, UINT bmp_format ,ID3D11ShaderResourceView** Texture_SRV)
 {
-	//ÅØ½ºÃ³ ÀÌ¹ÌÁö ·Îµå
+	//í…ìŠ¤ì²˜ ì´ë¯¸ì§€ ë¡œë“œ
 	BMPFILE textureImage = {};
 	LoadBmpFile(fileName, &textureImage, bmp_format);
 	BYTE* image_32bit = (BYTE*)malloc(textureImage.width * textureImage.height * 4);
@@ -1274,18 +1274,18 @@ void CreateShaderResourceViewFromBMPFile(ID3D11Device* device, const char* fileN
 	textureDesc.CPUAccessFlags = 0;
 	textureDesc.MiscFlags = 0;
 
-	//¸®¼Ò½º ±¸Á¶Ã¼ ¼±¾ğ
+	//ë¦¬ì†ŒìŠ¤ êµ¬ì¡°ì²´ ì„ ì–¸
 	D3D11_SUBRESOURCE_DATA source_data;
 	source_data.pSysMem = image_32bit;
-	//BMPFILEÀÇ formatÀº ÇÑ¼¿ÀÇ ¹ÙÀÌÆ® ¼ö ¿Í µ¿ÀÏ
+	//BMPFILEì˜ formatì€ í•œì…€ì˜ ë°”ì´íŠ¸ ìˆ˜ ì™€ ë™ì¼
 	source_data.SysMemPitch = textureImage.width * BMP_FORMAT_BGRA;
-	source_data.SysMemSlicePitch = 0;//3D ÅØ½ºÃ³¿¡¼­ÀÇ 1ÀåÀÇ Å©±â 2DÀÇ °æ¿ì 0
+	source_data.SysMemSlicePitch = 0;//3D í…ìŠ¤ì²˜ì—ì„œì˜ 1ì¥ì˜ í¬ê¸° 2Dì˜ ê²½ìš° 0
 
-	//texture2D ±¸Á¶ »ı¼º
+	//texture2D êµ¬ì¡° ìƒì„±
 	ID3D11Texture2D* pTexture2D = nullptr;
 	device->CreateTexture2D(&textureDesc, &source_data, &pTexture2D);
 
-	//SRV »ı¼º DirectX ¿¡¼­´Â view´ÜÀ§·Î???
+	//SRV ìƒì„± DirectX ì—ì„œëŠ” viewë‹¨ìœ„ë¡œ???
 	D3D11_SHADER_RESOURCE_VIEW_DESC srv_desc = {};
 	srv_desc.Format = textureDesc.Format;
 	srv_desc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;

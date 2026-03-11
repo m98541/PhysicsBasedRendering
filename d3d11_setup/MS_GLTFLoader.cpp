@@ -1,4 +1,4 @@
-#include "MS_GLTFLoader.h"
+ï»¿#include "MS_GLTFLoader.h"
 #include <assert.h>
 constexpr float WEIGHT_EPSILON = 1e-5f;
 using namespace DirectX;
@@ -54,7 +54,7 @@ bool MSGLTFLoader::LoadModel(const string& path)
 
 void MSGLTFLoader::GetSkeletonResource(SkeletonResource_T& outData)
 {   
-	// GLTF µ¥ÀÌÅÍ -> ½ºÄÌ·¹Åæ ÀÚ¿øÀ¸·Î º¯È¯ 
+	// GLTF ë°ì´í„° -> ìŠ¤ì¼ˆë ˆí†¤ ìì›ìœ¼ë¡œ ë³€í™˜ 
 	const Skin& srcSkin = document.skins.Get(0);
 	const Accessor& skinAccessor = document.accessors.Get(srcSkin.inverseBindMatricesAccessorId);
 	vector<float> inverseMatData = resourceReader->ReadFloatData(document,skinAccessor);
@@ -63,7 +63,7 @@ void MSGLTFLoader::GetSkeletonResource(SkeletonResource_T& outData)
 	outData.array = new Joint_T[outData.count];
 	
 	int matrixSize = sizeof(DirectX::XMFLOAT4X4);
-	//string ÇüÅÂ ID¸¦ Å°·Î , i ¹øÂ° ÀÇ index¸¦ value·Î
+	//string í˜•íƒœ IDë¥¼ í‚¤ë¡œ , i ë²ˆì§¸ ì˜ indexë¥¼ valueë¡œ
 	eastl::map<eastl::string, int> jointMap;
 	
 	for (int i = 0; i < outData.count; ++i)
@@ -127,7 +127,7 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData , eastl::map<eastl::s
 
 	outData.array = new Mesh_T[outData.count];
 
-	int textureId = 0; // ÀÌÈÄ materialId ·Î ±³Ã¼ ¿¹Á¤ material Á¤º¸ ³»¿¡ textureID Á¸Àç
+	int textureId = 0; // ì´í›„ materialId ë¡œ êµì²´ ì˜ˆì • material ì •ë³´ ë‚´ì— textureID ì¡´ì¬
 	vector<float> posData;
 	vector<float> normData;
 	vector<float> texData;
@@ -158,7 +158,7 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData , eastl::map<eastl::s
 
 		for (int j = 0; j < mesh.primitives.size(); ++j)
 		{
-			//ÀÌÈÄ ·ÎÁ÷¿¡¼­ texture¸¦ Material·Î È®Àå È®Àå½Ã¿¡ ³Ê¹« ÄÚµå°¡ ¹«°Å¿öÁü¿¡ µû¶ó ³»ºÎ¸¦ ÇÔ¼ö·Î ÂÉ°³°Å³ª ÇÊ¿ä...
+			//ì´í›„ ë¡œì§ì—ì„œ textureë¥¼ Materialë¡œ í™•ì¥ í™•ì¥ì‹œì— ë„ˆë¬´ ì½”ë“œê°€ ë¬´ê±°ì›Œì§ì— ë”°ë¼ ë‚´ë¶€ë¥¼ í•¨ìˆ˜ë¡œ ìª¼ê°œê±°ë‚˜ í•„ìš”...
 			if (mesh.primitives[j].materialId.empty())
 			{
 				textureId = -1;
@@ -305,7 +305,7 @@ void MSGLTFLoader::GetMeshResource(MeshResource_T &outData , eastl::map<eastl::s
 					weightSum += weight;
 				}
 	
-				//weight Á¤±ÔÈ­
+				//weight ì •ê·œí™”
 				if (weightSum < WEIGHT_EPSILON)
 				{
 					assert(weightSum > WEIGHT_EPSILON && "find zero weight vertex");
@@ -371,7 +371,7 @@ void MSGLTFLoader::GetTextureResource(TextureResourec_T& outTexData, eastl::map<
 	{
 		tempBinImageBuffer = resourceReader->ReadBinaryData(document , srcImage);
 
-		//binary rgba º¯È¯ - 1
+		//binary rgba ë³€í™˜ - 1
 
 		DirectX::ScratchImage image;
 		HRESULT hr = DirectX::LoadFromWICMemory(
@@ -406,7 +406,7 @@ void MSGLTFLoader::GetTextureResource(TextureResourec_T& outTexData, eastl::map<
 		}
 		else
 		{
-			// 1 ¿¡ ÀÇÇØ »õ·Ó°Ô Àû¿ëµÉ º¯°æµÇ¾î¾ß ÇÒ ºÎºĞ  
+			// 1 ì— ì˜í•´ ìƒˆë¡­ê²Œ ì ìš©ë  ë³€ê²½ë˜ì–´ì•¼ í•  ë¶€ë¶„  
 			outTexData.Images[index] = std::move(image);
 		}
 
@@ -431,16 +431,16 @@ void MSGLTFLoader::GetCharacterResource(CharacterResource* resourceData)
 	JointsDataSort(resourceData->skeletonResource.array ,resourceData->skeletonResource.count);
 	
 	
-	//ÅØ½ºÃ³ Á¤º¸ ¹ŞÀ½ ¿©±â¼­ ÀÌ¹ÌÁö Á¤¼ö ½Äº°ÀÚ¿Í ¹®ÀÚ¿­ ½Äº°ÀÚ ¹ø¿ª ¸Ê ±¸¼º
+	//í…ìŠ¤ì²˜ ì •ë³´ ë°›ìŒ ì—¬ê¸°ì„œ ì´ë¯¸ì§€ ì •ìˆ˜ ì‹ë³„ìì™€ ë¬¸ìì—´ ì‹ë³„ì ë²ˆì—­ ë§µ êµ¬ì„±
 	GetTextureResource(resourceData->TextureResource, textureIdMap);
 
-	//¸Ş½¬ Á¤º¸ ¹ŞÀ½
+	//ë©”ì‰¬ ì •ë³´ ë°›ìŒ
 	GetMeshResource(resourceData->meshResource, textureIdMap);
 
-	//¿¡´Ï¸ŞÀÌ¼Ç Á¤º¸ ¹ŞÀ½
+	//ì—ë‹ˆë©”ì´ì…˜ ì •ë³´ ë°›ìŒ
 	GetAnimationResource(resourceData->animationResource ,resourceData->skeletonResource.count);
 
-	//pos ÁÂÇ¥ Á¤±ÔÈ­ ½ºÅ°´× ¶§¹®¿¡ Á¤±ÔÈ­ Çà·Ä¸¦ »ó¼ö ¹öÆÛ·Î ¿Ã·Á¼­ model * normalizeMat * skinnedMAt * pos ·Î ¿¬»ê½ÃÅ³ ¿¹Á¤
+	//pos ì¢Œí‘œ ì •ê·œí™” ìŠ¤í‚¤ë‹ ë•Œë¬¸ì— ì •ê·œí™” í–‰ë ¬ë¥¼ ìƒìˆ˜ ë²„í¼ë¡œ ì˜¬ë ¤ì„œ model * normalizeMat * skinnedMAt * pos ë¡œ ì—°ì‚°ì‹œí‚¬ ì˜ˆì •
 	PosDataNormalization(resourceData);
 
 	CoUninitialize();
@@ -451,7 +451,7 @@ void MSGLTFLoader::GetCharacterResource(CharacterResource* resourceData)
 void MSGLTFLoader::GetAnimationResource(AnimationResource_T& outData, size_t jointsCount)
 {
 
-	//¿©·¯°³ÀÇ ¿¡´Ï¸ŞÀÌ¼Ç Å¬¸³ÀÌ µé¾î¿ÈÀ» °í·ÁÇØ¾ßÇÔ
+	//ì—¬ëŸ¬ê°œì˜ ì—ë‹ˆë©”ì´ì…˜ í´ë¦½ì´ ë“¤ì–´ì˜´ì„ ê³ ë ¤í•´ì•¼í•¨
 	const uint32_t animationSize = document.animations.Size();
 	outData.count = animationSize;
 	outData.animationClip = new AnimationClipResourec_T[animationSize];
@@ -482,10 +482,10 @@ void MSGLTFLoader::GetAnimationResource(AnimationResource_T& outData, size_t joi
 			auto valueData = resourceReader->ReadFloatData(document ,valueAccessor);
 			
 
-			//target data index search //¾ÆÁ÷ ¿¬°á ¾ÈµÈ Å×ÀÌºíÀÓ ³ªÁß¿¡ ÀÌ±Û º¸¸é ¿¬°áÇÏ°í Áö¿ö 
+			//target data index search //ì•„ì§ ì—°ê²° ì•ˆëœ í…Œì´ë¸”ì„ ë‚˜ì¤‘ì— ì´ê¸€ ë³´ë©´ ì—°ê²°í•˜ê³  ì§€ì›Œ 
 			uint32_t skeletonArrIndex = nodeIdToIndexTable[animationTarget.nodeId.c_str()];
 
-			//data ÀÔ·Â
+			//data ì…ë ¥
 			outData.animationClip[i].AnimationJoint[skeletonArrIndex].localPoseArrIndex = skeletonArrIndex;
 
 			uint32_t timeKeyCount = timeData.size();
@@ -524,7 +524,7 @@ void MSGLTFLoader::GetAnimationResource(AnimationResource_T& outData, size_t joi
 				{
 					AnimationKeyScale_T data = {
 						timeData[t],
-						{valueData[t * 3 + 0] ,valueData[t * 3 + 1] , valueData[t * 3 + 2] } // 0¹øÂ° °ª¸¸ »ç¿ë ±ÕÀÏ ½ºÄÉÀÏ 1f
+						{valueData[t * 3 + 0] ,valueData[t * 3 + 1] , valueData[t * 3 + 2] } // 0ë²ˆì§¸ ê°’ë§Œ ì‚¬ìš© ê· ì¼ ìŠ¤ì¼€ì¼ 1f
 					};
 					outData.animationClip[i].AnimationJoint[skeletonArrIndex].scaleKeys.push_back(data);
 				}
@@ -570,7 +570,7 @@ void MSGLTFLoader::JointsDataSort(Joint_T* data ,size_t size)
 	
 	while (bufferSizeCount != size)
 	{
-		//root Ã£±â Origin µ¥ÀÌÅÍ¿¡¼­ ÇöÀç index ¿Í ºÎ¸ğ index µ¿ÀÏ½Ã root ·Î °£ÁÖÇÔ
+		//root ì°¾ê¸° Origin ë°ì´í„°ì—ì„œ í˜„ì¬ index ì™€ ë¶€ëª¨ index ë™ì¼ì‹œ root ë¡œ ê°„ì£¼í•¨
 		int root = OrgBufferRootMin;
 		for (root;
 			root < size &&
@@ -583,8 +583,8 @@ void MSGLTFLoader::JointsDataSort(Joint_T* data ,size_t size)
 		SortBucket_T rootJoint = { root  ,bufferSizeCount };
 		orderQueue.push(rootJoint);
 
-		//root ÇÏÀ§¿µ¿ª Ã£±â
-		while (!orderQueue.empty())// Å¥°¡ ºñ¾ú´Ù leap ±îÁö ¸ğµÎ µµ´Ş but  bufferSizeCount != size ¸é root ¿©·¯°³
+		//root í•˜ìœ„ì˜ì—­ ì°¾ê¸°
+		while (!orderQueue.empty())// íê°€ ë¹„ì—ˆë‹¤ leap ê¹Œì§€ ëª¨ë‘ ë„ë‹¬ but  bufferSizeCount != size ë©´ root ì—¬ëŸ¬ê°œ
 		{
 			SortBucket_T reciveBucket = orderQueue.front();
 			orderQueue.pop();
@@ -592,7 +592,7 @@ void MSGLTFLoader::JointsDataSort(Joint_T* data ,size_t size)
 			
 			resultBuffer[bufferSizeCount] = data[reciveBucket.originIndex];
 
-			//ÂüÁ¶! Ãß°¡µÈ ºÎºĞ 
+			//ì°¸ì¡°! ì¶”ê°€ëœ ë¶€ë¶„ 
 			JointIdToIndexTable[data[reciveBucket.originIndex].jointId.c_str()] = bufferSizeCount;
 			nodeIdToIndexTable[data[reciveBucket.originIndex].nodeId.c_str()] = bufferSizeCount;
 			resultBuffer[bufferSizeCount].parentIndex = reciveBucket.updateParent;
@@ -619,7 +619,7 @@ void MSGLTFLoader::JointsDataSort(Joint_T* data ,size_t size)
 
 
 	}
-	//Á¤·ÄµÈ µ¥ÀÌÅÍ ¼Â ±âÁ¸ µ¥ÀÌÅÍ¿Í ±³Ã¼
+	//ì •ë ¬ëœ ë°ì´í„° ì…‹ ê¸°ì¡´ ë°ì´í„°ì™€ êµì²´
 	memcpy(data, resultBuffer, size * sizeof(Joint_T));
 	delete[] resultBuffer;
 }
@@ -664,7 +664,7 @@ void MSGLTFLoader::PosDataNormalization(CharacterResource* resourceData)
 	
 	};
 	float scale = 2.F / maxDiff;
-	//¸ğµ¨ Á¤±ÔÈ­ Çà·Ä [-1 , 1] NDC ·Î 
+	//ëª¨ë¸ ì •ê·œí™” í–‰ë ¬ [-1 , 1] NDC ë¡œ 
 	resourceData->modelNDCMat = {
 		scale , 0 , 0 , 0 ,
 		0, scale , 0, 0,

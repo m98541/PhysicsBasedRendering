@@ -1,4 +1,4 @@
-cbuffer camBuffer : register(b0)
+﻿cbuffer camBuffer : register(b0)
 {
 	matrix view;
 	matrix proj;

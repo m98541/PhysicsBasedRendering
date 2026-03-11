@@ -1,4 +1,4 @@
-#include <windows.h>
+Ôªø#include <windows.h>
 #include <stdio.h>
 #include "BmpFileIO.h"
 //file
@@ -15,7 +15,7 @@ bool LoadBmpFile(const char* fileName, BMPFILE_T* ImageBuffer, unsigned int BMP_
 	hFile = CreateFileA(fileName, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 	if (hFile == INVALID_HANDLE_VALUE)
 	{
-		printf("∆ƒ¿œ ¿–±‚ Ω«∆–");
+		printf("ÌååÏùº ÏùΩÍ∏∞ Ïã§Ìå®");
 		return 0;
 	}
 

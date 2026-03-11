@@ -1,4 +1,4 @@
-#ifndef MJ_D3D11_MESH_H
+ï»¿#ifndef MJ_D3D11_MESH_H
 #define MJ_D3D11_MESH_H
 #include <DirectXMath.h>
 #include <dxgi.h>
@@ -13,7 +13,7 @@ typedef struct MeshVertex_S
 	DirectX::XMFLOAT4 position;
 	DirectX::XMFLOAT4 normal;
 	DirectX::XMFLOAT2 uv;
-	uint32_t textureId;// ÀÌÈÄ material ID ·Î ±³Ã¼ ¿¹Á¤ material Á¤º¸ ³»¿¡ textureID Á¸Àç
+	uint32_t textureId;// ì´í›„ material ID ë¡œ êµì²´ ì˜ˆì • material ì •ë³´ ë‚´ì— textureID ì¡´ì¬
 	uint32_t joints[4];
 	float weights[4];
 }MeshVertex_T;

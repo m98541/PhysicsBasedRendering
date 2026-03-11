@@ -1,4 +1,4 @@
-#ifndef MJ_D3D11_SKELETON_H
+ï»¿#ifndef MJ_D3D11_SKELETON_H
 #define MJ_D3D11_SKELETON_H
 #include <DirectXMath.h>
 #include <string>
@@ -39,15 +39,15 @@ typedef struct SkeletonPose_S
 }SkeletonPose_T;
 
 class Skeleton {
-	// Æ÷Áî¿¡ ´ëÇÑ ½Ç½Ã°£ ¾÷µ¥ÀÌÆ® ÇÊ¿ä Update ÇÔ¼ö ÅëÇØ , »ı¼ºÀÚ´Â ±×Àú ÃÊ±âÈ­ ¿ä¼Ò
-	// ÇöÀç(26.02.21) Å°ÇÁ·¹ÀÓ ½Ã½ºÅÛ µµÀÔ ÀüÀ¸·Î Æ÷Áî ¿©·¯ °³¸¦ ¹Ì¸® ±¸¿ö µÎ°í ÀÌ¸¦ ±³Ã¼ÇØ°¡¸ç »ç¿ëÇÒ ¿¹Á¤
-	// ·±Å¸ÀÓ Áß¿¡ Æ÷Áî¸¦ init ÇÏ´Â °Ç ¸»µµ ¾ÈµÊ
-	// Æ÷Áî¿¡ ´ëÇÑ µî·Ï ,ÀÎµ¦½º ºÎ¿© , Æ÷Áî ±³Ã¼µîÀÇ ÇÔ¼ö ÇÊ¿ä
-	// ½ºÄÌ·¹Åæ Æ÷Áî ¶ÇÇÑ º¤ÅÍÇüÅÂ·Î ±³Ã¼ ¿¹Á¤ ±×¸®°í Æ÷Áî ³»¿¡ »ç¶÷ÀÌ ÀĞÀ» ¼ö ÀÖ´Â pose name ºÎ¿© ¿¹Á¤
-	// poseÀÇ °æ¿ì name(key) , pose(value) ÇüÅÂ·Î °ü¸® , name list ¸¦ ÅëÇØ °³¹ßÀÚ°¡ ÇØ´ç ½ºÄÌ·¹ÅæÀÇ 
-	// name list ¸¦ º¸°í name(key)¸¦ ÅëÇØ pose¸¦ È£ÃâÇÒ ¼ö ÀÖµµ·Ï ÇÒ ¿¹Á¤
-	// pose ÀÇ °æ¿ì pose register ¸¦ ÅëÇØ map ¿¡ µî·Ï ½ÃÅ°°í ¹«°á¼º °Ë»ç(ÀÔ·Â Æ÷ÁîÀÇ °üÀı ¼ö <-> Ä³¸¯ÅÍ °üÀı ¼ö °Ë»ç , ÇöÀç(26.02.21)´Â ÀÏ´Ü ÃÖ¼ÒÇÑÀÇ °Ë»ç)
-	// pose update ÇÔ¼ö ¸¦ ÅëÇØ pose¸¦ ¾÷µ¥ÀÌÆ® ÇØÁÜ
+	// í¬ì¦ˆì— ëŒ€í•œ ì‹¤ì‹œê°„ ì—…ë°ì´íŠ¸ í•„ìš” Update í•¨ìˆ˜ í†µí•´ , ìƒì„±ìëŠ” ê·¸ì € ì´ˆê¸°í™” ìš”ì†Œ
+	// í˜„ì¬(26.02.21) í‚¤í”„ë ˆì„ ì‹œìŠ¤í…œ ë„ì… ì „ìœ¼ë¡œ í¬ì¦ˆ ì—¬ëŸ¬ ê°œë¥¼ ë¯¸ë¦¬ êµ¬ì›Œ ë‘ê³  ì´ë¥¼ êµì²´í•´ê°€ë©° ì‚¬ìš©í•  ì˜ˆì •
+	// ëŸ°íƒ€ì„ ì¤‘ì— í¬ì¦ˆë¥¼ init í•˜ëŠ” ê±´ ë§ë„ ì•ˆë¨
+	// í¬ì¦ˆì— ëŒ€í•œ ë“±ë¡ ,ì¸ë±ìŠ¤ ë¶€ì—¬ , í¬ì¦ˆ êµì²´ë“±ì˜ í•¨ìˆ˜ í•„ìš”
+	// ìŠ¤ì¼ˆë ˆí†¤ í¬ì¦ˆ ë˜í•œ ë²¡í„°í˜•íƒœë¡œ êµì²´ ì˜ˆì • ê·¸ë¦¬ê³  í¬ì¦ˆ ë‚´ì— ì‚¬ëŒì´ ì½ì„ ìˆ˜ ìˆëŠ” pose name ë¶€ì—¬ ì˜ˆì •
+	// poseì˜ ê²½ìš° name(key) , pose(value) í˜•íƒœë¡œ ê´€ë¦¬ , name list ë¥¼ í†µí•´ ê°œë°œìê°€ í•´ë‹¹ ìŠ¤ì¼ˆë ˆí†¤ì˜ 
+	// name list ë¥¼ ë³´ê³  name(key)ë¥¼ í†µí•´ poseë¥¼ í˜¸ì¶œí•  ìˆ˜ ìˆë„ë¡ í•  ì˜ˆì •
+	// pose ì˜ ê²½ìš° pose register ë¥¼ í†µí•´ map ì— ë“±ë¡ ì‹œí‚¤ê³  ë¬´ê²°ì„± ê²€ì‚¬(ì…ë ¥ í¬ì¦ˆì˜ ê´€ì ˆ ìˆ˜ <-> ìºë¦­í„° ê´€ì ˆ ìˆ˜ ê²€ì‚¬ , í˜„ì¬(26.02.21)ëŠ” ì¼ë‹¨ ìµœì†Œí•œì˜ ê²€ì‚¬)
+	// pose update í•¨ìˆ˜ ë¥¼ í†µí•´ poseë¥¼ ì—…ë°ì´íŠ¸ í•´ì¤Œ
 	public:
 		Skeleton();
 		Skeleton(SkeletonResource_T* jointsData);
@@ -62,11 +62,11 @@ class Skeleton {
 		SkeletonPose_T pose;// curPose
 
 
-	//	void PoseUpdate(std::string keyPoseName); ÀÏ´Ü ±âº» Æ÷Áî ·»´õ¸µ ¼¼ÆÃ ÈÄ µµÀÔ 
+	//	void PoseUpdate(std::string keyPoseName); ì¼ë‹¨ ê¸°ë³¸ í¬ì¦ˆ ë Œë”ë§ ì„¸íŒ… í›„ ë„ì… 
 	//	void PoseRegister(std::string keyPoseName ,SkeletonPose_T& pose);
 
 	private:
-		//void JointsDataSort(); loader·Î ÀÌÀüµÊ
+		//void JointsDataSort(); loaderë¡œ ì´ì „ë¨
 		void JointsLocalUpdate();
 		void JointsGlobalPoseCompute();
 		uint32_t poseCount;
