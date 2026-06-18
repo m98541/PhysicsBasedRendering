@@ -56,6 +56,7 @@ class Skeleton {
 
 		const DirectX::XMFLOAT4X4* GetGlobalJoints();
 		const DirectX::XMFLOAT4X4* GetInverseJoints();
+		DirectX::XMFLOAT4X4 GetGlobalHeadJointPoseMat();
 		uint32_t GetGlobalJointsCount();
 
 		SkeletonResource_T* jointsData;
@@ -69,6 +70,11 @@ class Skeleton {
 		//void JointsDataSort(); loader로 이전됨
 		void JointsLocalUpdate();
 		void JointsGlobalPoseCompute();
+
+		// head 부분 인덱스 탐색 -> 이후 해당 부분의 좌표 기준으로 카메시점 변환에 사용 예정
+		uint32_t FindHeadJoindIndex();
+		uint32_t headJointId;
+
 		uint32_t poseCount;
 		
 		DirectX::XMFLOAT4X4 wordTransMat;

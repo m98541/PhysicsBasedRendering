@@ -209,7 +209,7 @@ void DeleteFaceSearch(vector<ConvexHullFace_T*> activeFace ,ConvexHullFace_T* fa
 
 void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionPoint)
 {
-	printf("start face : %f %f %f %f ->%f %f %f %f ->%f %f %f %f  face addr : %x\n"
+	/*printf("start face : %f %f %f %f ->%f %f %f %f ->%f %f %f %f  face addr : %x\n"
 		, startFace->edge->originVert->pos.m128_f32[0]
 		, startFace->edge->originVert->pos.m128_f32[1]
 		, startFace->edge->originVert->pos.m128_f32[2]
@@ -224,9 +224,9 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 		, startFace->edge->next->next->originVert->pos.m128_f32[1]
 		, startFace->edge->next->next->originVert->pos.m128_f32[2]
 		, startFace->edge->next->next->originVert->pos.m128_f32[3]
-		, startFace);
+		, startFace);*/
 
-	printf("현재 활성 면 \n");
+	/*printf("현재 활성 면 \n");
 	for (auto const& face : this->activeFaces)
 	{
 		printf("face : %f %f %f %f ->%f %f %f %f ->%f %f %f %f  face addr : %x\n"
@@ -246,7 +246,7 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 			, face->edge->next->next->originVert->pos.m128_f32[3]
 			, face);
 	}
-	printf("\n");
+	printf("\n");*/
 
 	vector<ConvexHullFace_T*> deleteFaces;
 	vector<HE_EDGE_T*> baseEdgeSet;
@@ -262,10 +262,10 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 	
 	DeleteFaceSearch(this->activeFaces , startFace, newExtexsionVert, &deleteFaces, &baseEdgeMap);
 	
-	printf("외각 경계면\n");
+	/*printf("외각 경계면\n");*/
 	for (auto const& baseEdge : baseEdgeMap) {
 		baseEdgeSet.push_back(baseEdge.second); 
-		printf("edge vert %f %f %f %f <- origin vert %f %f %f %f, "
+		/*printf("edge vert %f %f %f %f <- origin vert %f %f %f %f, "
 			, baseEdge.second->vert->pos.m128_f32[0]
 			, baseEdge.second->vert->pos.m128_f32[1]
 			, baseEdge.second->vert->pos.m128_f32[2]
@@ -273,11 +273,11 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 			, baseEdge.second->originVert->pos.m128_f32[0]
 			, baseEdge.second->originVert->pos.m128_f32[1]
 			, baseEdge.second->originVert->pos.m128_f32[2]
-			, baseEdge.second->originVert->pos.m128_f32[3]);
+			, baseEdge.second->originVert->pos.m128_f32[3]);*/
 
 		if (baseEdge.second->pair != nullptr)
 		{
-			printf("edge pair vert %f %f %f %f <- origin vert %f %f %f %f,\n"
+			/*printf("edge pair vert %f %f %f %f <- origin vert %f %f %f %f,\n"
 				, baseEdge.second->pair->vert->pos.m128_f32[0]
 				, baseEdge.second->pair->vert->pos.m128_f32[1]
 				, baseEdge.second->pair->vert->pos.m128_f32[2]
@@ -294,7 +294,7 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[0]
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[1]
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[2]
-				, baseEdge.second->pair->next->originVert->pos.m128_f32[3]);
+				, baseEdge.second->pair->next->originVert->pos.m128_f32[3]);*/
 
 		}
 		else
@@ -318,7 +318,7 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 	{
 		if (deleteFaceSet.count(activeFaces[i]))
 		{
-			printf("face : %f %f %f %f ->%f %f %f %f ->%f %f %f %f  face addr : %x\n"
+		/*	printf("face : %f %f %f %f ->%f %f %f %f ->%f %f %f %f  face addr : %x\n"
 				, activeFaces[i]->edge->originVert->pos.m128_f32[0]
 				, activeFaces[i]->edge->originVert->pos.m128_f32[1]
 				, activeFaces[i]->edge->originVert->pos.m128_f32[2]
@@ -333,7 +333,7 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 				, activeFaces[i]->edge->next->next->originVert->pos.m128_f32[1]
 				, activeFaces[i]->edge->next->next->originVert->pos.m128_f32[2]
 				, activeFaces[i]->edge->next->next->originVert->pos.m128_f32[3]
-				, activeFaces[i]);
+				, activeFaces[i]);*/
 			activeFaces[i] = activeFaces.back();
 			
 			activeFaces.pop_back();
@@ -347,7 +347,7 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 	}
 	printf("삭제후\n");
 	for (auto const& baseEdge : baseEdgeMap) {
-		printf("edge vert %f %f %f %f <- origin vert %f %f %f %f, "
+		/*printf("edge vert %f %f %f %f <- origin vert %f %f %f %f, "
 			, baseEdge.second->vert->pos.m128_f32[0]
 			, baseEdge.second->vert->pos.m128_f32[1]
 			, baseEdge.second->vert->pos.m128_f32[2]
@@ -355,11 +355,11 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 			, baseEdge.second->originVert->pos.m128_f32[0]
 			, baseEdge.second->originVert->pos.m128_f32[1]
 			, baseEdge.second->originVert->pos.m128_f32[2]
-			, baseEdge.second->originVert->pos.m128_f32[3]);
+			, baseEdge.second->originVert->pos.m128_f32[3]);*/
 
 		if (baseEdge.second->pair != nullptr)
 		{
-			printf("edge pair vert %f %f %f %f <- origin vert %f %f %f %f,\n"
+			/*printf("edge pair vert %f %f %f %f <- origin vert %f %f %f %f,\n"
 				, baseEdge.second->pair->vert->pos.m128_f32[0]
 				, baseEdge.second->pair->vert->pos.m128_f32[1]
 				, baseEdge.second->pair->vert->pos.m128_f32[2]
@@ -376,7 +376,7 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[0]
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[1]
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[2]
-				, baseEdge.second->pair->next->originVert->pos.m128_f32[3]);
+				, baseEdge.second->pair->next->originVert->pos.m128_f32[3]);*/
 		}
 		else
 		{
@@ -400,15 +400,15 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 			activeFaces.push_back(ToConvexHullFace(face));
 			newFaces.push_back(ToConvexHullFace(face));
 	}
-	printf("생성면 중심점 : %f %f %f %f \n"
+	/*printf("생성면 중심점 : %f %f %f %f \n"
 		, newExtexsionVert->pos.m128_f32[0]
 		, newExtexsionVert->pos.m128_f32[1]
 		, newExtexsionVert->pos.m128_f32[2]
-		, newExtexsionVert->pos.m128_f32[3]);
+		, newExtexsionVert->pos.m128_f32[3]);*/
 
 	printf("면생성 후\n");
 	for (auto const& baseEdge : baseEdgeMap) {
-		printf("edge vert %f %f %f %f <- origin vert %f %f %f %f, "
+		/*printf("edge vert %f %f %f %f <- origin vert %f %f %f %f, "
 			, baseEdge.second->vert->pos.m128_f32[0]
 			, baseEdge.second->vert->pos.m128_f32[1]
 			, baseEdge.second->vert->pos.m128_f32[2]
@@ -416,11 +416,11 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 			, baseEdge.second->originVert->pos.m128_f32[0]
 			, baseEdge.second->originVert->pos.m128_f32[1]
 			, baseEdge.second->originVert->pos.m128_f32[2]
-			, baseEdge.second->originVert->pos.m128_f32[3]);
+			, baseEdge.second->originVert->pos.m128_f32[3]);*/
 
 		if (baseEdge.second->pair != nullptr)
 		{
-			printf("edge pair vert %f %f %f %f <- origin vert %f %f %f %f,\n"
+			/*printf("edge pair vert %f %f %f %f <- origin vert %f %f %f %f,\n"
 				, baseEdge.second->pair->vert->pos.m128_f32[0]
 				, baseEdge.second->pair->vert->pos.m128_f32[1]
 				, baseEdge.second->pair->vert->pos.m128_f32[2]
@@ -437,7 +437,7 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[0]
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[1]
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[2]
-				, baseEdge.second->pair->next->originVert->pos.m128_f32[3]);
+				, baseEdge.second->pair->next->originVert->pos.m128_f32[3]);*/
 		}
 		else
 		{

@@ -14,6 +14,7 @@ DirectX::XMMATRIX originCam = {
 
 BasicCam::BasicCam()
 {
+
 	this->camElementMat = {
 		0.F , 0.F , 1.F , 1.F,
 		0.F , 0.F , 0.F , 1.F,

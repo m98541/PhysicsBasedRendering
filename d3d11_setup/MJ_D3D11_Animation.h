@@ -34,6 +34,10 @@ typedef struct AnimationJoint_S// 에니메이션의 키포즈가 되어짐
 	uint32_t lastQuatKeyIndex;
 	uint32_t lastScaleKeyIndex;
 
+	float jointQuatDurationTime;
+	float jointTransDurationTime;
+	float jointScaleDurationTime;
+
 	eastl::vector<AnimationKeyTrans_S> transKeys;
 	eastl::vector<AnimationKeyQuatRot_S> quatRotKeys;
 	eastl::vector<AnimationKeyScale_S> scaleKeys;

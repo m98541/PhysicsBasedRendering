@@ -34,6 +34,7 @@ MJ_D3D11_ 다음의 표시가 붙은 경우(비표준 라이브러리(?)) direct
 #include "MJ_D3D11_EPA.h"
 #include "MS_GLTFLoader.h"
 #include "MJ_D3D11_CharacterRenderer.h"
+uint32_t g_changePose = 0;
 
 #define SCREEN_SIZE_WIDTH 1920
 #define SCREEN_SIZE_HEIGHT 1080
@@ -103,8 +104,8 @@ BasicCam* singleNextCam;
 프레임 마다 충돌검사->but 프레임 떨어져도 이동변위는 일정 -> 이동 변위 대비 충돌 검사 수 하락으로 인한 누락으로 추정..
 
 */
-constexpr double gravity = 200.F;
-constexpr double catGravity = 200.F;
+constexpr double gravity = 2000.F;
+constexpr double catGravity = 2000.F;
 int catCount = 0;
 bool catConvexColliderView = false;
 bool catBoxColliderView = false;
@@ -117,7 +118,7 @@ double camAccRLV = 0.F;//left right speed scale
 double camAccR = 0.F;
 
 bool camJumpState = false;
-double camJumpSpeed = 500.F;
+double camJumpSpeed = 5000.F;
 
 ULONGLONG jumpStartTick;
 ULONGLONG jumpCurTick;
@@ -285,7 +286,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	characterModel->GetSkeletonResource(skRsrc);
 
 	Skeleton* skeleton = new Skeleton(&skRsrc);
-	for (int i = 0; i < skRsrc.count; i++)
+	for (int i = 0; i > skRsrc.count; i++)
 	{
 		printf("%s %d : p:%d \n %f %f %f %f\n %f %f %f %f\n%f %f %f %f\n%f %f %f %f\n\n", skRsrc.array[i].jointName.c_str(), i,  skRsrc.array[i].parentIndex,
 			skRsrc.array[i].inverseBindPose.m[0][0], skRsrc.array[i].inverseBindPose.m[0][1], skRsrc.array[i].inverseBindPose.m[0][2], skRsrc.array[i].inverseBindPose.m[0][3],
@@ -296,7 +297,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	skeleton->Update();
 	printf("GLobal bone \n");
 	
-	for (int i = 0; i < skRsrc.count; i++)
+	for (int i = 0; i > skRsrc.count; i++)
 	{
 		printf("%s %d p: %d \n%f %f %f %f\n%f %f %f %f\n%f %f %f %f\n%f %f %f %f\n", skRsrc.array[i].jointName.c_str(), i, skRsrc.array[i].parentIndex,
 			skeleton->pose.jointsGlobalPoseArr[i].m[0][0], skeleton->pose.jointsGlobalPoseArr[i].m[0][1], skeleton->pose.jointsGlobalPoseArr[i].m[0][2], skeleton->pose.jointsGlobalPoseArr[i].m[0][3],
@@ -450,7 +451,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	};
 
 
-	for (int i = 0; i < catConvexHull->vertexArray.size(); i++)
+	for (int i = 0; i > catConvexHull->vertexArray.size(); i++)
 	{
 		printf("vert : %f %f %f %f \n"
 			, catConvexHull->vertexArray[i].pos.x
@@ -459,7 +460,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			, catConvexHull->vertexArray[i].pos.w);
 	}
 
-	for (int i = 0; i < catConvexHull->indexArray.size(); i += 3)
+	for (int i = 0; i > catConvexHull->indexArray.size(); i += 3)
 	{
 		printf("idx : %d %d %d \n"
 			, catConvexHull->indexArray[i]
@@ -513,7 +514,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			curTick = GetTickCount64();
 
 			double deltaTimeMS = (double)(curTick - lastTick);
-			double deltaTime = deltaTimeMS / 1000;
+			double deltaTime = deltaTimeMS / 10000;
 
 			lastTick = curTick;
 			if (curTick - startTick > 1000)
@@ -531,8 +532,8 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			
 			Model model;
 			VP cam;
-
-			singleNextCam->MoveFrontBack(camAccV * deltaTime);
+			
+			singleNextCam->MoveFrontBack(camAccV * deltaTime );
 			singleNextCam->MoveLeftRight(camAccRLV * deltaTime);
 			
 			
@@ -627,14 +628,18 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			
 
 			collider.Collider = nextColider.Collider;
+
 			
 			*singleCam = *singleNextCam;
 			
 			D3D11_MAPPED_SUBRESOURCE mapped;
 
 			model.m = { {1.F, 0.F , 0.F , 0.F} , {0.F, 0.F , -1.F , 0.F} ,  {0.F, 1.F ,0.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
+
 			cam.view = XMMatrixLookAtLH(singleCam->Element.pos, singleCam->Element.at, singleCam->Element.up);
 			cam.proj = XMMatrixPerspectiveFovLH(XM_PIDIV4, 800.0F / 600.0F, 0.01F, 8000.F);
+
+
 
 			
 
@@ -648,6 +653,8 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 			RenderFrame();
 
+
+	
 			if (BoxViewMode)
 			{
 
@@ -816,13 +823,16 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 				
 			}
 		
-			testCharacter->updateAnimation(2,(float)deltaTime / 10.F);
+			
+			
+			testCharacter->updateAnimation(g_changePose, (float)deltaTime);
+			//testCharacter->updateHeadCam(singleNextCam);
+
 			characterRenderer->SetPipeLine(devCon);
 			characterRenderer->SetCharacter(devCon, *testCharacter);
 			characterRenderer->CBCamUpdate(devCon, cam.view, cam.proj);
-			
-			characterRenderer->Draw(devCon);
 
+			characterRenderer->Draw(devCon);
 			swapChain->Present(0, 0);
 
 
@@ -834,6 +844,8 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	}
 	CleanD3D();
 	return Message.wParam;
+
+
 
 	
 
@@ -861,7 +873,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	XMVECTOR initPos1 = { -1042.446655 , 240.237793 , -2248.686768 , 1.F };
 	XMVECTOR initPos2 = { -1017.693909 , 218.114868 , - 2326.060303 , 1.F };
 	XMVECTOR initPos3 = { 453.103607  , 170.620117 , 69.081215 , 1.F };
-	double speed = 500.0;
+	double speed = 5000.0;
 	
 	switch (iMessage)
 	{
@@ -940,6 +952,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 			if(!camJumpState)
 				jumpStartTick = GetTickCount64();
 			camJumpState = true;
+			break;
+		case 'J':
+		case 'j':
+			g_changePose = (g_changePose - 1) % 4;
+			break;
+		case 'L':
+		case 'l':
+			g_changePose = (g_changePose + 1) % 4;
 			break;
 		default:
 			break;

@@ -19,6 +19,9 @@ Skeleton::Skeleton(SkeletonResource_T* jointsData)
 	this->pose.jointsGlobalPoseArr = new XMFLOAT4X4[this->pose.count];
 	this->pose.jointsInversePoseArr = new XMFLOAT4X4[this->pose.count];
 
+	this->headJointId = 0;// FindHeadJoindIndex(); 일단 root 로 고정
+	// 헤드에 카메라를 우겨 넣는게 아닌 캡슐 을 감싸고 해당 캡슐의 3:7부분에 카메라 위치 후 1인칭 모드에서 케릭터 렌더링 안하는 방식으로 변경
+	// 일단 root에 카메로 고정후 캡슐 collider 캐릭터 연동 후 캐릭터 <-> 카메라 <-> 맵 상호작용먼저 개발
 	Skeleton::Update();
 	//this->JointsDataSort();// 데이터 정규화 , 부모-자식간 선 후 순위 보장 , 및 행렬 전치 , // 리소스에서 정규화 보장되어야함
 
@@ -43,75 +46,25 @@ void Skeleton::Update()
 	this->JointsGlobalPoseCompute();
 }
 
-// 2026.02.02 JointsDataSort 기능 -> GLTFLoader 로 이전/
-// 이전 완료 및 character 완료시 해당 파일에서는 삭제 예정
-// 데이터 정렬은 Loader 에서 해결이 되어야함 Skeleton 은 정렬이 보장된 데이터 만을 받아야함
-// 정렬 체크만 지원하여 정렬 안되있음면 error 발생
-//리소스의 부모 - 자식 관계 순서 보장 원본 리소스 수정 
-/*
-void Skeleton::JointsDataSort()
+
+uint32_t Skeleton::FindHeadJoindIndex()
 {
-	int maxCount = this->jointsData->count;
-	eastl::queue<SortBucket_T> orderQueue;
-	Joint_T* resultBuffer = new Joint_T[maxCount];
-	int searchParent = 0;
-	int updateParent = 0;
-	//loop
-	int OrgBufferRootMin = 0;
-	int bufferSizeCount = 0;
+	eastl::vector<eastl::string> headNameList = {"HEAD","Head","head"};
 
-	while (bufferSizeCount != maxCount)
+	for (int i = 0; i < jointsData->count; i++)
 	{
-		//root 찾기 Origin 데이터에서 현재 index 와 부모 index 동일시 root 로 간주함
-		int root = OrgBufferRootMin;
-		for (root; 
-			root < maxCount && 
-			root != this->jointsData->array[root].parentIndex && 
-			root <= OrgBufferRootMin; 
-			root++);
-
-		if (root > OrgBufferRootMin) OrgBufferRootMin = root;
-
-		SortBucket_T rootJoint = { root  ,bufferSizeCount };
-		orderQueue.push(rootJoint);
-
-		//root 하위영역 찾기
-		while (!orderQueue.empty())// 큐가 비었다 leap 까지 모두 도달 but  bufferSizeCount != maxCount 면 root 여러개
+		for (int j = 0; j < headNameList.size(); j++)
 		{
-			SortBucket_T reciveBucket = orderQueue.front();
-			orderQueue.pop();
-
-			resultBuffer[bufferSizeCount] = this->jointsData->array[reciveBucket.originIndex];
-			resultBuffer[bufferSizeCount].parentIndex = reciveBucket.updateParent;
-
-			XMMATRIX transposeMat4X4 = XMLoadFloat4x4(&resultBuffer[bufferSizeCount].inverseBindPose);
-			transposeMat4X4 = XMMatrixTranspose(transposeMat4X4);
-			XMStoreFloat4x4(&resultBuffer[bufferSizeCount].inverseBindPose, transposeMat4X4);
-
-			updateParent = bufferSizeCount++;
-
-			searchParent = reciveBucket.originIndex;
-			for (int i = 0; i < maxCount; ++i)
+			printf("%s \n", jointsData->array[i].jointName.c_str());
+			if ( jointsData->array[i].jointName.find(headNameList[j].c_str()) != eastl::string::npos ) 
 			{
-				if (i != jointsData->array[i].parentIndex &&
-					searchParent == jointsData->array[i].parentIndex)
-				{
-					SortBucket_T sendBucket = { i  , updateParent};
-					orderQueue.push(sendBucket);
-				}
+				return i;
 			}
 		}
 
-		
 	}
-	//정렬된 데이터 셋 기존 데이터와 교체
-	memcpy(this->jointsData->array, resultBuffer , this->jointsData->count * sizeof(Joint_T));
-
+	return 0;
 }
-*/
-
-//pose quat rot , trans , scale 행렬 변환
-
 
 void Skeleton::JointsLocalUpdate()
 {
@@ -129,11 +82,14 @@ void Skeleton::JointsLocalUpdate()
 		scale = XMVectorReplicate(this->jointsData->array[i].jointLocalPose.scale);
 		XMVectorSetW(scale, 1.F);
 	
-	
-
 		XMStoreFloat4x4(this->pose.jointsLocalPoseArr + i ,XMMatrixAffineTransformation(scale,g_XMZero,quatRot,trans) );
 		this->pose.jointsInversePoseArr[i] = jointsData->array[i].inverseBindPose;
 	}
+}
+
+DirectX::XMFLOAT4X4 Skeleton::GetGlobalHeadJointPoseMat()
+{
+	return this->pose.jointsGlobalPoseArr[headJointId];
 }
 
 void Skeleton::JointsGlobalPoseCompute()// 

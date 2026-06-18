@@ -1,156 +1,4 @@
-﻿E:\PhysicsBasedRendering\d3d11_setup\VertexShader.hlsl(22,13-107): warning X3578: Output value 'main' is not completely initialized
-  
-  compilation object save succeeded; see E:\PhysicsBasedRendering\x64\Debug\VertexShader.cso
-  MJ_D3D11_Animation.cpp
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Animation.cpp(107,24): warning C4267: '초기화 중': 'size_t'에서 'uint32_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Animation.cpp(108,25): warning C4267: '초기화 중': 'size_t'에서 'uint32_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Animation.cpp(109,25): warning C4267: '초기화 중': 'size_t'에서 'uint32_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  MJ_D3D11_Character.cpp
-  MJ_D3D11_CharacterRenderer.cpp
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_CharacterRenderer.cpp(78,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_CharacterRenderer.cpp(163,26): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_CharacterRenderer.cpp(182,52): warning C4267: '=': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_CharacterRenderer.cpp(187,43): warning C4267: '=': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_CharacterRenderer.cpp(356,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_CharacterRenderer.cpp(394,28): warning C4267: '초기화 중': 'size_t'에서 'uint32_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_CharacterRenderer.cpp(397,48): warning C4267: '=': 'size_t'에서 'uint32_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_CharacterRenderer.cpp(398,51): warning C4267: '=': 'size_t'에서 'uint32_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_CharacterRenderer.cpp(425,28): warning C4267: '초기화 중': 'size_t'에서 'uint32_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_CharacterRenderer.cpp(458,40): warning C4267: '=': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_CharacterRenderer.cpp(486,28): warning C4267: '초기화 중': 'size_t'에서 'uint32_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  MJ_D3D11_EPA.cpp
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_EPA.cpp(161,23): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_EPA.cpp(186,24): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  MJ_D3D11_GJK.cpp
-  MJ_D3D11_HalfEdge.cpp
-  MJ_D3D11_Mesh.cpp
-  MJ_D3D11_ShaderFile.cpp
-  MJ_D3D11_Simplex3D.cpp
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Simplex3D.cpp(77,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Simplex3D.cpp(90,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  MJ_D3D11_BVTree.cpp
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(19,10): warning C4099: 'BVtree::BvNode': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
-  (소스 파일 'MJ_D3D11_BVTree.cpp'을(를) 컴파일하는 중)
-      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
-      'BVtree::BvNode' 선언을 참조하십시오.
-  
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(20,10): warning C4099: 'BVtree::BvNode': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
-  (소스 파일 'MJ_D3D11_BVTree.cpp'을(를) 컴파일하는 중)
-      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
-      'BVtree::BvNode' 선언을 참조하십시오.
-  
-  MJ_D3D11_ConvexHull.cpp
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(212,9): warning C4477: 'printf' : 서식 문자열 '%x'에 'unsigned int' 형식의 인수가 필요하지만 variadic 인수 13의 형식이 'ConvexHullFace_T *'입니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(212,9): warning C4313: 'printf': 서식 문자열의 '%x'이(가) ConvexHullFace_T *' 형식의 인수 13과(와) 충돌합니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(232,10): warning C4477: 'printf' : 서식 문자열 '%x'에 'unsigned int' 형식의 인수가 필요하지만 variadic 인수 13의 형식이 'const T'입니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(232,10): warning C4477:         with
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(232,10): warning C4477:         [
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(232,10): warning C4477:             T=ConvexHullFace_T *
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(232,10): warning C4477:         ]
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(232,10): warning C4313: 'printf': 서식 문자열의 '%x'이(가) const T' 형식의 인수 13과(와) 충돌합니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(232,10): warning C4313:         with
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(232,10): warning C4313:         [
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(232,10): warning C4313:             T=ConvexHullFace_T *
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(232,10): warning C4313:         ]
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(317,13): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(321,11): warning C4477: 'printf' : 서식 문자열 '%x'에 'unsigned int' 형식의 인수가 필요하지만 variadic 인수 13의 형식이 'T'입니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(321,11): warning C4477:         with
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(321,11): warning C4477:         [
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(321,11): warning C4477:             T=ConvexHullFace_T *
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(321,11): warning C4477:         ]
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(321,11): warning C4313: 'printf': 서식 문자열의 '%x'이(가) T' 형식의 인수 13과(와) 충돌합니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(321,11): warning C4313:         with
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(321,11): warning C4313:         [
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(321,11): warning C4313:             T=ConvexHullFace_T *
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(321,11): warning C4313:         ]
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(396,60): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(502,61): warning C4244: '+=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(536,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(545,11): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 3의 형식이 'eastl::vector<DirectX::XMVECTOR *,eastl::allocator>::size_type'입니다.
-      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(545,11):
-      서식 문자열에서 '%zd'을(를) 사용하는 것이 좋습니다.
-  
-  MJ_D3D11_Skeleton.cpp
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Skeleton.cpp(122,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Skeleton.cpp(143,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  MJ_D3D11_UnitObject.cpp
-E:\PhysicsBasedRendering\d3d11_setup\OBJFileIO.h(40,9): warning C4005: 'ERROR': 매크로 재정의
-  (소스 파일 'MJ_D3D11_UnitObject.cpp'을(를) 컴파일하는 중)
-      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\wingdi.h(118,9):
-      'ERROR'의 이전 정의를 참조하십시오.
-  
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_UnitObject.cpp(75,76): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_UnitObject.cpp(76,79): warning C4267: '=': 'size_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_UnitObject.cpp(160,37): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_UnitObject.cpp(237,94): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
-  MJ_D3D11_WorldMap.cpp
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(19,10): warning C4099: 'BVtree::BvNode': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
-  (소스 파일 'MJ_D3D11_WorldMap.cpp'을(를) 컴파일하는 중)
-      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
-      'BVtree::BvNode' 선언을 참조하십시오.
-  
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(20,10): warning C4099: 'BVtree::BvNode': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
-  (소스 파일 'MJ_D3D11_WorldMap.cpp'을(를) 컴파일하는 중)
-      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
-      'BVtree::BvNode' 선언을 참조하십시오.
-  
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_WorldMap.cpp(213,15): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_WorldMap.cpp(232,14): warning C4101: 'normal' :참조되지 않은 지역 변수입니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_WorldMap.cpp(231,14): warning C4101: 'rayPoint' :참조되지 않은 지역 변수입니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_WorldMap.cpp(282,11): warning C4101: 'normal' :참조되지 않은 지역 변수입니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_WorldMap.cpp(281,11): warning C4101: 'rayPoint' :참조되지 않은 지역 변수입니다.
-  MJ_D3D11_Collision.cpp
-  MJ_D3D11_BasicCam.cpp
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(58,34): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(79,33): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(99,59): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(125,73): warning C4838: 'double'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(125,73): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(125,128): warning C4838: 'double'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(125,128): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(126,69): warning C4838: 'double'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(126,69): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(126,122): warning C4838: 'double'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(126,122): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(131,51): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  BmpFileIO.cpp
-  MJ_D3D11_OBJLoader.cpp
-E:\PhysicsBasedRendering\d3d11_setup\OBJFileIO.h(40,9): warning C4005: 'ERROR': 매크로 재정의
-  (소스 파일 'MJ_D3D11_OBJLoader.cpp'을(를) 컴파일하는 중)
-      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\wingdi.h(118,9):
-      'ERROR'의 이전 정의를 참조하십시오.
-  
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(102,48): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(147,48): warning C4267: '=': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(229,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(234,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(291,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(294,29): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(295,30): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(303,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(362,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  MS_GLTFLoader.cpp
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(62,39): warning C4267: '=': 'size_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(69,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(87,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(91,12): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(141,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(150,34): warning C4267: '+=': 'size_t'에서 'uint32_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(211,39): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(333,31): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(354,57): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(455,57): warning C4267: '초기화 중': 'size_t'에서 'uint32_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(455,31): warning C4267: '초기화 중': 'size_t'에서 'const uint32_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(468,36): warning C4267: '=': 'size_t'에서 'uint32_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(491,26): warning C4267: '초기화 중': 'size_t'에서 'uint32_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(551,19): warning C4244: '=': 'std::streamoff'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp(636,26): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  OBJFileIO.cpp
-E:\PhysicsBasedRendering\d3d11_setup\OBJFileIO.cpp(353,24): warning C4267: '+=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\OBJFileIO.cpp(509,12): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  코드를 생성하고 있습니다...
-E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_GJK.cpp(80,1): warning C4715: 'selectSimplexHandle': 모든 제어 경로에서 값을 반환하지는 않습니다.
-  main.cpp
+﻿  main.cpp
 E:\PhysicsBasedRendering\d3d11_setup\OBJFileIO.h(40,9): warning C4005: 'ERROR': 매크로 재정의
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
       C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\wingdi.h(118,9):
@@ -166,32 +14,32 @@ E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(20,10): warning C4099: 'B
       E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
       'BVtree::BvNode' 선언을 참조하십시오.
   
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(288,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(299,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(384,46): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(542,60): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(543,59): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(556,54): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(557,53): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(693,52): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(697,48): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(705,48): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(730,40): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(836,16): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(860,24): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(860,39): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(860,51): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(861,24): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(861,39): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(861,52): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(862,24): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(862,39): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(862,52): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(863,24): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(863,38): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(863,51): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(1248,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-E:\PhysicsBasedRendering\d3d11_setup\main.cpp(1253,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(289,20): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(300,20): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(385,46): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(543,60): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(544,59): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(557,54): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(558,53): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(700,52): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(704,48): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(712,48): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(737,40): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(846,16): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(872,24): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(872,39): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(872,51): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(873,24): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(873,39): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(873,52): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(874,24): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(874,39): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(874,52): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(875,24): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(875,38): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(875,51): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(1268,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\main.cpp(1273,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   d3d11_setup.vcxproj -> E:\PhysicsBasedRendering\x64\Debug\d3d11_setup.exe
   'pwsh.exe'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
   배치 파일이 아닙니다.

@@ -77,6 +77,7 @@ void MSGLTFLoader::GetSkeletonResource(SkeletonResource_T& outData)
 		outData.array[i].jointId = srcSkin.jointIds[i].c_str();
 		outData.array[i].nodeId = node.id;
 		outData.array[i].jointName = node.name;
+		printf("joint Name : %s \n", node.name);
 		outData.array[i].parentIndex = 0;
 
 		outData.array[i].jointLocalPose.quatRot = { node.rotation.x ,node.rotation.y , node.rotation.z , node.rotation.w};
@@ -493,10 +494,11 @@ void MSGLTFLoader::GetAnimationResource(AnimationResource_T& outData, size_t joi
 			{
 				outData.animationClip[i].totalTime = timeData[timeKeyCount - 1];
 			}
- 
+			
 
 			if (animationTarget.path == TargetPath::TARGET_TRANSLATION)
 			{
+				outData.animationClip[i].AnimationJoint[skeletonArrIndex].jointTransDurationTime = timeData[timeKeyCount - 1];
 				for (uint32_t t = 0; t < timeKeyCount; ++t)
 				{
 					AnimationKeyTrans_T data = {
@@ -509,6 +511,7 @@ void MSGLTFLoader::GetAnimationResource(AnimationResource_T& outData, size_t joi
 			}
 			else if (animationTarget.path == TargetPath::TARGET_ROTATION)
 			{
+				outData.animationClip[i].AnimationJoint[skeletonArrIndex].jointQuatDurationTime = timeData[timeKeyCount - 1];
 				for (uint32_t t = 0; t < timeKeyCount; ++t)
 				{
 					AnimationKeyQuatRot_T data = {
@@ -520,6 +523,7 @@ void MSGLTFLoader::GetAnimationResource(AnimationResource_T& outData, size_t joi
 			}
 			else if (animationTarget.path == TargetPath::TARGET_SCALE)
 			{
+				outData.animationClip[i].AnimationJoint[skeletonArrIndex].jointScaleDurationTime = timeData[timeKeyCount - 1];
 				for (uint32_t t = 0; t < timeKeyCount; ++t)
 				{
 					AnimationKeyScale_T data = {

@@ -105,7 +105,7 @@ void CharacterRenderer::InitPipeLine(
 	characterPixelShader = psFile.PixelShaderCompile(dev);
 	if ( vsFile.GetBlobSize() == 0)
 	{
-		printf("HLSL 컴파일 실패! 셰이더 코드를 확인하세요.\n");
+		printf("HLSL compile error\n");
 		assert(false && "Vertex Shader Blob is NULL!");
 	}
 
@@ -115,7 +115,6 @@ void CharacterRenderer::InitPipeLine(
 
 	if (FAILED(hr))
 	{
-		// 여기서 브레이크포인트가 걸린다면 C++ InputLayout과 HLSL Signature가 불일치하는 것입니다.
 		printf("Character Input Layout Create Failed!\n");
 		assert(false && "Input Layout Mismatch!");
 	}
@@ -164,7 +163,7 @@ void CharacterRenderer::InitData(ID3D11Device* dev, ID3D11DeviceContext* devCon,
 		{
 			MeshVertex_T data = meshInfo->meshData->array[i].vertices[j];
 
-			printf("v %d : %f %f %f %f uv : %f , %f \n", cnt++, data.position.x , data.position.y , data.position.z, data.position.w , data.uv.x , data.uv.y);
+			//printf("v %d : %f %f %f %f uv : %f , %f \n", cnt++, data.position.x , data.position.y , data.position.z, data.position.w , data.uv.x , data.uv.y);
 			
 			inputVerticesTempBuffer.push_back(data);
 		}
@@ -344,11 +343,13 @@ void CharacterRenderer::SetCharacter(ID3D11DeviceContext* devCon , Character& ch
 {
 
 
-	DirectX::XMMATRIX initModel =   {50.F , 0.F , 0.F , 0.F,
+	/*DirectX::XMMATRIX initModel =   {50.F , 0.F , 0.F , 0.F, 이전 테스트 용
 									 0.F ,50.F , 0.F , 0.F ,
 									 0.F , 0.F , 50.F , 0.F ,
-									  -376.000000F , 61.004238F ,  -608.926636F , 1.F };
+									  -376.000000F , 61.004238F ,  -608.926636F , 1.F };*/
 
+	DirectX::XMMATRIX initModel = character.GetModelMatrix();
+	
 	const DirectX::XMFLOAT4X4* joints = character.GetCurrentJointsMatrix(&jointsCount);
 	const DirectX::XMFLOAT4X4* inverseJoints = character.GetInverseJoints(&jointsCount);
 	jointsMatrixBuffer = new DirectX::XMMATRIX[jointsCount];
