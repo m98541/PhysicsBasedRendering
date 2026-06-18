@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #ifndef VERTEXTYPE_H
 #define VERTEXTYPE_H
 #include <DirectXMath.h>

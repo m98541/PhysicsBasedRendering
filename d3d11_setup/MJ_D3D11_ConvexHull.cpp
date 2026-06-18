@@ -1,4 +1,4 @@
-#include "MJ_D3D11_ConvexHull.h"
+ï»¿#include "MJ_D3D11_ConvexHull.h"
 #include <EASTL/vector.h>
 #include <EASTL/set.h>
 #include <EASTL/sort.h>
@@ -22,7 +22,7 @@ inline HalfEdge::HE_FACE_T* ToHEFace(ConvexHullFace_T* convexHullFace)
 
 struct VertexCompare {
 	bool operator()(const VERTEX_T& lhs, const VERTEX_T& rhs) const {
-		// À§¿Í µ¿ÀÏÇÑ ºñ±³ ·ÎÁ÷
+		// ìœ„ì™€ ë™ì¼í•œ ë¹„êµ ë¡œì§
 		if (lhs.pos.x != rhs.pos.x) return lhs.pos.x < rhs.pos.x;
 		if (lhs.pos.y != rhs.pos.y) return lhs.pos.y < rhs.pos.y;
 		if (lhs.pos.z != rhs.pos.z) return lhs.pos.z < rhs.pos.z;
@@ -47,7 +47,7 @@ ConvexHull::ConvexHull() : Convex(CONVEXHULL)
 }
 ConvexHull::ConvexHull(DirectX::XMVECTOR* inVertexArray, unsigned int size): Convex(CONVEXHULL)
 {
-    //ÃÊ±â ½ÉÇÃ·¢½º ±¸¼º
+    //ì´ˆê¸° ì‹¬í”Œë™ìŠ¤ êµ¬ì„±
 	CreateConvexHull(inVertexArray, size);
 }
 
@@ -60,7 +60,7 @@ ConvexHull::~ConvexHull()
 }
 
 /*
-// »èÁ¦µÈ ¸éµé°ú ¿Ü°¢¼±À» ÁıÇÕ°ú map¿¡ ´ã¾ÆÁÜ
+// ì‚­ì œëœ ë©´ë“¤ê³¼ ì™¸ê°ì„ ì„ ì§‘í•©ê³¼ mapì— ë‹´ì•„ì¤Œ
 void RecursiveDeleteFaceSearch(ConvexHullFace_T* face, HE_VERT_T* extensionPoint ,vector<ConvexHullFace_T*>* searchFaces, map<HE_EDGE_T*, HE_EDGE_T*>* searchEdgesMap )
 {
 	if (face == nullptr) return;
@@ -88,12 +88,12 @@ void RecursiveDeleteFaceSearch(ConvexHullFace_T* face, HE_VERT_T* extensionPoint
 	{
 		if ((*searchFaces)[i] == face)
 		{
-			// ÀÌ¹Ì Ã³¸®ÁßÀÎ ¸éÀÌ¹Ç·Î, Àç±Í¸¦ Áß´ÜÇÕ´Ï´Ù.
+			// ì´ë¯¸ ì²˜ë¦¬ì¤‘ì¸ ë©´ì´ë¯€ë¡œ, ì¬ê·€ë¥¼ ì¤‘ë‹¨í•©ë‹ˆë‹¤.
 			return;
 		}
 	}
 
-	if (XMVector3Dot(face->norm, (extensionPoint->pos)).m128_f32[0] > 0)// Á¡¿¡¼­ º¸ÀÌ´Â ¸é È®ÀÎ
+	if (XMVector3Dot(face->norm, (extensionPoint->pos)).m128_f32[0] > 0)// ì ì—ì„œ ë³´ì´ëŠ” ë©´ í™•ì¸
 	{
 		HE_EDGE_T* edge = face->edge;
 		auto it = eastl::find(searchFaces->begin() , searchFaces->end() , face);
@@ -112,7 +112,7 @@ void RecursiveDeleteFaceSearch(ConvexHullFace_T* face, HE_VERT_T* extensionPoint
 			else
 			{
 				 
-				//ÇØ´ç ¿§Áö ¹İ´ë ÆäÀÌ½º°¡ Á¸Àç ÇÔÀ¸·Î ÇöÀç ¿§Áö ÀúÀåÈÄ ÇØ´ç ÆäÀÌ½º Å½»ö
+				//í•´ë‹¹ ì—£ì§€ ë°˜ëŒ€ í˜ì´ìŠ¤ê°€ ì¡´ì¬ í•¨ìœ¼ë¡œ í˜„ì¬ ì—£ì§€ ì €ì¥í›„ í•´ë‹¹ í˜ì´ìŠ¤ íƒìƒ‰
 				(*searchEdgesMap)[edge] = edge;
 				
 				if (edge->pair == nullptr)
@@ -165,7 +165,7 @@ void DeleteFaceSearch(vector<ConvexHullFace_T*> activeFace ,ConvexHullFace_T* fa
 	//pass-1 search face
 	if (searchFaces == nullptr || searchEdgesMap == nullptr || extensionPoint == nullptr)
 	{
-		return; // È¤Àº assert
+		return; // í˜¹ì€ assert
 	}
 	for (auto const& faceDelete : activeFace)
 	{
@@ -209,7 +209,7 @@ void DeleteFaceSearch(vector<ConvexHullFace_T*> activeFace ,ConvexHullFace_T* fa
 
 void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionPoint)
 {
-	printf("start face : %f %f %f %f ->%f %f %f %f ->%f %f %f %f  face addr : %x\n"
+	/*printf("start face : %f %f %f %f ->%f %f %f %f ->%f %f %f %f  face addr : %x\n"
 		, startFace->edge->originVert->pos.m128_f32[0]
 		, startFace->edge->originVert->pos.m128_f32[1]
 		, startFace->edge->originVert->pos.m128_f32[2]
@@ -224,9 +224,9 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 		, startFace->edge->next->next->originVert->pos.m128_f32[1]
 		, startFace->edge->next->next->originVert->pos.m128_f32[2]
 		, startFace->edge->next->next->originVert->pos.m128_f32[3]
-		, startFace);
+		, startFace);*/
 
-	printf("ÇöÀç È°¼º ¸é \n");
+	/*printf("í˜„ì¬ í™œì„± ë©´ \n");
 	for (auto const& face : this->activeFaces)
 	{
 		printf("face : %f %f %f %f ->%f %f %f %f ->%f %f %f %f  face addr : %x\n"
@@ -246,7 +246,7 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 			, face->edge->next->next->originVert->pos.m128_f32[3]
 			, face);
 	}
-	printf("\n");
+	printf("\n");*/
 
 	vector<ConvexHullFace_T*> deleteFaces;
 	vector<HE_EDGE_T*> baseEdgeSet;
@@ -262,10 +262,10 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 	
 	DeleteFaceSearch(this->activeFaces , startFace, newExtexsionVert, &deleteFaces, &baseEdgeMap);
 	
-	printf("¿Ü°¢ °æ°è¸é\n");
+	/*printf("ì™¸ê° ê²½ê³„ë©´\n");*/
 	for (auto const& baseEdge : baseEdgeMap) {
 		baseEdgeSet.push_back(baseEdge.second); 
-		printf("edge vert %f %f %f %f <- origin vert %f %f %f %f, "
+		/*printf("edge vert %f %f %f %f <- origin vert %f %f %f %f, "
 			, baseEdge.second->vert->pos.m128_f32[0]
 			, baseEdge.second->vert->pos.m128_f32[1]
 			, baseEdge.second->vert->pos.m128_f32[2]
@@ -273,11 +273,11 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 			, baseEdge.second->originVert->pos.m128_f32[0]
 			, baseEdge.second->originVert->pos.m128_f32[1]
 			, baseEdge.second->originVert->pos.m128_f32[2]
-			, baseEdge.second->originVert->pos.m128_f32[3]);
+			, baseEdge.second->originVert->pos.m128_f32[3]);*/
 
 		if (baseEdge.second->pair != nullptr)
 		{
-			printf("edge pair vert %f %f %f %f <- origin vert %f %f %f %f,\n"
+			/*printf("edge pair vert %f %f %f %f <- origin vert %f %f %f %f,\n"
 				, baseEdge.second->pair->vert->pos.m128_f32[0]
 				, baseEdge.second->pair->vert->pos.m128_f32[1]
 				, baseEdge.second->pair->vert->pos.m128_f32[2]
@@ -294,7 +294,7 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[0]
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[1]
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[2]
-				, baseEdge.second->pair->next->originVert->pos.m128_f32[3]);
+				, baseEdge.second->pair->next->originVert->pos.m128_f32[3]);*/
 
 		}
 		else
@@ -312,13 +312,13 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 		newPointSetSize += deleteFaces[i]->pointSet.size();
 	}
 	newPointSet.reserve(newPointSetSize);
-	set<ConvexHullFace_T*> deleteFaceSet(deleteFaces.begin(), deleteFaces.end());// º¤ÅÍ±¸Á¶·Î ÀÚ·á ¸ğÀº µÚ ÁıÇÕ(·¹µåºí·¢Æ®¸®) ÇüÅÂ º¯È¯
-	printf("»èÁ¦¸é \n");
+	set<ConvexHullFace_T*> deleteFaceSet(deleteFaces.begin(), deleteFaces.end());// ë²¡í„°êµ¬ì¡°ë¡œ ìë£Œ ëª¨ì€ ë’¤ ì§‘í•©(ë ˆë“œë¸”ë™íŠ¸ë¦¬) í˜•íƒœ ë³€í™˜
+	printf("ì‚­ì œë©´ \n");
 	for (int i = activeFaces.size() - 1; i >= 0; i--)
 	{
 		if (deleteFaceSet.count(activeFaces[i]))
 		{
-			printf("face : %f %f %f %f ->%f %f %f %f ->%f %f %f %f  face addr : %x\n"
+		/*	printf("face : %f %f %f %f ->%f %f %f %f ->%f %f %f %f  face addr : %x\n"
 				, activeFaces[i]->edge->originVert->pos.m128_f32[0]
 				, activeFaces[i]->edge->originVert->pos.m128_f32[1]
 				, activeFaces[i]->edge->originVert->pos.m128_f32[2]
@@ -333,7 +333,7 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 				, activeFaces[i]->edge->next->next->originVert->pos.m128_f32[1]
 				, activeFaces[i]->edge->next->next->originVert->pos.m128_f32[2]
 				, activeFaces[i]->edge->next->next->originVert->pos.m128_f32[3]
-				, activeFaces[i]);
+				, activeFaces[i]);*/
 			activeFaces[i] = activeFaces.back();
 			
 			activeFaces.pop_back();
@@ -345,9 +345,9 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 		newPointSet.insert(newPointSet.end() , deleteFaces[i]->pointSet.begin() , deleteFaces[i]->pointSet.end());
 		DeleteHETriFace(deleteFaces[i]);
 	}
-	printf("»èÁ¦ÈÄ\n");
+	printf("ì‚­ì œí›„\n");
 	for (auto const& baseEdge : baseEdgeMap) {
-		printf("edge vert %f %f %f %f <- origin vert %f %f %f %f, "
+		/*printf("edge vert %f %f %f %f <- origin vert %f %f %f %f, "
 			, baseEdge.second->vert->pos.m128_f32[0]
 			, baseEdge.second->vert->pos.m128_f32[1]
 			, baseEdge.second->vert->pos.m128_f32[2]
@@ -355,11 +355,11 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 			, baseEdge.second->originVert->pos.m128_f32[0]
 			, baseEdge.second->originVert->pos.m128_f32[1]
 			, baseEdge.second->originVert->pos.m128_f32[2]
-			, baseEdge.second->originVert->pos.m128_f32[3]);
+			, baseEdge.second->originVert->pos.m128_f32[3]);*/
 
 		if (baseEdge.second->pair != nullptr)
 		{
-			printf("edge pair vert %f %f %f %f <- origin vert %f %f %f %f,\n"
+			/*printf("edge pair vert %f %f %f %f <- origin vert %f %f %f %f,\n"
 				, baseEdge.second->pair->vert->pos.m128_f32[0]
 				, baseEdge.second->pair->vert->pos.m128_f32[1]
 				, baseEdge.second->pair->vert->pos.m128_f32[2]
@@ -376,7 +376,7 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[0]
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[1]
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[2]
-				, baseEdge.second->pair->next->originVert->pos.m128_f32[3]);
+				, baseEdge.second->pair->next->originVert->pos.m128_f32[3]);*/
 		}
 		else
 		{
@@ -390,7 +390,7 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 	eastl::vector<ConvexHullFace_T*> newFaces;
 	if (baseEdgeSet.size() > 0)
 	{
-		newFaces.reserve(baseEdgeSet.size()); // ¹Ì¸® ¸Ş¸ğ¸® È®º¸
+		newFaces.reserve(baseEdgeSet.size()); // ë¯¸ë¦¬ ë©”ëª¨ë¦¬ í™•ë³´
 	}
 	eastl::vector<HE_FACE_T*> outNewFaces;
 	CreateVertEdgesTriFan(baseEdgeSet.data(), baseEdgeSet.size(), newExtexsionVert, simplexSet, outNewFaces);
@@ -400,15 +400,15 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 			activeFaces.push_back(ToConvexHullFace(face));
 			newFaces.push_back(ToConvexHullFace(face));
 	}
-	printf("»ı¼º¸é Áß½ÉÁ¡ : %f %f %f %f \n"
+	/*printf("ìƒì„±ë©´ ì¤‘ì‹¬ì  : %f %f %f %f \n"
 		, newExtexsionVert->pos.m128_f32[0]
 		, newExtexsionVert->pos.m128_f32[1]
 		, newExtexsionVert->pos.m128_f32[2]
-		, newExtexsionVert->pos.m128_f32[3]);
+		, newExtexsionVert->pos.m128_f32[3]);*/
 
-	printf("¸é»ı¼º ÈÄ\n");
+	printf("ë©´ìƒì„± í›„\n");
 	for (auto const& baseEdge : baseEdgeMap) {
-		printf("edge vert %f %f %f %f <- origin vert %f %f %f %f, "
+		/*printf("edge vert %f %f %f %f <- origin vert %f %f %f %f, "
 			, baseEdge.second->vert->pos.m128_f32[0]
 			, baseEdge.second->vert->pos.m128_f32[1]
 			, baseEdge.second->vert->pos.m128_f32[2]
@@ -416,11 +416,11 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 			, baseEdge.second->originVert->pos.m128_f32[0]
 			, baseEdge.second->originVert->pos.m128_f32[1]
 			, baseEdge.second->originVert->pos.m128_f32[2]
-			, baseEdge.second->originVert->pos.m128_f32[3]);
+			, baseEdge.second->originVert->pos.m128_f32[3]);*/
 
 		if (baseEdge.second->pair != nullptr)
 		{
-			printf("edge pair vert %f %f %f %f <- origin vert %f %f %f %f,\n"
+			/*printf("edge pair vert %f %f %f %f <- origin vert %f %f %f %f,\n"
 				, baseEdge.second->pair->vert->pos.m128_f32[0]
 				, baseEdge.second->pair->vert->pos.m128_f32[1]
 				, baseEdge.second->pair->vert->pos.m128_f32[2]
@@ -437,7 +437,7 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[0]
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[1]
 				, baseEdge.second->pair->next->originVert->pos.m128_f32[2]
-				, baseEdge.second->pair->next->originVert->pos.m128_f32[3]);
+				, baseEdge.second->pair->next->originVert->pos.m128_f32[3]);*/
 		}
 		else
 		{
@@ -446,7 +446,7 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 
 	}
 
-	//»õ·Î¿î ±¸Á¶¿¡ ³»ºÎÁ¡ »èÁ¦ ¹× ¿ÜºÎÁ¡ Å½»ö
+	//ìƒˆë¡œìš´ êµ¬ì¡°ì— ë‚´ë¶€ì  ì‚­ì œ ë° ì™¸ë¶€ì  íƒìƒ‰
 	for (int i = 0; i < newPointSetSize; i++)
 	{
 		XMVECTOR* point = newPointSet[i];
@@ -471,7 +471,7 @@ void ConvexHull::ExtensionHull(ConvexHullFace_T* startFace ,XMVECTOR* extensionP
 		}
 		
 		
-		if (bestFace != nullptr) // 0.0 ´ë½Å Epsilon »ç¿ë
+		if (bestFace != nullptr) // 0.0 ëŒ€ì‹  Epsilon ì‚¬ìš©
 		{
 			
 			bestFace->pointSet.push_back(point);
@@ -520,7 +520,7 @@ void ConvexHull::CreateConvexHull(DirectX::XMVECTOR* inVertexArray, unsigned int
 	initSimplex = new Simpelx3D(inVertexArray, size);
 	this->simplexSet = &initSimplex->simplexHESet;
 	ConvexHullFace_T* face = nullptr;
-	//ÃÊ±â ¼³Á¤
+	//ì´ˆê¸° ì„¤ì •
 	
 	for (int i = 0; i < initSimplex->faceCount; i++)
 	{
@@ -530,7 +530,7 @@ void ConvexHull::CreateConvexHull(DirectX::XMVECTOR* inVertexArray, unsigned int
 		face->curFarthestPoint.len = 0;
 	}
 
-	printf("simplex »ı¼º \n");
+	printf("simplex ìƒì„± \n");
 
 	int cnt = 0;
 	for (int i = 0; i < size; i++)
@@ -555,14 +555,14 @@ void ConvexHull::CreateConvexHull(DirectX::XMVECTOR* inVertexArray, unsigned int
 		}
 			
 	}
-	printf("Çæ»ı¼º ÃÊ±âÈ­ ¿Ï·á %d \n", cnt);
+	printf("í—ìƒì„± ì´ˆê¸°í™” ì™„ë£Œ %d \n", cnt);
 
 
-	//Çæ »ı¼º ·çÇÁ
+	//í— ìƒì„± ë£¨í”„
 	HullInfo_T CurHullInfo = GetHullInfo();
 	while (CurHullInfo.fathestVert != nullptr)
 	{
-		printf("Çæ»ı¼º Áß\n");
+		printf("í—ìƒì„± ì¤‘\n");
 		ExtensionHull(CurHullInfo.fathestVert->face, CurHullInfo.fathestVert->point);
 		CurHullInfo = this->GetHullInfo();
 	}

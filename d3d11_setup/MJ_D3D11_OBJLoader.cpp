@@ -1,4 +1,4 @@
-#include "MJ_D3D11_OBJLoader.h"
+ï»¿#include "MJ_D3D11_OBJLoader.h"
 
 #include <stdio.h>
 #include <EASTL/map.h>
@@ -7,7 +7,7 @@
 
 struct VertexCompare {
 	bool operator()(const VERTEX_T& lhs, const VERTEX_T& rhs) const {
-		// À§¿Í µ¿ÀÏÇÑ ºñ±³ ·ÎÁ÷
+		// ìœ„ì™€ ë™ì¼í•œ ë¹„êµ ë¡œì§
 		if (lhs.pos.x != rhs.pos.x) return lhs.pos.x < rhs.pos.x;
 		if (lhs.pos.y != rhs.pos.y) return lhs.pos.y < rhs.pos.y;
 		if (lhs.pos.z != rhs.pos.z) return lhs.pos.z < rhs.pos.z;
@@ -82,7 +82,7 @@ bool MJD3D11LoadOBJ(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, ID3D10Blob* 
 
 
 
-	//ÀÏ´Ü ÅØ½ºÃ³ bmp·Î °íÁ¤...°á°ú´Â ºÁ¾ßÁö..
+	//ì¼ë‹¨ í…ìŠ¤ì²˜ bmpë¡œ ê³ ì •...ê²°ê³¼ëŠ” ë´ì•¼ì§€..
 	VERTEX_T* tempVertexBuffer = (VERTEX_T*)malloc(sizeof(VERTEX_T) * objFileBuffer->objectBufferLen);
 	(*ObjHandle)->indexBuffer = (UINT*)malloc(sizeof(UINT) * objFileBuffer->objectBufferLen);
 
@@ -94,7 +94,7 @@ bool MJD3D11LoadOBJ(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, ID3D10Blob* 
 	DevCon->PSSetShaderResources(0, 1, (*ObjHandle)->textureResourceViewHandleArr);
 	DevCon->PSSetSamplers(0, 1, &(*ObjHandle)->samplerHandle);
 
-	eastl::map<VERTEX_T, unsigned int, VertexCompare> uniqueVertexMap;//vertex ¶û tex ¸¸
+	eastl::map<VERTEX_T, unsigned int, VertexCompare> uniqueVertexMap;//vertex ë‘ tex ë§Œ
 	unsigned int uniqueVertexMapCount = 0;
 	VERTEX_T key;
 	eastl::vector<VERTEX_T> tempUniqueVertexSet;
@@ -105,7 +105,7 @@ bool MJD3D11LoadOBJ(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, ID3D10Blob* 
 		memcpy(&tempVertexBuffer[i].pos, objFileBuffer->objectBuffer + i * objFileBuffer->objectBufferLineSize, sizeof(float) * 4);
 
 		memcpy(&tempVertexBuffer[i].tex, objFileBuffer->objectBuffer + i * objFileBuffer->objectBufferLineSize + 4, sizeof(float) * 2);
-		// norm °ú vertex ÀÏÄ¡
+		// norm ê³¼ vertex ì¼ì¹˜
 		memcpy(&tempVertexBuffer[i].norm, objFileBuffer->objectBuffer + i * objFileBuffer->objectBufferLineSize + 6, sizeof(float) * 4);
 		tempVertexBuffer[i].textureIdx = objFileBuffer->mtlBuffer[objFileBuffer->materialIdxBuffer[i]].textureIdx;
 
@@ -134,7 +134,7 @@ bool MJD3D11LoadOBJ(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, ID3D10Blob* 
 		}
 		else
 		{
-			(*ObjHandle)->indexBuffer[i] = uniqueVertexMap[key];//Áßº¹µÈ vertex ¿¡ ´ëÇØ¼­´Â ±âÁ¸¿¡ µî·ÏµÈ idx ÀÔ·Â
+			(*ObjHandle)->indexBuffer[i] = uniqueVertexMap[key];//ì¤‘ë³µëœ vertex ì— ëŒ€í•´ì„œëŠ” ê¸°ì¡´ì— ë“±ë¡ëœ idx ì…ë ¥
 		}
 
 		//printf("%d %d \n",i ,(*ObjHandle)->indexBuffer[i]);
@@ -170,10 +170,13 @@ bool MJD3D11LoadOBJ(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, ID3D10Blob* 
 	memcpy(mappingSrc.pData, tempUniqueVertexSet.data(), sizeof(VERTEX_T) * tempUniqueVertexSet.size());
 	DevCon->Unmap((*ObjHandle)->vertexBufferHandle, NULL);
 
+
+
+
 	D3D11_INPUT_ELEMENT_DESC inputElement[4] = {
-		//0¹ÙÀÌÆ® ºÎÅÍ 
+		//0ë°”ì´íŠ¸ ë¶€í„° 
 		{"POSITION" , 0 , DXGI_FORMAT_R32G32B32A32_FLOAT, 0 , 0  , D3D11_INPUT_PER_VERTEX_DATA , 0},
-		//12¹ÙÀÌÆ® ºÎÅÍ
+		//12ë°”ì´íŠ¸ ë¶€í„°
 		{"TEXCOORD" , 0 , DXGI_FORMAT_R32G32_FLOAT, 0 , 16 , D3D11_INPUT_PER_VERTEX_DATA , 0},
 
 		{"NORM" , 0 , DXGI_FORMAT_R32G32B32A32_FLOAT, 0 , 24 , D3D11_INPUT_PER_VERTEX_DATA , 0},
@@ -218,7 +221,7 @@ bool MJD3D11DrawOBJ(ID3D11DeviceContext* DevCon, MJD3D11OBJ_HANDLE_t* ObjHandle)
 
 void CreateSRVFromBMPFile(ID3D11Device* device, const char* fileName, UINT bmp_format, ID3D11ShaderResourceView** Texture_SRV)
 {
-	//ÅØ½ºÃ³ ÀÌ¹ÌÁö ·Îµå
+	//í…ìŠ¤ì²˜ ì´ë¯¸ì§€ ë¡œë“œ
 	BMPFILE textureImage = {};
 	LoadBmpFile(fileName, &textureImage, bmp_format);
 	BYTE* image_32bit = (BYTE*)malloc(textureImage.width * textureImage.height * 4);
@@ -252,18 +255,18 @@ void CreateSRVFromBMPFile(ID3D11Device* device, const char* fileName, UINT bmp_f
 	textureDesc.CPUAccessFlags = 0;
 	textureDesc.MiscFlags = 0;
 
-	//¸®¼Ò½º ±¸Á¶Ã¼ ¼±¾ğ
+	//ë¦¬ì†ŒìŠ¤ êµ¬ì¡°ì²´ ì„ ì–¸
 	D3D11_SUBRESOURCE_DATA source_data;
 	source_data.pSysMem = image_32bit;
-	//BMPFILEÀÇ formatÀº ÇÑ¼¿ÀÇ ¹ÙÀÌÆ® ¼ö ¿Í µ¿ÀÏ
+	//BMPFILEì˜ formatì€ í•œì…€ì˜ ë°”ì´íŠ¸ ìˆ˜ ì™€ ë™ì¼
 	source_data.SysMemPitch = textureImage.width * BMP_FORMAT_BGRA;
-	source_data.SysMemSlicePitch = 0;//3D ÅØ½ºÃ³¿¡¼­ÀÇ 1ÀåÀÇ Å©±â 2DÀÇ °æ¿ì 0
+	source_data.SysMemSlicePitch = 0;//3D í…ìŠ¤ì²˜ì—ì„œì˜ 1ì¥ì˜ í¬ê¸° 2Dì˜ ê²½ìš° 0
 
-	//texture2D ±¸Á¶ »ı¼º
+	//texture2D êµ¬ì¡° ìƒì„±
 	ID3D11Texture2D* pTexture2D = nullptr;
 	device->CreateTexture2D(&textureDesc, &source_data, &pTexture2D);
 
-	//SRV »ı¼º DirectX ¿¡¼­´Â view´ÜÀ§·Î???
+	//SRV ìƒì„± DirectX ì—ì„œëŠ” viewë‹¨ìœ„ë¡œ???
 	D3D11_SHADER_RESOURCE_VIEW_DESC srv_desc = {};
 	srv_desc.Format = textureDesc.Format;
 	srv_desc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
@@ -279,8 +282,8 @@ void CreateSRVFromBMPFile(ID3D11Device* device, const char* fileName, UINT bmp_f
 
 void CreateSRVArrayFromBMPFile(ID3D11Device* device, OBJFILE_BUFFER_T* objFileBuffer, UINT bmp_format, ID3D11ShaderResourceView** Texture_SRV)
 {
-	//ÅØ½ºÃ³ ÀÌ¹ÌÁö ·Îµå
-	//ÅØ½ºÃ³ ÀÌ¹ÌÁö ·Îµå
+	//í…ìŠ¤ì²˜ ì´ë¯¸ì§€ ë¡œë“œ
+	//í…ìŠ¤ì²˜ ì´ë¯¸ì§€ ë¡œë“œ
 	BMPFILE* textureImage = (BMPFILE*)malloc(sizeof(BMPFILE) * objFileBuffer->textureImageNameLen);
 	int maxHeight = 0;
 	int maxWidth = 0;
@@ -320,9 +323,9 @@ void CreateSRVArrayFromBMPFile(ID3D11Device* device, OBJFILE_BUFFER_T* objFileBu
 
 		}
 		sourceArr_data[i].pSysMem = imageArr_32bit[i];
-		//BMPFILEÀÇ formatÀº ÇÑ¼¿ÀÇ ¹ÙÀÌÆ® ¼ö ¿Í µ¿ÀÏ
+		//BMPFILEì˜ formatì€ í•œì…€ì˜ ë°”ì´íŠ¸ ìˆ˜ ì™€ ë™ì¼
 		sourceArr_data[i].SysMemPitch = maxWidth * BMP_FORMAT_BGRA;
-		sourceArr_data[i].SysMemSlicePitch = 0;//3D ÅØ½ºÃ³¿¡¼­ÀÇ 1ÀåÀÇ Å©±â 2DÀÇ °æ¿ì 0
+		sourceArr_data[i].SysMemSlicePitch = 0;//3D í…ìŠ¤ì²˜ì—ì„œì˜ 1ì¥ì˜ í¬ê¸° 2Dì˜ ê²½ìš° 0
 	}
 
 	D3D11_TEXTURE2D_DESC textureDesc = {};
@@ -340,11 +343,11 @@ void CreateSRVArrayFromBMPFile(ID3D11Device* device, OBJFILE_BUFFER_T* objFileBu
 	textureDesc.CPUAccessFlags = 0;
 	textureDesc.MiscFlags = 0;
 
-	//texture2D ±¸Á¶ »ı¼º
+	//texture2D êµ¬ì¡° ìƒì„±
 	ID3D11Texture2D* pTexture2D = nullptr;
 	device->CreateTexture2D(&textureDesc, sourceArr_data, &pTexture2D);
 
-	//SRV »ı¼º DirectX ¿¡¼­´Â view´ÜÀ§·Î???
+	//SRV ìƒì„± DirectX ì—ì„œëŠ” viewë‹¨ìœ„ë¡œ???
 	D3D11_SHADER_RESOURCE_VIEW_DESC srv_desc = {};
 	srv_desc.Format = textureDesc.Format;
 	srv_desc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2DARRAY;

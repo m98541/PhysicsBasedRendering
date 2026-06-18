@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #ifndef MJ_D3D11_GJK_H
 #define MJ_D3D11_GJK_H
 #include "MJ_D3D11_ConvexHull.h"

@@ -147,12 +147,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="MJ_D3D11_Animation.cpp" />
+    <ClCompile Include="MJ_D3D11_Character.cpp" />
+    <ClCompile Include="MJ_D3D11_CharacterRenderer.cpp" />
     <ClCompile Include="MJ_D3D11_EPA.cpp" />
     <ClCompile Include="MJ_D3D11_GJK.cpp" />
     <ClCompile Include="MJ_D3D11_HalfEdge.cpp" />
+    <ClCompile Include="MJ_D3D11_Mesh.cpp" />
+    <ClCompile Include="MJ_D3D11_ShaderFile.cpp" />
     <ClCompile Include="MJ_D3D11_Simplex3D.cpp" />
     <ClCompile Include="MJ_D3D11_BVTree.cpp" />
     <ClCompile Include="MJ_D3D11_ConvexHull.cpp" />
+    <ClCompile Include="MJ_D3D11_Skeleton.cpp" />
     <ClCompile Include="MJ_D3D11_UnitObject.cpp" />
     <ClCompile Include="MJ_D3D11_WorldMap.cpp" />
     <ClCompile Include="MJ_D3D11_Collision.cpp" />
@@ -162,35 +168,46 @@
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsWinRT>
     </ClCompile>
     <ClCompile Include="MJ_D3D11_OBJLoader.cpp" />
+    <ClCompile Include="MS_GLTFLoader.cpp" />
     <ClCompile Include="OBJFileIO.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="PixelShader.hlsl">
+    <FxCompile Include="Character_Pixel_Shader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
-      <DisableOptimizations Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DisableOptimizations>
-      <DisableOptimizations Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DisableOptimizations>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
     </FxCompile>
-    <FxCompile Include="VertexShader.hlsl">
+    <FxCompile Include="Character_Vertex_Shader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="PixelShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile Include="VertexShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MJ_D3D11_Animation.h" />
+    <ClInclude Include="MJ_D3D11_CharacterRenderer.h" />
+    <ClInclude Include="MJ_D3D11_CharacterResource.h" />
+    <ClInclude Include="MJ_D3D11_Mesh.h" />
     <ClInclude Include="MJ_D3D11_BVTree.h" />
+    <ClInclude Include="MJ_D3D11_Character.h" />
     <ClInclude Include="MJ_D3D11_Convex.h" />
     <ClInclude Include="MJ_D3D11_ConvexHull.h" />
     <ClInclude Include="MJ_D3D11_EPA.h" />
     <ClInclude Include="MJ_D3D11_GJK.h" />
     <ClInclude Include="MJ_D3D11_HalfEdge.h" />
+    <ClInclude Include="MJ_D3D11_ShaderFile.h" />
     <ClInclude Include="MJ_D3D11_Simplex3D.h" />
     <ClInclude Include="MJ_D3D11_UnitObject.h" />
     <ClInclude Include="MJ_D3D11_WorldMap.h" />
@@ -198,8 +215,10 @@
     <ClInclude Include="MJ_D3D11_BasicCam.h" />
     <ClInclude Include="BmpFileIO.h" />
     <ClInclude Include="MJ_D3D11_OBJLoader.h" />
+    <ClInclude Include="MS_GLTFLoader.h" />
     <ClInclude Include="OBJFileIO.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="MJ_D3D11_Skeleton.h" />
     <ClInclude Include="VertexType.h" />
   </ItemGroup>
   <ItemGroup>

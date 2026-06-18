@@ -1,9 +1,15 @@
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Animation.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_Animation.obj
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Character.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_Character.obj
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_CharacterRenderer.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_CharacterRenderer.obj
 E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_EPA.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_EPA.obj
 E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_GJK.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_GJK.obj
 E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_HalfEdge.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_HalfEdge.obj
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Mesh.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_Mesh.obj
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ShaderFile.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_ShaderFile.obj
 E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Simplex3D.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_Simplex3D.obj
 E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_BVTree.obj
 E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_ConvexHull.obj
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Skeleton.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_Skeleton.obj
 E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_UnitObject.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_UnitObject.obj
 E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_WorldMap.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_WorldMap.obj
 E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Collision.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_Collision.obj
@@ -11,4 +17,5 @@ E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp;E:\PhysicsBasedRender
 E:\PhysicsBasedRendering\d3d11_setup\BmpFileIO.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\BmpFileIO.obj
 E:\PhysicsBasedRendering\d3d11_setup\main.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\main.obj
 E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MJ_D3D11_OBJLoader.obj
+E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\MS_GLTFLoader.obj
 E:\PhysicsBasedRendering\d3d11_setup\OBJFileIO.cpp;E:\PhysicsBasedRendering\d3d11_setup\x64\Debug\OBJFileIO.obj

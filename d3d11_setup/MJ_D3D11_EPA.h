@@ -1,4 +1,4 @@
-#ifndef MJ_D3D11_EPA_H
+ï»¿#ifndef MJ_D3D11_EPA_H
 #define MJ_D3D11_EPA_H
 #include <DirectXMath.h>
 #include <EASTL/priority_queue.h>
@@ -7,9 +7,9 @@
 #include "MJ_D3D11_GJK.h"
 
 /*
-EPA FACE ±¸Á¶´Â ÀÌÈÄ ¸Ş¸ğ¸® Ç® °ü¸® ½Ã½ºÅÛ °³¹ß ÈÄ 
-Half Edge ±¸Á¶·Î º¯°æ ¿¹Á¤ -> ÇöÀç Half Edge ±¸Á¶´Â ¸Ş¸ğ¸® ÇÒ´ç ºñ¿ëÀÌ ³Ê¹«Ä¿(ÇöÀç´Â ÃÊ±â ·ÎµùÁß¿¡¼­¸¸ »ç¿ë) 
-hot loop ¿¡¼­ ÀÛµ¿ÇÏ±â¿¡´Â ÀûÀıÇÏÁö ¾ÊÀ½
+EPA FACE êµ¬ì¡°ëŠ” ì´í›„ ë©”ëª¨ë¦¬ í’€ ê´€ë¦¬ ì‹œìŠ¤í…œ ê°œë°œ í›„ 
+Half Edge êµ¬ì¡°ë¡œ ë³€ê²½ ì˜ˆì • -> í˜„ì¬ Half Edge êµ¬ì¡°ëŠ” ë©”ëª¨ë¦¬ í• ë‹¹ ë¹„ìš©ì´ ë„ˆë¬´ì»¤(í˜„ì¬ëŠ” ì´ˆê¸° ë¡œë”©ì¤‘ì—ì„œë§Œ ì‚¬ìš©) 
+hot loop ì—ì„œ ì‘ë™í•˜ê¸°ì—ëŠ” ì ì ˆí•˜ì§€ ì•ŠìŒ
 */
 
 typedef struct EPA_FACE_S EPA_FACE_T;

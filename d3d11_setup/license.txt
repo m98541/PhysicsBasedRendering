@@ -1,0 +1,11 @@
+Model Information:
+* title:	Little Warrior
+* source:	https://sketchfab.com/3d-models/little-warrior-d01ddd9e69334725a57b3a146307d8ab
+* author:	joaobaltieri (https://sketchfab.com/joaobaltieri)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Little Warrior" (https://sketchfab.com/3d-models/little-warrior-d01ddd9e69334725a57b3a146307d8ab) by joaobaltieri (https://sketchfab.com/joaobaltieri) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

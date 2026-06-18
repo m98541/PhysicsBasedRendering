@@ -1,4 +1,4 @@
-#ifndef MJ_D3D11_CONVEXHULL_H
+﻿#ifndef MJ_D3D11_CONVEXHULL_H
 #define MJ_D3D11_CONVEXHULL_H
 #include "VertexType.h"
 

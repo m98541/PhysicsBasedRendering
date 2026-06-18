@@ -7,6 +7,12 @@
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
+      <FullPath>E:\PhysicsBasedRendering\x64\Debug\Character_Pixel_Shader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>E:\PhysicsBasedRendering\x64\Debug\Character_Vertex_Shader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
       <FullPath>E:\PhysicsBasedRendering\x64\Debug\PixelShader.cso</FullPath>
     </ContentFile>
     <ContentFile>

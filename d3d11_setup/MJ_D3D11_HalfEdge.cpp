@@ -1,4 +1,4 @@
-#include "MJ_D3D11_HalfEdge.h"
+ï»¿#include "MJ_D3D11_HalfEdge.h"
 #include "MJ_D3D11_ConvexHull.h"
 #include <EASTL/map.h>
 #include <EASTL/vector.h> 
@@ -10,7 +10,7 @@ using namespace DirectX;
 #include <stdio.h>
 struct EdgeCompare {
 	bool operator()(const XMINT2& lhs, const XMINT2& rhs) const {
-		// À§¿Í µ¿ÀÏÇÑ ºñ±³ ·ÎÁ÷
+		// ìœ„ì™€ ë™ì¼í•œ ë¹„êµ ë¡œì§
 		if (lhs.x != rhs.x) return lhs.x < rhs.x;
 		return lhs.y < rhs.y;
 		
@@ -265,7 +265,7 @@ vector<HE_FACE_T*> HalfEdge::GetVertAdjFaces(HE_VERT_T* vert)
 	
 	HE_EDGE_T* edge = vert->edge;
 
-	do//¹İ½Ã°è ¹æÇâ °Ë»ç
+	do//ë°˜ì‹œê³„ ë°©í–¥ ê²€ì‚¬
 	{
 		result.push_back(edge->face);
 		edge = edge->next->next->pair;
@@ -276,7 +276,7 @@ vector<HE_FACE_T*> HalfEdge::GetVertAdjFaces(HE_VERT_T* vert)
 	edge = vert->edge;
 	if (edge->pair == nullptr) return result;
 
-	do//½Ã°è ¹æÇâ °Ë»ç
+	do//ì‹œê³„ ë°©í–¥ ê²€ì‚¬
 	{
 		result.push_back(edge->face);
 		edge= edge->pair->next;

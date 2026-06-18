@@ -1,4 +1,4 @@
-#ifndef CAPSULE_COLLISION_H
+Ôªø#ifndef CAPSULE_COLLISION_H
 #define CAPSULE_COLLISION_H
 #include "VertexType.h"
 #define SWEEP_HIT_FACE 0
@@ -27,13 +27,13 @@ namespace CapsuleCollision
 
 	typedef struct SWEEP_HIT
 	{
-		float hitTime; // [0~1]¿∏∑Œ ¿Ãµø ±∏∞£ø°º≠ √Êµπ Ω√¡°
+		float hitTime; // [0~1]ÏúºÎ°ú Ïù¥Îèô Íµ¨Í∞ÑÏóêÏÑú Ï∂©Îèå ÏãúÏ†ê
 		DirectX::XMVECTOR normal;
 		DirectX::XMVECTOR point;
 		DirectX::XMVECTOR tri[3];
 		DirectX::XMVECTOR edge[2];
 		float penetrationDepth;
-		int element; // ¡° º± ∏È √Êµπ ±∏∫–
+		int element; // Ï†ê ÏÑ† Î©¥ Ï∂©Îèå Íµ¨Î∂Ñ
 	}SWEEP_HIT_T;
 
 	float TwoLineDistance(DirectX::XMVECTOR linePointA0, DirectX::XMVECTOR linePointA1, DirectX::XMVECTOR linePointB0, DirectX::XMVECTOR linePointB1, float& lineAParmeter, float& lineBParmeter);

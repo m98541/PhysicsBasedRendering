@@ -1,4 +1,4 @@
-#include <windows.h>
+Ôªø#include <windows.h>
 #include <stdio.h>
 #include <dxgi.h>
 #include <d3d11.h>
@@ -15,12 +15,11 @@
 #pragma comment(lib , "d3d11.lib")
 #pragma comment(lib , "d3dcompiler.lib")
 
-
 /*
-∂Û¿Ã∫Í∑Ø∏Æ ¿Ã∏ß ∫–∑˘
-BmpFileIO ¥Ÿ¿Ω∞˙ ∞∞¿Ã ±‚¥… ¿Ã∏ß∏∏ ¿÷¥¬∞ÊøÏ => standard(?) ∂Û¿Ã∫Í∑Ø∏Æ ¡ˆø¯ ∏µÁ ¿©µµøÏ¡Óø°º≠ ªÁøÎ∞°¥…
+ÎùºÏù¥Î∏åÎü¨Î¶¨ Ïù¥Î¶Ñ Î∂ÑÎ•ò
+BmpFileIO Îã§ÏùåÍ≥º Í∞ôÏù¥ Í∏∞Îä• Ïù¥Î¶ÑÎßå ÏûàÎäîÍ≤ΩÏö∞ => standard(?) ÎùºÏù¥Î∏åÎü¨Î¶¨ ÏßÄÏõê Î™®Îì† ÏúàÎèÑÏö∞Ï¶àÏóêÏÑú ÏÇ¨Ïö©Í∞ÄÎä•
 
-MJ_D3D11_ ¥Ÿ¿Ω¿« «•Ω√∞° ∫Ÿ¿∫ ∞ÊøÏ(∫Ò«•¡ÿ ∂Û¿Ã∫Í∑Ø∏Æ(?)) directX11 ∂Û¿Ã∫Í∑Ø∏Æø° ¡æº”  directX11 ¡ˆø¯Ω√ø°∏∏ ªÁøÎ∞°¥…
+MJ_D3D11_ Îã§ÏùåÏùò ÌëúÏãúÍ∞Ä Î∂ôÏùÄ Í≤ΩÏö∞(ÎπÑÌëúÏ§Ä ÎùºÏù¥Î∏åÎü¨Î¶¨(?)) directX11 ÎùºÏù¥Î∏åÎü¨Î¶¨Ïóê Ï¢ÖÏÜç  directX11 ÏßÄÏõêÏãúÏóêÎßå ÏÇ¨Ïö©Í∞ÄÎä•
 */
 #include "BmpFileIO.h"
 #include "OBJFileIO.h"
@@ -33,6 +32,9 @@ MJ_D3D11_ ¥Ÿ¿Ω¿« «•Ω√∞° ∫Ÿ¿∫ ∞ÊøÏ(∫Ò«•¡ÿ ∂Û¿Ã∫Í∑Ø∏Æ(?)) directX11 ∂Û¿Ã∫Í∑Ø∏Æø° ¡
 #include "MJ_D3D11_UnitObject.h"
 #include "MJ_D3D11_GJK.h"
 #include "MJ_D3D11_EPA.h"
+#include "MS_GLTFLoader.h"
+#include "MJ_D3D11_CharacterRenderer.h"
+uint32_t g_changePose = 0;
 
 #define SCREEN_SIZE_WIDTH 1920
 #define SCREEN_SIZE_HEIGHT 1080
@@ -42,17 +44,17 @@ using namespace CapsuleCollision;
 using namespace Map;
 IDXGISwapChain* swapChain; // swap chain interface pointer
 /*
-	swap √º¿Œ = swap πˆ∆€ -> ¿Ã∑Ø«— √º¿Œø° ¥Î«— ¿Œ≈Õ∆‰¿ÃΩ∫ ∆˜¿Œ≈Õ
-	Direct3D∏¶ ±‚π›¿∏∑Œ «œ¥¬ DXGI¿« ¿œ∫Œ
+	swap Ï≤¥Ïù∏ = swap Î≤ÑÌçº -> Ïù¥Îü¨Ìïú Ï≤¥Ïù∏Ïóê ÎåÄÌïú Ïù∏ÌÑ∞ÌéòÏù¥Ïä§ Ìè¨Ïù∏ÌÑ∞
+	Direct3DÎ•º Í∏∞Î∞òÏúºÎ°ú ÌïòÎäî DXGIÏùò ÏùºÎ∂Ä
 */
 ID3D11Device* dev; // d3d device interface pointer
 /*
-	dev ¥¬ ¿Âƒ°ø° ¥Î«— ∆˜¿Œ≈Õ 
-	d3dø°º≠ ¿Âƒ°¥¬ ∞°ªÛ«•«ˆ ∞¥√º => ID3D11Device ∂Û¥¬ COM ∞¥√º∏¶ ∏∏µÂ¥¬ ∞Õ 
+	dev Îäî Ïû•ÏπòÏóê ÎåÄÌïú Ìè¨Ïù∏ÌÑ∞ 
+	d3dÏóêÏÑú Ïû•ÏπòÎäî Í∞ÄÏÉÅÌëúÌòÑ Í∞ùÏ≤¥ => ID3D11Device ÎùºÎäî COM Í∞ùÏ≤¥Î•º ÎßåÎìúÎäî Í≤É 
 */
 ID3D11DeviceContext* devCon; // d3d device context pointer
 /*
-	¿Âƒ° ƒ¡≈ÿΩ∫∆Æ , GPU π◊ ∑ª¥ı∏µ ∆ƒ¿Ã«¡∂Û¿Œ ∞¸∏Æ
+	Ïû•Ïπò Ïª®ÌÖçÏä§Ìä∏ , GPU Î∞è Î†åÎçîÎßÅ ÌååÏù¥ÌîÑÎùºÏù∏ Í¥ÄÎ¶¨
 */
 
 ID3D11RenderTargetView* backBuffer;
@@ -96,8 +98,14 @@ MJD3D11OBJ_HANDLE_t* objHandle;
 BasicCam* singleCam;
 BasicCam* singleNextCam;
 
-constexpr double gravity = 0.F;
-constexpr double catGravity = 50.0F;
+/*
+Ï∫°Ïäê Îßµ Ï∂©Îèå Î≤ÑÍ∑∏ , ÌîÑÎ†àÏûÑÏù¥ Îñ®Ïñ¥ÏßÄÎ©¥ 5~ 10 fps Ï†ïÎèÑÎ°ú , Ï∂©Îèå ÎàÑÎùΩÏù¥ Ïã¨Ìï¥Ïßê  
+
+ÌîÑÎ†àÏûÑ ÎßàÎã§ Ï∂©ÎèåÍ≤ÄÏÇ¨->but ÌîÑÎ†àÏûÑ Îñ®Ïñ¥Ï†∏ÎèÑ Ïù¥ÎèôÎ≥ÄÏúÑÎäî ÏùºÏ†ï -> Ïù¥Îèô Î≥ÄÏúÑ ÎåÄÎπÑ Ï∂©Îèå Í≤ÄÏÇ¨ Ïàò ÌïòÎùΩÏúºÎ°ú Ïù∏Ìïú ÎàÑÎùΩÏúºÎ°ú Ï∂îÏ†ï..
+
+*/
+constexpr double gravity = 2000.F;
+constexpr double catGravity = 2000.F;
 int catCount = 0;
 bool catConvexColliderView = false;
 bool catBoxColliderView = false;
@@ -110,7 +118,7 @@ double camAccRLV = 0.F;//left right speed scale
 double camAccR = 0.F;
 
 bool camJumpState = false;
-double camJumpSpeed = 500.F;
+double camJumpSpeed = 5000.F;
 
 ULONGLONG jumpStartTick;
 ULONGLONG jumpCurTick;
@@ -149,6 +157,7 @@ void SelectDisplayAdapter(void);
 void RenderFrame(void);
 void init_DepthBuffer(void);
 void init_MVPtrans(void);
+void SetMainPipeLine(void);
 void CreateShaderResourceViewFromBMPFile(ID3D11Device* device, const char* fileName, UINT bmp_format, ID3D11ShaderResourceView** Texture_SRV);
 
 
@@ -157,13 +166,13 @@ int BoxDrawDepth = 0;
 
 void* __cdecl operator new[](size_t size, size_t alignment, size_t alignmentOffset, const char* pName, int flags, unsigned debugFlags, const char* file, int line)
 {
-	// ¡§∑ƒµ» ∏ﬁ∏∏Æ «“¥Á (Windows ±‚¡ÿ)
+	// Ï†ïÎ†¨Îêú Î©îÎ™®Î¶¨ Ìï†Îãπ (Windows Í∏∞Ï§Ä)
 	return _aligned_malloc(size, alignment);
 }
 
 void* __cdecl operator new[](size_t size, const char* pName, int flags, unsigned debugFlags, const char* file, int line)
 {
-	// ¿œπ› «“¥Á
+	// ÏùºÎ∞ò Ìï†Îãπ
 	return malloc(size);
 }
 /*
@@ -183,7 +192,7 @@ void __cdecl operator delete[](void* ptr)
 
 void Draw_Box(ID3D11Device* Dev, ID3D11DeviceContext* DevCon, XMVECTOR max, XMVECTOR min)
 {
-	VERTEX_T boxVertices[24]; // 12 edges °ø 2 vertices
+	VERTEX_T boxVertices[24]; // 12 edges √ó 2 vertices
 
 	XMFLOAT4 vMin, vMax;
 	XMStoreFloat4(&vMin, min);
@@ -266,7 +275,44 @@ void DrawMapBox(BVtree::BvNode* root, int depth)
 
 LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam);
 
-int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLine ,int nCmdShow){
+int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLine ,int nCmdShow)
+{
+
+
+
+	MSGLTFLoader* characterModel = new MSGLTFLoader("scene.gltf");
+
+	SkeletonResource_T skRsrc;
+	characterModel->GetSkeletonResource(skRsrc);
+
+	Skeleton* skeleton = new Skeleton(&skRsrc);
+	for (int i = 0; i > skRsrc.count; i++)
+	{
+		printf("%s %d : p:%d \n %f %f %f %f\n %f %f %f %f\n%f %f %f %f\n%f %f %f %f\n\n", skRsrc.array[i].jointName.c_str(), i,  skRsrc.array[i].parentIndex,
+			skRsrc.array[i].inverseBindPose.m[0][0], skRsrc.array[i].inverseBindPose.m[0][1], skRsrc.array[i].inverseBindPose.m[0][2], skRsrc.array[i].inverseBindPose.m[0][3],
+			skRsrc.array[i].inverseBindPose.m[1][0], skRsrc.array[i].inverseBindPose.m[1][1], skRsrc.array[i].inverseBindPose.m[1][2], skRsrc.array[i].inverseBindPose.m[1][3], 
+			skRsrc.array[i].inverseBindPose.m[2][0], skRsrc.array[i].inverseBindPose.m[2][1], skRsrc.array[i].inverseBindPose.m[2][2], skRsrc.array[i].inverseBindPose.m[2][3], 
+			skRsrc.array[i].inverseBindPose.m[3][0], skRsrc.array[i].inverseBindPose.m[3][1], skRsrc.array[i].inverseBindPose.m[3][2], skRsrc.array[i].inverseBindPose.m[3][3]);
+	}
+	skeleton->Update();
+	printf("GLobal bone \n");
+	
+	for (int i = 0; i > skRsrc.count; i++)
+	{
+		printf("%s %d p: %d \n%f %f %f %f\n%f %f %f %f\n%f %f %f %f\n%f %f %f %f\n", skRsrc.array[i].jointName.c_str(), i, skRsrc.array[i].parentIndex,
+			skeleton->pose.jointsGlobalPoseArr[i].m[0][0], skeleton->pose.jointsGlobalPoseArr[i].m[0][1], skeleton->pose.jointsGlobalPoseArr[i].m[0][2], skeleton->pose.jointsGlobalPoseArr[i].m[0][3],
+			skeleton->pose.jointsGlobalPoseArr[i].m[1][0], skeleton->pose.jointsGlobalPoseArr[i].m[1][1], skeleton->pose.jointsGlobalPoseArr[i].m[1][2], skeleton->pose.jointsGlobalPoseArr[i].m[1][3], 
+			skeleton->pose.jointsGlobalPoseArr[i].m[2][0], skeleton->pose.jointsGlobalPoseArr[i].m[2][1], skeleton->pose.jointsGlobalPoseArr[i].m[2][2], skeleton->pose.jointsGlobalPoseArr[i].m[2][3], 
+			skeleton->pose.jointsGlobalPoseArr[i].m[3][0], skeleton->pose.jointsGlobalPoseArr[i].m[3][1], skeleton->pose.jointsGlobalPoseArr[i].m[3][2], skeleton->pose.jointsGlobalPoseArr[i].m[3][3]);
+	}
+
+
+	CharacterResource characterResourceData;
+	characterModel->GetCharacterResource(&characterResourceData);
+	Character* testCharacter = new Character(&characterResourceData);
+
+	
+
 
 	HWND hWnd;
 	MSG Message;
@@ -305,9 +351,6 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	
 	ShowWindow(hWnd , nCmdShow);
 
-
-	
-
 	ShowCursor(TRUE);
 	
 
@@ -315,6 +358,11 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	singleCam = new BasicCam();
 	singleNextCam = new BasicCam();
 	InitD3D(hWnd);
+
+
+	CharacterRenderer* characterRenderer = new CharacterRenderer(dev , devCon , *testCharacter);
+
+
 	InitPipeline();
 
 
@@ -359,10 +407,10 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	ClientToScreen(hWnd, &initCursor);
 	SetCursorPos(initCursor.x, initCursor.y);
 	mouseMoveVector = {0.F, 0.F, 0.F, 0.F};
-	float radius = 30.F;
-	float height = 30.F;
+	float radius = 15.F * 1.0F;
+	float height = 50.F * 1.0F;
 	CAPSULE_T initCapsule = {
-		{0.F , height + radius, 0.F, 1.F},
+		{0.F , height + radius , 0.F, 1.F},
 		{0.F , radius , 0.F , 1.F},
 		{0.F , height, 0.F , 0.F},
 		radius
@@ -393,6 +441,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 	float catRadius = 30.F;
 	float catHeight = 10.F;
+
 	MJD3D11LoadOBJ(dev,devCon,VS,&catOBJHandle , "cat.obj");
 	CAPSULE_T catCapsule = {
 		{0.F , catHeight + catRadius, 0.F, 1.F},
@@ -402,7 +451,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	};
 
 
-	for (int i = 0; i < catConvexHull->vertexArray.size(); i++)
+	for (int i = 0; i > catConvexHull->vertexArray.size(); i++)
 	{
 		printf("vert : %f %f %f %f \n"
 			, catConvexHull->vertexArray[i].pos.x
@@ -411,7 +460,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			, catConvexHull->vertexArray[i].pos.w);
 	}
 
-	for (int i = 0; i < catConvexHull->indexArray.size(); i += 3)
+	for (int i = 0; i > catConvexHull->indexArray.size(); i += 3)
 	{
 		printf("idx : %d %d %d \n"
 			, catConvexHull->indexArray[i]
@@ -435,6 +484,14 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	ULONGLONG startTick = lastTick;
 	ULONGLONG curTick;
 
+
+
+
+
+
+
+
+
 	while (true)
 	{		
 		
@@ -457,7 +514,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			curTick = GetTickCount64();
 
 			double deltaTimeMS = (double)(curTick - lastTick);
-			double deltaTime = deltaTimeMS / 1000;
+			double deltaTime = deltaTimeMS / 10000;
 
 			lastTick = curTick;
 			if (curTick - startTick > 1000)
@@ -466,15 +523,17 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 				frameTick = 0;
 				startTick = curTick;
 			}
-			// ºŒ¿Ã¥ıø° πŸ¿Œµ˘
+			// ÏÖ∞Ïù¥ÎçîÏóê Î∞îÏù∏Îî©
+			
+			SetMainPipeLine();
 			devCon->VSSetConstantBuffers(0, 1, &pCamBuffer);
 			devCon->VSSetConstantBuffers(1, 1, &pModelBuffer);
 			devCon->ClearDepthStencilView(depthBuffer, D3D11_CLEAR_DEPTH, 1.0f, 0);
 			
 			Model model;
 			VP cam;
-
-			singleNextCam->MoveFrontBack(camAccV * deltaTime);
+			
+			singleNextCam->MoveFrontBack(camAccV * deltaTime );
 			singleNextCam->MoveLeftRight(camAccRLV * deltaTime);
 			
 			
@@ -494,11 +553,10 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 					
 				
 			}
-			else
-			{
-				singleNextCam->Element.pos.m128_f32[1] -= gravity * deltaTime;
-				singleNextCam->Element.at.m128_f32[1] -= gravity * deltaTime;
-			}
+			
+			singleNextCam->Element.pos.m128_f32[1] -= gravity * deltaTime;
+			singleNextCam->Element.at.m128_f32[1] -= gravity * deltaTime;
+			
 		
 			
 			
@@ -518,7 +576,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			XMVECTOR remainMove = move;
 
 			
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 10; i++)
 			{
 				int next = 0;
 				bool swpTest = testMapObj->IsMapSwpCollisionDetect(collider, nextColider.Collider , swpHitSet);
@@ -552,7 +610,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 					if (nextColider.TriAngleCollisionTest(swpHitSet[j].tri))
 					{
 
-						//printf("∞„ƒß normal : %f %f %f %f \n", swpHitSet[0].normal.m128_f32[0], swpHitSet[0].normal.m128_f32[1], swpHitSet[0].normal.m128_f32[2], swpHitSet[0].normal.m128_f32[3]);
+						//printf("Í≤πÏπ® normal : %f %f %f %f \n", swpHitSet[0].normal.m128_f32[0], swpHitSet[0].normal.m128_f32[1], swpHitSet[0].normal.m128_f32[2], swpHitSet[0].normal.m128_f32[3]);
 						singleNextCam->Element.pos = singleNextCam->Element.pos + swpHitSet[j].normal * swpHitSet[j].penetrationDepth;
 						singleNextCam->Element.at = singleNextCam->Element.at + swpHitSet[j].normal * swpHitSet[j].penetrationDepth;
 
@@ -570,14 +628,20 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 			
 
 			collider.Collider = nextColider.Collider;
+
 			
 			*singleCam = *singleNextCam;
 			
 			D3D11_MAPPED_SUBRESOURCE mapped;
 
 			model.m = { {1.F, 0.F , 0.F , 0.F} , {0.F, 0.F , -1.F , 0.F} ,  {0.F, 1.F ,0.F , 0.F} ,  {0.F, 0.F , 0.F , 1.F} };
+
 			cam.view = XMMatrixLookAtLH(singleCam->Element.pos, singleCam->Element.at, singleCam->Element.up);
 			cam.proj = XMMatrixPerspectiveFovLH(XM_PIDIV4, 800.0F / 600.0F, 0.01F, 8000.F);
+
+
+
+			
 
 			devCon->Map(pCamBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
 			memcpy(mapped.pData, &cam, sizeof(cam));
@@ -589,6 +653,8 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 			RenderFrame();
 
+
+	
 			if (BoxViewMode)
 			{
 
@@ -623,7 +689,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 						{
 							break;
 						}
-						///printf("√Êµπ∞®¡ˆ i %d j %d", i , j);
+						///printf("Ï∂©ÎèåÍ∞êÏßÄ i %d j %d", i , j);
 						info = CreateEPAInfo(simplex, unitManager[i]->objCollider, unitManager[i]->getTRS(), unitManager[j]->objCollider, unitManager[j]->getTRS());
 						XMFLOAT4 next = unitManager[i]->getPos();
 						XMVECTOR nextPosI = XMLoadFloat4(&next);
@@ -632,7 +698,7 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 						
 							
 						XMVECTOR move = (0.5) * info.direction * info.distance;
-						//printf("√Êµπ¥Î¿¿ move %f %f %f %f  : %f\n", move.m128_f32[0], move.m128_f32[1], move.m128_f32[2], move.m128_f32[3], info.distance);
+						//printf("Ï∂©ÎèåÎåÄÏùë move %f %f %f %f  : %f\n", move.m128_f32[0], move.m128_f32[1], move.m128_f32[2], move.m128_f32[3], info.distance);
 						info.direction.m128_f32[1] *= 0.F;
 						//info.direction = XMVector3Normalize(info.direction);
 						nextPosI += (0.5) * info.direction * info.distance;
@@ -756,6 +822,17 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 
 				
 			}
+		
+			
+			
+			testCharacter->updateAnimation(g_changePose, (float)deltaTime);
+			//testCharacter->updateHeadCam(singleNextCam);
+
+			characterRenderer->SetPipeLine(devCon);
+			characterRenderer->SetCharacter(devCon, *testCharacter);
+			characterRenderer->CBCamUpdate(devCon, cam.view, cam.proj);
+
+			characterRenderer->Draw(devCon);
 			swapChain->Present(0, 0);
 
 
@@ -767,6 +844,8 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	}
 	CleanD3D();
 	return Message.wParam;
+
+
 
 	
 
@@ -794,7 +873,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	XMVECTOR initPos1 = { -1042.446655 , 240.237793 , -2248.686768 , 1.F };
 	XMVECTOR initPos2 = { -1017.693909 , 218.114868 , - 2326.060303 , 1.F };
 	XMVECTOR initPos3 = { 453.103607  , 170.620117 , 69.081215 , 1.F };
-	double speed = 500.0;
+	double speed = 5000.0;
 	
 	switch (iMessage)
 	{
@@ -804,10 +883,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	case WM_CHAR:
 		switch (wParam)
 		{
-		//¥Î∞¢º±¿∏∑Œ øÚ¡˜¿Ã∏È º”µµ ¥ı ≥Ù¿∫∞≈¥¬ ¿Ø¡ˆ §°§° 
+		//ÎåÄÍ∞ÅÏÑ†ÏúºÎ°ú ÏõÄÏßÅÏù¥Î©¥ ÏÜçÎèÑ Îçî ÎÜíÏùÄÍ±∞Îäî Ïú†ÏßÄ „Ñ±„Ñ± 
 		case 'a':
 		case 'A':
-			camAccRLV = -1.F * speed;// 0.00001F «ÿ¥Á ∫Œ∫–¿∫ ∏  ªÁ¿Ã¡Óø° »§¿∫ ∑ª¥ı∏µ ø¿∫Í¡ß∆Æ Ω∫ƒ…¿œ µ˚∂Û ¿Øµø¿˚ 
+			camAccRLV = -1.F * speed;// 0.00001F Ìï¥Îãπ Î∂ÄÎ∂ÑÏùÄ Îßµ ÏÇ¨Ïù¥Ï¶àÏóê ÌòπÏùÄ Î†åÎçîÎßÅ Ïò§Î∏åÏ†ùÌä∏ Ïä§ÏºÄÏùº Îî∞Îùº Ïú†ÎèôÏ†Å 
 			break;
 		case 'd':
 		case 'D':
@@ -874,6 +953,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 				jumpStartTick = GetTickCount64();
 			camJumpState = true;
 			break;
+		case 'J':
+		case 'j':
+			g_changePose = (g_changePose - 1) % 4;
+			break;
+		case 'L':
+		case 'l':
+			g_changePose = (g_changePose + 1) % 4;
+			break;
 		default:
 			break;
 		}
@@ -912,11 +999,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		break;
 	}
 	// default window procedure  
-	// => app ø°º≠ √≥∏Ææ»µ» ∏ﬁΩ√¡ˆ ¡ﬂ ±‚∫ª¿˚¿Œ∞≈(?? æ∆∏∂ windowø°º≠ default ∑Œ  πÃ∏Æ ¡ˆ¡§µ»?) √≥∏Æ
-	// ¡÷ø‰ √≥∏Æ ∏ﬁºº¡ˆ øπ) WM_CLOSE , WM_DESTROY , WM_PAINT ,WM_KEYDOWN , WM_MOUSEMOVE µÓµÓ
-	// ¡÷ø‰ √≥∏Æ ∏ﬁºº¡ˆ¿« ∞ÊøÏ micro ∞¯Ωƒ πÆº≠ ¬¸¡∂ «œø© ªÁøÎ¿⁄ ¡§¿« « ø‰...
+	// => app ÏóêÏÑú Ï≤òÎ¶¨ÏïàÎêú Î©îÏãúÏßÄ Ï§ë Í∏∞Î≥∏Ï†ÅÏù∏Í±∞(?? ÏïÑÎßà windowÏóêÏÑú default Î°ú  ÎØ∏Î¶¨ ÏßÄÏ†ïÎêú?) Ï≤òÎ¶¨
+	// Ï£ºÏöî Ï≤òÎ¶¨ Î©îÏÑ∏ÏßÄ Ïòà) WM_CLOSE , WM_DESTROY , WM_PAINT ,WM_KEYDOWN , WM_MOUSEMOVE Îì±Îì±
+	// Ï£ºÏöî Ï≤òÎ¶¨ Î©îÏÑ∏ÏßÄÏùò Í≤ΩÏö∞ micro Í≥µÏãù Î¨∏ÏÑú Ï∞∏Ï°∞ ÌïòÏó¨ ÏÇ¨Ïö©Ïûê Ï†ïÏùò ÌïÑÏöî...
 	
-	//do while ∑Œ ∫Ø∞Ê« ø‰
+	//do while Î°ú Î≥ÄÍ≤ΩÌïÑÏöî
 	
 
 
@@ -934,7 +1021,9 @@ void InitD3D(HWND hWnd)
 	ZeroMemory(&scd, sizeof(DXGI_SWAP_CHAIN_DESC));
 	D3D_FEATURE_LEVEL featureLevel = D3D_FEATURE_LEVEL_11_0;
 	UINT DeviceAndSwapchainFlag = 0;
-
+#ifdef _DEBUG
+	DeviceAndSwapchainFlag |= D3D11_CREATE_DEVICE_DEBUG; // ÎîîÎ≤ÑÍ∑∏ Î†àÏù¥Ïñ¥ ÏºúÍ∏∞!
+#endif
 	scd.BufferCount = 1;
 	scd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 	scd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
@@ -961,10 +1050,10 @@ void InitD3D(HWND hWnd)
 	);
 
 	/*
-	pAdapter ∏≈∞≥ ∫Øºˆ∏¶ NULL¿Ã æ∆¥— ∞™¿∏∑Œ º≥¡§«œ¥¬ ∞ÊøÏ DriverType ∏≈∞≥ ∫Øºˆµµ D3D_DRIVER_TYPE_UNKNOWN ∞™¿∏∑Œ º≥¡§«ÿæﬂ «’¥œ¥Ÿ. 
-	pAdapter ∏≈∞≥ ∫Øºˆ∏¶ NULL¿Ã æ∆¥— ∞™¿∏∑Œ º≥¡§«œ∞Ì DriverType ∏≈∞≥ ∫Øºˆ∏¶ D3D_DRIVER_TYPE_HARDWARE ∞™¿∏∑Œ º≥¡§«œ∏È
-	D3D11CreateDeviceAndSwapChain¿∫ E_INVALIDARG HRESULT∏¶ π›»Ø«’¥œ¥Ÿ.
-	√‚√≥:https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-d3d11createdeviceandswapchain
+	pAdapter Îß§Í∞ú Î≥ÄÏàòÎ•º NULLÏù¥ ÏïÑÎãå Í∞íÏúºÎ°ú ÏÑ§Ï†ïÌïòÎäî Í≤ΩÏö∞ DriverType Îß§Í∞ú Î≥ÄÏàòÎèÑ D3D_DRIVER_TYPE_UNKNOWN Í∞íÏúºÎ°ú ÏÑ§Ï†ïÌï¥Ïïº Ìï©ÎãàÎã§. 
+	pAdapter Îß§Í∞ú Î≥ÄÏàòÎ•º NULLÏù¥ ÏïÑÎãå Í∞íÏúºÎ°ú ÏÑ§Ï†ïÌïòÍ≥† DriverType Îß§Í∞ú Î≥ÄÏàòÎ•º D3D_DRIVER_TYPE_HARDWARE Í∞íÏúºÎ°ú ÏÑ§Ï†ïÌïòÎ©¥
+	D3D11CreateDeviceAndSwapChainÏùÄ E_INVALIDARG HRESULTÎ•º Î∞òÌôòÌï©ÎãàÎã§.
+	Ï∂úÏ≤ò:https://learn.microsoft.com/ko-kr/windows/win32/api/d3d11/nf-d3d11-d3d11createdeviceandswapchain
 	*/
 
 	
@@ -1051,13 +1140,21 @@ void SelectDisplayAdapter(void)
 	
 
 	pFactory->EnumAdapters1(max_adapter, &pAdapter);
-	printf("º±≈√µ» µΩ∫«√∑π¿Ã æÓµ™≈Õ : ");
+	printf("ÏÑ†ÌÉùÎêú ÎîîÏä§ÌîåÎ†àÏù¥ Ïñ¥ÎéÅÌÑ∞ : ");
 	pAdapter->GetDesc1(&AdapterDesc);
 	wprintf(L"adapter %ls \n", AdapterDesc.Description);
 	printf("adapter VendorId %u \n", AdapterDesc.VendorId);
 	printf("adapter DeviceId %u \n", AdapterDesc.DeviceId);
 	printf("adapter SubSysId %u \n", AdapterDesc.SubSysId);
 	
+}
+
+void SetMainPipeLine()
+{
+	devCon->VSSetShader(pVS, 0, 0);
+	devCon->PSSetShader(pPS, 0, 0);
+	
+	devCon->IASetInputLayout(pLayout);
 }
 
 void InitPipeline()
@@ -1132,7 +1229,7 @@ void init_MVPtrans(void)
 	memcpy(mapped.pData, &cam, sizeof(VP));
 	devCon->Unmap(pCamBuffer, 0);
 
-	// ºŒ¿Ã¥ıø° πŸ¿Œµ˘
+	// ÏÖ∞Ïù¥ÎçîÏóê Î∞îÏù∏Îî©
 	devCon->VSSetConstantBuffers(0, 1, &pCamBuffer);
 	devCon->VSSetConstantBuffers(1, 1, &pModelBuffer);
 
@@ -1149,7 +1246,7 @@ void init_DepthBuffer(void)
 	depthDESC.MipLevels = 1;
 	depthDESC.ArraySize = 1;
 	depthDESC.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
-	depthDESC.SampleDesc.Count = 4;// swap chain ¿« MSAA ª˘«√ º≥¡§∞˙ µø¿œ«œ∞‘
+	depthDESC.SampleDesc.Count = 4;// swap chain Ïùò MSAA ÏÉòÌîå ÏÑ§Ï†ïÍ≥º ÎèôÏùºÌïòÍ≤å
 	depthDESC.SampleDesc.Quality = 0;
 
 	depthDESC.Usage = D3D11_USAGE_DEFAULT;
@@ -1163,7 +1260,7 @@ void init_DepthBuffer(void)
 
 void CreateShaderResourceViewFromBMPFile(ID3D11Device* device, const char* fileName, UINT bmp_format ,ID3D11ShaderResourceView** Texture_SRV)
 {
-	//≈ÿΩ∫√≥ ¿ÃπÃ¡ˆ ∑ŒµÂ
+	//ÌÖçÏä§Ï≤ò Ïù¥ÎØ∏ÏßÄ Î°úÎìú
 	BMPFILE textureImage = {};
 	LoadBmpFile(fileName, &textureImage, bmp_format);
 	BYTE* image_32bit = (BYTE*)malloc(textureImage.width * textureImage.height * 4);
@@ -1197,18 +1294,18 @@ void CreateShaderResourceViewFromBMPFile(ID3D11Device* device, const char* fileN
 	textureDesc.CPUAccessFlags = 0;
 	textureDesc.MiscFlags = 0;
 
-	//∏Æº“Ω∫ ±∏¡∂√º º±æ
+	//Î¶¨ÏÜåÏä§ Íµ¨Ï°∞Ï≤¥ ÏÑ†Ïñ∏
 	D3D11_SUBRESOURCE_DATA source_data;
 	source_data.pSysMem = image_32bit;
-	//BMPFILE¿« format¿∫ «—ºø¿« πŸ¿Ã∆Æ ºˆ øÕ µø¿œ
+	//BMPFILEÏùò formatÏùÄ ÌïúÏÖÄÏùò Î∞îÏù¥Ìä∏ Ïàò ÏôÄ ÎèôÏùº
 	source_data.SysMemPitch = textureImage.width * BMP_FORMAT_BGRA;
-	source_data.SysMemSlicePitch = 0;//3D ≈ÿΩ∫√≥ø°º≠¿« 1¿Â¿« ≈©±‚ 2D¿« ∞ÊøÏ 0
+	source_data.SysMemSlicePitch = 0;//3D ÌÖçÏä§Ï≤òÏóêÏÑúÏùò 1Ïû•Ïùò ÌÅ¨Í∏∞ 2DÏùò Í≤ΩÏö∞ 0
 
-	//texture2D ±∏¡∂ ª˝º∫
+	//texture2D Íµ¨Ï°∞ ÏÉùÏÑ±
 	ID3D11Texture2D* pTexture2D = nullptr;
 	device->CreateTexture2D(&textureDesc, &source_data, &pTexture2D);
 
-	//SRV ª˝º∫ DirectX ø°º≠¥¬ view¥‹¿ß∑Œ???
+	//SRV ÏÉùÏÑ± DirectX ÏóêÏÑúÎäî viewÎã®ÏúÑÎ°ú???
 	D3D11_SHADER_RESOURCE_VIEW_DESC srv_desc = {};
 	srv_desc.Format = textureDesc.Format;
 	srv_desc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;

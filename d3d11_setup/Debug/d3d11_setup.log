@@ -1,13 +1,135 @@
-﻿  MJ_D3D11_HalfEdge.cpp
-MJ_D3D11_Collision.obj : error LNK2001: 확인할 수 없는 외부 기호 "void __cdecl eastl::AssertionFailure(char const *)" (?AssertionFailure@eastl@@YAXPBD@Z)
-main.obj : error LNK2001: 확인할 수 없는 외부 기호 "void __cdecl eastl::AssertionFailure(char const *)" (?AssertionFailure@eastl@@YAXPBD@Z)
-MJ_D3D11_OBJLoader.obj : error LNK2001: 확인할 수 없는 외부 기호 "void __cdecl eastl::AssertionFailure(char const *)" (?AssertionFailure@eastl@@YAXPBD@Z)
-MJ_D3D11_HalfEdge.obj : error LNK2001: 확인할 수 없는 외부 기호 "void __cdecl eastl::AssertionFailure(char const *)" (?AssertionFailure@eastl@@YAXPBD@Z)
-MJ_D3D11_Simplex3D.obj : error LNK2001: 확인할 수 없는 외부 기호 "void __cdecl eastl::AssertionFailure(char const *)" (?AssertionFailure@eastl@@YAXPBD@Z)
-MJ_D3D11_ConvexHull.obj : error LNK2001: 확인할 수 없는 외부 기호 "void __cdecl eastl::AssertionFailure(char const *)" (?AssertionFailure@eastl@@YAXPBD@Z)
-MJ_D3D11_WorldMap.obj : error LNK2001: 확인할 수 없는 외부 기호 "void __cdecl eastl::AssertionFailure(char const *)" (?AssertionFailure@eastl@@YAXPBD@Z)
-MJ_D3D11_OBJLoader.obj : error LNK2019: "struct eastl::rbtree_node_base * __cdecl eastl::RBTreeIncrement(struct eastl::rbtree_node_base const *)" (?RBTreeIncrement@eastl@@YAPAUrbtree_node_base@1@PBU21@@Z)"public: struct eastl::rbtree_iterator<struct eastl::pair<struct VERTEX_S const ,unsigned int>,struct eastl::pair<struct VERTEX_S const ,unsigned int> *,struct eastl::pair<struct VERTEX_S const ,unsigned int> &> & __thiscall eastl::rbtree_iterator<struct eastl::pair<struct VERTEX_S const ,unsigned int>,struct eastl::pair<struct VERTEX_S const ,unsigned int> *,struct eastl::pair<struct VERTEX_S const ,unsigned int> &>::operator++(void)" (??E?$rbtree_iterator@U?$pair@$$CBUVERTEX_S@@I@eastl@@PAU12@AAU12@@eastl@@QAEAAU01@XZ) 함수에서 참조되는 확인할 수 없는 외부 기호
-MJ_D3D11_OBJLoader.obj : error LNK2019: "struct eastl::rbtree_node_base * __cdecl eastl::RBTreeDecrement(struct eastl::rbtree_node_base const *)" (?RBTreeDecrement@eastl@@YAPAUrbtree_node_base@1@PBU21@@Z)"protected: struct eastl::rbtree_node_base * __thiscall eastl::rbtree<struct VERTEX_S,struct eastl::pair<struct VERTEX_S const ,unsigned int>,struct VertexCompare,class eastl::allocator,struct eastl::use_first<struct eastl::pair<struct VERTEX_S const ,unsigned int> >,1,1>::DoGetKeyInsertionPositionUniqueKeys(bool &,struct VERTEX_S const &)" (?DoGetKeyInsertionPositionUniqueKeys@?$rbtree@UVERTEX_S@@U?$pair@$$CBUVERTEX_S@@I@eastl@@UVertexCompare@@Vallocator@3@U?$use_first@U?$pair@$$CBUVERTEX_S@@I@eastl@@@3@$00$00@eastl@@IAEPAUrbtree_node_base@2@AA_NABUVERTEX_S@@@Z) 함수에서 참조되는 확인할 수 없는 외부 기호
-MJ_D3D11_OBJLoader.obj : error LNK2019: "void __cdecl eastl::RBTreeInsert(struct eastl::rbtree_node_base *,struct eastl::rbtree_node_base *,struct eastl::rbtree_node_base *,enum eastl::RBTreeSide)" (?RBTreeInsert@eastl@@YAXPAUrbtree_node_base@1@00W4RBTreeSide@1@@Z)"protected: struct eastl::rbtree_iterator<struct eastl::pair<struct VERTEX_S const ,unsigned int>,struct eastl::pair<struct VERTEX_S const ,unsigned int> *,struct eastl::pair<struct VERTEX_S const ,unsigned int> &> __thiscall eastl::rbtree<struct VERTEX_S,struct eastl::pair<struct VERTEX_S const ,unsigned int>,struct VertexCompare,class eastl::allocator,struct eastl::use_first<struct eastl::pair<struct VERTEX_S const ,unsigned int> >,1,1>::DoInsertKeyImpl(struct eastl::rbtree_node_base *,bool,struct VERTEX_S const &)" (?DoInsertKeyImpl@?$rbtree@UVERTEX_S@@U?$pair@$$CBUVERTEX_S@@I@eastl@@UVertexCompare@@Vallocator@3@U?$use_first@U?$pair@$$CBUVERTEX_S@@I@eastl@@@3@$00$00@eastl@@IAE?AU?$rbtree_iterator@U?$pair@$$CBUVERTEX_S@@I@eastl@@PAU12@AAU12@@2@PAUrbtree_node_base@2@_NABUVERTEX_S@@@Z) 함수에서 참조되는 확인할 수 없는 외부 기호
-E:\PhysicsBasedRendering\EASTL-master\bin\Debug\EASTL.lib : warning LNK4272: 'x64' 라이브러리 컴퓨터 종류가 'x86' 대상 컴퓨터 종류와 충돌합니다.
-E:\PhysicsBasedRendering\Debug\d3d11_setup.exe : fatal error LNK1120: 4개의 확인할 수 없는 외부 참조입니다.
+﻿  compilation object save succeeded; see E:\PhysicsBasedRendering\Debug\PixelShader.cso
+E:\PhysicsBasedRendering\d3d11_setup\VertexShader.hlsl(19,13-107): warning X3578: Output value 'main' is not completely initialized
+  
+  compilation object save succeeded; see E:\PhysicsBasedRendering\Debug\VertexShader.cso
+  MJ_D3D11_CharacterRenderer.cpp
+E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.h(4,10): error C1083: 포함 파일을 열 수 없습니다. 'GLTFSDK/Deserialize.h': No such file or directory
+  (소스 파일 'MJ_D3D11_CharacterRenderer.cpp'을(를) 컴파일하는 중)
+  
+  MJ_D3D11_EPA.cpp
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_EPA.cpp(225,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  MJ_D3D11_GJK.cpp
+  MJ_D3D11_HalfEdge.cpp
+  MJ_D3D11_Mesh.cpp
+  MJ_D3D11_ShaderFile.cpp
+  MJ_D3D11_Simplex3D.cpp
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Simplex3D.cpp(77,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Simplex3D.cpp(90,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  MJ_D3D11_BVTree.cpp
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(19,10): warning C4099: 'BVtree::BvNode': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
+  (소스 파일 'MJ_D3D11_BVTree.cpp'을(를) 컴파일하는 중)
+      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
+      'BVtree::BvNode' 선언을 참조하십시오.
+  
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(20,10): warning C4099: 'BVtree::BvNode': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
+  (소스 파일 'MJ_D3D11_BVTree.cpp'을(를) 컴파일하는 중)
+      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
+      'BVtree::BvNode' 선언을 참조하십시오.
+  
+  MJ_D3D11_ConvexHull.cpp
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(212,9): warning C4477: 'printf' : 서식 문자열 '%x'에 'unsigned int' 형식의 인수가 필요하지만 variadic 인수 13의 형식이 'ConvexHullFace_T *'입니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(232,10): warning C4477: 'printf' : 서식 문자열 '%x'에 'unsigned int' 형식의 인수가 필요하지만 variadic 인수 13의 형식이 'const T'입니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(232,10): warning C4477:         with
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(232,10): warning C4477:         [
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(232,10): warning C4477:             T=ConvexHullFace_T *
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(232,10): warning C4477:         ]
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(310,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(321,11): warning C4477: 'printf' : 서식 문자열 '%x'에 'unsigned int' 형식의 인수가 필요하지만 variadic 인수 13의 형식이 'T'입니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(321,11): warning C4477:         with
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(321,11): warning C4477:         [
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(321,11): warning C4477:             T=ConvexHullFace_T *
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(321,11): warning C4477:         ]
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(343,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(450,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(500,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(502,61): warning C4244: '+=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(536,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(578,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_ConvexHull.cpp(631,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  MJ_D3D11_Skeleton.cpp
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Skeleton.cpp(118,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_Skeleton.cpp(139,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  MJ_D3D11_UnitObject.cpp
+E:\PhysicsBasedRendering\d3d11_setup\OBJFileIO.h(40,9): warning C4005: 'ERROR': 매크로 재정의
+  (소스 파일 'MJ_D3D11_UnitObject.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\wingdi.h(118,9):
+      'ERROR'의 이전 정의를 참조하십시오.
+  
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_UnitObject.cpp(160,37): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_UnitObject.cpp(235,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_UnitObject.cpp(237,94): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+  MJ_D3D11_WorldMap.cpp
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(19,10): warning C4099: 'BVtree::BvNode': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
+  (소스 파일 'MJ_D3D11_WorldMap.cpp'을(를) 컴파일하는 중)
+      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
+      'BVtree::BvNode' 선언을 참조하십시오.
+  
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(20,10): warning C4099: 'BVtree::BvNode': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
+  (소스 파일 'MJ_D3D11_WorldMap.cpp'을(를) 컴파일하는 중)
+      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
+      'BVtree::BvNode' 선언을 참조하십시오.
+  
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_WorldMap.cpp(37,29): warning C4316: 'BVtree::BvNode': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_WorldMap.cpp(132,26): warning C4316: 'BVtree::BvNode': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_WorldMap.cpp(133,27): warning C4316: 'BVtree::BvNode': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_WorldMap.cpp(213,15): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_WorldMap.cpp(232,14): warning C4101: 'normal' :참조되지 않은 지역 변수입니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_WorldMap.cpp(231,14): warning C4101: 'rayPoint' :참조되지 않은 지역 변수입니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_WorldMap.cpp(282,11): warning C4101: 'normal' :참조되지 않은 지역 변수입니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_WorldMap.cpp(281,11): warning C4101: 'rayPoint' :참조되지 않은 지역 변수입니다.
+  MJ_D3D11_Collision.cpp
+  MJ_D3D11_BasicCam.cpp
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(58,34): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(79,33): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(99,59): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(125,73): warning C4838: 'double'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(125,73): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(125,128): warning C4838: 'double'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(125,128): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(126,69): warning C4838: 'double'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(126,69): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(126,122): warning C4838: 'double'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(126,122): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BasicCam.cpp(131,51): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  BmpFileIO.cpp
+  main.cpp
+E:\PhysicsBasedRendering\d3d11_setup\OBJFileIO.h(40,9): warning C4005: 'ERROR': 매크로 재정의
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\wingdi.h(118,9):
+      'ERROR'의 이전 정의를 참조하십시오.
+  
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(19,10): warning C4099: 'BVtree::BvNode': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
+      'BVtree::BvNode' 선언을 참조하십시오.
+  
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(20,10): warning C4099: 'BVtree::BvNode': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+      E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_BVTree.h(9,8):
+      'BVtree::BvNode' 선언을 참조하십시오.
+  
+E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.h(4,10): error C1083: 포함 파일을 열 수 없습니다. 'GLTFSDK/Deserialize.h': No such file or directory
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+  
+  MJ_D3D11_OBJLoader.cpp
+E:\PhysicsBasedRendering\d3d11_setup\OBJFileIO.h(40,9): warning C4005: 'ERROR': 매크로 재정의
+  (소스 파일 'MJ_D3D11_OBJLoader.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\wingdi.h(118,9):
+      'ERROR'의 이전 정의를 참조하십시오.
+  
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(102,48): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(229,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(234,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(291,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(294,29): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(295,30): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(303,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_OBJLoader.cpp(362,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  MS_GLTFLoader.cpp
+E:\PhysicsBasedRendering\d3d11_setup\MS_GLTFLoader.h(4,10): error C1083: 포함 파일을 열 수 없습니다. 'GLTFSDK/Deserialize.h': No such file or directory
+  (소스 파일 'MS_GLTFLoader.cpp'을(를) 컴파일하는 중)
+  
+  OBJFileIO.cpp
+E:\PhysicsBasedRendering\d3d11_setup\OBJFileIO.cpp(507,12): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  코드를 생성하고 있습니다...
+E:\PhysicsBasedRendering\d3d11_setup\MJ_D3D11_GJK.cpp(80,1): warning C4715: 'selectSimplexHandle': 모든 제어 경로에서 값을 반환하지는 않습니다.

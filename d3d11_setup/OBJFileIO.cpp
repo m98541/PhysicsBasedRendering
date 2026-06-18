@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include "OBJFileIO.h"
 #include <stdio.h>
 #include <string.h>
@@ -128,6 +128,7 @@ bool ReadOBJFile(OBJFILE_DESC_T* OBJFileDESC ,OBJFILE_BUFFER_T** OBJFileBuffer)
 		if (lineType == LINE_TYPE_NOP) continue;
 	
 		int result = 1;
+		
 		switch (lineType)
 		{
 		case  MTL_LINE_TYPE_NEWMTL :
@@ -158,6 +159,7 @@ bool ReadOBJFile(OBJFILE_DESC_T* OBJFileDESC ,OBJFILE_BUFFER_T** OBJFileBuffer)
 			result = sscanf(lineOffset, "d %f", &(*OBJFileBuffer)->mtlBuffer[mtlIdx].alphaValue);
 			break;
 		case  MTL_LINE_TYPE_TR :
+			if (mtlIdx == -1) continue;
 			result = sscanf(lineOffset, "Tr %f", &(*OBJFileBuffer)->mtlBuffer[mtlIdx].alphaValue);
 				(*OBJFileBuffer)->mtlBuffer[mtlIdx].alphaValue = 1.F - (*OBJFileBuffer)->mtlBuffer[mtlIdx].alphaValue;
 			break;

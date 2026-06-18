@@ -1,6 +1,4 @@
-#include "MJ_D3D11_GJK.h"
-
-#include <stdio.h>
+ï»¿#include "MJ_D3D11_GJK.h"
 
 #define EPSILON 1e-5f
 using namespace DirectX;
@@ -102,8 +100,7 @@ bool gjkCollisionCheck(ConvexHull* convexA, DirectX::XMMATRIX matTRS_A, ConvexHu
 	int printCnt = 0;
 	while (true)
 	{	
-		printf("%d \n", printCnt++);
-
+		
 		farVector = convexB->Support(-direction, matTRS_B) - convexA->Support(direction, matTRS_A);
 		if (XMVector3Dot(farVector, direction).m128_f32[0] >= EPSILON)
 		{
@@ -118,9 +115,6 @@ bool gjkCollisionCheck(ConvexHull* convexA, DirectX::XMMATRIX matTRS_A, ConvexHu
 
 			if (lenSq.m128_f32[0]  <= EPSILON)
 			{
-				printf("Áßº¹! cur level  :%d\n", simplex.level);
-
-
 
 				return true;
 			}
@@ -173,11 +167,11 @@ bool gjkCollisionCheck(ConvexHull* convexA, DirectX::XMMATRIX matTRS_A, ConvexHu
 			}
 		}
 		
-		//simplex È®Àå
+		//simplex í™•ì¥
 		simplex.addPoint(convexB->Support(-direction, matTRS_B) - convexA->Support(direction, matTRS_A));
 
 		if (selectSimplexHandle(simplex, direction))
-		{// 0Á¡À» Ã£¾Æ³½ °æ¿ì
+		{// 0ì ì„ ì°¾ì•„ë‚¸ ê²½ìš°
 		
 			return true;
 		}
@@ -314,7 +308,7 @@ bool HandleSimplexTetrahedron(gjkSimplex& simplex, DirectX::XMVECTOR& direction)
 
 			check = true;
 		}
-		else // ÅğÈ­µÈ »ï°¢Çü 
+		else // í‡´í™”ëœ ì‚¼ê°í˜• 
 		{
 		}
 

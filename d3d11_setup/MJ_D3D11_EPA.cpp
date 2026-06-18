@@ -1,4 +1,4 @@
-#include "MJ_D3D11_EPA.h"
+Ôªø#include "MJ_D3D11_EPA.h"
 #include <EASTL/map.h>
 #define EPSILON 1e-5f
 
@@ -46,7 +46,6 @@ bool IsDuplicateVertex(const vector<EPA_FACE_T>& faceArr, const XMVECTOR& point)
 	return false;
 }
 
-#include <stdio.h>
 EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX matTRS_A, ConvexHull* B, DirectX::XMMATRIX matTRS_B)
 {
 	//init
@@ -71,7 +70,6 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 
 		if ( gjkInfo.level != 4 || (XMVector3Equal(normal ,  XMVectorZero())))
 		{
-			printf("√ ±‚ ø¿∑˘ gjk level %d  \n", gjkInfo.level);
 			double min = XMVector3Length(f0).m128_f32[0];
 			double temp;
 			double lineLen;
@@ -139,7 +137,7 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 
 
 		if (XMVector3Dot(normal, f0 - ORIGIN).m128_f32[0] < 0)
-		{// ∫§≈Õ¿« ≥Î∏ª¿Ã æ»¬ ¿ª ∫∏∞Ì ¿÷¥¬ ªÛ»≤
+		{// Î≤°ÌÑ∞Ïùò ÎÖ∏ÎßêÏù¥ ÏïàÏ™ΩÏùÑ Î≥¥Í≥† ÏûàÎäî ÏÉÅÌô©
 
 			swap(face[1] , face[2]);
 			normal = -normal;
@@ -185,13 +183,13 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 		
 
 
-		for (int i = 0, size = faceArr.size(); i < size; i++) // ∞Ê∞Ë∏È ª˝º∫ ∑Á«¡
+		for (int i = 0, size = faceArr.size(); i < size; i++) // Í≤ΩÍ≥ÑÎ©¥ ÏÉùÏÑ± Î£®ÌîÑ
 		{
 			EPA_FACE_T* face = &faceArr[i];
 			XMVECTOR normal = face->norm;
 
 			if (FaceVisible(face->norm, farestVector, face->points[0]))
-			{// ∫∏¿Ã¥¬ ∏È 
+			{// Î≥¥Ïù¥Îäî Î©¥ 
 				for (int j = 0; j < 3; j++)
 				{
 					HorizonEdge edge;
@@ -224,7 +222,7 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 			}
 		}
 
-		for (int i = 0; i < faceArr.size();)// ∫∏¿Ã¥¬ ∏È ªË¡¶ 
+		for (int i = 0; i < faceArr.size();)// Î≥¥Ïù¥Îäî Î©¥ ÏÇ≠Ï†ú 
 		{
 			EPA_FACE_T* face = &faceArr[i];
 
@@ -242,7 +240,7 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 			}
 		}
 	
-		for (auto const& horizonEdgePair : horizonMap)// ∞Ê∞Ë∏È ±‚π› ∆‰¿ÃΩ∫ ª˝º∫
+		for (auto const& horizonEdgePair : horizonMap)// Í≤ΩÍ≥ÑÎ©¥ Í∏∞Î∞ò ÌéòÏù¥Ïä§ ÏÉùÏÑ±
 		{
 			HorizonEdge edge = horizonEdgePair.second;
 			EPA_FACE_T newFace;
@@ -268,7 +266,7 @@ EPA_INFO_T CreateEPAInfo(gjkSimplex& gjkInfo, ConvexHull* A, DirectX::XMMATRIX m
 			XMVECTOR norm = XMVector3Normalize(XMVector3Cross(newFace.points[1] - newFace.points[0], newFace.points[2] - newFace.points[0]));
 			
 			if (XMVector3Dot(norm, newFace.points[0] - ORIGIN).m128_f32[0] < 0)
-			{// ∫§≈Õ¿« ≥Î∏ª¿Ã æ»¬ ¿ª ∫∏∞Ì ¿÷¥¬ ªÛ»≤
+			{// Î≤°ÌÑ∞Ïùò ÎÖ∏ÎßêÏù¥ ÏïàÏ™ΩÏùÑ Î≥¥Í≥† ÏûàÎäî ÏÉÅÌô©
 
 				swap(newFace.points[1], newFace.points[2]);
 				norm = -norm;
