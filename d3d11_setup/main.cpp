@@ -844,12 +844,6 @@ int WINAPI WinMain(HINSTANCE hInstance ,HINSTANCE hPorevInstance, LPSTR lpCmdLin
 	}
 	CleanD3D();
 	return Message.wParam;
-
-
-
-	
-
-
 }
 
 void pushUnit(XMVECTOR pos)

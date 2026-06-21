@@ -168,6 +168,7 @@
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsWinRT>
     </ClCompile>
     <ClCompile Include="MJ_D3D11_OBJLoader.cpp" />
+    <ClCompile Include="MJ_Time_Manager.cpp" />
     <ClCompile Include="MS_GLTFLoader.cpp" />
     <ClCompile Include="OBJFileIO.cpp" />
   </ItemGroup>
@@ -215,6 +216,7 @@
     <ClInclude Include="MJ_D3D11_BasicCam.h" />
     <ClInclude Include="BmpFileIO.h" />
     <ClInclude Include="MJ_D3D11_OBJLoader.h" />
+    <ClInclude Include="MJ_Time_Manager.h" />
     <ClInclude Include="MS_GLTFLoader.h" />
     <ClInclude Include="OBJFileIO.h" />
     <ClInclude Include="resource.h" />
